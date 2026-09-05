@@ -670,6 +670,17 @@ margin-left: calc(50% - 50vw + 10px);
         animation: updateRun 10s linear infinite;
     }
 }
+.badge-pc {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background: rgba(255, 60, 60, 0.12);
+    border: 1px solid rgba(255, 60, 60, 0.4);
+    color: #ff5555;
+    font-size: 12px;
+    font-weight: 700;
+}
 </style>
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -691,6 +702,7 @@ margin-left: calc(50% - 50vw + 10px);
         <button onclick="showContact()">
             Liên hệ
         </button>
+        <button onclick="showNotice()">Lưu ý</button>
     </nav>
 </header>
 
@@ -709,7 +721,7 @@ margin-left: calc(50% - 50vw + 10px);
 
     <div class="update-marquee">
         <span class="update-text">
-            PC Gaming 4 triệu vừa được cập nhật cấu hình mới!
+        🔥 PC 1 TRIỆU ĐÃ ĐƯỢC CẬP NHẬT!　　🔥 PC 2 TRIỆU ĐÃ ĐƯỢC CẬP NHẬT!　　🔥 PC 3 TRIỆU ĐÃ ĐƯỢC CẬP NHẬT!　　🔥 PC 4 TRIỆU ĐÃ ĐƯỢC CẬP NHẬT!
         </span>
     </div>
 
@@ -873,6 +885,140 @@ margin-left: calc(50% - 50vw + 10px);
    DỮ LIỆU CẤU HÌNH
    Bạn có thể sửa tên linh kiện và giá ở đây.
 ===================================================== */
+// ========================================
+// BẢNG GIÁ LINH KIỆN
+// Chỉ cần sửa giá ở khu vực này
+// ========================================
+
+const componentPrices = {
+
+    // MAIN
+    "H61": 176000,
+    "H81": 230000,
+    "H110": 462000,
+    "H310": 520000,
+    "X99 DDR4": 644000,
+    "X99 DDR3": 684000,
+    "A320": 685000,
+
+    // CPU
+    "I5 4690": 429000,
+    "I5 2500": 160000,
+    "I5 6500": 424000,
+    "I3 9100F": 469000,
+    "I3 9100": 639000,
+    "Ryzen 3 2200G": 520000,
+    "Ryzen 5 2600": 848000,
+    "E5 2676 V3": 300000,
+    "E3 1230 V5": 282000,
+    "E5 2680 V4": 209000,
+    
+    
+
+    // RAM
+    "2X4GB DDR3": 210000,
+    "8GB DDR3": 320000,
+    "8GB DDR4 INTEL": 656000,
+    "8GB DDR4 AMD": 831000,
+    "2X8GB DDR4 INTEL": 1394000,
+    "2X8GB DDR4 AMD": 1678000,
+    "16GB DDR3 ECC": 470000,
+    "16GB DDR4 ECC": 1475000,
+    "2X8GB DDR4 ECC": 1409000,
+    "2X8GB DDR3 ECC": 452000,
+
+    // VGA
+    "GTS 450": 410000,
+    "GTX 660 2G D5": 814000,
+    "CMP 30HX": 800000,
+    "GTX 950 2G D5": 1040000,
+    "GTX 960 2G D5": 1200000,
+    
+
+    // SSD / HDD
+    "SSD 120GB 1": 277000,
+    "SSD 120GB 2": 328000,
+    "HDD 320GB": 135000,
+    "HDD 500GB": 193000,
+    "LAPTOP 500GB": 80000,
+    
+
+    // TẢN
+    "CR1000": 270000,
+    "K400": 215000,
+    "Tản Stock IT": 33000,
+    "Tản Stock Lõi Đồng": 70000,
+    "Tản Stock AMD": 75000,
+
+    // NGUỒN
+    "350W HK": 144000,
+    "350W DRAGON": 105000,
+    "450W ACBEL": 225000,
+    "450W MAGIC": 285000,
+    "450W CORSAIR": 412000,
+    "500W THUNDER": 311000,
+    "500W FPS SAGA": 336000,
+    "500W COOLER MASTER": 324000,
+    "500W SAGA": 328000,
+    "500W ANDYSON": 361000,
+
+    // CASE
+    "Đế Bắt Main": 20000
+};
+
+
+// ========================================
+// TIỀN CÔNG CHUNG CHO TẤT CẢ PC
+// ========================================
+
+function getLaborFee(build) {
+
+    const partsTotal = build.parts.reduce((total, part) => {
+        return total + (componentPrices[part[1]] || 0);
+    }, 0);
+
+    if (partsTotal <= 1000000) {
+        return 30000;
+    }
+
+    if (partsTotal <= 2000000) {
+        return 50000;
+    }
+
+   if (partsTotal <= 3000000) {
+    return 100000;
+}
+    
+
+    return 130000;
+}
+
+
+// ========================================
+// TÍNH TỔNG GIÁ PC
+// ========================================
+
+function getBuildTotal(build) {
+
+    const partsTotal = build.parts.reduce((total, part) => {
+        return total + (componentPrices[part[1]] || 0);
+    }, 0);
+
+    const laborFee = getLaborFee(build);
+
+    return partsTotal + laborFee;
+}
+
+
+// ========================================
+// ĐỊNH DẠNG GIÁ
+// ========================================
+
+function formatPrice(price) {
+
+    return price.toLocaleString("vi-VN") + "đ";
+
+}
 
 const builds = {
 
@@ -880,30 +1026,32 @@ const builds = {
          {
             name: "Nâng Cấp",
             price: "1.180.000đ",
+            badge: "🔥 ĐÁNG MUA",
             parts: [
                  ["Mainboard", "H81", "https://s.shopee.vn/4VcXxakYO3"],
                 ["CPU", "I5 4690", "https://s.shopee.vn/7KwjKoqCq1"],
-                ["Tản", "Tản Stock","https://s.shopee.vn/W6PCYVhht"],
-                ["RAM", "8GB DDR3", "https://s.shopee.vn/3B7ANRTvkM"],
-                ["HDD", "500GB", "https://s.shopee.vn/8V8gjGIi4L"],
-                ["Nguồn", "350W", "https://s.shopee.vn/4VcXyFYOLQ"],
+                ["Tản", "Tản Stock IT","https://s.shopee.vn/W6PCYVhht"],
+                ["RAM", "2X4GB DDR3", "https://s.shopee.vn/3B7ANRTvkM"],
+                ["HDD", "LAPTOP 500GB", "https://s.shopee.vn/8V8gjGIi4L"],
+                ["Nguồn", "350W DRAGON", "https://s.shopee.vn/4VcXyFYOLQ"],
                 ["Case", "Đế Bắt Main", "https://s.shopee.vn/5VV5A63IjH"]
             ]
         },
         {
             name: "Game Nhẹ và Lướt Web",
             price: "1.200.000đ",
+            badge: "💰 GIÁ RẺ",
             parts: [
                 ["Mainboard", "H61", "https://s.shopee.vn/1gIMTugeAC"],
                 ["CPU", "I5 2500", "https://s.shopee.vn/6L4C47girD"],
-                ["Tản", "Tản Stock","https://s.shopee.vn/BTYhrZSr4"],
-                ["RAM", "8GB DDR3", "https://s.shopee.vn/BTYinc9ts"],
+                ["Tản", "Tản Stock IT","https://s.shopee.vn/BTYhrZSr4"],
+                ["RAM", "2X4GB DDR3", "https://s.shopee.vn/BTYinc9ts"],
                 ["VGA", "GTS 450", "https://s.shopee.vn/8fS6pUp5dL"],
-                ["HDD Laptop", "500GB", "https://s.shopee.vn/2VrTUB3qNx"],
-                ["Nguồn", "350W", "https://s.shopee.vn/gPpIonnm5"],
+                ["HDD", "LAPTOP 500GB", "https://s.shopee.vn/2VrTUB3qNx"],
+                ["Nguồn", "350W DRAGON", "https://s.shopee.vn/60RMRYn2eM"],
                 ["Case", "Đế Bắt Main", "https://s.shopee.vn/3B7AHQENN4"]
             ]
-        },
+        }
 
        
 
@@ -915,14 +1063,15 @@ const builds = {
         {
             name: "Game Ổn",
             price: "2.000.000đ",
+            badge: "💰 GIÁ RẺ",
             parts: [
                  ["Mainboard", "H61", "https://s.shopee.vn/9fKe9DZITl"],
                 ["CPU", "I5 2500", "https://s.shopee.vn/30nkCyxJHy"],
-                ["Tản", "Tản Stock","https://s.shopee.vn/5foVNudl1W"],
-                ["RAM", "8GB DDR3", "https://s.shopee.vn/Lmz263LUg"],
+                ["Tản", "Tản Stock IT","https://s.shopee.vn/5foVNudl1W"],
+                ["RAM", "2X4GB DDR3", "https://s.shopee.vn/Lmz263LUg"],
                 ["VGA", "GTX 660 2G D5", "https://s.shopee.vn/AUtl8o8Vgv"],
-                ["SSD", "120GB", "https://s.shopee.vn/8AVqMWpyKR"],
-                ["Nguồn", "450W", "https://s.shopee.vn/5LBezKeYuB"],
+                ["SSD", "SSD 120GB 1", "https://s.shopee.vn/8AVqMWpyKR"],
+                ["Nguồn", "450W ACBEL", "https://s.shopee.vn/5LBezKeYuB"],
                 ["Case", "Đế Bắt Main", "https://s.shopee.vn/112fpNYRxG"]
             ]
         },
@@ -930,27 +1079,29 @@ const builds = {
         {
             name: "Tà Đạo 30HX",
             price: "2.350.000đ",
+            badge: "🎮 GAMING",
             parts: [
                 ["Mainboard", "H81", "https://s.shopee.vn/gPpTCSkz9"],
                 ["CPU", "I5 4690", "https://s.shopee.vn/8V8gnbgJZE"],
-                ["Tản", "Tản Stock Lõi Đồng","https://s.shopee.vn/7VG9bmOkYu"],
-                ["RAM", "8GB DDR3", "https://s.shopee.vn/4LJ7pyW09v"],
+                ["Tản", "Tản Stock Lõi Đồng","https://s.shopee.vn/5AsFSIpG8F"],
+                ["RAM", "2X4GB DDR3", "https://s.shopee.vn/4LJ7pyW09v"],
                 ["VGA", "CMP 30HX", "https://s.shopee.vn/8AVqP3oUZO"],
-                ["SSD", "120GB", "https://s.shopee.vn/9fKeBpQdpx"],
-                ["Nguồn", "500W", "https://s.shopee.vn/8AVqP5eCI9"],
+                ["SSD", "SSD 120GB 1", "https://s.shopee.vn/9fKeBpQdpx"],
+                ["Nguồn", "500W SAGA", "https://s.shopee.vn/8AVqP5eCI9"],
                 ["Case", "Đế Bắt Main", "https://s.shopee.vn/3g3R2q4H2Z"]
             ]
         },
          {
             name: "AMD",
             price: "2.600.000đ",
+            badge: "🔥 ĐÁNG MUA",
             parts: [
                 ["Mainboard", "A320", "https://s.shopee.vn/30nkGyQhyO"],
                 ["CPU", "Ryzen 3 2200G", "https://s.shopee.vn/2BEdHS2BVG"],
                 ["Tản", "Tản Stock AMD","https://s.shopee.vn/2VrTg5Zz5Z"],
-                ["RAM", "8GB DDR4", "https://s.shopee.vn/6q0Sq2S4Yh"],
-                ["SSD", "120GB", "https://s.shopee.vn/7KwjQz39k9"],
-                ["Nguồn", "350W", "https://s.shopee.vn/5q7veEiXsh"],
+                ["RAM", "8GB DDR4 AMD", "https://s.shopee.vn/6q0Sq2S4Yh"],
+                ["SSD", "SSD 120GB 1", "https://s.shopee.vn/7KwjQz39k9"],
+                ["Nguồn", "350W DRAGON", "https://s.shopee.vn/60RMRYn2eM"],
                 ["Case", "Đế Bắt Main", "https://s.shopee.vn/904xQ4R8X4"]
             ]
         }
@@ -962,42 +1113,45 @@ const builds = {
         {
             name: "Tà Đạo 30HX",
             price: "3.100.000đ",
+            badge: "🎮 GAMING",
             parts: [
                  ["Mainboard", "H110", "https://s.shopee.vn/1gIMTugeAC"],
                 ["CPU", "I5 6500", "https://s.shopee.vn/5VV5HFeYbr"],
-                ["Tản", "Tản Stock","https://s.shopee.vn/9V1E2cSueu"],
-                ["RAM", "8GB DDR4", "https://s.shopee.vn/W6PK5XPu6"],
-                ["VGA", "30HX", "https://s.shopee.vn/7fZZrIL8aK"],
-                ["SSD", "120GB", "https://s.shopee.vn/1BM67Mb5jm"],
-                ["Nguồn", "450W", "https://s.shopee.vn/Lmz7q8a5W"],
+                ["Tản", "Tản Stock IT","https://s.shopee.vn/9V1E2cSueu"],
+                ["RAM", "8GB DDR4 INTEL", "https://s.shopee.vn/W6PK5XPu6"],
+                ["VGA", "CMP 30HX", "https://s.shopee.vn/7fZZrIL8aK"],
+                ["SSD", "SSD 120GB 1", "https://s.shopee.vn/1BM67Mb5jm"],
+                ["Nguồn", "500W THUNDER", "https://s.shopee.vn/4AziEh5wig"],
                 ["Case", "Đế Bắt Main", "https://s.shopee.vn/20vD6ugFIy"]
             ]
         },
         {
             name: "Chính Đạo",
             price: "3.150.000đ",
+            badge: "🔥 ĐÁNG MUA",
             parts: [
                  ["Mainboard", "H110", "https://s.shopee.vn/AKaL20GJXv"],
                 ["CPU", "I5 6500", "https://s.shopee.vn/W6PJwMXz1"],
-                ["Tản", "Tản Stock","https://s.shopee.vn/AAGupiPLP7"],
-                ["RAM", "8GB DDR4", "https://s.shopee.vn/6L4CGg8FpB"],
+                ["Tản", "Tản Stock Lõi Đồng","https://s.shopee.vn/5AsFSIpG8F"],
+                ["RAM", "8GB DDR4 INTEL", "https://s.shopee.vn/6L4CGg8FpB"],
                 ["VGA", "GTX 660 2G D5", "https://s.shopee.vn/1VywVoD3Ew"],
-                ["SSD", "120GB", "https://s.shopee.vn/3LQahC13uI"],
-                ["Nguồn", "450W", "https://s.shopee.vn/3qMrI7YyVy"],
+                ["SSD", "SSD 120GB 1", "https://s.shopee.vn/3LQahC13uI"],
+                ["Nguồn", "500W SAGA", "https://s.shopee.vn/W6PsADxxM"],
                 ["Case", "Đế Bắt Main", "https://s.shopee.vn/2gAttzKvrx"]
             ]
         },
          {
             name: "X99",
             price: "3.160.000đ",
+            badge: "💰 GIÁ RẺ",
             parts: [
-                 ["Mainboard", "X99", "https://s.shopee.vn/9AONnMkKfo"],
+                 ["Mainboard", "X99 DDR3", "https://s.shopee.vn/9AONnMkKfo"],
                 ["CPU", "E5 2676 V3", "https://s.shopee.vn/60RM1YNGdE"],
-                ["Tản", "Tản K400","https://s.shopee.vn/4qFOdQ12mf"],
-                ["RAM", "16GB DDR3", "https://s.shopee.vn/6q0T16O5g0"],
+                ["Tản", "K400","https://s.shopee.vn/4qFOdQ12mf"],
+                ["RAM", "2X8GB DDR3 ECC", "https://s.shopee.vn/6q0T16O5g0"],
                 ["VGA", "GTX 660 2G D5", "https://s.shopee.vn/3g3RFIdSDg"],
-                ["SSD", "120GB", "https://s.shopee.vn/6q0T1858MN"],
-                ["Nguồn", "500W", "https://s.shopee.vn/AKaLBZIPkn"],
+                ["SSD", "SSD 120GB 1", "https://s.shopee.vn/6q0T1858MN"],
+                ["Nguồn", "500W COOLER MASTER", "https://s.shopee.vn/AKaLBZIPkn"],
                 ["Case", "Đế Bắt Main", "https://s.shopee.vn/50YopmLKkP"]
             ]
         },
@@ -1006,28 +1160,30 @@ const builds = {
          {
             name: "CPU Mod",
             price: "3.250.000đ",
+            badge: "🎮 GAMING",
             parts: [
                  ["Mainboard", "H110", "https://s.shopee.vn/1gIMTugeAC"],
-                ["CPU", "E5 1230 V5", "https://s.shopee.vn/2BEdJRDc7F"],
-                ["Tản", "Tản Stock","https://s.shopee.vn/9V1E2cSueu"],
-                ["RAM", "8GB DDR4", "https://s.shopee.vn/W6PK5XPu6"],
+                ["CPU", "E3 1230 V5", "https://s.shopee.vn/2BEdJRDc7F"],
+                ["Tản", "Tản Stock Lõi Đồng","https://s.shopee.vn/5AsFSIpG8F"],
+                ["RAM", "8GB DDR4 INTEL", "https://s.shopee.vn/W6PK5XPu6"],
                 ["VGA", "GTX 950 2G D5", "https://s.shopee.vn/8plXFiS2wk"],
-                ["SSD", "120GB", "https://s.shopee.vn/1BM67Mb5jm"],
-                ["Nguồn", "450W", "https://s.shopee.vn/Lmz7q8a5W"],
+                ["SSD", "SSD 120GB 1", "https://s.shopee.vn/1BM67Mb5jm"],
+                ["Nguồn", "500W FPS SAGA", "https://s.shopee.vn/gPq4h7kGh"],
                 ["Case", "Đế Bắt Main", "https://s.shopee.vn/20vD6ugFIy"]
             ]
         },
          {
             name: "AMD",
             price: "3.800.000đ",
+            badge: "🎮 GAMING",
             parts: [
                  ["Mainboard", "A320", "https://s.shopee.vn/BTYxSFnYg"],
                 ["CPU", "Ryzen 5 2600", "https://s.shopee.vn/3qMrKDqmx9"],
-                ["Tản", "Tản Stock","https://s.shopee.vn/1LfWLdux6O"],
-                ["RAM", "8GB DDR4", "https://s.shopee.vn/1VywXxYXAM"],
+                ["Tản", "Tản Stock AMD","https://s.shopee.vn/1LfWLdux6O"],
+                ["RAM", "8GB DDR4 AMD", "https://s.shopee.vn/1VywXxYXAM"],
                 ["VGA", "GTX 660 2G D5", "https://s.shopee.vn/9AONg3rGNd"],
-                ["SSD", "120GB", "https://s.shopee.vn/1qbmwb5RLN"],
-                ["Nguồn", "500W", "https://s.shopee.vn/1A8lEi2gn"],
+                ["SSD", "SSD 120GB 1", "https://s.shopee.vn/1qbmwb5RLN"],
+                ["Nguồn", "500W THUNDER", "https://s.shopee.vn/4AziEh5wig"],
                 ["Case", "Đế Bắt Main", "https://s.shopee.vn/20vD6ugFIy"]
             ]
         }
@@ -1039,46 +1195,49 @@ const builds = {
         {
             name: "Chính Đạo",
             price: "4.200.000đ",
+            badge: "🔥 ĐÁNG MUA",
             parts: [
                 ["Mainboard", "H310", "https://s.shopee.vn/6fh2qsTfu8"],
-                ["CPU", "I3 9100f", "https://s.shopee.vn/AAGv1Jpp6O"],
+                ["CPU", "I3 9100F", "https://s.shopee.vn/AAGv1Jpp6O"],
                 ["Tản", "CR1000","https://s.shopee.vn/1gIMthwY4A"],
-                ["RAM", "8GB DDR4", "https://s.shopee.vn/3g3RHOMCvI"],
+                ["RAM", "8GB DDR4 INTEL", "https://s.shopee.vn/3g3RHOMCvI"],
                 ["VGA", "GTX 950 2G D5", "https://s.shopee.vn/2LY3gx4wvx"],
-                ["SSD", "120GB", "https://s.shopee.vn/1A8ufeId1"],
-                ["HDD", "500GB", "https://s.shopee.vn/qjFuD6Xm2"],
-                ["Nguồn", "500W", "https://s.shopee.vn/4LJ84egmjj"],
-                ["Case", "Case Gaming giá rẻ", "https://s.shopee.vn/W6PVcgbgA"]
+                ["SSD", "SSD 120GB 2", "https://s.shopee.vn/1A8ufeId1"],
+                ["HDD", "HDD 500GB", "https://s.shopee.vn/qjFuD6Xm2"],
+                ["Nguồn", "500W ANDYSON", "https://s.shopee.vn/4LJ84egmjj"],
+                ["Case", "Đế Bắt Main", "https://s.shopee.vn/W6PVcgbgA"]
             ]
         },
 
         {
             name: "Tà Đạo 30HX",
             price: "4.750.000đ",
+            badge: "🎮 GAMING",
             parts: [
                  ["Mainboard", "H310", "https://s.shopee.vn/7pt0GPCUbK"],
                 ["CPU", "I3 9100", "https://s.shopee.vn/9fKeRmj6uY"],
                 ["Tản", "CR1000","https://s.shopee.vn/50YotDVfrG"],
-                ["RAM", "16GB DDR4", "https://s.shopee.vn/6AkmHMvTs5"],
+                ["RAM", "2X8GB DDR4 INTEL", "https://s.shopee.vn/6AkmHMvTs5"],
                 ["VGA", "CMP 30HX", "https://s.shopee.vn/70JtGuNFBx"],
-                ["SSD", "120GB", "https://s.shopee.vn/2qUKJG8ajm"],
-                ["HDD", "500GB", "https://s.shopee.vn/qjFuD6Xm2"],
-                ["Nguồn", "450W", "https://s.shopee.vn/gPpjIPzXT"],
+                ["SSD", "SSD 120GB 2", "https://s.shopee.vn/2qUKJG8ajm"],
+                ["HDD", "HDD 500GB", "https://s.shopee.vn/qjFuD6Xm2"],
+                ["Nguồn", "450W CORSAIR", "https://s.shopee.vn/gPpjIPzXT"],
                 ["Case", "Case Gaming giá rẻ", "https://s.shopee.vn/5AsF5ZvG15"]
             ]
         },
          {
             name: "X99",
             price: "4.830.000đ",
+            badge: "💰 GIÁ RẺ",
             parts: [
                  ["Mainboard", "X99 DDR4", "https://s.shopee.vn/40gHi25iho"],
                 ["CPU", "E5 2680 V4", "https://s.shopee.vn/9Kho3qCqVt"],
                 ["Tản", "K400","https://s.shopee.vn/6fh2swmdjo"],
                 ["RAM", "16GB DDR4 ECC", "https://s.shopee.vn/1LfWX9X4Ch"],
                 ["VGA", "GTX 960 2G D5", "https://s.shopee.vn/2BEdWhBTlW"],
-                ["SSD", "120GB", "https://s.shopee.vn/1gIMvmijM4"],
-                ["HDD", "500GB", "https://s.shopee.vn/7KwjgCwUdu"],
-                ["Nguồn", "500W", "https://s.shopee.vn/qjFwH2cIG"],
+                ["SSD", "SSD 120GB 2", "https://s.shopee.vn/1gIMvmijM4"],
+                ["HDD", "HDD 500GB", "https://s.shopee.vn/7KwjgCwUdu"],
+                ["Nguồn", "500W THUNDER", "https://s.shopee.vn/qjFwH2cIG"],
                 ["Case", "Case Gaming giá rẻ", "https://s.shopee.vn/W6PXfiEtn"]
             ]
         }
@@ -1092,7 +1251,7 @@ const builds = {
             parts: [
                  ["Mainboard", "H61", "https://s.shopee.vn/1gIMTugeAC"],
                 ["CPU", "Intel Core i3 Gen 2", "https://shopee.vn/"],
-                ["Tản", "Tản Stock","https://shopee.vn/"],
+                ["Tản", "Tản Stock IT","https://shopee.vn/"],
                 ["RAM", "8GB DDR3", "https://shopee.vn/"],
                 ["VGA", "GT 730 2GB", "https://shopee.vn/"],
                 ["SSD", "120GB", "https://shopee.vn/"],
@@ -1106,13 +1265,13 @@ const builds = {
             price: "5.000.000đ",
             parts: [
                  ["Mainboard", "H61", "https://s.shopee.vn/1gIMTugeAC"],
-                ["CPU", "Intel Core i3 Gen 2", "https://shopee.vn/"],
-                ["Tản", "Tản Stock","https://shopee.vn/"],
+                ["CPU", "I5 2500", "https://s.shopee.vn/6L4C47girD"],
+                ["Tản", "Tản Stock IT","https://shopee.vn/"],
                 ["RAM", "8GB DDR3", "https://shopee.vn/"],
-                ["VGA", "GT 730 2GB", "https://shopee.vn/"],
-                ["SSD", "120GB", "https://shopee.vn/"],
-                ["Nguồn", "350W", "https://shopee.vn/"],
-                ["Case", "Case Gaming giá rẻ", "https://shopee.vn/"]
+                ["VGA", "GTS 450", "https://shopee.vn/"],
+                ["SSD", "SSD 120GB 1", "https://shopee.vn/"],
+                ["Nguồn", "350W DRAGON", "https://shopee.vn/"],
+                ["Case", "Đế Bắt Main", "https://shopee.vn/"]
             ]
         }
     ],
@@ -1192,11 +1351,12 @@ function openBudget(budget) {
         html += `
             <div class="build-card">
 
-                <h3>${build.name}</h3>
+                ${build.badge ? `<div class="badge-pc">${build.badge}</div>` : ""}
+<h3>${build.name}</h3>
 
                 <div class="build-price">
-                    ${build.price}
-                </div>
+    ${formatPrice(getBuildTotal(build))}
+</div>
 
                 <div class="parts-preview">
 
@@ -1297,9 +1457,9 @@ function openBuild(budget, index) {
 
                     </div>
 
-                    <div class="total">
-                        ${build.price}
-                    </div>
+                   <div class="total">
+    ${formatPrice(getBuildTotal(build))}
+</div>
 
                 </div>
 
@@ -1425,6 +1585,13 @@ function showUpdatePopup() {
 function closeUpdatePopup() {
     document.getElementById("updatePopup").style.display = "none";
 }
+function showNotice() {
+    document.getElementById("noticePopup").style.display = "flex";
+}
+
+function closeNotice() {
+    document.getElementById("noticePopup").style.display = "none";
+}
 </script>
 <div id="contactPopup" class="contact-popup">
 
@@ -1437,6 +1604,7 @@ function closeUpdatePopup() {
         <h2>Liên hệ với mình</h2>
 
         <p>Chọn nền tảng bạn muốn liên hệ</p>
+       
 
         <div class="contact-options">
 
@@ -1458,6 +1626,20 @@ function closeUpdatePopup() {
 
     </div>
 
+</div>
+<div id="noticePopup" class="update-popup">
+    <div class="update-box">
+
+        <h2>⚠️ LƯU Ý</h2>
+        <p>• Giá linh kiện có thể thay đổi tùy đợt sale.</p>
+        <p>• Vui lòng liên hệ trước khi mua.</p>
+        <p>• Vui lòng kiểm tra cấu hình và giá trước khi mua.</p>
+
+        <button class="update-close" onclick="closeNotice()">
+            Đóng
+        </button>
+
+    </div>
 </div>
 <div id="updatePopup" class="update-popup">
     <div class="update-box">
