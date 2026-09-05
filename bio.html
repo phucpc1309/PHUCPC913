@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PHUC PC - Bio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 0, 60, 0.18), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(120, 0, 255, 0.18), transparent 30%),
+        #080808;
+}
+
+/* Ánh sáng xung quanh */
+body::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 0, 60, 0.08);
+    filter: blur(120px);
+    top: -200px;
+    left: -150px;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: rgba(90, 0, 255, 0.08);
+    filter: blur(120px);
+    bottom: -200px;
+    right: -150px;
+    pointer-events: none;
+}
+
+/* Khung chính */
+.container {
+    width: 92%;
+    max-width: 430px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Logo */
+.logo {
+    width: 95px;
+    height: 95px;
+    margin: 0 auto 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    background: linear-gradient(145deg, #161616, #0b0b0b);
+
+    border: 2px solid rgba(255, 40, 80, 0.7);
+
+    box-shadow:
+        0 0 15px rgba(255, 0, 60, 0.35),
+        inset 0 0 20px rgba(255, 0, 60, 0.08);
+
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff3158;
+}
+
+/* Tên */
+h1 {
+    font-size: 28px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.description {
+    color: #a7a7a7;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+/* Các nút */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.link {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 64px;
+
+    padding: 12px 18px;
+
+    text-decoration: none;
+    color: white;
+
+    background: rgba(20, 20, 20, 0.88);
+
+    border: 1px solid #292929;
+    border-radius: 15px;
+
+    transition: 0.25s;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.35);
+}
+
+.link:hover {
+    transform: translateY(-3px);
+    border-color: #ff3158;
+
+    box-shadow:
+        0 0 18px rgba(255, 0, 60, 0.25),
+        0 8px 25px rgba(0,0,0,0.5);
+}
+
+/* Icon */
+.icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 11px;
+
+    font-size: 21px;
+
+    margin-right: 14px;
+
+    background: #151515;
+}
+
+/* Chữ */
+.text {
+    text-align: left;
+}
+
+.text strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+.text span {
+    color: #888;
+    font-size: 12px;
+}
+
+/* Màu từng nút */
+.website .icon {
+    color: #ff3158;
+    border: 1px solid rgba(255, 49, 88, 0.35);
+}
+
+.zalo .icon {
+    color: #00aaff;
+    border: 1px solid rgba(0, 170, 255, 0.35);
+}
+
+.facebook .icon {
+    color: #4d8dff;
+    border: 1px solid rgba(77, 141, 255, 0.35);
+}
+
+/* Dòng dưới */
+.footer {
+    margin-top: 28px;
+    color: #555;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* Mobile */
+@media (max-width: 450px) {
+
+    .container {
+        width: 88%;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .link {
+        min-height: 61px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        PC
+    </div>
+
+    <h1>PHUC PC</h1>
+
+    <div class="description">
+        PC Gaming • Build PC • Tư vấn cấu hình
+    </div>
+
+    <div class="links">
+
+        <!-- Ô 1: WEBSITE -->
+        <a href="https://phucpc1309.github.io/PHUCPC913/" class="link website" target="_blank">
+            <div class="icon">🌐</div>
+
+            <div class="text">
+                <strong>Website PHUC PC</strong>
+                <span>Xem các cấu hình PC</span>
+            </div>
+        </a>
+
+
+        <!-- Ô 2: ZALO -->
+        <a href="https://zalo.me/0368075650" class="link zalo" target="_blank">
+            <div class="icon">💬</div>
+
+            <div class="text">
+                <strong>Zalo</strong>
+                <span>Liên hệ với mình</span>
+            </div>
+        </a>
+
+
+        <!-- Ô 3: FACEBOOK -->
+        <a href="https://www.facebook.com/share/17UY57QemU/" class="link facebook" target="_blank">
+            <div class="icon">📘</div>
+
+            <div class="text">
+                <strong>Facebook</strong>
+                <span>Theo dõi mình trên Facebook</span>
+            </div>
+        </a>
+
+    </div>
+
+    <div class="footer">
+        © 2026 PHUC PC
+    </div>
+
+</div>
+
+</body>
+</html>
