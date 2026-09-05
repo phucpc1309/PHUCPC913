@@ -494,6 +494,182 @@ footer {
         text-align: center;
     }
 }
+.update-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.update-box {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 35px 30px;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,.7);
+}
+
+.update-box h2 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.update-box p {
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.update-close {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #e50914;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.update-close:hover {
+    opacity: .85;
+}
+
+
+.update-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ddd;
+    font-size: 14px;
+}
+
+.update-label {
+    color: #e50914;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.update-text {
+    color: #bbb;
+}
+
+.update-bar-btn {
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.update-bar-btn:hover {
+    opacity: .85;
+}
+
+@media (max-width: 600px) {
+    .update-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .update-content {
+        align-items: flex-start;
+    }
+
+    .update-bar-btn {
+        width: 100%;
+    }
+}
+/* THANH THÔNG BÁO CHẠY */
+.update-bar {
+   width: calc(100vw - 20px);
+margin-left: calc(50% - 50vw + 10px);
+    height: 48px;
+    background: #111;
+    border: 1px solid #292929;
+    border-left: 3px solid #e50914;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.update-label {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    background: #e50914;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 2;
+    white-space: nowrap;
+}
+
+.update-marquee {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.update-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: updateRun 12s linear infinite;
+    color: #ddd;
+    font-size: 14px;
+}
+
+@keyframes updateRun {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@media (max-width: 600px) {
+    .update-bar {
+        height: 45px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .update-label {
+        flex-shrink: 0;
+        padding: 0 10px;
+        font-size: 11px;
+    }
+
+    .update-marquee {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .update-text {
+        display: inline-block;
+        white-space: nowrap;
+        padding-left: 100%;
+        font-size: 12px;
+        animation: updateRun 10s linear infinite;
+    }
+}
 </style>
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -524,6 +700,20 @@ footer {
 
 <section class="hero">
     <div class="container">
+        <!-- THANH THÔNG BÁO -->
+<div class="update-bar">
+
+    <div class="update-label">
+        🔥 MỚI CẬP NHẬT
+    </div>
+
+    <div class="update-marquee">
+        <span class="update-text">
+            PC Gaming 4 triệu vừa được cập nhật cấu hình mới!
+        </span>
+    </div>
+
+</div>
 
         <h1>
             BUILD PC<br>
@@ -571,14 +761,14 @@ footer {
             <button class="view-btn">Xem cấu hình →</button>
         </div>
 
-        <div class="price-card" onclick="openBudget(5)">
+        <div class="price-card" onclick="showUpdatePopup()">
             <h3>PC 5 TRIỆU</h3>
             <div class="money">~5.000.000đ</div>
             <p>Có thể chơi được một số tựa game nặng nhưng tà đạo.</p>
             <button class="view-btn">Xem cấu hình →</button>
         </div>
 
-        <div class="price-card" onclick="openBudget(6)">
+       <div class="price-card" onclick="showUpdatePopup()">
             <h3>PC 6 TRIỆU</h3>
             <div class="money">~6.000.000đ</div>
             <p>Cấu hình gaming mạnh trong tầm giá.</p>
@@ -688,7 +878,7 @@ const builds = {
 
     1: [
          {
-            name: "PC 1 Triệu - Nâng Cấp",
+            name: "Nâng Cấp",
             price: "1.180.000đ",
             parts: [
                  ["Mainboard", "H81", "https://s.shopee.vn/4VcXxakYO3"],
@@ -701,7 +891,7 @@ const builds = {
             ]
         },
         {
-            name: "PC 1 Triệu - Game Nhẹ và Lướt Web",
+            name: "Game Nhẹ và Lướt Web",
             price: "1.200.000đ",
             parts: [
                 ["Mainboard", "H61", "https://s.shopee.vn/1gIMTugeAC"],
@@ -723,7 +913,7 @@ const builds = {
 
     2: [
         {
-            name: "PC 2 Triệu - Game Ổn",
+            name: "Game Ổn",
             price: "2.000.000đ",
             parts: [
                  ["Mainboard", "H61", "https://s.shopee.vn/9fKe9DZITl"],
@@ -738,7 +928,7 @@ const builds = {
         },
 
         {
-            name: "PC 2 Triệu - Tà Đạo 30HX",
+            name: "Tà Đạo 30HX",
             price: "2.350.000đ",
             parts: [
                 ["Mainboard", "H81", "https://s.shopee.vn/gPpTCSkz9"],
@@ -752,7 +942,7 @@ const builds = {
             ]
         },
          {
-            name: "PC 2 Triệu - AMD",
+            name: "AMD",
             price: "2.600.000đ",
             parts: [
                 ["Mainboard", "A320", "https://s.shopee.vn/30nkGyQhyO"],
@@ -770,7 +960,7 @@ const builds = {
 
     3: [
         {
-            name: "PC 3 Triệu - Tà Đạo 30HX",
+            name: "Tà Đạo 30HX",
             price: "3.100.000đ",
             parts: [
                  ["Mainboard", "H110", "https://s.shopee.vn/1gIMTugeAC"],
@@ -784,7 +974,7 @@ const builds = {
             ]
         },
         {
-            name: "PC 3 Triệu - Gaming",
+            name: "Chính Đạo",
             price: "3.150.000đ",
             parts: [
                  ["Mainboard", "H110", "https://s.shopee.vn/AKaL20GJXv"],
@@ -797,10 +987,24 @@ const builds = {
                 ["Case", "Đế Bắt Main", "https://s.shopee.vn/2gAttzKvrx"]
             ]
         },
+         {
+            name: "X99",
+            price: "3.160.000đ",
+            parts: [
+                 ["Mainboard", "X99", "https://s.shopee.vn/9AONnMkKfo"],
+                ["CPU", "E5 2676 V3", "https://s.shopee.vn/60RM1YNGdE"],
+                ["Tản", "Tản K400","https://s.shopee.vn/4qFOdQ12mf"],
+                ["RAM", "16GB DDR3", "https://s.shopee.vn/6q0T16O5g0"],
+                ["VGA", "GTX 660 2G D5", "https://s.shopee.vn/3g3RFIdSDg"],
+                ["SSD", "120GB", "https://s.shopee.vn/6q0T1858MN"],
+                ["Nguồn", "500W", "https://s.shopee.vn/AKaLBZIPkn"],
+                ["Case", "Đế Bắt Main", "https://s.shopee.vn/50YopmLKkP"]
+            ]
+        },
 
         
          {
-            name: "PC 3 Triệu - CPU Mod",
+            name: "CPU Mod",
             price: "3.250.000đ",
             parts: [
                  ["Mainboard", "H110", "https://s.shopee.vn/1gIMTugeAC"],
@@ -814,7 +1018,7 @@ const builds = {
             ]
         },
          {
-            name: "PC 3 Triệu - AMD",
+            name: "AMD",
             price: "3.800.000đ",
             parts: [
                  ["Mainboard", "A320", "https://s.shopee.vn/BTYxSFnYg"],
@@ -827,37 +1031,55 @@ const builds = {
                 ["Case", "Đế Bắt Main", "https://s.shopee.vn/20vD6ugFIy"]
             ]
         }
+       
     ],
 
 
     4: [
         {
-            name: "PC 4 Triệu - Gaming",
-            price: "4.000.000đ",
+            name: "Chính Đạo",
+            price: "4.200.000đ",
             parts: [
-                ["Mainboard", "H61", "https://s.shopee.vn/1gIMTugeAC"],
-                ["CPU", "Intel Core i3 Gen 2", "https://shopee.vn/"],
-                ["Tản", "Tản Stock","https://shopee.vn/"],
-                ["RAM", "8GB DDR3", "https://shopee.vn/"],
-                ["VGA", "GT 730 2GB", "https://shopee.vn/"],
-                ["SSD", "120GB", "https://shopee.vn/"],
-                ["Nguồn", "350W", "https://shopee.vn/"],
-                ["Case", "Case Gaming giá rẻ", "https://shopee.vn/"]
+                ["Mainboard", "H310", "https://s.shopee.vn/6fh2qsTfu8"],
+                ["CPU", "I3 9100f", "https://s.shopee.vn/AAGv1Jpp6O"],
+                ["Tản", "CR1000","https://s.shopee.vn/1gIMthwY4A"],
+                ["RAM", "8GB DDR4", "https://s.shopee.vn/3g3RHOMCvI"],
+                ["VGA", "GTX 950 2G D5", "https://s.shopee.vn/2LY3gx4wvx"],
+                ["SSD", "120GB", "https://s.shopee.vn/1A8ufeId1"],
+                ["HDD", "500GB", "https://s.shopee.vn/qjFuD6Xm2"],
+                ["Nguồn", "500W", "https://s.shopee.vn/4LJ84egmjj"],
+                ["Case", "Case Gaming giá rẻ", "https://s.shopee.vn/W6PVcgbgA"]
             ]
         },
 
         {
-            name: "PC 4 Triệu - Intel",
-            price: "4.000.000đ",
+            name: "Tà Đạo 30HX",
+            price: "4.750.000đ",
             parts: [
-                 ["Mainboard", "H61", "https://s.shopee.vn/1gIMTugeAC"],
-                ["CPU", "Intel Core i3 Gen 2", "https://shopee.vn/"],
-                ["Tản", "Tản Stock","https://shopee.vn/"],
-                ["RAM", "8GB DDR3", "https://shopee.vn/"],
-                ["VGA", "GT 730 2GB", "https://shopee.vn/"],
-                ["SSD", "120GB", "https://shopee.vn/"],
-                ["Nguồn", "350W", "https://shopee.vn/"],
-                ["Case", "Case Gaming giá rẻ", "https://shopee.vn/"]
+                 ["Mainboard", "H310", "https://s.shopee.vn/7pt0GPCUbK"],
+                ["CPU", "I3 9100", "https://s.shopee.vn/9fKeRmj6uY"],
+                ["Tản", "CR1000","https://s.shopee.vn/50YotDVfrG"],
+                ["RAM", "16GB DDR4", "https://s.shopee.vn/6AkmHMvTs5"],
+                ["VGA", "CMP 30HX", "https://s.shopee.vn/70JtGuNFBx"],
+                ["SSD", "120GB", "https://s.shopee.vn/2qUKJG8ajm"],
+                ["HDD", "500GB", "https://s.shopee.vn/qjFuD6Xm2"],
+                ["Nguồn", "450W", "https://s.shopee.vn/gPpjIPzXT"],
+                ["Case", "Case Gaming giá rẻ", "https://s.shopee.vn/5AsF5ZvG15"]
+            ]
+        },
+         {
+            name: "X99",
+            price: "4.830.000đ",
+            parts: [
+                 ["Mainboard", "X99 DDR4", "https://s.shopee.vn/40gHi25iho"],
+                ["CPU", "E5 2680 V4", "https://s.shopee.vn/9Kho3qCqVt"],
+                ["Tản", "K400","https://s.shopee.vn/6fh2swmdjo"],
+                ["RAM", "16GB DDR4 ECC", "https://s.shopee.vn/1LfWX9X4Ch"],
+                ["VGA", "GTX 960 2G D5", "https://s.shopee.vn/2BEdWhBTlW"],
+                ["SSD", "120GB", "https://s.shopee.vn/1gIMvmijM4"],
+                ["HDD", "500GB", "https://s.shopee.vn/7KwjgCwUdu"],
+                ["Nguồn", "500W", "https://s.shopee.vn/qjFwH2cIG"],
+                ["Case", "Case Gaming giá rẻ", "https://s.shopee.vn/W6PXfiEtn"]
             ]
         }
     ],
@@ -1100,7 +1322,7 @@ function openBuild(budget, index) {
                     </p>
 
                     <a
-                        href="https://zalo.me/"
+                        href="https://zalo.me/0368075650"
                         target="_blank"
                         class="contact-btn"
                     >
@@ -1196,6 +1418,13 @@ function openContact() {
 function closeContact() {
     document.getElementById("contactPopup").style.display = "none";
 }
+function showUpdatePopup() {
+    document.getElementById("updatePopup").style.display = "flex";
+}
+
+function closeUpdatePopup() {
+    document.getElementById("updatePopup").style.display = "none";
+}
 </script>
 <div id="contactPopup" class="contact-popup">
 
@@ -1229,6 +1458,13 @@ function closeContact() {
 
     </div>
 
+</div>
+<div id="updatePopup" class="update-popup">
+    <div class="update-box">
+        <h2>🔄 Đang cập nhật</h2>
+        <p>Cấu hình PC này đang được cập nhật.<br>Vui lòng quay lại sau.</p>
+        <button class="update-close" onclick="closeUpdatePopup()">Đóng</button>
+    </div>
 </div>
 </body>
 </html>
