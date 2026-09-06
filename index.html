@@ -691,6 +691,257 @@ margin-left: calc(50% - 50vw + 10px);
     font-size: 12px;
     font-weight: 700;
 }
+/* ================= TƯ VẤN ================= */
+
+#consultPage {
+    display: none;
+    min-height: 70vh;
+    padding-bottom: 60px;
+}
+
+
+.consult-box {
+    max-width: 700px;
+    margin: 10px auto 40px;
+    background: #111;
+    border: 1px solid #242424;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+
+.consult-box label {
+    display: block;
+    color: #ddd;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.budget-input {
+    display: flex;
+    align-items: center;
+    background: #181818;
+    border: 1px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+
+.budget-input input {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+}
+
+
+.budget-input input::placeholder {
+    color: #666;
+}
+
+
+.budget-input span {
+    padding: 0 18px;
+    color: #ff3030;
+    font-weight: bold;
+}
+
+
+.consult-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+
+.consult-option {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: #181818;
+    border: 1px solid #333;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0 !important;
+    transition: .2s;
+}
+
+
+.consult-option:hover {
+    border-color: #ff3030;
+}
+
+
+.consult-option input {
+    accent-color: #ff3030;
+}
+
+
+.consult-option span {
+    color: #ddd;
+    font-weight: bold;
+}
+
+
+.consult-btn {
+    width: 100%;
+    padding: 15px;
+    background: #ff3030;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+.consult-btn:hover {
+    background: #e52222;
+}
+
+
+#consultResults {
+    max-width: 900px;
+    margin: auto;
+}
+
+
+.consult-result-title {
+    margin-bottom: 20px;
+}
+
+
+.consult-result-title h3 {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+
+.consult-result-title p {
+    color: #888;
+}
+
+
+.consult-result-card {
+    background: #111;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+
+.consult-result-card.recommended {
+    border-color: #ff3030;
+    box-shadow: 0 0 20px rgba(255,48,48,.08);
+}
+
+
+.consult-result-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.consult-result-name {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+
+.consult-price {
+    color: #ff3030;
+    font-size: 20px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+
+.consult-status {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: #1b1b1b;
+    color: #ff5555;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+.consult-result-info {
+    color: #777;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+
+.consult-result-info b {
+    color: #bbb;
+}
+
+
+.consult-view-btn {
+    margin-top: 15px;
+    width: 100%;
+    padding: 11px;
+    background: #181818;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+.consult-view-btn:hover {
+    background: #ff3030;
+    border-color: #ff3030;
+}
+
+
+.consult-empty {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 25px;
+    background: #111;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    text-align: center;
+    color: #888;
+    line-height: 1.7;
+}
+
+
+@media(max-width: 600px) {
+
+    .consult-box {
+        padding: 20px;
+    }
+
+    .consult-options {
+        grid-template-columns: 1fr;
+    }
+
+    .consult-result-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .consult-price {
+        font-size: 18px;
+    }
+
+}
 </style>
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -705,15 +956,22 @@ margin-left: calc(50% - 50vw + 10px);
     </div>
 
     <nav>
-        <button onclick="showHome()" id="homeNav" class="active">
-            Trang chủ
-        </button>
+    <button onclick="showHome()" id="homeNav" class="active">
+        Trang chủ
+    </button>
 
-        <button onclick="showContact()">
-            Liên hệ
-        </button>
-        <button onclick="showNotice()">Lưu ý</button>
-    </nav>
+    <button onclick="showConsult()">
+        Tư vấn
+    </button>
+
+    <button onclick="showContact()">
+        Liên hệ
+    </button>
+
+    <button onclick="showNotice()">
+        Lưu ý
+    </button>
+</nav>
 </header>
 
 
@@ -803,6 +1061,8 @@ margin-left: calc(50% - 50vw + 10px);
 </section>
 
 
+
+</section>
 <!-- CONTACT -->
 <section id="contact">
 
@@ -828,6 +1088,93 @@ margin-left: calc(50% - 50vw + 10px);
 </section>
 
 </main>
+<!-- ================= CONSULT PAGE ================= -->
+
+<section id="consultPage">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>🔧 Tư vấn Build PC</h2>
+            <p>Nhập ngân sách và nhu cầu để tìm cấu hình phù hợp</p>
+        </div>
+
+        <div class="consult-box">
+
+            <label for="consultBudget">
+                💰 Ngân sách của bạn
+            </label>
+
+            <div class="budget-input">
+                <input
+                    type="text"
+                    id="consultBudget"
+                    placeholder="Ví dụ: 3000000 hoặc 3tr"
+                    inputmode="numeric"
+                >
+
+                <span>đ</span>
+            </div>
+
+            <label>
+                🖥️ Bạn muốn loại PC nào?
+            </label>
+
+            <div class="consult-options">
+
+                <label class="consult-option">
+                    <input
+                        type="radio"
+                        name="pcType"
+                        value="onDinh"
+                        checked
+                    >
+                    <span>🛡️ Ổn định</span>
+                </label>
+
+                <label class="consult-option">
+                    <input
+                        type="radio"
+                        name="pcType"
+                        value="taDao"
+                    >
+                    <span>🎮 Tà đạo</span>
+                </label>
+
+                <label class="consult-option">
+                    <input
+                        type="radio"
+                        name="pcType"
+                        value="x99"
+                    >
+                    <span>⚡ X99</span>
+                </label>
+
+                <label class="consult-option">
+                    <input
+                        type="radio"
+                        name="pcType"
+                        value="all"
+                    >
+                    <span>🔎 Không quan trọng</span>
+                </label>
+
+            </div>
+
+            <button
+                class="consult-btn"
+                onclick="findConsultBuilds()"
+            >
+                🔍 TÌM CẤU HÌNH
+            </button>
+
+        </div>
+
+        <div id="consultResults"></div>
+
+    </div>
+
+</section>
 
 
 <!-- ================= DETAIL PAGE ================= -->
@@ -1329,10 +1676,12 @@ const builds = {
 function openBudget(budget) {
 
     const home = document.getElementById("homePage");
-    const detail = document.getElementById("detailPage");
+const detail = document.getElementById("detailPage");
+const consult = document.getElementById("consultPage");
 
-    home.style.display = "none";
-    detail.style.display = "block";
+home.style.display = "none";
+consult.style.display = "none";
+detail.style.display = "block";
 
     window.scrollTo({
         top: 0,
@@ -1521,6 +1870,8 @@ function goBack() {
 
     document.getElementById("detailPage").style.display = "none";
 
+    document.getElementById("consultPage").style.display = "none";
+
     document.getElementById("homePage").style.display = "block";
 
     window.scrollTo({
@@ -1539,12 +1890,420 @@ function showHome() {
 
     document.getElementById("detailPage").style.display = "none";
 
+    document.getElementById("consultPage").style.display = "none";
+
     document.getElementById("homePage").style.display = "block";
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+
+}
+/* =====================================================
+   TƯ VẤN BUILD PC
+   ===================================================== */
+
+function showConsult() {
+
+    const home = document.getElementById("homePage");
+    const detail = document.getElementById("detailPage");
+    const consult = document.getElementById("consultPage");
+
+    if (!consult) {
+        alert("Lỗi: chưa tìm thấy trang Tư vấn!");
+        return;
+    }
+
+    home.style.display = "none";
+
+    detail.style.display = "none";
+
+    consult.style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   ĐỌC NGÂN SÁCH
+   ===================================================== */
+
+function parseBudget(value) {
+
+    value = value
+        .toString()
+        .toLowerCase()
+        .replace(/\s/g, "")
+        .replace(/\./g, "")
+        .replace(/,/g, "");
+
+
+    if (value.includes("triệu")) {
+
+        value = parseFloat(
+            value.replace("triệu", "")
+        ) * 1000000;
+
+    }
+
+    else if (value.includes("tr")) {
+
+        value = parseFloat(
+            value.replace("tr", "")
+        ) * 1000000;
+
+    }
+
+    else {
+
+        value = parseFloat(value);
+
+    }
+
+
+    return Number(value);
+
+}
+
+
+/* =====================================================
+   XÁC ĐỊNH LOẠI PC
+   ===================================================== */
+
+function getConsultType(buildName) {
+
+    const name = buildName.toLowerCase();
+
+
+    if (name.includes("x99")) {
+        return "x99";
+    }
+
+
+    if (
+        name.includes("tà đạo") ||
+        name.includes("30hx") ||
+        name.includes("cpu mod")
+    ) {
+        return "taDao";
+    }
+
+
+    return "onDinh";
+
+}
+
+
+/* =====================================================
+   TÌM CẤU HÌNH
+   ===================================================== */
+
+function findConsultBuilds() {
+
+    const input =
+        document.getElementById("consultBudget").value;
+
+
+    const budget = parseBudget(input);
+
+
+    const selected =
+        document.querySelector(
+            'input[name="pcType"]:checked'
+        );
+
+
+    const type =
+        selected ? selected.value : "all";
+
+
+    const resultBox =
+        document.getElementById("consultResults");
+
+
+    /* KIỂM TRA NGÂN SÁCH */
+
+    if (!budget || budget <= 0) {
+
+        resultBox.innerHTML = `
+            <div class="consult-empty">
+
+                ⚠️ Vui lòng nhập ngân sách hợp lệ.
+
+                <br><br>
+
+                Ví dụ:
+
+                <b>3000000</b>
+
+                hoặc
+
+                <b>3tr</b>
+
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    let results = [];
+
+
+    /* DUYỆT TẤT CẢ CẤU HÌNH */
+
+    Object.keys(builds).forEach(budgetKey => {
+
+        builds[budgetKey].forEach((build, index) => {
+
+            const price =
+                getBuildTotal(build);
+
+
+            if (!price || price <= 0) {
+                return;
+            }
+
+
+            const buildType =
+                getConsultType(build.name);
+
+
+            if (
+                type !== "all" &&
+                buildType !== type
+            ) {
+                return;
+            }
+
+
+            const difference =
+                Math.abs(price - budget);
+
+
+            results.push({
+
+                budgetKey: budgetKey,
+
+                index: index,
+
+                build: build,
+
+                price: price,
+
+                difference: difference,
+
+                type: buildType
+
+            });
+
+        });
+
+    });
+
+
+    /* XẾP HẠNG */
+
+    results.sort((a, b) => {
+
+        const aRecommended =
+            a.build.badge &&
+            a.build.badge.includes("ĐÁNG MUA")
+                ? 1
+                : 0;
+
+
+        const bRecommended =
+            b.build.badge &&
+            b.build.badge.includes("ĐÁNG MUA")
+                ? 1
+                : 0;
+
+
+        if (
+            aRecommended !== bRecommended
+        ) {
+
+            return bRecommended -
+                   aRecommended;
+
+        }
+
+
+        return a.difference -
+               b.difference;
+
+    });
+
+
+    /* CHỈ HIỆN TỐI ĐA 6 CẤU HÌNH */
+
+    results =
+        results.slice(0, 6);
+
+
+    /* KHÔNG CÓ KẾT QUẢ */
+
+    if (results.length === 0) {
+
+        resultBox.innerHTML = `
+            <div class="consult-empty">
+
+                😢 Chưa tìm thấy cấu hình phù hợp.
+
+                <br><br>
+
+                Hãy thử thay đổi ngân sách
+                hoặc loại PC.
+
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    /* TIÊU ĐỀ */
+
+    let html = `
+
+        <div class="consult-result-title">
+
+            <h3>
+                🔎 Cấu hình phù hợp
+            </h3>
+
+            <p>
+                Ngân sách:
+                <b>
+                    ${budget.toLocaleString("vi-VN")}đ
+                </b>
+            </p>
+
+        </div>
+
+    `;
+
+
+    /* HIỂN THỊ KẾT QUẢ */
+
+    results.forEach((item, position) => {
+
+        const build =
+            item.build;
+
+
+        let status =
+            "⚠️ CÂN NHẮC";
+
+
+        if (
+            build.badge &&
+            build.badge.includes("ĐÁNG MUA")
+        ) {
+
+            status =
+                "🔥 ĐÁNG MUA";
+
+        }
+
+        else if (
+            build.badge &&
+            build.badge.includes("GAMING")
+        ) {
+
+            status =
+                "🎮 GAMING";
+
+        }
+
+        else if (
+            build.badge &&
+            build.badge.includes("GIÁ RẺ")
+        ) {
+
+            status =
+                "💰 GIÁ RẺ";
+
+        }
+
+
+        const recommendedClass =
+            position === 0
+                ? "recommended"
+                : "";
+
+
+        html += `
+
+            <div class="consult-result-card ${recommendedClass}">
+
+                <div class="consult-result-top">
+
+                    <div class="consult-result-name">
+
+                        ${
+                            position === 0
+                                ? "⭐ "
+                                : ""
+                        }
+
+                        ${build.name}
+
+                    </div>
+
+
+                    <div class="consult-price">
+
+                        ${item.price.toLocaleString("vi-VN")}đ
+
+                    </div>
+
+                </div>
+
+
+                <div class="consult-status">
+
+                    ${status}
+
+                </div>
+
+
+                <div class="consult-result-info">
+
+                    Chênh lệch ngân sách:
+
+                    <b>
+                        ${item.difference.toLocaleString("vi-VN")}đ
+                    </b>
+
+                </div>
+
+
+                <button
+                    class="consult-view-btn"
+                    onclick="openBuild(${item.budgetKey}, ${item.index})"
+                >
+
+                    Xem cấu hình →
+
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+
+    resultBox.innerHTML = html;
 
 }
 
@@ -1569,15 +2328,13 @@ function scrollToBuild() {
 function showContact() {
 
     document.getElementById("detailPage").style.display = "none";
-
+    document.getElementById("consultPage").style.display = "none";
     document.getElementById("homePage").style.display = "block";
 
     setTimeout(() => {
-
         document.getElementById("contact").scrollIntoView({
             behavior: "smooth"
         });
-
     }, 100);
 
 }
