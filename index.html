@@ -1107,11 +1107,11 @@ margin-left: calc(50% - 50vw + 10px);
 
             <div class="budget-input">
                 <input
-                    type="text"
-                    id="consultBudget"
-                    placeholder="Ví dụ: 3000000 hoặc 3tr"
-                    inputmode="numeric"
-                >
+    type="text"
+    id="consultBudget"
+    placeholder="Ví dụ: 3000000 hoặc 3tr"
+    autocomplete="off"
+>
 
                 <span>đ</span>
             </div>
@@ -1253,9 +1253,9 @@ const componentPrices = {
     "H61": 176000,
     "H81": 230000,
     "H110": 462000,
-    "H310": 520000,
-    "X99 DDR4": 644000,
-    "X99 DDR3": 684000,
+    "H310": 546000,
+    "X99 DDR4": 676000,
+    "X99 DDR3": 718000,
     "A320": 685000,
 
     // CPU
@@ -1754,11 +1754,24 @@ detail.style.display = "block";
    MỞ CHI TIẾT MỘT CẤU HÌNH
 ===================================================== */
 
-function openBuild(budget, index) {
+function openBuild(budget, index, fromConsult = false) {
 
     const build = builds[budget][index];
 
+    const home = document.getElementById("homePage");
+    const consult = document.getElementById("consultPage");
     const detail = document.getElementById("detailPage");
+
+    if (!build || !detail) {
+        return;
+    }
+
+    // Ẩn các trang khác
+    home.style.display = "none";
+    consult.style.display = "none";
+
+    // Hiện trang chi tiết
+    detail.style.display = "block";
 
     let partsHTML = "";
 
@@ -1768,11 +1781,8 @@ function openBuild(budget, index) {
             <div class="part">
 
                 <div class="part-info">
-
                     <h3>${part[0]}</h3>
-
                     <p>${part[1]}</p>
-
                 </div>
 
                 <a
@@ -1788,14 +1798,13 @@ function openBuild(budget, index) {
 
     });
 
-
     detail.innerHTML = `
 
         <div class="container">
 
             <button
                 class="back-btn"
-                onclick="openBudget(${budget})"
+                onclick="${fromConsult ? 'showConsult()' : `openBudget(${budget})`}"
             >
                 ← Quay lại
             </button>
@@ -1816,19 +1825,15 @@ function openBuild(budget, index) {
 
                     </div>
 
-                   <div class="total">
-    ${formatPrice(getBuildTotal(build))}
-</div>
+                    <div class="total">
+                        ${formatPrice(getBuildTotal(build))}
+                    </div>
 
                 </div>
-
 
                 <div class="parts">
-
                     ${partsHTML}
-
                 </div>
-
 
                 <div class="contact-build">
 
@@ -1853,6 +1858,7 @@ function openBuild(budget, index) {
             </div>
 
         </div>
+
     `;
 
     window.scrollTo({
@@ -2289,7 +2295,7 @@ function findConsultBuilds() {
 
                 <button
                     class="consult-view-btn"
-                    onclick="openBuild(${item.budgetKey}, ${item.index})"
+                    onclick="openBuild(${item.budgetKey}, ${item.index}, true)"
                 >
 
                     Xem cấu hình →
