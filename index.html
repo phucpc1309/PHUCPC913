@@ -1041,7 +1041,7 @@ margin-left: calc(50% - 50vw + 10px);
             <button class="view-btn">Xem cấu hình →</button>
         </div>
 
-        <div class="price-card" onclick="showUpdatePopup()">
+        <div class="price-card" onclick="openBudget(5)">
             <h3>PC 5 TRIỆU</h3>
             <div class="money">~5.000.000đ</div>
             <p>Chơi được một số tựa game nặng nhưng tà đạo.</p>
@@ -1253,7 +1253,8 @@ const componentPrices = {
     "H61": 176000,
     "H81": 230000,
     "H110": 462000,
-    "H310": 546000,
+    "H310": 533000,
+    "H410": 496000,
     "X99 DDR4": 676000,
     "X99 DDR3": 718000,
     "A320": 685000,
@@ -1265,6 +1266,8 @@ const componentPrices = {
     "I3 8100": 457000,
     "I3 9100F": 469000,
     "I3 9100": 639000,
+    "I5 9500": 1600000,
+    "I3 10100": 1900000,
     "Ryzen 3 2200G": 520000,
     "Ryzen 5 2600": 848000,
     "E5 2676 V3": 300000,
@@ -1276,9 +1279,9 @@ const componentPrices = {
     // RAM
     "2X4GB DDR3": 210000,
     "8GB DDR3": 310000,
-    "8GB DDR4 INTEL": 656000,
+    "8GB DDR4 INTEL": 672000,
     "8GB DDR4 AMD": 831000,
-    "2X8GB DDR4 INTEL": 1394000,
+    "2X8GB DDR4 INTEL": 1344000,
     "2X8GB DDR4 AMD": 1678000,
     "16GB DDR3 ECC": 470000,
     "16GB DDR4 ECC": 1475000,
@@ -1288,7 +1291,7 @@ const componentPrices = {
     // VGA
     "GTS 450": 410000,
     "GTX 660 2G D5": 814000,
-    "CMP 30HX": 760000,
+    "CMP 30HX": 796000,
     "GTX 950 2G D5": 1040000,
     "GTX 960 2G D5": 1200000,
     
@@ -1296,6 +1299,8 @@ const componentPrices = {
     // SSD / HDD
     "SSD 120GB 1": 277000,
     "SSD 120GB 2": 328000,
+    "SSD 128GB LEOPARD": 289000,
+    "SSD 128GB LEXAR": 276000,
     "HDD 320GB": 135000,
     "HDD 500GB": 193000,
     "LAPTOP 500GB": 80000,
@@ -1303,9 +1308,11 @@ const componentPrices = {
 
     // TẢN
     "CR1000": 270000,
+    "CR1000 CŨ": 184000,
     "K400": 215000,
     "Tản Stock IT": 33000,
     "Tản Stock Lõi Đồng": 70000,
+    "A220": 98000,
     "Tản Stock AMD": 75000,
 
     // NGUỒN
@@ -1316,6 +1323,8 @@ const componentPrices = {
     "450W MAGIC": 285000,
     "450W CORSAIR": 412000,
     "500W THUNDER": 311000,
+    "500W SAMA 630": 328000,
+    "500W COOLER ACBEL": 302000,
     "500W FPS SAGA": 336000,
     "500W COOLER MASTER": 324000,
     "500W SAGA": 328000,
@@ -1599,6 +1608,21 @@ const builds = {
                 ["Case", "Đế Bắt Main", "https://s.shopee.vn/W6PVcgbgA"]
             ]
         },
+         {
+            name: "Tà Đạo 30HX",
+            price: "4.750.000đ",
+            badge: "🎮 GAMING",
+            parts: [
+                 ["Mainboard", "H310", "https://s.shopee.vn/8KpaOzxKY3"],
+                ["CPU", "I5 9500", "https://s.shopee.vn/8V90bJw9dn"],
+                ["Tản", "CR1000 CŨ","https://s.shopee.vn/4Vcrpyy3Pw"],
+                ["RAM", "8GB DDR4 INTEL", "https://s.shopee.vn/6fhMPykacE"],
+                ["VGA", "CMP 30HX", "https://s.shopee.vn/905HCHkRk2"],
+                ["SSD", "SSD 128GB LEOPARD", "https://s.shopee.vn/1gIgSp6fMV"],
+                ["Nguồn", "500W COOLER ACBEL", "https://s.shopee.vn/8plr00jaL8"],
+                ["Case", "Đế Bắt Main", "https://s.shopee.vn/5AsF5ZvG15"]
+            ]
+        },
 
         {
             name: "Tà Đạo 30HX",
@@ -1613,7 +1637,7 @@ const builds = {
                 ["SSD", "SSD 120GB 2", "https://s.shopee.vn/2qUKJG8ajm"],
                 ["HDD", "HDD 500GB", "https://s.shopee.vn/qjFuD6Xm2"],
                 ["Nguồn", "450W CORSAIR", "https://s.shopee.vn/gPpjIPzXT"],
-                ["Case", "Case Gaming giá rẻ", "https://s.shopee.vn/5AsF5ZvG15"]
+                ["Case", "Đế Bắt Main", "https://s.shopee.vn/5AsF5ZvG15"]
             ]
         },
          {
@@ -1640,31 +1664,18 @@ const builds = {
             name: "PC 5 Triệu - Gaming FHD",
             price: "5.000.000đ",
             parts: [
-                 ["Mainboard", "H61", "https://s.shopee.vn/1gIMTugeAC"],
-                ["CPU", "Intel Core i3 Gen 2", "https://shopee.vn/"],
-                ["Tản", "Tản Stock IT","https://shopee.vn/"],
-                ["RAM", "8GB DDR3", "https://shopee.vn/"],
-                ["VGA", "GT 730 2GB", "https://shopee.vn/"],
-                ["SSD", "120GB", "https://shopee.vn/"],
-                ["Nguồn", "350W", "https://shopee.vn/"],
-                ["Case", "Case Gaming giá rẻ", "https://shopee.vn/"]
+                 ["Mainboard", "H410", "https://s.shopee.vn/AAHEaViSAm"],
+                ["CPU", "I3 10100", "https://s.shopee.vn/80Ck0XqR2u"],
+                ["Tản", "A220","https://s.shopee.vn/qjZTNzVck"],
+                ["RAM", "2X8GB DDR4 INTEL", "https://s.shopee.vn/7ptJoGGeSO"],
+                ["VGA", "CMP 30HX", "https://s.shopee.vn/4qFiEmA4ts"],
+                ["SSD", "SSD 128GB LEXAR", "https://s.shopee.vn/70KColwTZq"],
+                ["Nguồn", "500W SAMA 630", "https://s.shopee.vn/7VGTPiFp7S"],
+                ["Case", "Đế Bắt Main", "https://s.shopee.vn/40gbFIP21K"]
             ]
         },
 
-        {
-            name: "PC 5 Triệu - Intel Gaming",
-            price: "5.000.000đ",
-            parts: [
-                 ["Mainboard", "H61", "https://s.shopee.vn/1gIMTugeAC"],
-                ["CPU", "I5 2500", "https://s.shopee.vn/6L4C47girD"],
-                ["Tản", "Tản Stock IT","https://shopee.vn/"],
-                ["RAM", "8GB DDR3", "https://shopee.vn/"],
-                ["VGA", "GTS 450", "https://shopee.vn/"],
-                ["SSD", "SSD 120GB 1", "https://shopee.vn/"],
-                ["Nguồn", "350W DRAGON", "https://shopee.vn/"],
-                ["Case", "Đế Bắt Main", "https://shopee.vn/"]
-            ]
-        }
+       
     ],
 
 
