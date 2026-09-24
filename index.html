@@ -533,7 +533,7 @@ nav button.active {
 
 .game-options {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 10px;
     margin-bottom: 25px;
 }
@@ -543,7 +543,17 @@ nav button.active {
     display: flex;
     align-items: center;
     gap: 10px;
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 9px;
+    padding: 13px;
+    cursor: pointer;
+    color: #ccc;
+    transition: .2s;
+    min-width: 0;
+    box-sizing: border-box;
 }
+
 .game-icon {
     width: 32px;
     height: 32px;
@@ -552,13 +562,8 @@ nav button.active {
     flex-shrink: 0;
 }
 
-    background: #151515;
-    border: 1px solid #292929;
-    border-radius: 9px;
-    padding: 13px;
-    cursor: pointer;
-    color: #ccc;
-    transition: .2s;
+.game-option span {
+    white-space: nowrap;
 }
 
 .game-option:hover {
