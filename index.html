@@ -114,6 +114,211 @@ body {
     background: #080808;
     color: #fff;
 }
+/* ================= HAMBURGER MENU ================= */
+
+.menu-wrapper {
+    position: relative;
+}
+
+.menu-btn {
+    width: 44px;
+    height: 44px;
+    background: #181818;
+    border: 1px solid #333;
+    border-radius: 9px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-btn:hover {
+    background: #ff3030;
+    border-color: #ff3030;
+}
+
+.side-menu {
+    display: none;
+    position: absolute;
+    top: 54px;
+    right: 0;
+    width: 230px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.6);
+    z-index: 9999;
+}
+
+.side-menu.show {
+    display: block;
+}
+
+.side-menu button {
+    width: 100%;
+    padding: 13px 14px;
+    margin: 2px 0;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: #ddd;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.side-menu button:hover {
+    background: #1d1d1d;
+    color: #fff;
+}
+
+/* ================= FPS PAGE ================= */
+
+
+
+.fps-note {
+    background: #151515;
+    border: 1px solid #333;
+    border-left: 3px solid #ff3030;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 25px;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.fps-game {
+    margin-bottom: 35px;
+}
+
+.fps-game-title {
+    background: #111;
+    border: 1px solid #292929;
+    border-radius: 12px 12px 0 0;
+    padding: 18px 20px;
+}
+
+.fps-game-title h3 {
+    font-size: 21px;
+}
+
+.fps-game-title p {
+    color: #777;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.fps-build {
+    background: #0f0f0f;
+    border: 1px solid #292929;
+    border-top: none;
+    padding: 20px;
+}
+
+.fps-build-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.fps-build-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.fps-build-price {
+    color: #ff3030;
+    font-weight: bold;
+}
+
+.fps-hardware {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.fps-hardware div {
+    background: #171717;
+    border: 1px solid #252525;
+    border-radius: 8px;
+    padding: 9px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.fps-hardware strong {
+    display: block;
+    color: #777;
+    font-size: 10px;
+    margin-bottom: 4px;
+}
+
+.fps-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.fps-table th,
+.fps-table td {
+    padding: 11px;
+    border: 1px solid #292929;
+    text-align: center;
+}
+
+.fps-table th {
+    background: #191919;
+    color: #bbb;
+    font-size: 13px;
+}
+
+.fps-table td {
+    background: #111;
+    color: white;
+    font-weight: bold;
+}
+
+.fps-low {
+    color: #5cff7a !important;
+}
+
+.fps-medium {
+    color: #ffd45c !important;
+}
+
+.fps-high {
+    color: #ff7777 !important;
+}
+
+.fps-game + .fps-game {
+    margin-top: 40px;
+}
+
+@media(max-width: 700px) {
+
+    .fps-hardware {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .fps-build-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .fps-table th,
+    .fps-table td {
+        padding: 8px 4px;
+        font-size: 12px;
+    }
+
+}
 
 /* ===== HEADER ===== */
 header {
@@ -323,6 +528,133 @@ nav button.active {
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+}
+/* ===== CHỌN GAME TƯ VẤN ===== */
+
+.game-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+
+.game-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.game-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 9px;
+    padding: 13px;
+    cursor: pointer;
+    color: #ccc;
+    transition: .2s;
+}
+
+.game-option:hover {
+    border-color: #ff3030;
+    background: #1b1b1b;
+}
+
+.game-option input {
+    margin-right: 8px;
+    accent-color: #ff3030;
+}
+
+.game-option:has(input:checked) {
+    border-color: #ff3030;
+    background: rgba(255,48,48,.10);
+    color: white;
+}
+
+
+/* ===== FPS TRONG KẾT QUẢ TƯ VẤN ===== */
+
+.consult-fps {
+    margin-top: 18px;
+    border-top: 1px solid #292929;
+    padding-top: 15px;
+}
+
+.consult-fps-title {
+    color: #ddd;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.consult-fps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.consult-fps-item {
+    background: #171717;
+    border: 1px solid #292929;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.consult-fps-name {
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.consult-fps-values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    text-align: center;
+}
+
+.consult-fps-values div {
+    background: #111;
+    border-radius: 5px;
+    padding: 7px 3px;
+    font-size: 11px;
+}
+
+.consult-fps-values span {
+    display: block;
+    color: #666;
+    font-size: 9px;
+    margin-bottom: 3px;
+}
+
+.fps-value-low {
+    color: #5cff7a;
+}
+
+.fps-value-medium {
+    color: #ffd45c;
+}
+
+.fps-value-high {
+    color: #ff7777;
+}
+
+
+@media(max-width: 700px) {
+
+    .game-options {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .consult-fps-grid {
+        grid-template-columns: 1fr;
+    }
+
 }
 
 /* ===== DETAIL PAGE ===== */
@@ -955,23 +1287,35 @@ margin-left: calc(50% - 50vw + 10px);
         PHUC<span>PC</span>
     </div>
 
-    <nav>
-    <button onclick="showHome()" id="homeNav" class="active">
-        Trang chủ
+   <div class="menu-wrapper">
+
+    <button class="menu-btn" onclick="toggleMenu()">
+        ☰
     </button>
 
-    <button onclick="showConsult()">
-        Tư vấn
-    </button>
+    <div id="sideMenu" class="side-menu">
 
-    <button onclick="showContact()">
-        Liên hệ
-    </button>
+        <button onclick="showHome(); closeMenu();">
+            🏠 Trang chủ
+        </button>
 
-    <button onclick="showNotice()">
-        Lưu ý
-    </button>
-</nav>
+        <button onclick="showConsult(); closeMenu();">
+            🔧 Tư vấn
+        </button>
+
+        
+
+        <button onclick="showContact(); closeMenu();">
+            📞 Liên hệ
+        </button>
+
+        <button onclick="showNotice(); closeMenu();">
+            ⚠️ Lưu ý
+        </button>
+
+    </div>
+
+</div>
 </header>
 
 
@@ -1090,31 +1434,46 @@ margin-left: calc(50% - 50vw + 10px);
 </main>
 <!-- ================= CONSULT PAGE ================= -->
 
+<!-- ================= CONSULT PAGE ================= -->
+
 <section id="consultPage">
 
     <div class="container">
 
         <div class="section-title">
-            <h2>🔧 Tư vấn Build PC</h2>
-            <p>Nhập ngân sách và nhu cầu để tìm cấu hình phù hợp</p>
+
+            <h2>🔧 TƯ VẤN BUILD PC</h2>
+
+            <p>
+                Nhập ngân sách, chọn loại PC và game bạn muốn chơi
+            </p>
+
         </div>
 
+
         <div class="consult-box">
+
+            <!-- NGÂN SÁCH -->
 
             <label for="consultBudget">
                 💰 Ngân sách của bạn
             </label>
 
             <div class="budget-input">
+
                 <input
-    type="text"
-    id="consultBudget"
-    placeholder="Ví dụ: 3000000 hoặc 3tr"
-    autocomplete="off"
->
+                    type="text"
+                    id="consultBudget"
+                    placeholder="Ví dụ: 3000000 hoặc 3tr"
+                    autocomplete="off"
+                >
 
                 <span>đ</span>
+
             </div>
+
+
+            <!-- LOẠI PC -->
 
             <label>
                 🖥️ Bạn muốn loại PC nào?
@@ -1123,58 +1482,218 @@ margin-left: calc(50% - 50vw + 10px);
             <div class="consult-options">
 
                 <label class="consult-option">
+
                     <input
                         type="radio"
                         name="pcType"
                         value="onDinh"
                         checked
                     >
+
                     <span>🛡️ Ổn định</span>
+
                 </label>
 
+
                 <label class="consult-option">
+
                     <input
                         type="radio"
                         name="pcType"
                         value="taDao"
                     >
+
                     <span>🎮 Tà đạo</span>
+
                 </label>
 
+
                 <label class="consult-option">
+
                     <input
                         type="radio"
                         name="pcType"
                         value="x99"
                     >
+
                     <span>⚡ X99</span>
+
                 </label>
 
+
                 <label class="consult-option">
+
                     <input
                         type="radio"
                         name="pcType"
                         value="all"
                     >
+
                     <span>🔎 Không quan trọng</span>
+
                 </label>
 
             </div>
+
+
+            <!-- CHỌN GAME -->
+
+            <label>
+                🎮 Bạn muốn chơi game nào?
+            </label>
+
+            <p style="
+                color:#777;
+                font-size:13px;
+                margin:8px 0 12px;
+            ">
+                Có thể chọn một hoặc nhiều game
+            </p>
+
+
+            <div class="game-options">
+
+                <label class="game-option">
+
+                    <input
+                        type="checkbox"
+                        name="gameSelect"
+                        value="valorant"
+                    >
+
+                    <img src="images/valorant.png" class="game-icon" alt="Valorant"><span>Valorant</span>
+
+                </label>
+
+
+                <label class="game-option">
+
+                    <input
+                        type="checkbox"
+                        name="gameSelect"
+                        value="lol"
+                    >
+
+                    <img src="images/lol.png" class="game-icon" alt="Liên Minh Huyền Thoại"><span>Liên Minh Huyền Thoại</span>
+
+                </label>
+
+
+                <label class="game-option">
+
+                    <input
+                        type="checkbox"
+                        name="gameSelect"
+                        value="minecraft"
+                    >
+
+                    <img src="images/minecraft.png" class="game-icon" alt="Minecraft"><span>Minecraft</span>
+
+                </label>
+
+
+                <label class="game-option">
+
+                    <input
+                        type="checkbox"
+                        name="gameSelect"
+                        value="minecraftShader"
+                    >
+
+                    <img src="images/minecraft.png" class="game-icon" alt="Minecraft + Shader"><span>Minecraft + Shader</span>
+
+                </label>
+
+
+                <label class="game-option">
+
+                    <input
+                        type="checkbox"
+                        name="gameSelect"
+                        value="deltaforce"
+                    >
+
+                    <img src="images/deltaforce.png" class="game-icon" alt="Delta Force"><span>Delta Force</span>
+
+                </label>
+
+
+                <label class="game-option">
+
+                    <input
+                        type="checkbox"
+                        name="gameSelect"
+                        value="cs2"
+                    >
+
+                    <img src="images/cs2.png" class="game-icon" alt="Counter-Strike 2"><span>CS2</span>
+
+                </label>
+
+
+                <label class="game-option">
+
+                    <input
+                        type="checkbox"
+                        name="gameSelect"
+                        value="genshin"
+                    >
+
+                    <img src="images/genshin.png" class="game-icon" alt="Genshin Impact"><span>Genshin Impact</span>
+
+                </label>
+
+
+                <label class="game-option">
+
+                    <input
+                        type="checkbox"
+                        name="gameSelect"
+                        value="honkai"
+                    >
+
+                    <img src="images/honkai.png" class="game-icon" alt="Honkai: Star Rail"><span>Honkai: Star Rail</span>
+
+                </label>
+
+
+                <label class="game-option">
+
+                    <input
+                        type="checkbox"
+                        name="gameSelect"
+                        value="wukong"
+                    >
+
+                    <img src="images/wukong.png" class="game-icon" alt="Black Myth: Wukong"><span>Black Myth: Wukong</span>
+
+                </label>
+
+            </div>
+
+
+            <!-- NÚT TÌM -->
 
             <button
                 class="consult-btn"
                 onclick="findConsultBuilds()"
             >
-                🔍 TÌM CẤU HÌNH
+
+                🔍 TÌM CẤU HÌNH + FPS
+
             </button>
 
         </div>
+
+
+        <!-- KẾT QUẢ -->
 
         <div id="consultResults"></div>
 
     </div>
 
 </section>
+
 
 
 <!-- ================= DETAIL PAGE ================= -->
@@ -1724,6 +2243,8 @@ function openBudget(budget) {
 const detail = document.getElementById("detailPage");
 const consult = document.getElementById("consultPage");
 
+
+
 home.style.display = "none";
 consult.style.display = "none";
 detail.style.display = "block";
@@ -1806,14 +2327,16 @@ function openBuild(budget, index, fromConsult = false) {
     const home = document.getElementById("homePage");
     const consult = document.getElementById("consultPage");
     const detail = document.getElementById("detailPage");
+    
 
     if (!build || !detail) {
         return;
     }
 
     // Ẩn các trang khác
-    home.style.display = "none";
-    consult.style.display = "none";
+   home.style.display = "none";
+consult.style.display = "none";
+
 
     // Hiện trang chi tiết
     detail.style.display = "block";
@@ -2054,34 +2577,56 @@ function getConsultType(buildName) {
    TÌM CẤU HÌNH
    ===================================================== */
 
+/* =====================================================
+   TƯ VẤN BUILD PC + FPS
+===================================================== */
+
 function findConsultBuilds() {
 
     const input =
         document.getElementById("consultBudget").value;
 
 
-    const budget = parseBudget(input);
+    const budget =
+        parseBudget(input);
 
 
-    const selected =
+    const selectedType =
         document.querySelector(
             'input[name="pcType"]:checked'
         );
 
 
     const type =
-        selected ? selected.value : "all";
+        selectedType
+            ? selectedType.value
+            : "all";
+
+
+    /*
+       LẤY CÁC GAME ĐƯỢC CHỌN
+    */
+
+    const selectedGames =
+        Array.from(
+            document.querySelectorAll(
+                'input[name="gameSelect"]:checked'
+            )
+        ).map(input => input.value);
 
 
     const resultBox =
         document.getElementById("consultResults");
 
 
-    /* KIỂM TRA NGÂN SÁCH */
+    /* =========================
+       KIỂM TRA NGÂN SÁCH
+    ========================= */
 
     if (!budget || budget <= 0) {
 
         resultBox.innerHTML = `
+
             <div class="consult-empty">
 
                 ⚠️ Vui lòng nhập ngân sách hợp lệ.
@@ -2097,6 +2642,32 @@ function findConsultBuilds() {
                 <b>3tr</b>
 
             </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* =========================
+       KIỂM TRA GAME
+    ========================= */
+
+    if (selectedGames.length === 0) {
+
+        resultBox.innerHTML = `
+
+            <div class="consult-empty">
+
+                🎮 Vui lòng chọn ít nhất một game.
+
+                <br><br>
+
+                Bạn có thể chọn nhiều game cùng lúc.
+
+            </div>
+
         `;
 
         return;
@@ -2107,113 +2678,214 @@ function findConsultBuilds() {
     let results = [];
 
 
-    /* DUYỆT TẤT CẢ CẤU HÌNH */
+    /* =========================
+       DUYỆT TẤT CẢ CẤU HÌNH
+    ========================= */
 
-    Object.keys(builds).forEach(budgetKey => {
+    Object.keys(builds).forEach(
+        budgetKey => {
 
-        builds[budgetKey].forEach((build, index) => {
+            builds[budgetKey].forEach(
+                (build, index) => {
 
-            const price =
-                getBuildTotal(build);
-
-
-            if (!price || price <= 0) {
-                return;
-            }
-
-
-            const buildType =
-                getConsultType(build.name);
+                    const price =
+                        getBuildTotal(build);
 
 
-            if (
-                type !== "all" &&
-                buildType !== type
-            ) {
-                return;
-            }
+                    if (!price || price <= 0) {
+                        return;
+                    }
 
 
-            const difference =
-                Math.abs(price - budget);
+                    const buildType =
+                        getConsultType(
+                            build.name
+                        );
 
 
-            results.push({
+                    /*
+                       LỌC LOẠI PC
+                    */
 
-                budgetKey: budgetKey,
+                    if (
+                        type !== "all" &&
+                        buildType !== type
+                    ) {
 
-                index: index,
+                        return;
 
-                build: build,
-
-                price: price,
-
-                difference: difference,
-
-                type: buildType
-
-            });
-
-        });
-
-    });
+                    }
 
 
-    /* XẾP HẠNG */
+                    /*
+                       TÍNH ĐỘ CHÊNH NGÂN SÁCH
+                    */
+
+                    const difference =
+                        Math.abs(
+                            price - budget
+                        );
+
+
+                    /*
+                       TÍNH FPS CHO CÁC GAME
+                    */
+
+                    const fpsResults = {};
+
+
+                    selectedGames.forEach(
+                        gameID => {
+
+                            const fps =
+                                getBuildFPS(
+                                    build,
+                                    gameID
+                                );
+
+
+                            if (fps) {
+
+                                fpsResults[
+                                    gameID
+                                ] = fps;
+
+                            }
+
+                        }
+                    );
+
+
+                    /*
+                       Nếu VGA không có
+                       FPS thì bỏ qua
+                    */
+
+                    if (
+                        Object.keys(
+                            fpsResults
+                        ).length === 0
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    results.push({
+
+                        budgetKey:
+                            budgetKey,
+
+                        index:
+                            index,
+
+                        build:
+                            build,
+
+                        price:
+                            price,
+
+                        difference:
+                            difference,
+
+                        type:
+                            buildType,
+
+                        fps:
+                            fpsResults
+
+                    });
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =========================
+       XẾP HẠNG
+    ========================= */
 
     results.sort((a, b) => {
 
+        /*
+           Ưu tiên ĐÁNG MUA
+        */
+
         const aRecommended =
             a.build.badge &&
-            a.build.badge.includes("ĐÁNG MUA")
+            a.build.badge.includes(
+                "ĐÁNG MUA"
+            )
                 ? 1
                 : 0;
 
 
         const bRecommended =
             b.build.badge &&
-            b.build.badge.includes("ĐÁNG MUA")
+            b.build.badge.includes(
+                "ĐÁNG MUA"
+            )
                 ? 1
                 : 0;
 
 
         if (
-            aRecommended !== bRecommended
+            aRecommended !==
+            bRecommended
         ) {
 
-            return bRecommended -
-                   aRecommended;
+            return (
+                bRecommended -
+                aRecommended
+            );
 
         }
 
 
-        return a.difference -
-               b.difference;
+        /*
+           Sau đó ưu tiên
+           cấu hình gần ngân sách
+        */
+
+        return (
+            a.difference -
+            b.difference
+        );
 
     });
 
 
-    /* CHỈ HIỆN TỐI ĐA 6 CẤU HÌNH */
+    /*
+       Tối đa 6 cấu hình
+    */
 
     results =
         results.slice(0, 6);
 
 
-    /* KHÔNG CÓ KẾT QUẢ */
+    /* =========================
+       KHÔNG CÓ KẾT QUẢ
+    ========================= */
 
     if (results.length === 0) {
 
         resultBox.innerHTML = `
+
             <div class="consult-empty">
 
-                😢 Chưa tìm thấy cấu hình phù hợp.
+                😢 Chưa tìm thấy
+                cấu hình phù hợp.
 
                 <br><br>
 
-                Hãy thử thay đổi ngân sách
-                hoặc loại PC.
+                Hãy thử tăng ngân sách
+                hoặc chọn "Không quan trọng".
 
             </div>
+
         `;
 
         return;
@@ -2221,7 +2893,9 @@ function findConsultBuilds() {
     }
 
 
-    /* TIÊU ĐỀ */
+    /* =========================
+       TIÊU ĐỀ KẾT QUẢ
+    ========================= */
 
     let html = `
 
@@ -2232,10 +2906,24 @@ function findConsultBuilds() {
             </h3>
 
             <p>
+
                 Ngân sách:
+
                 <b>
-                    ${budget.toLocaleString("vi-VN")}đ
+                    ${budget.toLocaleString(
+                        "vi-VN"
+                    )}đ
                 </b>
+
+                <br>
+
+                🎮 Đã chọn:
+
+                <b>
+                    ${selectedGames.length}
+                    game
+                </b>
+
             </p>
 
         </div>
@@ -2243,118 +2931,378 @@ function findConsultBuilds() {
     `;
 
 
-    /* HIỂN THỊ KẾT QUẢ */
+    /* =========================
+       HIỂN THỊ CẤU HÌNH
+    ========================= */
 
-    results.forEach((item, position) => {
+    results.forEach(
+        (item, position) => {
 
-        const build =
-            item.build;
-
-
-        let status =
-            "⚠️ CÂN NHẮC";
-
-
-        if (
-            build.badge &&
-            build.badge.includes("ĐÁNG MUA")
-        ) {
-
-            status =
-                "🔥 ĐÁNG MUA";
-
-        }
-
-        else if (
-            build.badge &&
-            build.badge.includes("GAMING")
-        ) {
-
-            status =
-                "🎮 GAMING";
-
-        }
-
-        else if (
-            build.badge &&
-            build.badge.includes("GIÁ RẺ")
-        ) {
-
-            status =
-                "💰 GIÁ RẺ";
-
-        }
+            const build =
+                item.build;
 
 
-        const recommendedClass =
-            position === 0
-                ? "recommended"
-                : "";
+            let status =
+                "⚠️ CÂN NHẮC";
 
 
-        html += `
+            if (
+                build.badge &&
+                build.badge.includes(
+                    "ĐÁNG MUA"
+                )
+            ) {
 
-            <div class="consult-result-card ${recommendedClass}">
+                status =
+                    "🔥 ĐÁNG MUA";
 
-                <div class="consult-result-top">
+            }
 
-                    <div class="consult-result-name">
+            else if (
+                build.badge &&
+                build.badge.includes(
+                    "GAMING"
+                )
+            ) {
 
-                        ${
-                            position === 0
-                                ? "⭐ "
-                                : ""
-                        }
+                status =
+                    "🎮 GAMING";
 
-                        ${build.name}
+            }
 
-                    </div>
+            else if (
+                build.badge &&
+                build.badge.includes(
+                    "GIÁ RẺ"
+                )
+            ) {
 
+                status =
+                    "💰 GIÁ RẺ";
 
-                    <div class="consult-price">
-
-                        ${item.price.toLocaleString("vi-VN")}đ
-
-                    </div>
-
-                </div>
-
-
-                <div class="consult-status">
-
-                    ${status}
-
-                </div>
-
-
-                <div class="consult-result-info">
-
-                    Chênh lệch ngân sách:
-
-                    <b>
-                        ${item.difference.toLocaleString("vi-VN")}đ
-                    </b>
-
-                </div>
+            }
 
 
-                <button
-                    class="consult-view-btn"
-                    onclick="openBuild(${item.budgetKey}, ${item.index}, true)"
+            const recommendedClass =
+                position === 0
+                    ? "recommended"
+                    : "";
+
+
+            /* =========================
+               PHẦN FPS
+            ========================= */
+
+            let fpsHTML = "";
+
+
+            selectedGames.forEach(
+                gameID => {
+
+                    const fps =
+                        item.fps[gameID];
+
+
+                    if (!fps) {
+                        return;
+                    }
+
+
+                    const game =
+                        fpsGames.find(
+                            g =>
+                                g.id ===
+                                gameID
+                        );
+
+
+                    if (!game) {
+                        return;
+                    }
+
+
+                    const lowName =
+                        gameID ===
+                        "minecraftShader"
+                            ? "Shader nhẹ"
+                            : "Thấp";
+
+
+                    const mediumName =
+                        gameID ===
+                        "minecraftShader"
+                            ? "Shader vừa"
+                            : "TB";
+
+
+                    const highName =
+                        gameID ===
+                        "minecraftShader"
+                            ? "Shader nặng"
+                            : "Cao";
+
+
+                    fpsHTML += `
+
+                        <div class="consult-fps-item">
+
+                            <div
+                                class="consult-fps-name"
+                            >
+
+                                ${game.name}
+
+                            </div>
+
+
+                            <div
+                                class="consult-fps-values"
+                            >
+
+                                <div
+                                    class="fps-value-low"
+                                >
+
+                                    <span>
+                                        ${lowName}
+                                    </span>
+
+                                    ~${fps[0]}
+
+                                </div>
+
+
+                                <div
+                                    class="fps-value-medium"
+                                >
+
+                                    <span>
+                                        ${mediumName}
+                                    </span>
+
+                                    ~${fps[1]}
+
+                                </div>
+
+
+                                <div
+                                    class="fps-value-high"
+                                >
+
+                                    <span>
+                                        ${highName}
+                                    </span>
+
+                                    ~${fps[2]}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+
+            /* =========================
+               CARD
+            ========================= */
+
+            html += `
+
+                <div
+                    class="
+                        consult-result-card
+                        ${recommendedClass}
+                    "
                 >
 
-                    Xem cấu hình →
+                    <div
+                        class="
+                            consult-result-top
+                        "
+                    >
 
-                </button>
+                        <div
+                            class="
+                                consult-result-name
+                            "
+                        >
 
-            </div>
+                            ${
+                                position === 0
+                                    ? "⭐ "
+                                    : ""
+                            }
 
-        `;
+                            ${build.name}
 
-    });
+                        </div>
 
 
-    resultBox.innerHTML = html;
+                        <div
+                            class="consult-price"
+                        >
+
+                            ${item.price.toLocaleString(
+                                "vi-VN"
+                            )}đ
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="consult-status"
+                    >
+
+                        ${status}
+
+                    </div>
+
+
+                    <!-- CẤU HÌNH -->
+
+                    <div
+                        class="consult-result-info"
+                    >
+
+                        <b>Main:</b>
+                        ${getBuildPart(
+                            build,
+                            "Mainboard"
+                        )}
+
+                        <br>
+
+                        <b>CPU:</b>
+                        ${getBuildPart(
+                            build,
+                            "CPU"
+                        )}
+
+                        <br>
+
+                        <b>RAM:</b>
+                        ${getBuildPart(
+                            build,
+                            "RAM"
+                        )}
+
+                        <br>
+
+                        <b>VGA:</b>
+                        ${getBuildPart(
+                            build,
+                            "VGA"
+                        )}
+
+                        <br>
+
+                        <b>Ổ cứng:</b>
+                        ${
+                            getBuildPart(
+                                build,
+                                "SSD"
+                            ) !== "Không có"
+
+                                ?
+
+                            getBuildPart(
+                                build,
+                                "SSD"
+                            )
+
+                                :
+
+                            getBuildPart(
+                                build,
+                                "HDD"
+                            )
+                        }
+
+                    </div>
+
+
+                    <!-- CHÊNH LỆCH -->
+
+                    <div
+                        class="consult-result-info"
+                    >
+
+                        Chênh lệch ngân sách:
+
+                        <b>
+                            ${item.difference.toLocaleString(
+                                "vi-VN"
+                            )}đ
+                        </b>
+
+                    </div>
+
+
+                    <!-- FPS -->
+
+                    <div
+                        class="consult-fps"
+                    >
+
+                        <div
+                            class="
+                                consult-fps-title
+                            "
+                        >
+
+                            🎮 FPS ước tính
+                            — 1080p
+
+                        </div>
+
+
+                        <div
+                            class="
+                                consult-fps-grid
+                            "
+                        >
+
+                            ${fpsHTML}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- XEM CHI TIẾT -->
+
+                    <button
+                        class="consult-view-btn"
+                        onclick="
+                            openBuild(
+                                ${item.budgetKey},
+                                ${item.index},
+                                true
+                            )
+                        "
+                    >
+
+                        Xem cấu hình →
+
+                    </button>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    resultBox.innerHTML =
+        html;
 
 }
 
@@ -2362,6 +3310,476 @@ function findConsultBuilds() {
 /* =====================================================
    CUỘN TỚI CẤU HÌNH
 ===================================================== */
+/* =====================================================
+   HỆ THỐNG FPS THAM KHẢO
+===================================================== */
+
+
+/*
+   FPS GỐC THEO VGA
+
+   Mỗi game:
+   [LOW, MEDIUM, HIGH]
+
+   1080p
+*/
+
+
+const fpsDatabase = {
+
+    "CMP 30HX": {
+
+        valorant: [180, 150, 120],
+        lol: [220, 180, 150],
+        minecraft: [180, 150, 120],
+        minecraftShader: [90, 65, 45],
+        deltaforce: [75, 55, 40],
+        cs2: [120, 95, 75],
+        genshin: [80, 60, 45],
+        honkai: [75, 55, 40],
+        wukong: [35, 27, 20]
+
+    },
+
+    "GTX 960 2G D5": {
+
+        valorant: [170, 140, 110],
+        lol: [200, 165, 135],
+        minecraft: [160, 130, 100],
+        minecraftShader: [70, 50, 35],
+        deltaforce: [55, 42, 32],
+        cs2: [100, 80, 60],
+        genshin: [65, 50, 38],
+        honkai: [60, 45, 35],
+        wukong: [25, 20, 15]
+
+    },
+
+    "GTX 950 2G D5": {
+
+        valorant: [160, 125, 95],
+        lol: [180, 150, 120],
+        minecraft: [145, 115, 90],
+        minecraftShader: [60, 43, 30],
+        deltaforce: [45, 34, 25],
+        cs2: [90, 70, 55],
+        genshin: [55, 42, 32],
+        honkai: [50, 38, 28],
+        wukong: [22, 17, 13]
+
+    },
+
+    "GTX 660 2G D5": {
+
+        valorant: [140, 110, 85],
+        lol: [160, 135, 110],
+        minecraft: [125, 100, 75],
+        minecraftShader: [50, 35, 25],
+        deltaforce: [38, 29, 22],
+        cs2: [70, 55, 42],
+        genshin: [45, 35, 27],
+        honkai: [42, 32, 24],
+        wukong: [18, 14, 10]
+
+    },
+
+    "GTS 450": {
+
+        valorant: [85, 65, 50],
+        lol: [100, 85, 70],
+        minecraft: [75, 60, 48],
+        minecraftShader: [30, 22, 16],
+        deltaforce: [20, 16, 12],
+        cs2: [40, 32, 25],
+        genshin: [25, 19, 14],
+        honkai: [23, 18, 13],
+        wukong: [10, 8, 6]
+
+    },
+
+    "GT 730 2GB": {
+
+        valorant: [65, 50, 38],
+        lol: [80, 65, 50],
+        minecraft: [60, 48, 38],
+        minecraftShader: [25, 18, 13],
+        deltaforce: [15, 11, 8],
+        cs2: [30, 24, 18],
+        genshin: [20, 15, 11],
+        honkai: [18, 14, 10],
+        wukong: [8, 6, 4]
+
+    },
+
+    "Vega 8": {
+
+        valorant: [90, 70, 50],
+        lol: [110, 90, 70],
+        minecraft: [80, 65, 50],
+        minecraftShader: [35, 26, 18],
+        deltaforce: [25, 19, 14],
+        cs2: [45, 35, 25],
+        genshin: [30, 23, 17],
+        honkai: [28, 21, 16],
+        wukong: [10, 8, 6]
+
+    }
+
+};
+
+
+/* =====================================================
+   TÊN GAME
+===================================================== */
+
+const fpsGames = [
+
+    {
+        id: "valorant",
+        name: "🎯 Valorant",
+        description: "1080p — Low / Medium / High"
+    },
+
+    {
+        id: "lol",
+        name: "⚔️ Liên Minh Huyền Thoại",
+        description: "1080p — Low / Medium / High"
+    },
+
+    {
+        id: "minecraft",
+        name: "⛏️ Minecraft",
+        description: "1080p — Low / Medium / High"
+    },
+
+    {
+        id: "minecraftShader",
+        name: "🌄 Minecraft + Shader",
+        description: "Shader nhẹ / vừa / nặng"
+    },
+
+    {
+        id: "deltaforce",
+        name: "🔫 Delta Force",
+        description: "1080p — Low / Medium / High"
+    },
+
+    {
+        id: "cs2",
+        name: "🎯 Counter-Strike 2",
+        description: "1080p — Low / Medium / High"
+    },
+
+    {
+        id: "genshin",
+        name: "🌌 Genshin Impact",
+        description: "1080p — Low / Medium / High"
+    },
+
+    {
+        id: "honkai",
+        name: "🚂 Honkai: Star Rail",
+        description: "1080p — Low / Medium / High"
+    },
+
+    {
+        id: "wukong",
+        name: "🐒 Black Myth: Wukong",
+        description: "1080p — Low / Medium / High"
+    }
+
+];
+
+
+/* =====================================================
+   LẤY LINH KIỆN
+===================================================== */
+
+function getBuildPart(build, type) {
+
+    const part = build.parts.find(item => {
+
+        return item[0].toLowerCase() === type.toLowerCase();
+
+    });
+
+    return part ? part[1] : "Không có";
+
+}
+
+
+/* =====================================================
+   XÁC ĐỊNH VGA
+===================================================== */
+
+function getBuildGPU(build) {
+
+    const gpu = getBuildPart(build, "VGA");
+
+    if (gpu.includes("GTX 960")) {
+        return "GTX 960 2G D5";
+    }
+
+    if (gpu.includes("GTX 950")) {
+        return "GTX 950 2G D5";
+    }
+
+    if (gpu.includes("GTX 660")) {
+        return "GTX 660 2G D5";
+    }
+
+    if (gpu.includes("CMP 30HX")) {
+        return "CMP 30HX";
+    }
+
+    if (gpu.includes("GTS 450")) {
+        return "GTS 450";
+    }
+
+    if (gpu.includes("GT 730")) {
+        return "GT 730 2GB";
+    }
+
+    /*
+       Ryzen 3 2200G không có VGA rời
+       → dùng Vega 8
+    */
+
+    const cpu = getBuildPart(build, "CPU");
+
+    if (cpu.includes("2200G")) {
+        return "Vega 8";
+    }
+
+    return null;
+
+}
+
+
+/* =====================================================
+   HỆ SỐ CPU
+===================================================== */
+
+function getCPUFactor(cpu) {
+
+    cpu = cpu.toUpperCase();
+
+    if (cpu.includes("I5 4690")) {
+        return 1.08;
+    }
+
+    if (cpu.includes("I5 6500")) {
+        return 1.12;
+    }
+
+    if (cpu.includes("I5 9500")) {
+        return 1.18;
+    }
+
+    if (cpu.includes("I5 2500")) {
+        return 0.92;
+    }
+
+    if (cpu.includes("I3 8100")) {
+        return 1.00;
+    }
+
+    if (cpu.includes("I3 9100")) {
+        return 1.06;
+    }
+
+    if (cpu.includes("I3 10100")) {
+        return 1.12;
+    }
+
+    if (cpu.includes("E5 2676")) {
+        return 1.02;
+    }
+
+    if (cpu.includes("E5 2680")) {
+        return 1.04;
+    }
+
+    if (cpu.includes("E3 1230")) {
+        return 1.00;
+    }
+
+    if (cpu.includes("RYZEN 3 2200G")) {
+        return 1.00;
+    }
+
+    if (cpu.includes("RYZEN 5 2600")) {
+        return 1.08;
+    }
+
+    return 1;
+}
+
+
+/* =====================================================
+   HỆ SỐ RAM
+===================================================== */
+
+function getRAMFactor(ram) {
+
+    ram = ram.toUpperCase();
+
+    if (
+        ram.includes("2X8GB") ||
+        ram.includes("16GB")
+    ) {
+
+        return 1.08;
+
+    }
+
+    if (ram.includes("8GB")) {
+
+        return 1;
+
+    }
+
+    if (ram.includes("2X4GB")) {
+
+        return 0.92;
+
+    }
+
+    return 0.95;
+
+}
+
+
+/* =====================================================
+   HỆ SỐ STORAGE
+
+   SSD = tốt nhất
+   HDD = giảm nhẹ
+   HDD Laptop = giảm thêm một chút
+
+   Không làm FPS giảm quá mạnh vì SSD/HDD
+   chủ yếu ảnh hưởng loading và stutter.
+===================================================== */
+
+function getStorageFactor(build) {
+
+    const parts = build.parts.map(part => part[1].toUpperCase());
+
+    if (
+        parts.some(x =>
+            x.includes("SSD")
+        )
+    ) {
+
+        return 1.00;
+
+    }
+
+    if (
+        parts.some(x =>
+            x.includes("LAPTOP 500GB")
+        )
+    ) {
+
+        return 0.96;
+
+    }
+
+    if (
+        parts.some(x =>
+            x.includes("HDD")
+        )
+    ) {
+
+        return 0.97;
+
+    }
+
+    return 1;
+
+}
+
+
+/* =====================================================
+   TÍNH FPS
+===================================================== */
+
+function getBuildFPS(build, gameID) {
+
+    const gpu = getBuildGPU(build);
+
+    if (!gpu) {
+        return null;
+    }
+
+    const database = fpsDatabase[gpu];
+
+    if (!database) {
+        return null;
+    }
+
+    const baseFPS = database[gameID];
+
+    if (!baseFPS) {
+        return null;
+    }
+
+    const cpu = getBuildPart(build, "CPU");
+    const ram = getBuildPart(build, "RAM");
+
+    const cpuFactor = getCPUFactor(cpu);
+    const ramFactor = getRAMFactor(ram);
+    const storageFactor = getStorageFactor(build);
+
+    const factor =
+        cpuFactor *
+        ramFactor *
+        storageFactor;
+
+    return baseFPS.map(fps => {
+
+        return Math.max(
+            5,
+            Math.round(fps * factor)
+        );
+
+    });
+
+}
+
+
+/* =====================================================
+   HIỂN THỊ FPS
+===================================================== */
+
+
+
+
+
+
+
+/* =====================================================
+   HAMBURGER MENU
+===================================================== */
+
+function toggleMenu() {
+
+    const menu =
+        document.getElementById("sideMenu");
+
+    menu.classList.toggle("show");
+
+}
+
+
+function closeMenu() {
+
+    const menu =
+        document.getElementById("sideMenu");
+
+    menu.classList.remove("show");
+
+}
 
 function scrollToBuild() {
 
