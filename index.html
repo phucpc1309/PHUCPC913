@@ -622,6 +622,19 @@ nav button.active {
     font-size: 12px;
     margin-bottom: 7px;
 }
+.consult-game-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.consult-fps-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
 .consult-fps-values {
     display: grid;
@@ -3195,13 +3208,19 @@ results =
 
                         <div class="consult-fps-item">
 
-                            <div
-                                class="consult-fps-name"
-                            >
+                            <div class="consult-fps-name">
 
-                                ${game.name}
+    <img
+        src="${game.icon}"
+        class="consult-game-icon"
+        alt=""
+    >
 
-                            </div>
+    <span>
+        ${game.name}
+    </span>
+
+</div>
 
 
                             <div class="consult-fps-values">
@@ -3623,75 +3642,87 @@ const fpsGames = [
 
     {
         id: "valorant",
-        name: "🎯 Valorant",
+        name: "Valorant",
+        icon: "images/games/valorant.png",
         description: "1080p — Low / Medium / High"
     },
 
     {
         id: "lol",
-        name: "⚔️ Liên Minh Huyền Thoại",
+        name: "Liên Minh Huyền Thoại",
+        icon: "images/games/lol.png",
         description: "1080p — Low / Medium / High"
     },
 
     {
         id: "minecraft",
-        name: "⛏️ Minecraft",
+        name: "Minecraft",
+        icon: "images/games/minecraft.png",
         description: "1080p — Low / Medium / High"
     },
 
     {
         id: "minecraftShader",
-        name: "🌄 Minecraft + Shader",
+        name: "Minecraft + Shader",
+        icon: "images/games/minecraft.png",
         description: "Shader nhẹ / vừa / nặng"
     },
 
     {
         id: "deltaforce",
-        name: "🔫 Delta Force",
+        name: "Delta Force",
+        icon: "images/games/deltaforce.png",
         description: "1080p — Low / Medium / High"
     },
 
     {
         id: "cs2",
-        name: "🎯 Counter-Strike 2",
+        name: "Counter-Strike 2",
+        icon: "images/games/cs2.png",
         description: "1080p — Low / Medium / High"
     },
 
     {
         id: "genshin",
-        name: "🌌 Genshin Impact",
+        name: "Genshin Impact",
+        icon: "images/games/genshin.png",
         description: "1080p — Low / Medium / High"
     },
 
     {
         id: "honkai",
-        name: "🚂 Honkai: Star Rail",
+        name: "Honkai: Star Rail",
+        icon: "images/games/honkai.png",
         description: "1080p — Low / Medium / High"
     },
 
     {
-    id: "wukong",
-    name: "🐒 Black Myth: Wukong",
-    description: "1080p — Low / Medium / High"
-},
+        id: "wukong",
+        name: "Black Myth: Wukong",
+        icon: "images/games/wukong.png",
+        description: "1080p — Low / Medium / High"
+    },
 
-{
-    id: "freefire",
-    name: "🔥 Free Fire",
-    description: "Giả lập — Low / Medium / High"
-},
+    {
+        id: "freefire",
+        name: "Free Fire",
+        icon: "images/games/freefire.png",
+        description: "Giả lập — Low / Medium / High"
+    },
 
-{
-    id: "wuthering",
-    name: "🌊 Wuthering Waves",
-    description: "1080p — Low / Medium / High"
-},
+    {
+        id: "wuthering",
+        name: "Wuthering Waves",
+        icon: "images/games/wuthering.png",
+        description: "1080p — Low / Medium / High"
+    },
 
-{
-    id: "callofduty",
-    name: "🎖️ Call of Duty",
-    description: "1080p — Low / Medium / High"
-}
+    {
+        id: "callofduty",
+        name: "Call of Duty",
+        icon: "images/games/callofduty.png",
+        description: "1080p — Low / Medium / High"
+    }
 
 ];
 
