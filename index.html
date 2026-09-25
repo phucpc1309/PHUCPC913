@@ -551,7 +551,9 @@ nav button.active {
     color: #ccc;
     transition: .2s;
     min-width: 0;
+    width: 100%;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .game-icon {
@@ -563,7 +565,12 @@ nav button.active {
 }
 
 .game-option span {
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    min-width: 0;
+    flex: 1;
+    line-height: 1.3;
 }
 
 .game-option:hover {
@@ -647,6 +654,19 @@ nav button.active {
 
 .fps-value-high {
     color: #ff7777;
+}
+
+.consult-fps-values b {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.consult-fps-values small {
+    display: block;
+    color: #777;
+    font-size: 9px;
+    font-weight: normal;
 }
 
 
@@ -1673,6 +1693,43 @@ margin-left: calc(50% - 50vw + 10px);
                     <img src="images/wukong.png" class="game-icon" alt="Black Myth: Wukong"><span>Black Myth: Wukong</span>
 
                 </label>
+                <label class="game-option">
+
+    <input
+        type="checkbox"
+        name="gameSelect"
+        value="freefire"
+    >
+
+    <img src="images/freefire.png" class="game-icon" alt="Free Fire"><span>Free Fire</span>
+
+</label>
+
+
+<label class="game-option">
+
+    <input
+        type="checkbox"
+        name="gameSelect"
+        value="wuthering"
+    >
+
+    <img src="images/wuthering.png" class="game-icon" alt="Wuthering Waves"><span>Wuthering Waves</span>
+
+</label>
+
+
+<label class="game-option">
+
+    <input
+        type="checkbox"
+        name="gameSelect"
+        value="callofduty"
+    >
+
+    <img src="images/callofduty.png" class="game-icon" alt="Call of Duty"><span>Call of Duty</span>
+
+</label>
 
             </div>
 
@@ -2517,36 +2574,50 @@ function parseBudget(value) {
     value = value
         .toString()
         .toLowerCase()
-        .replace(/\s/g, "")
-        .replace(/\./g, "")
-        .replace(/,/g, "");
+        .trim();
 
+    // Xóa khoảng trắng
+    value = value.replace(/\s/g, "");
 
-    if (value.includes("triệu")) {
+    // ================================
+    // CÓ "TRIỆU" HOẶC "TR"
+    // ================================
+    if (
+        value.includes("triệu") ||
+        value.includes("tr")
+    ) {
 
-        value = parseFloat(
-            value.replace("triệu", "")
-        ) * 1000000;
+        value = value
+            .replace("triệu", "")
+            .replace("tr", "");
 
+        // Đổi dấu phẩy thành dấu chấm
+        // 3,5tr → 3.5
+        value = value.replace(",", ".");
+
+        const number = parseFloat(value);
+
+        if (isNaN(number)) {
+            return NaN;
+        }
+
+        return number * 1000000;
     }
 
-    else if (value.includes("tr")) {
+    // ================================
+    // NHẬP TIỀN BẰNG SỐ
+    // ================================
+    // 3500000 → 3500000
+    // 3.500.000 → 3500000
+    // 3,500,000 → 3500000
+    // ================================
 
-        value = parseFloat(
-            value.replace("tr", "")
-        ) * 1000000;
+    value = value.replace(/\./g, "");
+    value = value.replace(/,/g, "");
 
-    }
+    const number = parseFloat(value);
 
-    else {
-
-        value = parseFloat(value);
-
-    }
-
-
-    return Number(value);
-
+    return Number(number);
 }
 
 
@@ -2809,66 +2880,139 @@ function findConsultBuilds() {
     );
 
 
-    /* =========================
-       XẾP HẠNG
-    ========================= */
+   /* =========================
+   XẾP HẠNG CẤU HÌNH
+========================= */
 
-    results.sort((a, b) => {
+results.forEach(item => {
 
-        /*
-           Ưu tiên ĐÁNG MUA
-        */
+    const fpsValues = [];
 
-        const aRecommended =
-            a.build.badge &&
-            a.build.badge.includes(
-                "ĐÁNG MUA"
-            )
-                ? 1
-                : 0;
+    selectedGames.forEach(gameID => {
 
+        const fps = item.fps[gameID];
 
-        const bRecommended =
-            b.build.badge &&
-            b.build.badge.includes(
-                "ĐÁNG MUA"
-            )
-                ? 1
-                : 0;
+        if (fps) {
 
+            /*
+               Lấy FPS trung bình
+               Low + Medium + High
+            */
 
-        if (
-            aRecommended !==
-            bRecommended
-        ) {
+            const avgFPS =
+                (
+                    fps[0] +
+                    fps[1] +
+                    fps[2]
+                ) / 3;
 
-            return (
-                bRecommended -
-                aRecommended
-            );
+            fpsValues.push(avgFPS);
 
         }
-
-
-        /*
-           Sau đó ưu tiên
-           cấu hình gần ngân sách
-        */
-
-        return (
-            a.difference -
-            b.difference
-        );
 
     });
 
 
     /*
-       Tối đa 6 cấu hình
+       FPS trung bình của tất cả
+       game người dùng đã chọn
     */
 
-    results =
-        results.slice(0, 6);
+    item.averageFPS =
+        fpsValues.length > 0
+
+            ? fpsValues.reduce(
+                (sum, fps) => sum + fps,
+                0
+            ) / fpsValues.length
+
+            : 0;
+
+});
+
+
+/*
+   XẾP HẠNG:
+
+   1. Gần ngân sách nhất
+   2. Nếu giá gần nhau → FPS cao hơn
+*/
+
+results.sort((a, b) => {
+
+    /*
+       Khoảng chênh lệch giá
+    */
+
+    const differenceA =
+        Math.abs(a.price - budget);
+
+    const differenceB =
+        Math.abs(b.price - budget);
+
+
+    /*
+       Nếu chênh lệch giá khác nhau
+       đáng kể → ưu tiên bộ gần tiền hơn
+    */
+
+    const priceTolerance = budget * 0.05;
+
+if (
+    Math.abs(
+        differenceA -
+        differenceB
+    ) > priceTolerance
+) {
+
+        return (
+            differenceA -
+            differenceB
+        );
+
+    }
+
+
+    /*
+       Nếu giá gần nhau trong khoảng 200k
+       → FPS cao hơn đứng trước
+    */
+
+    if (
+        b.averageFPS !==
+        a.averageFPS
+    ) {
+
+        return (
+            b.averageFPS -
+            a.averageFPS
+        );
+
+    }
+
+
+    /*
+       Nếu FPS cũng gần như nhau
+       → tiếp tục ưu tiên giá gần ngân sách
+    */
+
+    return (
+        differenceA -
+        differenceB
+    );
+
+});
+
+
+/*
+   Tối đa 6 cấu hình
+*/
+
+results =
+    results.slice(0, 6);
+
+
+   
 
 
     /* =========================
@@ -3060,49 +3204,59 @@ function findConsultBuilds() {
                             </div>
 
 
-                            <div
-                                class="consult-fps-values"
-                            >
+                            <div class="consult-fps-values">
 
-                                <div
-                                    class="fps-value-low"
-                                >
+    <div class="fps-value-low">
 
-                                    <span>
-                                        ${lowName}
-                                    </span>
+        <span>
+            ${lowName}
+        </span>
 
-                                    ~${fps[0]}
+        <b>
+            ~${fps.average[0]} FPS
+        </b>
 
-                                </div>
+        <small>
+            1% Low: ~${fps.low1Percent[0]}
+        </small>
 
-
-                                <div
-                                    class="fps-value-medium"
-                                >
-
-                                    <span>
-                                        ${mediumName}
-                                    </span>
-
-                                    ~${fps[1]}
-
-                                </div>
+    </div>
 
 
-                                <div
-                                    class="fps-value-high"
-                                >
+    <div class="fps-value-medium">
 
-                                    <span>
-                                        ${highName}
-                                    </span>
+        <span>
+            ${mediumName}
+        </span>
 
-                                    ~${fps[2]}
+        <b>
+            ~${fps.average[1]} FPS
+        </b>
 
-                                </div>
+        <small>
+            1% Low: ~${fps.low1Percent[1]}
+        </small>
 
-                            </div>
+    </div>
+
+
+    <div class="fps-value-high">
+
+        <span>
+            ${highName}
+        </span>
+
+        <b>
+            ~${fps.average[2]} FPS
+        </b>
+
+        <small>
+            1% Low: ~${fps.low1Percent[2]}
+        </small>
+
+    </div>
+
+</div>
 
                         </div>
 
@@ -3334,101 +3488,129 @@ const fpsDatabase = {
 
     "CMP 30HX": {
 
-        valorant: [180, 150, 120],
-        lol: [220, 180, 150],
-        minecraft: [180, 150, 120],
-        minecraftShader: [90, 65, 45],
-        deltaforce: [75, 55, 40],
-        cs2: [120, 95, 75],
-        genshin: [80, 60, 45],
-        honkai: [75, 55, 40],
-        wukong: [35, 27, 20]
+    valorant: [180, 150, 120],
+    lol: [220, 180, 150],
+    minecraft: [180, 150, 120],
+    minecraftShader: [90, 65, 45],
+    deltaforce: [75, 55, 40],
+    cs2: [120, 95, 75],
+    genshin: [80, 60, 45],
+    honkai: [75, 55, 40],
+    wukong: [35, 27, 20],
 
-    },
+    freefire: [120, 100, 80],
+    wuthering: [35, 27, 20],
+    callofduty: [40, 30, 22]
+
+},
 
     "GTX 960 2G D5": {
 
-        valorant: [170, 140, 110],
-        lol: [200, 165, 135],
-        minecraft: [160, 130, 100],
-        minecraftShader: [70, 50, 35],
-        deltaforce: [55, 42, 32],
-        cs2: [100, 80, 60],
-        genshin: [65, 50, 38],
-        honkai: [60, 45, 35],
-        wukong: [25, 20, 15]
+    valorant: [170, 140, 110],
+    lol: [200, 165, 135],
+    minecraft: [160, 130, 100],
+    minecraftShader: [70, 50, 35],
+    deltaforce: [55, 42, 32],
+    cs2: [100, 80, 60],
+    genshin: [65, 50, 38],
+    honkai: [60, 45, 35],
+    wukong: [25, 20, 15],
 
-    },
+    freefire: [110, 90, 70],
+    wuthering: [30, 23, 17],
+    callofduty: [32, 25, 18]
+
+},
 
     "GTX 950 2G D5": {
 
-        valorant: [160, 125, 95],
-        lol: [180, 150, 120],
-        minecraft: [145, 115, 90],
-        minecraftShader: [60, 43, 30],
-        deltaforce: [45, 34, 25],
-        cs2: [90, 70, 55],
-        genshin: [55, 42, 32],
-        honkai: [50, 38, 28],
-        wukong: [22, 17, 13]
+    valorant: [160, 125, 95],
+    lol: [180, 150, 120],
+    minecraft: [145, 115, 90],
+    minecraftShader: [60, 43, 30],
+    deltaforce: [45, 34, 25],
+    cs2: [90, 70, 55],
+    genshin: [55, 42, 32],
+    honkai: [50, 38, 28],
+    wukong: [22, 17, 13],
 
-    },
+    freefire: [100, 80, 60],
+    wuthering: [25, 19, 14],
+    callofduty: [27, 21, 16]
+
+},
 
     "GTX 660 2G D5": {
 
-        valorant: [140, 110, 85],
-        lol: [160, 135, 110],
-        minecraft: [125, 100, 75],
-        minecraftShader: [50, 35, 25],
-        deltaforce: [38, 29, 22],
-        cs2: [70, 55, 42],
-        genshin: [45, 35, 27],
-        honkai: [42, 32, 24],
-        wukong: [18, 14, 10]
+    valorant: [140, 110, 85],
+    lol: [160, 135, 110],
+    minecraft: [125, 100, 75],
+    minecraftShader: [50, 35, 25],
+    deltaforce: [38, 29, 22],
+    cs2: [70, 55, 42],
+    genshin: [45, 35, 27],
+    honkai: [42, 32, 24],
+    wukong: [18, 14, 10],
 
-    },
+    freefire: [85, 68, 52],
+    wuthering: [20, 15, 11],
+    callofduty: [22, 17, 13]
+
+},
 
     "GTS 450": {
 
-        valorant: [85, 65, 50],
-        lol: [100, 85, 70],
-        minecraft: [75, 60, 48],
-        minecraftShader: [30, 22, 16],
-        deltaforce: [20, 16, 12],
-        cs2: [40, 32, 25],
-        genshin: [25, 19, 14],
-        honkai: [23, 18, 13],
-        wukong: [10, 8, 6]
+    valorant: [85, 65, 50],
+    lol: [100, 85, 70],
+    minecraft: [75, 60, 48],
+    minecraftShader: [30, 22, 16],
+    deltaforce: [20, 16, 12],
+    cs2: [40, 32, 25],
+    genshin: [25, 19, 14],
+    honkai: [23, 18, 13],
+    wukong: [10, 8, 6],
 
-    },
+    freefire: [55, 42, 32],
+    wuthering: [12, 9, 7],
+    callofduty: [14, 10, 7]
+
+},
 
     "GT 730 2GB": {
 
-        valorant: [65, 50, 38],
-        lol: [80, 65, 50],
-        minecraft: [60, 48, 38],
-        minecraftShader: [25, 18, 13],
-        deltaforce: [15, 11, 8],
-        cs2: [30, 24, 18],
-        genshin: [20, 15, 11],
-        honkai: [18, 14, 10],
-        wukong: [8, 6, 4]
+    valorant: [65, 50, 38],
+    lol: [80, 65, 50],
+    minecraft: [60, 48, 38],
+    minecraftShader: [25, 18, 13],
+    deltaforce: [15, 11, 8],
+    cs2: [30, 24, 18],
+    genshin: [20, 15, 11],
+    honkai: [18, 14, 10],
+    wukong: [8, 6, 4],
 
-    },
+    freefire: [45, 35, 27],
+    wuthering: [8, 6, 4],
+    callofduty: [10, 8, 6]
+
+},
 
     "Vega 8": {
 
-        valorant: [90, 70, 50],
-        lol: [110, 90, 70],
-        minecraft: [80, 65, 50],
-        minecraftShader: [35, 26, 18],
-        deltaforce: [25, 19, 14],
-        cs2: [45, 35, 25],
-        genshin: [30, 23, 17],
-        honkai: [28, 21, 16],
-        wukong: [10, 8, 6]
+    valorant: [90, 70, 50],
+    lol: [110, 90, 70],
+    minecraft: [80, 65, 50],
+    minecraftShader: [35, 26, 18],
+    deltaforce: [25, 19, 14],
+    cs2: [45, 35, 25],
+    genshin: [30, 23, 17],
+    honkai: [28, 21, 16],
+    wukong: [10, 8, 6],
 
-    }
+    freefire: [60, 48, 36],
+    wuthering: [15, 11, 8],
+    callofduty: [15, 11, 8]
+
+}
 
 };
 
@@ -3488,10 +3670,28 @@ const fpsGames = [
     },
 
     {
-        id: "wukong",
-        name: "🐒 Black Myth: Wukong",
-        description: "1080p — Low / Medium / High"
-    }
+    id: "wukong",
+    name: "🐒 Black Myth: Wukong",
+    description: "1080p — Low / Medium / High"
+},
+
+{
+    id: "freefire",
+    name: "🔥 Free Fire",
+    description: "Giả lập — Low / Medium / High"
+},
+
+{
+    id: "wuthering",
+    name: "🌊 Wuthering Waves",
+    description: "1080p — Low / Medium / High"
+},
+
+{
+    id: "callofduty",
+    name: "🎖️ Call of Duty",
+    description: "1080p — Low / Medium / High"
+}
 
 ];
 
@@ -3734,21 +3934,53 @@ function getBuildFPS(build, gameID) {
 
     const cpuFactor = getCPUFactor(cpu);
     const ramFactor = getRAMFactor(ram);
-    const storageFactor = getStorageFactor(build);
+
+    /*
+       SSD / HDD chủ yếu ảnh hưởng loading
+       nên không dùng để giảm FPS nữa.
+    */
 
     const factor =
         cpuFactor *
-        ramFactor *
-        storageFactor;
+        ramFactor;
 
-    return baseFPS.map(fps => {
+    /*
+       baseFPS:
+       [LOW, MEDIUM, HIGH]
+
+       1% LOW được ước lượng
+       khoảng 65% - 75% FPS trung bình.
+
+       Đây là ước lượng,
+       không phải số đo benchmark thực tế.
+    */
+
+    const average = baseFPS.map(fps => {
 
         return Math.max(
             5,
-            Math.round(fps * factor)
+            Math.round(
+                fps * factor
+            )
         );
 
     });
+
+    const low1Percent = average.map(fps => {
+
+        return Math.max(
+            5,
+            Math.round(
+                fps * 0.70
+            )
+        );
+
+    });
+
+    return {
+        average: average,
+        low1Percent: low1Percent
+    };
 
 }
 
