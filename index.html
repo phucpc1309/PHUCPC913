@@ -4,7 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="PHUC PC - Tham khảo cấu hình PC Gaming từ 1 triệu đến 6 triệu, linh kiện và thông tin chi tiết.">
-<title>PHUC PC - Cấu hình PC Gaming</title>
+<title>PHUC PC - Build PC Gaming Giá Rẻ | Tư Vấn & So Sánh FPS</title>
+<meta name="description" content="PHUC PC - Build PC Gaming theo ngân sách 1-6 triệu, tư vấn cấu hình, so sánh PC, FPS game và linh kiện. FPS chỉ mang tính tham khảo.">
+<meta name="keywords" content="PHUC PC, build PC giá rẻ, PC gaming, so sánh PC, FPS PC, tư vấn build PC">
+<meta name="author" content="PHUC PC">
+<meta name="theme-color" content="#080808">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23080808'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-size='58' font-family='Arial' fill='%23ff3030'%3EP%3C/text%3E%3C/svg%3E">
+
+<link rel="canonical" href="https://phucpc1309.github.io/PHUCPC913/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PHUC PC - Build PC Gaming Giá Rẻ">
+<meta property="og:description" content="Tư vấn build PC, so sánh cấu hình và FPS game theo ngân sách.">
+<meta property="og:url" content="https://phucpc1309.github.io/PHUCPC913/">
+<meta property="og:site_name" content="PHUC PC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHUC PC - Build PC Gaming Giá Rẻ">
+<meta name="twitter:description" content="Tư vấn build PC, so sánh cấu hình và FPS game theo ngân sách.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23080808'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-size='58' font-family='Arial' fill='%23ff3030'%3EP%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1312,9 +1329,417 @@ margin-left: calc(50% - 50vw + 10px);
     }
 
 }
+/* =====================================================
+   ĐÁNH GIÁ CẤU HÌNH TƯ VẤN
+===================================================== */
+
+.consult-evaluation {
+    margin-top: 18px;
+    padding: 16px;
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 10px;
+}
+
+.consult-evaluation-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.consult-rating {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: rgba(255,48,48,.10);
+    border: 1px solid #ff3030;
+    color: #ff5555;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.consult-evaluation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.consult-evaluation-box {
+    background: #111;
+    border: 1px solid #252525;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.consult-evaluation-box h4 {
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.consult-strength h4 {
+    color: #5cff7a;
+}
+
+.consult-weakness h4 {
+    color: #ff7777;
+}
+
+.consult-evaluation-box ul {
+    padding-left: 18px;
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.consult-evaluation-note {
+    margin-top: 10px;
+    color: #666;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+@media(max-width: 600px) {
+
+    .consult-evaluation-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =====================================================
+   SO SÁNH PC
+===================================================== */
+
+#comparePage {
+    display: none;
+    min-height: 70vh;
+    padding-bottom: 60px;
+}
+
+/* ===== ICON GAME SO SÁNH PC ===== */
+
+.compare-page-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.compare-page-title img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    border-radius: 7px;
+    flex-shrink: 0;
+}
+
+.compare-box {
+    max-width: 700px;
+    margin: 10px auto 35px;
+    background: #111;
+    border: 1px solid #242424;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.compare-box label {
+    display: block;
+    color: #ddd;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.compare-box select {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    background: #181818;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 9px;
+    outline: none;
+}
+
+.compare-box select:focus {
+    border-color: #ff3030;
+}
+
+.compare-btn {
+    width: 100%;
+    padding: 15px;
+    background: #ff3030;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.compare-btn:hover {
+    background: #e52222;
+}
+
+.compare-result {
+    background: #111;
+    border: 1px solid #292929;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.compare-result-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.compare-column {
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.compare-column h3 {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.compare-column p {
+    color: #aaa;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.compare-column strong {
+    color: #ddd;
+}
+
+.compare-fps {
+    margin-top: 18px;
+}
+
+.compare-fps-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+.compare-game-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 7px;
+    flex-shrink: 0;
+}
+
+
+.compare-fps-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.compare-fps-table th,
+.compare-fps-table td {
+    padding: 10px;
+    border: 1px solid #292929;
+    text-align: center;
+}
+
+.compare-fps-table th {
+    background: #191919;
+    color: #aaa;
+}
+
+.compare-fps-table td {
+    background: #111;
+}
+
+.compare-win {
+    color: #5cff7a !important;
+    font-weight: bold;
+}
+
+.compare-loss {
+    color: #ff7777 !important;
+}
+
+.compare-evaluation {
+    margin-top: 18px;
+    padding: 15px;
+    background: #101010;
+    border-radius: 10px;
+    border: 1px solid #292929;
+}
+
+.compare-evaluation h4 {
+    margin-bottom: 10px;
+}
+
+.compare-strength {
+    color: #5cff7a;
+}
+
+.compare-weakness {
+    color: #ff7777;
+}
+
+.compare-evaluation ul {
+    padding-left: 20px;
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.compare-overall {
+    margin-top: 18px;
+    padding: 15px;
+    background: #151515;
+    border: 1px solid #ff3030;
+    border-radius: 10px;
+    color: #ddd;
+    line-height: 1.7;
+}
+
+@media(max-width: 700px) {
+
+    .compare-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ================= PHUC PC PRO UPGRADE ================= */
+.compare-pro{margin-top:20px;padding:20px;background:linear-gradient(145deg,#121212,#0c0c0c);border:1px solid #303030;border-radius:14px}
+.compare-pro-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.compare-pro-title h3{font-size:19px}
+.compare-pro-badge{padding:6px 10px;border-radius:20px;background:rgba(255,48,48,.12);border:1px solid rgba(255,48,48,.4);color:#ff5555;font-size:11px;font-weight:800}
+.compare-pro-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.compare-pro-card{background:#171717;border:1px solid #292929;border-radius:11px;padding:15px}.compare-pro-card h4{margin-bottom:13px;font-size:15px}
+.compare-metric{margin:12px 0}.compare-metric-top{display:flex;justify-content:space-between;gap:10px;color:#aaa;font-size:11px;margin-bottom:6px}.compare-metric-top b{color:#fff}
+.compare-meter{width:100%;height:9px;background:#0b0b0b;border-radius:99px;overflow:hidden;border:1px solid #252525}.compare-meter-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#e50914,#ff5252);transition:width .5s ease}
+.compare-pro-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}.compare-pro-stat{padding:11px 8px;background:#111;border:1px solid #272727;border-radius:9px;text-align:center}.compare-pro-stat span{display:block;color:#666;font-size:9px;margin-bottom:5px}.compare-pro-stat b{font-size:14px;color:#fff}
+.compare-delta{margin-top:15px;padding:12px;border-radius:10px;background:#111;border:1px solid #292929;color:#ccc;font-size:12px;line-height:1.7}.compare-delta strong{color:#fff}
+.detail-pro-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin-bottom:18px}.detail-pro-actions{display:flex;gap:8px;flex-wrap:wrap}.detail-action-btn{border:1px solid #333;background:#181818;color:#ddd;border-radius:8px;padding:9px 12px;cursor:pointer;font-weight:bold;font-size:12px}.detail-action-btn:hover{border-color:#ff3030;color:#fff;background:#211111}.detail-action-btn.favorite-active{background:#ff3030;border-color:#ff3030;color:#fff}
+.detail-summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:22px}.detail-summary-card{background:#151515;border:1px solid #292929;border-radius:10px;padding:13px}.detail-summary-card span{display:block;color:#666;font-size:10px;margin-bottom:5px}.detail-summary-card b{font-size:13px;color:#fff}
+.detail-fps-section{margin-top:22px;padding:17px;background:#111;border:1px solid #292929;border-radius:12px}.detail-fps-section h3{margin-bottom:12px}.detail-fps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.detail-fps-card{background:#171717;border:1px solid #282828;border-radius:9px;padding:11px}.detail-fps-card-top{display:flex;align-items:center;gap:8px;color:#ddd;font-size:12px;font-weight:bold;margin-bottom:9px}.detail-fps-card-top img{width:25px;height:25px;object-fit:contain;border-radius:5px}.detail-fps-values{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;text-align:center}.detail-fps-values div{background:#101010;border-radius:6px;padding:7px 3px}.detail-fps-values small{display:block;color:#666;font-size:8px;margin-bottom:3px}.detail-fps-values b{font-size:12px}.detail-fps-low{color:#5cff7a}.detail-fps-mid{color:#ffd45c}.detail-fps-high{color:#ff7777}.detail-note{margin-top:12px;color:#666;font-size:10px;line-height:1.6}.detail-parts-title{margin:25px 0 12px;display:flex;align-items:center;justify-content:space-between;gap:10px}.detail-parts-title span{color:#666;font-size:11px}
+.part{transition:.2s}.part:hover{border-color:#3a3a3a;transform:translateY(-1px)}
+.share-tools{position:fixed;right:18px;bottom:18px;z-index:9000;display:flex;gap:7px;padding:7px;background:rgba(15,15,15,.94);border:1px solid #333;border-radius:12px;box-shadow:0 12px 35px rgba(0,0,0,.5);backdrop-filter:blur(10px)}.share-tools button{width:38px;height:38px;border:1px solid #333;border-radius:8px;background:#181818;color:#fff;cursor:pointer;font-size:15px}.share-tools button:hover{background:#ff3030;border-color:#ff3030}
+.favorite-section{margin-top:35px;padding-bottom:45px}.favorite-section h3{margin-bottom:12px}.favorite-empty{padding:16px;background:#111;border:1px solid #292929;border-radius:10px;color:#666;font-size:12px}.favorite-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}.favorite-card{background:#111;border:1px solid #292929;border-radius:10px;padding:13px}.favorite-card h4{font-size:13px;margin-bottom:6px}.favorite-card p{color:#777;font-size:11px;line-height:1.5}.favorite-card button{width:100%;margin-top:10px;padding:9px;border:1px solid #333;border-radius:7px;background:#181818;color:#fff;cursor:pointer}.favorite-card button:hover{background:#ff3030;border-color:#ff3030}
+@media(max-width:900px){.compare-pro-stats{grid-template-columns:1fr 1fr}.detail-summary-grid{grid-template-columns:1fr 1fr}.detail-fps-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.compare-pro-grid{grid-template-columns:1fr}.compare-pro{padding:14px}.compare-pro-title{align-items:flex-start;flex-direction:column}.detail-pro-head{flex-direction:column}.detail-summary-grid{grid-template-columns:1fr 1fr}.detail-fps-grid{grid-template-columns:1fr}.share-tools{right:10px;bottom:10px}.share-tools button{width:35px;height:35px}.compare-fps{overflow-x:auto}.compare-fps-table{min-width:520px}.compare-grid{grid-template-columns:1fr}.compare-result{padding:14px}.compare-result-title{font-size:17px;line-height:1.5}.compare-column{padding:13px}.fps-hardware{grid-template-columns:1fr 1fr}.game-options{grid-template-columns:1fr 1fr}}
+@media(max-width:430px){.detail-summary-grid{grid-template-columns:1fr}.compare-pro-stats{grid-template-columns:1fr 1fr}.game-options{grid-template-columns:1fr}.price-grid,.build-list{grid-template-columns:1fr}.container{width:92%}.hero h1{font-size:40px}}
+
+
+/* ================= PHUC PC 5-6-7 ================= */
+.phuc567-page{display:none;min-height:70vh;padding-bottom:70px}.phuc567-hero{padding:45px 0 25px}.phuc567-hero h2{font-size:32px}.phuc567-hero p{color:#888;margin-top:8px;line-height:1.6}.knowledge-grid,.roadmap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.knowledge-card,.roadmap-card,.checker-box{background:#111;border:1px solid #292929;border-radius:14px;padding:20px}.knowledge-card{cursor:pointer;transition:.2s}.knowledge-card:hover{border-color:#ff3030;transform:translateY(-2px)}.knowledge-card .icon{font-size:30px;margin-bottom:12px}.knowledge-card h3,.roadmap-card h3{margin-bottom:8px}.knowledge-card p,.roadmap-card p{color:#888;font-size:13px;line-height:1.7}.knowledge-card button{margin-top:14px;width:100%;padding:10px;background:#181818;border:1px solid #333;border-radius:8px;color:#fff;cursor:pointer}.knowledge-card button:hover{background:#ff3030;border-color:#ff3030}.knowledge-detail{display:none;margin-top:20px;background:#101010;border:1px solid #292929;border-radius:14px;padding:25px}.knowledge-detail h3{margin-bottom:12px}.knowledge-detail p,.knowledge-detail li{color:#aaa;line-height:1.8;font-size:14px}.knowledge-detail ul{padding-left:20px}.knowledge-search{width:100%;padding:14px;background:#181818;border:1px solid #333;border-radius:9px;color:#fff;outline:none;margin-bottom:18px}.knowledge-search:focus{border-color:#ff3030}.checker-box{max-width:850px;margin:0 auto}.checker-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.checker-field label{display:block;color:#ccc;font-size:13px;font-weight:bold;margin-bottom:7px}.checker-field select{width:100%;padding:13px;background:#181818;color:#fff;border:1px solid #333;border-radius:8px;outline:none}.checker-field select:focus{border-color:#ff3030}.checker-btn{width:100%;margin-top:18px;padding:14px;background:#ff3030;color:#fff;border:0;border-radius:9px;font-weight:bold;cursor:pointer}.checker-result{display:none;margin-top:18px;background:#151515;border:1px solid #333;border-radius:12px;padding:18px;line-height:1.8}.checker-result .ok{color:#5cff7a}.checker-result .warn{color:#ffd45c}.checker-result .bad{color:#ff7777}.checker-result .note{color:#666;font-size:11px;margin-top:10px}.roadmap-card{position:relative}.roadmap-step{display:inline-block;padding:5px 9px;border-radius:20px;background:rgba(255,48,48,.1);border:1px solid rgba(255,48,48,.35);color:#ff5555;font-size:11px;font-weight:bold;margin-bottom:10px}.roadmap-list{margin-top:12px;padding-left:20px;color:#aaa;line-height:1.8;font-size:13px}.skill-bar{margin-top:12px}.skill-bar-top{display:flex;justify-content:space-between;color:#aaa;font-size:11px;margin-bottom:5px}.skill-bar-track{height:7px;background:#080808;border:1px solid #292929;border-radius:99px;overflow:hidden}.skill-bar-fill{height:100%;background:linear-gradient(90deg,#e50914,#ff5252)}.phuc567-tip{margin-top:20px;padding:15px;background:#151515;border:1px solid #292929;border-left:3px solid #ff3030;border-radius:10px;color:#999;line-height:1.7;font-size:13px}@media(max-width:800px){.knowledge-grid,.roadmap-grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.checker-grid,.knowledge-grid,.roadmap-grid{grid-template-columns:1fr}.phuc567-hero h2{font-size:26px}}
+
+/* =====================================================
+   ⚡ AUTOMATION LAB — KHU VỰC RIÊNG
+===================================================== */
+.automation-menu-divider{height:1px;background:#292929;margin:10px 0 8px;}
+.automation-menu-title{padding:10px 14px 7px;color:#ff3b3b;font-weight:900;font-size:13px;letter-spacing:.6px;cursor:pointer;}
+.side-menu .automation-menu-item{display:none !important;font-size:13px;color:#ddd;padding-left:22px;}
+.side-menu.automation-menu-unlocked .automation-menu-item{display:block !important;}
+.side-menu .automation-menu-item:hover{color:#fff;background:#1b0d0d;border-color:#ff3030;}
+
+#automationPage{display:none;min-height:calc(100vh - 80px);padding:34px 0 70px;background:radial-gradient(circle at 20% 0%,rgba(255,48,48,.08),transparent 32%),#070707;}
+.automation-shell{width:min(1180px,92%);margin:auto;}
+#automationPage.automation-locked-content{display:none !important;}
+.automation-private-content{display:none;}
+#automationPage.automation-unlocked .automation-private-content{display:block;}
+.automation-hero{border:1px solid #2b2b2b;border-radius:20px;padding:28px;background:linear-gradient(135deg,#111,#0b0b0b);box-shadow:0 20px 60px rgba(0,0,0,.35);position:relative;overflow:hidden;}
+.automation-hero:after{content:"⚡";position:absolute;right:25px;top:10px;font-size:120px;opacity:.035;transform:rotate(-10deg);}
+.automation-kicker{color:#ff3838;font-weight:900;letter-spacing:1.2px;font-size:12px;text-transform:uppercase;}
+.automation-hero h1{font-size:clamp(28px,5vw,48px);margin:8px 0 10px;}
+.automation-hero p{color:#999;line-height:1.7;max-width:800px;}
+.automation-status{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px;}
+.automation-chip{border:1px solid #303030;background:#151515;color:#ddd;border-radius:999px;padding:8px 12px;font-size:12px;}
+.automation-chip.ok{border-color:#285b36;color:#9be7ad;background:#0d1b11;}
+.automation-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0;}
+.automation-nav button{border:1px solid #2a2a2a;background:#101010;color:#ddd;border-radius:12px;padding:13px 10px;cursor:pointer;font-weight:800;}
+.automation-nav button:hover,.automation-nav button.active{border-color:#ff3030;background:#190c0c;color:#fff;}
+.automation-section{display:none;}
+.automation-section.active{display:block;animation:automationFade .25s ease;}
+@keyframes automationFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.automation-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.automation-card{background:#101010;border:1px solid #292929;border-radius:16px;padding:18px;box-shadow:0 10px 30px rgba(0,0,0,.18);}
+.automation-card h3{margin:0 0 8px;font-size:18px;}
+.automation-card h4{margin:15px 0 7px;color:#eee;}
+.automation-card p,.automation-card li{color:#999;line-height:1.65;font-size:13px;}
+.automation-card ul{padding-left:19px;}
+.automation-badge{display:inline-block;padding:5px 8px;border-radius:7px;background:#1b1111;color:#ff6868;font-size:10px;font-weight:900;margin-bottom:10px;}
+.automation-wide{grid-column:1/-1;}
+.automation-progress{height:8px;background:#1c1c1c;border-radius:999px;overflow:hidden;margin:10px 0;}
+.automation-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff3030,#ff7070);transition:.35s;}
+.automation-tool{background:#0d0d0d;border:1px solid #303030;border-radius:14px;padding:16px;margin-top:12px;}
+.automation-form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.automation-field label{display:block;color:#aaa;font-size:12px;margin-bottom:6px;}
+.automation-field input,.automation-field select{width:100%;box-sizing:border-box;background:#151515;border:1px solid #333;color:#fff;border-radius:9px;padding:11px;outline:none;}
+.automation-field input:focus,.automation-field select:focus{border-color:#ff3030;}
+.automation-btn{border:1px solid #ff3030;background:#ff3030;color:#fff;border-radius:9px;padding:11px 14px;cursor:pointer;font-weight:900;margin-top:10px;}
+.automation-btn.secondary{background:#151515;border-color:#333;}
+.automation-result{display:none;margin-top:12px;padding:13px;border-radius:10px;border:1px solid #303030;background:#111;color:#ddd;line-height:1.6;}
+.automation-result.show{display:block;}
+.automation-result.good{border-color:#285b36;background:#0d1b11;}
+.automation-result.warn{border-color:#725b25;background:#19160c;}
+.automation-code{background:#050505;border:1px solid #252525;border-radius:12px;padding:15px;overflow:auto;color:#d9d9d9;font:12px/1.65 Consolas,monospace;white-space:pre;}
+.automation-code-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px;}
+.automation-copy{border:1px solid #333;background:#151515;color:#ddd;border-radius:7px;padding:6px 9px;cursor:pointer;font-size:11px;}
+.automation-checklist label{display:flex;gap:9px;align-items:flex-start;margin:9px 0;color:#aaa;font-size:13px;line-height:1.5;cursor:pointer;}
+.automation-checklist input{accent-color:#ff3030;margin-top:3px;}
+.automation-quiz-option{display:block;width:100%;text-align:left;margin:7px 0;padding:10px;border:1px solid #303030;background:#151515;color:#ddd;border-radius:9px;cursor:pointer;}
+.automation-quiz-option:hover{border-color:#ff3030;}
+.automation-pin-table{width:100%;border-collapse:collapse;font-size:12px;}
+.automation-pin-table th,.automation-pin-table td{border-bottom:1px solid #292929;padding:9px;text-align:left;}
+.automation-pin-table th{color:#ff6767;}
+.automation-lock{position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);z-index:99999;display:none;align-items:center;justify-content:center;padding:20px;}
+.automation-lock.show{display:flex;}
+.automation-lock-box{width:min(420px,100%);background:#0e0e0e;border:1px solid #3a3a3a;border-radius:20px;padding:25px;box-shadow:0 30px 90px rgba(0,0,0,.7);text-align:center;}
+.automation-lock-icon{font-size:45px;margin-bottom:8px;}
+.automation-lock-box h2{margin:0 0 8px;}
+.automation-lock-box p{color:#888;line-height:1.6;font-size:13px;}
+.automation-pin{width:100%;box-sizing:border-box;text-align:center;letter-spacing:10px;font-size:26px;font-weight:900;background:#080808;border:1px solid #333;color:#fff;border-radius:12px;padding:13px;margin:13px 0;outline:none;}
+.automation-pin:focus{border-color:#ff3030;}
+.automation-lock-error{min-height:20px;color:#ff6060;font-size:12px;}
+.automation-close{border:1px solid #333;background:#151515;color:#aaa;border-radius:9px;padding:10px 14px;cursor:pointer;margin-top:8px;}
+.automation-toast{position:fixed;left:50%;bottom:25px;transform:translateX(-50%) translateY(20px);background:#151515;border:1px solid #333;color:#fff;padding:11px 15px;border-radius:10px;opacity:0;pointer-events:none;transition:.25s;z-index:100000;font-size:12px;}
+.automation-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+@media(max-width:850px){.automation-grid{grid-template-columns:1fr 1fr}.automation-nav{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.automation-grid,.automation-form-grid{grid-template-columns:1fr}.automation-hero{padding:20px}.automation-nav{grid-template-columns:1fr 1fr}.automation-nav button{font-size:11px;padding:11px 7px;}}
+
 </style>
+
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style id="phuc-pro-max-css">
+/* ===== PHUC PC PRO MAX ===== */
+:root{--pp-red:#ff3030;--pp-red2:#ff5a5a;--pp-bg:#070707;--pp-card:#111;--pp-line:#242424;--pp-text:#f5f5f5;--pp-muted:#9b9b9b;--pp-green:#35d07f;--pp-yellow:#ffc857}
+.pro-max-section{padding:58px 0;background:linear-gradient(180deg,#080808,#0d0d0d);border-top:1px solid #171717}.pro-max-section.alt{background:#090909}
+.pro-max-head{text-align:center;margin-bottom:28px}.pro-max-head h2{font-size:30px;letter-spacing:.5px}.pro-max-head p{color:var(--pp-muted);margin-top:8px}
+.pro-max-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.pro-max-card{background:linear-gradient(145deg,#151515,#0d0d0d);border:1px solid #252525;border-radius:20px;padding:22px;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.pro-max-card h3{font-size:20px;margin-bottom:7px}.pro-max-card .sub{color:var(--pp-muted);font-size:14px;margin-bottom:18px}
+.pro-max-form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.pro-max-field{display:flex;flex-direction:column;gap:7px}.pro-max-field.full{grid-column:1/-1}.pro-max-field label{font-size:13px;color:#cfcfcf}.pro-max-field select,.pro-max-field input{width:100%;padding:12px 13px;background:#090909;color:#fff;border:1px solid #303030;border-radius:11px;outline:none}.pro-max-field select:focus,.pro-max-field input:focus{border-color:var(--pp-red)}
+.pro-max-btn{border:0;border-radius:11px;padding:12px 16px;background:var(--pp-red);color:#fff;font-weight:700;cursor:pointer;transition:.2s}.pro-max-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(255,48,48,.2)}.pro-max-btn.secondary{background:#1b1b1b;border:1px solid #303030}.pro-max-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.pro-result{margin-top:18px}.pro-result-box{border:1px solid #292929;border-radius:16px;padding:18px;background:#0b0b0b}.pro-result-title{display:flex;justify-content:space-between;gap:15px;align-items:center}.pro-result-title h4{font-size:20px}.pro-price{color:var(--pp-red2);font-weight:800}.pro-chips{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0}.pro-chip{padding:7px 10px;border-radius:999px;background:#171717;border:1px solid #292929;font-size:12px;color:#ddd}.pro-bars{display:grid;gap:10px;margin:14px 0}.pro-bar-row{display:grid;grid-template-columns:90px 1fr 45px;gap:8px;align-items:center;font-size:12px}.pro-bar{height:8px;background:#202020;border-radius:99px;overflow:hidden}.pro-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--pp-red),#ff8585);border-radius:99px}.pro-note{font-size:12px;color:#858585;line-height:1.6;margin-top:12px}
+.pro-score{display:flex;align-items:center;gap:18px;margin:14px 0}.pro-score-ring{width:86px;height:86px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--pp-red) calc(var(--score)*1%),#222 0);position:relative}.pro-score-ring:after{content:"";position:absolute;inset:8px;background:#0b0b0b;border-radius:50%}.pro-score-ring b{position:relative;z-index:1;font-size:21px}.pro-score small{color:#999}.pro-good{color:var(--pp-green)}.pro-warn{color:var(--pp-yellow)}
+.pro-save-list{display:grid;gap:10px}.pro-save-item{display:flex;justify-content:space-between;gap:12px;align-items:center;background:#0b0b0b;border:1px solid #242424;border-radius:13px;padding:12px}.pro-save-item small{color:#888}.pro-empty{padding:18px;text-align:center;color:#777;border:1px dashed #303030;border-radius:14px}
+
+.pro-mini-table{width:100%;border-collapse:collapse;margin-top:14px}.pro-mini-table th,.pro-mini-table td{padding:11px 8px;border-bottom:1px solid #242424;text-align:left;font-size:13px}.pro-mini-table th{color:#aaa}.pro-mini-table td:last-child{color:#ff6b6b;font-weight:700}
+.pro-feature-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}.pro-feature{padding:18px;border:1px solid #252525;border-radius:15px;background:#101010}.pro-feature b{display:block;margin-bottom:5px}.pro-feature span{font-size:12px;color:#888;line-height:1.5}
+@media(max-width:800px){.pro-max-grid{grid-template-columns:1fr}.pro-max-form{grid-template-columns:1fr}pro-feature-strip{grid-template-columns:1fr 1fr}.pro-bar-row{grid-template-columns:75px 1fr 38px}}
+@media(max-width:500px){.pro-feature-strip{grid-template-columns:1fr}.pro-max-section{padding:42px 0}.pro-max-card{padding:16px}}
+</style>
+
 </head>
 
 <body>
@@ -1340,8 +1765,39 @@ margin-left: calc(50% - 50vw + 10px);
         <button onclick="showConsult(); closeMenu();">
             🔧 Tư vấn
         </button>
+        <button onclick="showCompare(); closeMenu();">
+    ⚔️ So sánh PC
+</button>
 
         
+
+        <button onclick="showKnowledge(); closeMenu();">
+            📚 Kiến thức PC
+        </button>
+
+        <button onclick="showChecker(); closeMenu();">
+            🔧 Kiểm tra linh kiện
+        </button>
+
+        <button onclick="showProMax(); closeMenu();">
+            🚀 PHUC PC PRO MAX
+        </button>
+
+        <div class="automation-menu-divider"></div>
+        <div class="automation-menu-title" onclick="openAutomationGate('knowledge'); closeMenu();">⚡ AUTOMATION LAB 🔒</div>
+
+        <button class="automation-menu-item" onclick="openAutomationGate('knowledge'); closeMenu();">
+            📘 Kiến thức Tự động hóa
+        </button>
+        <button class="automation-menu-item" onclick="openAutomationGate('minilab'); closeMenu();">
+            🧪 Mini Lab
+        </button>
+        <button class="automation-menu-item" onclick="openAutomationGate('arduino'); closeMenu();">
+            🤖 Arduino / ESP32
+        </button>
+        <button class="automation-menu-item" onclick="openAutomationGate('plc'); closeMenu();">
+            🏭 PLC
+        </button>
 
         <button onclick="showContact(); closeMenu();">
             📞 Liên hệ
@@ -1445,6 +1901,8 @@ margin-left: calc(50% - 50vw + 10px);
 
 
 </section>
+<div class="container" id="favoriteSectionBox"></div>
+
 <!-- CONTACT -->
 <section id="contact">
 
@@ -1768,7 +2226,326 @@ margin-left: calc(50% - 50vw + 10px);
     </div>
 
 </section>
+<!-- ================= SO SÁNH PC ================= -->
 
+<section id="comparePage">
+
+    <div class="container">
+
+        <div class="section-title">
+
+           <h2 class="compare-page-title">
+    <img
+        id="compareHeaderGameIcon"
+        src="images/valorant.png"
+        alt="Game"
+    >
+    SO SÁNH CẤU HÌNH PC
+</h2>
+
+            <p>
+                Chọn 2 cấu hình có sẵn để so sánh linh kiện và FPS
+            </p>
+
+        </div>
+
+
+        <div class="compare-box">
+
+            <!-- PC 1 -->
+
+            <label>
+                🖥️ Cấu hình PC 1
+            </label>
+
+            <select id="comparePC1">
+            </select>
+
+
+            <!-- PC 2 -->
+
+            <label>
+                🖥️ Cấu hình PC 2
+            </label>
+
+            <select id="comparePC2">
+            </select>
+
+
+            <!-- GAME -->
+
+            <label>
+                🎮 Game muốn so sánh FPS
+            </label>
+
+            <select id="compareGame">
+
+                <option value="valorant">
+                    Valorant
+                </option>
+
+                <option value="lol">
+                    Liên Minh Huyền Thoại
+                </option>
+
+                <option value="minecraft">
+                    Minecraft
+                </option>
+
+                <option value="minecraftShader">
+                    Minecraft + Shader
+                </option>
+
+                <option value="deltaforce">
+                    Delta Force
+                </option>
+
+                <option value="cs2">
+                    Counter-Strike 2
+                </option>
+
+                <option value="genshin">
+                    Genshin Impact
+                </option>
+
+                <option value="honkai">
+                    Honkai: Star Rail
+                </option>
+
+                <option value="wukong">
+                    Black Myth: Wukong
+                </option>
+
+                <option value="freefire">
+                    Free Fire
+                </option>
+
+                <option value="wuthering">
+                    Wuthering Waves
+                </option>
+
+                <option value="callofduty">
+                    Call of Duty
+                </option>
+
+            </select>
+
+
+            <button
+                class="compare-btn"
+                onclick="comparePCs()"
+            >
+                ⚔️ SO SÁNH NGAY
+            </button>
+
+        </div>
+
+
+        <div id="compareResults"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= KIẾN THỨC PC ================= -->
+<section id="knowledgePage" class="phuc567-page">
+<div class="container">
+<div class="phuc567-hero"><button class="back-btn" onclick="showHome()">← Trang chủ</button><h2>📚 KIẾN THỨC PC</h2><p>Những kiến thức cơ bản để hiểu PC, chọn linh kiện và tránh mua nhầm.</p></div>
+<input id="knowledgeSearch" class="knowledge-search" type="text" placeholder="🔎 Tìm kiến thức..." oninput="filterKnowledge()">
+<div id="knowledgeGrid" class="knowledge-grid"></div>
+<div id="knowledgeDetail" class="knowledge-detail"></div>
+</div>
+</section>
+
+<!-- ================= KIỂM TRA LINH KIỆN ================= -->
+<section id="checkerPage" class="phuc567-page">
+<div class="container">
+<div class="phuc567-hero"><button class="back-btn" onclick="showHome()">← Trang chủ</button><h2>🔧 KIỂM TRA LINH KIỆN</h2><p>Nhập cấu hình để PHUC PC kiểm tra nhanh các điểm cần chú ý.</p></div>
+<div class="checker-box">
+<div class="checker-grid">
+<div class="checker-field"><label>CPU</label><select id="checkCPU"></select></div>
+<div class="checker-field"><label>GPU / VGA</label><select id="checkGPU"></select></div>
+<div class="checker-field"><label>RAM</label><select id="checkRAM"></select></div>
+<div class="checker-field"><label>SSD</label><select id="checkSSD"></select></div>
+<div class="checker-field"><label>HDD</label><select id="checkHDD"></select></div>
+<div class="checker-field"><label>Nguồn</label><select id="checkPSU"></select></div>
+<div class="checker-field"><label>Nhu cầu</label><select id="checkUse"><option value="gaming">🎮 Gaming</option><option value="study">🎓 Học tập / lập trình</option><option value="cad">⚙️ CAD / kỹ thuật</option><option value="general">💻 Văn phòng / đa dụng</option></select></div>
+</div>
+<button class="checker-btn" onclick="runComponentChecker()">🔍 Kiểm tra cấu hình</button>
+<div id="checkerResult" class="checker-result"></div>
+</div>
+</div>
+</section>
+
+
+<!-- =====================================================
+     ⚡ AUTOMATION LAB — PRIVATE LEARNING AREA
+===================================================== -->
+<section id="automationPage">
+<div class="automation-shell automation-private-content">
+    <div class="automation-hero">
+        <div class="automation-kicker">PHUC PC • AUTOMATION LAB</div>
+        <h1>⚡ Automation Lab</h1>
+        <p>Khu vực học tập và thực hành riêng của Phúc: điện cơ bản, Arduino / ESP32, cảm biến, PWM, mạch số và PLC. Mỗi bài có phần lý thuyết → công cụ → thực hành → kiểm tra.</p>
+        <div class="automation-status">
+            <span class="automation-chip ok">🔓 Đã mở khóa</span>
+            <span class="automation-chip">🎓 Sinh viên năm 1</span>
+            <span class="automation-chip">🧪 Thực hành</span>
+            <span class="automation-chip">💾 Lưu tiến độ trên máy</span>
+        </div>
+    </div>
+
+    <div class="automation-nav">
+        <button data-auto-tab="knowledge" onclick="switchAutomationTab('knowledge')">📘 Kiến thức</button>
+        <button data-auto-tab="minilab" onclick="switchAutomationTab('minilab')">🧪 Mini Lab</button>
+        <button data-auto-tab="arduino" onclick="switchAutomationTab('arduino')">🤖 Arduino / ESP32</button>
+        <button data-auto-tab="plc" onclick="switchAutomationTab('plc')">🏭 PLC</button>
+    </div>
+
+    <div id="autoKnowledge" class="automation-section">
+        <div class="automation-grid">
+            <article class="automation-card"><span class="automation-badge">NỀN TẢNG</span><h3>⚡ Điện áp — Dòng điện — Điện trở</h3><p>Điện áp <b>V</b> là chênh lệch điện thế, dòng điện <b>I</b> là dòng điện tích, điện trở <b>R</b> cản trở dòng điện.</p><p><b>Định luật Ohm:</b> V = I × R</p><ul><li>V = I × R</li><li>I = V / R</li><li>R = V / I</li></ul></article>
+            <article class="automation-card"><span class="automation-badge">NỀN TẢNG</span><h3>🔌 DC và AC</h3><p>DC có chiều điện áp/dòng điện theo một hướng quy ước. AC thay đổi theo thời gian và thường gặp trong hệ thống điện xoay chiều.</p><h4>Khi học Arduino</h4><p>Arduino chủ yếu làm việc với tín hiệu và nguồn DC mức thấp. Không được đưa điện áp lưới vào chân GPIO.</p></article>
+            <article class="automation-card"><span class="automation-badge">NỀN TẢNG</span><h3>🔗 Nối tiếp và song song</h3><p><b>Nối tiếp:</b> R<sub>t</sub> = R1 + R2 + ...</p><p><b>Song song 2 điện trở:</b> R<sub>t</sub> = (R1×R2)/(R1+R2)</p><p>Hiểu hai kiểu này rất quan trọng trước khi học mạch cảm biến.</p></article>
+            <article class="automation-card"><span class="automation-badge">ĐIỀU KHIỂN</span><h3>🎚️ Analog và Digital</h3><p>Digital thường biểu diễn các mức logic như LOW/HIGH. Analog biểu diễn một đại lượng biến thiên trong một khoảng.</p><ul><li>Digital: nút nhấn, công tắc, relay logic.</li><li>Analog: biến trở, cảm biến nhiệt độ analog.</li><li>PWM: tạo tín hiệu xung để điều khiển độ sáng/tốc độ trong nhiều ứng dụng.</li></ul></article>
+            <article class="automation-card"><span class="automation-badge">ĐIỀU KHIỂN</span><h3>🔄 Feedback và vòng điều khiển</h3><p>Một hệ điều khiển thường có: giá trị đặt → bộ điều khiển → đối tượng → cảm biến → phản hồi.</p><p>Đây là nền tảng để sau này học PID, PLC và hệ thống tự động hóa.</p></article>
+            <article class="automation-card"><span class="automation-badge">AN TOÀN</span><h3>🛡️ Quy tắc phòng lab</h3><ul><li>Luôn kiểm tra điện áp trước khi nối mạch.</li><li>Không nối chập nguồn.</li><li>Không đưa điện lưới vào breadboard/Arduino.</li><li>Tắt nguồn trước khi thay dây.</li><li>Dùng điện áp thấp và thiết bị phù hợp khi thực hành.</li></ul></article>
+
+            <article class="automation-card automation-wide">
+                <span class="automation-badge">LỘ TRÌNH GỢI Ý</span><h3>🗺️ Roadmap Tự động hóa cho năm 1</h3>
+                <div class="automation-progress"><span id="autoProgressBar"></span></div>
+                <p id="autoProgressText">0 / 8 bài đã hoàn thành</p>
+                <div class="automation-checklist" id="autoRoadmapList">
+                    <label><input type="checkbox" data-auto-progress="1"> 01 — Định luật Ohm và mạch điện cơ bản</label>
+                    <label><input type="checkbox" data-auto-progress="2"> 02 — Điện trở nối tiếp / song song</label>
+                    <label><input type="checkbox" data-auto-progress="3"> 03 — LED và điện trở hạn dòng</label>
+                    <label><input type="checkbox" data-auto-progress="4"> 04 — Digital I/O và nút nhấn</label>
+                    <label><input type="checkbox" data-auto-progress="5"> 05 — Analog + PWM</label>
+                    <label><input type="checkbox" data-auto-progress="6"> 06 — Arduino / ESP32</label>
+                    <label><input type="checkbox" data-auto-progress="7"> 07 — PLC và Ladder cơ bản</label>
+                    <label><input type="checkbox" data-auto-progress="8"> 08 — Mini project tự động hóa</label>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div id="autoMinilab" class="automation-section">
+        <div class="automation-grid">
+            <article class="automation-card">
+                <span class="automation-badge">LAB 01</span><h3>🧮 Máy tính Định luật Ohm</h3><p>Nhập hai đại lượng, công cụ tính đại lượng còn lại.</p>
+                <div class="automation-tool">
+                    <div class="automation-form-grid">
+                        <div class="automation-field"><label>Điện áp V (Volt)</label><input id="ohmV" type="number" step="any" placeholder="12"></div>
+                        <div class="automation-field"><label>Dòng điện I (Ampere)</label><input id="ohmI" type="number" step="any" placeholder="0.02"></div>
+                        <div class="automation-field"><label>Điện trở R (Ohm)</label><input id="ohmR" type="number" step="any" placeholder="470"></div>
+                    </div>
+                    <button class="automation-btn" onclick="calculateOhm()">⚡ Tính mạch</button>
+                    <div id="ohmResult" class="automation-result"></div>
+                </div>
+            </article>
+
+            <article class="automation-card">
+                <span class="automation-badge">LAB 02</span><h3>💡 Tính điện trở cho LED</h3><p>Công thức cơ bản: R = (Vs − Vf) / I.</p>
+                <div class="automation-tool">
+                    <div class="automation-form-grid">
+                        <div class="automation-field"><label>Nguồn Vs (V)</label><input id="ledVs" type="number" step="any" value="5"></div>
+                        <div class="automation-field"><label>LED Vf (V)</label><input id="ledVf" type="number" step="any" value="2"></div>
+                        <div class="automation-field"><label>Dòng LED (mA)</label><input id="ledMa" type="number" step="any" value="10"></div>
+                    </div>
+                    <button class="automation-btn" onclick="calculateLedResistor()">💡 Tính điện trở</button>
+                    <div id="ledResult" class="automation-result"></div>
+                </div>
+            </article>
+
+            <article class="automation-card">
+                <span class="automation-badge">LAB 03</span><h3>🎚️ Bộ chia điện áp</h3><p>Vout = Vin × R2 / (R1 + R2).</p>
+                <div class="automation-tool">
+                    <div class="automation-form-grid">
+                        <div class="automation-field"><label>Vin (V)</label><input id="divVin" type="number" step="any" value="5"></div>
+                        <div class="automation-field"><label>R1 (Ω)</label><input id="divR1" type="number" step="any" value="10000"></div>
+                        <div class="automation-field"><label>R2 (Ω)</label><input id="divR2" type="number" step="any" value="10000"></div>
+                    </div>
+                    <button class="automation-btn" onclick="calculateDivider()">📐 Tính Vout</button>
+                    <div id="divResult" class="automation-result"></div>
+                </div>
+            </article>
+
+            <article class="automation-card">
+                <span class="automation-badge">LAB 04</span><h3>🔆 PWM Simulator</h3><p>Thử duty cycle và xem giá trị trung bình lý thuyết.</p>
+                <div class="automation-tool">
+                    <div class="automation-field"><label>Điện áp nguồn (V)</label><input id="pwmV" type="number" value="5" step="any"></div>
+                    <div class="automation-field"><label>Duty (%)</label><input id="pwmDuty" type="range" min="0" max="100" value="50" oninput="updatePWM()"></div>
+                    <p id="pwmLabel">Duty: 50%</p><div class="automation-progress"><span id="pwmBar"></span></div>
+                    <button class="automation-btn" onclick="calculatePWM()">⚙️ Tính PWM</button><div id="pwmResult" class="automation-result"></div>
+                </div>
+            </article>
+
+            <article class="automation-card">
+                <span class="automation-badge">LAB 05</span><h3>🧠 Logic AND / OR / NOT</h3><p>Thực hành logic số trước khi học PLC.</p>
+                <div class="automation-tool">
+                    <div class="automation-form-grid"><div class="automation-field"><label>A</label><select id="logicA"><option value="0">0 — LOW</option><option value="1">1 — HIGH</option></select></div><div class="automation-field"><label>B</label><select id="logicB"><option value="0">0 — LOW</option><option value="1">1 — HIGH</option></select></div></div>
+                    <button class="automation-btn" onclick="runLogicLab()">🔌 Chạy logic</button><div id="logicResult" class="automation-result"></div>
+                </div>
+            </article>
+
+            <article class="automation-card">
+                <span class="automation-badge">LAB 06</span><h3>🔘 Digital Button Logic</h3><p>Giả lập hệ thống: nhấn nút → bật LED.</p>
+                <div class="automation-tool"><button class="automation-btn" id="buttonSimulator" onclick="toggleButtonSimulator()">🔘 NHẤN NÚT</button><div id="buttonLed" class="automation-result warn show" style="margin-top:12px;text-align:center;font-size:20px">● LED OFF</div><p style="margin-top:10px">Ý tưởng phần cứng: nút nhấn → GPIO input, LED → GPIO output.</p></div>
+            </article>
+
+            <article class="automation-card automation-wide">
+                <span class="automation-badge">MINI PROJECT</span><h3>🌡️ Trạm cảnh báo nhiệt độ — mô phỏng</h3><p>Nhập nhiệt độ. Hệ thống quyết định trạng thái bình thường, cảnh báo hoặc bật quạt.</p>
+                <div class="automation-tool"><div class="automation-form-grid"><div class="automation-field"><label>Nhiệt độ (°C)</label><input id="tempValue" type="number" value="30" step="0.1"></div><div class="automation-field"><label>Ngưỡng cảnh báo (°C)</label><input id="tempWarn" type="number" value="35" step="0.1"></div></div><button class="automation-btn" onclick="runTempLab()">🌡️ Phân tích</button><div id="tempResult" class="automation-result"></div></div>
+            </article>
+        </div>
+    </div>
+
+    <div id="autoArduino" class="automation-section">
+        <div class="automation-grid">
+            <article class="automation-card automation-wide"><span class="automation-badge">ARDUINO — BÀI 01</span><h3>💡 Blink — LED nhấp nháy</h3><p>Bài đầu tiên để hiểu setup(), loop(), pinMode(), digitalWrite() và delay().</p><div class="automation-code-head"><b>Arduino C/C++</b><button class="automation-copy" onclick="copyAutomationCode('arduinoBlink')">Copy</button></div><pre id="arduinoBlink" class="automation-code">const int LED_PIN = 13;\n\nvoid setup() {\n  pinMode(LED_PIN, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(LED_PIN, HIGH);\n  delay(500);\n  digitalWrite(LED_PIN, LOW);\n  delay(500);\n}</pre></article>
+
+            <article class="automation-card"><span class="automation-badge">ARDUINO — BÀI 02</span><h3>🔘 Nút nhấn điều khiển LED</h3><p>Dùng INPUT_PULLUP để giảm số linh kiện khi học nguyên lý.</p><div class="automation-code-head"><b>Code</b><button class="automation-copy" onclick="copyAutomationCode('arduinoButton')">Copy</button></div><pre id="arduinoButton" class="automation-code">const int LED_PIN = 13;\nconst int BUTTON_PIN = 2;\n\nvoid setup() {\n  pinMode(LED_PIN, OUTPUT);\n  pinMode(BUTTON_PIN, INPUT_PULLUP);\n}\n\nvoid loop() {\n  bool pressed = digitalRead(BUTTON_PIN) == LOW;\n  digitalWrite(LED_PIN, pressed ? HIGH : LOW);\n}</pre></article>
+
+            <article class="automation-card"><span class="automation-badge">ARDUINO — BÀI 03</span><h3>🎚️ PWM LED</h3><p>Dùng analogWrite() để thay đổi duty cycle trên chân PWM phù hợp.</p><div class="automation-code-head"><b>Code</b><button class="automation-copy" onclick="copyAutomationCode('arduinoPWM')">Copy</button></div><pre id="arduinoPWM" class="automation-code">const int LED_PIN = 9;\n\nvoid setup() {\n  pinMode(LED_PIN, OUTPUT);\n}\n\nvoid loop() {\n  for (int value = 0; value &lt;= 255; value++) {\n    analogWrite(LED_PIN, value);\n    delay(5);\n  }\n}</pre></article>
+
+            <article class="automation-card"><span class="automation-badge">ESP32</span><h3>📡 ESP32 khác Arduino ở đâu?</h3><ul><li>ESP32 có kết nối Wi‑Fi/Bluetooth tích hợp.</li><li>GPIO và mức điện áp cần được kiểm tra theo đúng board đang dùng.</li><li>Arduino IDE có thể dùng để lập trình ESP32 sau khi cài board package.</li></ul><p><b>Mục tiêu:</b> sau khi hiểu Arduino, chuyển sang IoT.</p></article>
+
+            <article class="automation-card automation-wide"><span class="automation-badge">PIN REFERENCE</span><h3>📌 Bảng chân cơ bản</h3><div style="overflow:auto"><table class="automation-pin-table"><thead><tr><th>Chức năng</th><th>Ví dụ</th><th>Cần nhớ</th></tr></thead><tbody><tr><td>Digital Input</td><td>Nút nhấn / công tắc</td><td>Đọc LOW/HIGH</td></tr><tr><td>Digital Output</td><td>LED / relay module</td><td>Xuất LOW/HIGH</td></tr><tr><td>Analog Input</td><td>Cảm biến / biến trở</td><td>Đọc giá trị biến thiên</td></tr><tr><td>PWM</td><td>LED / motor driver</td><td>Duty cycle</td></tr><tr><td>UART</td><td>Serial Monitor</td><td>TX/RX</td></tr><tr><td>I2C</td><td>OLED / sensor</td><td>SDA + SCL</td></tr></tbody></table></div></article>
+        </div>
+    </div>
+
+    <div id="autoPLC" class="automation-section">
+        <div class="automation-grid">
+            <article class="automation-card automation-wide"><span class="automation-badge">PLC — BÀI 01</span><h3>🏭 PLC là gì?</h3><p>PLC là bộ điều khiển logic lập trình dùng trong tự động hóa công nghiệp. Một vòng cơ bản: đọc input → chạy chương trình → cập nhật output.</p><div class="automation-tool"><h4>Chu trình quét PLC</h4><ol><li>Đọc trạng thái Input.</li><li>Thực thi chương trình.</li><li>Cập nhật Output.</li><li>Lặp lại.</li></ol></div></article>
+
+            <article class="automation-card"><span class="automation-badge">LADDER</span><h3>🔘 Start / Stop Motor</h3><p>Logic kinh điển: nút Start đóng mạch, Stop ngắt mạch, tiếp điểm tự giữ giữ motor chạy.</p><div class="automation-code-head"><b>Logic giả lập</b><button class="automation-copy" onclick="copyAutomationCode('plcMotor')">Copy</button></div><pre id="plcMotor" class="automation-code">|----[/STOP]----+----[START]----+----( MOTOR )----|\n|               |               |\n|               +----[MOTOR]----+                 |</pre></article>
+
+            <article class="automation-card"><span class="automation-badge">LADDER</span><h3>🚨 Đèn cảnh báo</h3><p>Nếu cảm biến lỗi ON thì đèn cảnh báo ON. Đây là dạng logic rất cơ bản để bắt đầu.</p><div class="automation-code-head"><b>Logic</b><button class="automation-copy" onclick="copyAutomationCode('plcAlarm')">Copy</button></div><pre id="plcAlarm" class="automation-code">|----[ SENSOR_ERROR ]----( ALARM )----|</pre></article>
+
+            <article class="automation-card"><span class="automation-badge">THỰC HÀNH</span><h3>🧪 PLC Mini Simulator</h3><p>Bấm các input để xem output phản ứng.</p><div class="automation-tool"><button class="automation-btn secondary" id="plcStart" onclick="togglePLCInput('start')">START: OFF</button><button class="automation-btn secondary" id="plcStop" onclick="togglePLCInput('stop')">STOP: OFF</button><button class="automation-btn secondary" id="plcSensor" onclick="togglePLCInput('sensor')">SENSOR: OFF</button><div id="plcResult" class="automation-result warn show">MOTOR: OFF • ALARM: OFF</div></div></article>
+
+            <article class="automation-card automation-wide"><span class="automation-badge">BÀI TẬP</span><h3>📝 Bài tập PLC cho Phúc</h3><ol><li>Thiết kế logic Start/Stop cho motor.</li><li>Thêm cảm biến quá tải.</li><li>Nếu quá tải → Motor OFF + Alarm ON.</li><li>Thêm nút Reset Alarm.</li><li>Sau đó chuyển logic sang Ladder trên phần mềm PLC mà trường sử dụng.</li></ol><p><b>Mục tiêu:</b> không chỉ đọc code, mà tự vẽ logic trước khi lập trình.</p></article>
+        </div>
+    </div>
+
+    <div class="automation-card" style="margin-top:18px;text-align:center"><button class="automation-btn secondary" onclick="showHome();closeMenu()">← Về trang chủ</button><button class="automation-btn secondary" onclick="lockAutomation()" style="margin-left:8px">🔒 Khóa Automation Lab</button></div>
+</div>
+</section>
+
+<div id="automationLock" class="automation-lock" aria-hidden="true">
+    <div class="automation-lock-box">
+        <div class="automation-lock-icon">🔐</div>
+        <h2>Automation Lab</h2>
+        <p>Khu vực riêng của Phúc. Nhập mật khẩu 6 số để mở khóa.</p>
+        <input id="automationPin" class="automation-pin" type="password" inputmode="numeric" maxlength="6" autocomplete="off" placeholder="••••••">
+        <div id="automationLockError" class="automation-lock-error"></div>
+        <button class="automation-btn" style="width:100%;" onclick="verifyAutomationPassword()">⚡ MỞ AUTOMATION LAB</button>
+        <button class="automation-close" onclick="closeAutomationGate()">Hủy</button>
+    </div>
+</div>
+<div id="automationToast" class="automation-toast"></div>
 
 
 <!-- ================= DETAIL PAGE ================= -->
@@ -1824,6 +2601,37 @@ margin-left: calc(50% - 50vw + 10px);
 
 </section>
 
+
+
+<!-- ================= PHUC PC PRO MAX ================= -->
+<div id="proMaxPage" style="display:none;">
+<section id="proConfiguratorSection" class="pro-max-section">
+<div class="container">
+<div class="pro-max-head"><h2>🧠 PHUC PC SMART CONFIGURATOR</h2><p>Không rành PC? Chỉ cần chọn nhu cầu — PHUC PC tự phân tích cấu hình phù hợp.</p></div>
+<div class="pro-max-grid">
+<div class="pro-max-card">
+<h3>⚡ Tạo cấu hình thông minh</h3><div class="sub">3 bước đơn giản: ngân sách → game → nhu cầu.</div>
+<div class="pro-max-form">
+<div class="pro-max-field"><label>Ngân sách</label><select id="pmBudget"><option value="1">1 triệu</option><option value="2">2 triệu</option><option value="3">3 triệu</option><option value="4">4 triệu</option><option value="5">5 triệu</option><option value="6">6 triệu</option></select></div>
+<div class="pro-max-field"><label>Game chính</label><select id="pmGame"><option value="valorant">Valorant</option><option value="lol">League of Legends</option><option value="minecraft">Minecraft</option><option value="cs2">CS2</option><option value="genshin">Genshin Impact</option><option value="deltaforce">Delta Force</option><option value="wukong">Black Myth: Wukong</option></select></div>
+<div class="pro-max-field"><label>Mục đích</label><select id="pmUse"><option value="gaming">🎮 Gaming</option><option value="study">🎓 Học tập / lập trình</option><option value="engineering">⚙️ Tự động hóa / kỹ thuật</option><option value="mixed">💻 Gaming + học tập</option></select></div>
+<div class="pro-max-field"><label>Ưu tiên</label><select id="pmPriority"><option value="fps">FPS cao</option><option value="balanced">Cân bằng</option><option value="upgrade">Dễ nâng cấp</option></select></div>
+</div>
+<div class="pro-max-actions"><button class="pro-max-btn" onclick="pmBuildSmart()">🚀 Phân tích cấu hình</button><button class="pro-max-btn secondary" onclick="pmScrollSaved()">❤️ Cấu hình đã lưu</button></div>
+<div id="pmSmartResult" class="pro-result"></div>
+</div>
+<div class="pro-max-card">
+<h3>🏆 PHUC PC SCORE</h3><div class="sub">Đánh giá nội bộ để người mới dễ hiểu cấu hình mạnh/yếu ở đâu.</div>
+<div id="pmScoreResult"><div class="pro-empty">Hãy tạo hoặc chọn một cấu hình để xem điểm.</div></div>
+<div class="pro-feature-strip">
+<div class="pro-feature"><b>🎮 Gaming</b><span>Ước tính khả năng chơi game.</span></div><div class="pro-feature"><b>⚙️ Upgrade</b><span>Khả năng nâng cấp về sau.</span></div><div class="pro-feature"><b>💰 Value</b><span>Mức hợp lý trong tầm giá.</span></div><div class="pro-feature"><b>🛡️ Check</b><span>Phát hiện điểm cần chú ý.</span></div>
+</div></div>
+</div></div></section>
+
+
+
+<section id="proSavedSection" class="pro-max-section"><div class="container"><div class="pro-max-head"><h2>❤️ CẤU HÌNH ĐÃ LƯU</h2><p>Lưu ngay trên thiết bị của bạn — không cần đăng nhập.</p></div><div id="pmSavedList" class="pro-save-list"></div></div></section>
+</div>
 
 <footer>
     © 2026 PHUC PC — Build PC theo ngân sách
@@ -2317,6 +3125,7 @@ function openBudget(budget) {
     const home = document.getElementById("homePage");
 const detail = document.getElementById("detailPage");
 const consult = document.getElementById("consultPage");
+    const automation = document.getElementById("automationPage");
 
 
 
@@ -2396,118 +3205,81 @@ detail.style.display = "block";
 ===================================================== */
 
 function openBuild(budget, index, fromConsult = false) {
-
     const build = builds[budget][index];
-
     const home = document.getElementById("homePage");
     const consult = document.getElementById("consultPage");
+    const compare = document.getElementById("comparePage");
     const detail = document.getElementById("detailPage");
-    
+    if (!build || !detail) return;
 
-    if (!build || !detail) {
-        return;
-    }
+    home.style.display="none"; consult.style.display="none"; compare.style.display="none"; detail.style.display="block";
+    ["knowledgePage","checkerPage","learningPage"].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display="none";});
 
-    // Ẩn các trang khác
-   home.style.display = "none";
-consult.style.display = "none";
+    const totalPrice=getBuildTotal(build);
+    const favoriteKey=`${budget}-${index}`;
+    const favorites=JSON.parse(localStorage.getItem("phucpc_favorites")||"[]");
+    const isFavorite=favorites.some(x=>x.key===favoriteKey);
+    const gpu=getBuildGPU(build)||getBuildPart(build,"VGA");
+    const cpu=getBuildPart(build,"CPU");
+    const ram=getBuildPart(build,"RAM");
+    const ssd=getBuildPart(build,"SSD");
+    const hdd=getBuildPart(build,"HDD");
+    const storage=ssd!=="Không có"?ssd:hdd;
 
+    let partsHTML="";
+    build.parts.forEach(part=>{partsHTML+=`<div class="part"><div class="part-info"><h3>${part[0]}</h3><p>${part[1]}</p></div><a href="${part[2]}" target="_blank" rel="noopener" class="shopee">Xem Shopee</a></div>`;});
 
-    // Hiện trang chi tiết
-    detail.style.display = "block";
-
-    let partsHTML = "";
-
-    build.parts.forEach(part => {
-
-        partsHTML += `
-            <div class="part">
-
-                <div class="part-info">
-                    <h3>${part[0]}</h3>
-                    <p>${part[1]}</p>
-                </div>
-
-                <a
-                    href="${part[2]}"
-                    target="_blank"
-                    class="shopee"
-                >
-                    Xem Shopee
-                </a>
-
-            </div>
-        `;
-
+    let fpsCards="";
+    fpsGames.forEach(game=>{
+        const fps=getBuildFPS(build,game.id); if(!fps)return;
+        fpsCards+=`<div class="detail-fps-card"><div class="detail-fps-card-top"><img src="${game.icon}" alt="${game.name}"><span>${game.name}</span></div><div class="detail-fps-values"><div><small>LOW</small><b class="detail-fps-low">${fps.average[0]}</b></div><div><small>MED</small><b class="detail-fps-mid">${fps.average[1]}</b></div><div><small>HIGH</small><b class="detail-fps-high">${fps.average[2]}</b></div></div></div>`;
     });
 
-    detail.innerHTML = `
+    const values=[];
+    fpsGames.forEach(game=>{const fps=getBuildFPS(build,game.id);if(fps)values.push((fps.average[0]+fps.average[1]+fps.average[2])/3);});
+    const averageAll=values.length?Math.round(values.reduce((a,b)=>a+b,0)/values.length):0;
+    const detailEvaluation=evaluateBuild(build,fpsGames.map(g=>g.id));
 
+    detail.innerHTML=`
         <div class="container">
-
-            <button
-                class="back-btn"
-                onclick="${fromConsult ? 'showConsult()' : `openBudget(${budget})`}"
-            >
-                ← Quay lại
-            </button>
-
+            <button class="back-btn" onclick="${fromConsult?'showConsult()':`openBudget(${budget})`}">← Quay lại</button>
             <div class="detail-box">
-
-                <div class="detail-header">
-
-                    <div>
-
-                        <h1>
-                            ${build.name}
-                        </h1>
-
-                        <p style="color:#777;margin-top:8px;">
-                            Danh sách linh kiện
-                        </p>
-
+                <div class="detail-pro-head">
+                    <div>${build.badge?`<div class="badge-pc">${build.badge}</div>`:""}<h1>${build.name}</h1><p style="color:#777;margin-top:8px;">Cấu hình chi tiết + phân tích gaming PHUC PC</p></div>
+                    <div class="detail-pro-actions">
+                        <button id="favoriteBuildBtn" class="detail-action-btn ${isFavorite?'favorite-active':''}" onclick="toggleFavoriteBuild('${favoriteKey}',${budget},${index})">${isFavorite?'❤️ Đã lưu':'♡ Lưu cấu hình'}</button>
                     </div>
-
-                    <div class="total">
-                        ${formatPrice(getBuildTotal(build))}
-                    </div>
-
                 </div>
-
-                <div class="parts">
-                    ${partsHTML}
+                <div class="detail-header" style="margin-bottom:18px"><div><p style="color:#888">Tổng chi phí linh kiện + công lắp</p></div><div class="total">${formatPrice(totalPrice)}</div></div>
+                <div class="detail-summary-grid">
+                    <div class="detail-summary-card"><span>CPU</span><b>${cpu}</b></div>
+                    <div class="detail-summary-card"><span>GPU</span><b>${gpu}</b></div>
+                    <div class="detail-summary-card"><span>RAM</span><b>${ram}</b></div>
+                    <div class="detail-summary-card"><span>Ổ lưu trữ</span><b>${storage}</b></div>
                 </div>
-
-                <div class="contact-build">
-
-                    <h3>
-                        Bạn muốn mua bộ PC này?
-                    </h3>
-
-                    <p>
-                        Liên hệ để được tư vấn và báo giá nha.
-                    </p>
-
-                    <a
-                        href="https://zalo.me/0368075650"
-                        target="_blank"
-                        class="contact-btn"
-                    >
-                        Liên hệ Build PC
-                    </a>
-
+                <div class="detail-summary-grid">
+                    <div class="detail-summary-card"><span>FPS TB toàn bộ game</span><b>~${averageAll} FPS</b></div>
+                    <div class="detail-summary-card"><span>Đánh giá</span><b>${detailEvaluation.rating}</b></div>
+                    <div class="detail-summary-card"><span>Loại PC</span><b>${getConsultType(build.name)}</b></div>
+                    <div class="detail-summary-card"><span>Số linh kiện</span><b>${build.parts.length} món</b></div>
                 </div>
-
+                <div class="detail-fps-section">
+                    <h3>🎮 FPS tham khảo theo game</h3>
+                    <div class="detail-fps-grid">${fpsCards||'<div class="favorite-empty">Chưa có dữ liệu FPS cho cấu hình này.</div>'}</div>
+                    <div class="detail-note">FPS chỉ là ước tính từ hệ thống PHUC PC. Kết quả thực tế còn phụ thuộc setting, driver, nhiệt độ, phiên bản game, map và tình trạng máy.</div>
+                </div>
+                <div class="detail-parts-title"><h3>🧩 Danh sách linh kiện</h3><span>${build.parts.length} linh kiện</span></div>
+                <div class="parts">${partsHTML}</div>
+                <div class="compare-grid" style="margin-top:22px">
+                    <div class="compare-column"><h3>💪 Điểm mạnh</h3><ul style="padding-left:20px;color:#aaa;line-height:1.8;font-size:12px">${detailEvaluation.strengths.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+                    <div class="compare-column"><h3 style="color:#ff7777">⚠️ Điểm cần lưu ý</h3><ul style="padding-left:20px;color:#aaa;line-height:1.8;font-size:12px">${detailEvaluation.weaknesses.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+                </div>
+                <div class="contact-build"><h3>Bạn muốn mua / nâng cấp bộ PC này?</h3><p>Liên hệ để được tư vấn linh kiện, kiểm tra giá và điều chỉnh cấu hình theo nhu cầu.</p><a href="https://zalo.me/0368075650" target="_blank" rel="noopener" class="contact-btn">Liên hệ Build PC</a></div>
             </div>
+        </div>`;
 
-        </div>
-
-    `;
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    saveRecentBuild({key:favoriteKey,budget,index,name:build.name,price:totalPrice});
+    window.scrollTo({top:0,behavior:"smooth"});
 }
 
 
@@ -2515,39 +3287,58 @@ consult.style.display = "none";
    QUAY VỀ TRANG CHỦ
 ===================================================== */
 
-function goBack() {
-
-    document.getElementById("detailPage").style.display = "none";
-
-    document.getElementById("consultPage").style.display = "none";
-
-    document.getElementById("homePage").style.display = "block";
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
+function hidePage(id) {
+    const el = document.getElementById(id);
+    if (el) el.style.display = "none";
 }
 
-
-/* =====================================================
-   TRANG CHỦ
-===================================================== */
-
 function showHome() {
+    [
+        "detailPage",
+        "consultPage",
+        "comparePage",
+        "knowledgePage",
+        "checkerPage",
+        "learningPage",
+        "proMaxPage",
+        "automationPage"
+    ].forEach(hidePage);
 
-    document.getElementById("detailPage").style.display = "none";
+    const home = document.getElementById("homePage");
+    if (home) home.style.display = "block";
 
-    document.getElementById("consultPage").style.display = "none";
-
-    document.getElementById("homePage").style.display = "block";
+    closeMenu();
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+}
 
+function goBack() {
+    showHome();
+}
+
+function showProMax() {
+    [
+        "homePage",
+        "detailPage",
+        "consultPage",
+        "comparePage",
+        "knowledgePage",
+        "checkerPage",
+        "learningPage",
+        "automationPage"
+    ].forEach(hidePage);
+
+    const page = document.getElementById("proMaxPage");
+    if (page) page.style.display = "block";
+
+    // Luôn đóng menu 3 gạch khi chuyển sang PRO MAX
+    closeMenu();
+
+    renderSaved();
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 /* =====================================================
    TƯ VẤN BUILD PC
@@ -2567,11 +3358,977 @@ function showConsult() {
     home.style.display = "none";
 
     detail.style.display = "none";
+    const automation = document.getElementById("automationPage");
+    if (automation) automation.style.display = "none";
 
     consult.style.display = "block";
 
     window.scrollTo({
         top: 0,
+        behavior: "smooth"
+    });
+
+}
+/* =====================================================
+   TRANG SO SÁNH PC
+===================================================== */
+
+function showCompare() {
+
+    const home =
+        document.getElementById("homePage");
+
+    const detail =
+        document.getElementById("detailPage");
+
+    const consult =
+        document.getElementById("consultPage");
+
+    const compare =
+        document.getElementById("comparePage");
+
+    const automation = document.getElementById("automationPage");
+
+    home.style.display = "none";
+    detail.style.display = "none";
+    consult.style.display = "none";
+    if (automation) automation.style.display = "none";
+    compare.style.display = "block";
+
+    loadCompareOptions();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+/* =====================================================
+   TẠO DANH SÁCH CẤU HÌNH SO SÁNH
+===================================================== */
+
+function getAllBuildsForCompare() {
+
+    const allBuilds = [];
+
+    Object.keys(builds).forEach(
+        budgetKey => {
+
+            builds[budgetKey].forEach(
+                (build, index) => {
+
+                    allBuilds.push({
+
+                        budgetKey:
+                            budgetKey,
+
+                        index:
+                            index,
+
+                        build:
+                            build,
+
+                        price:
+                            getBuildTotal(build)
+
+                    });
+
+                }
+            );
+
+        }
+    );
+
+    return allBuilds;
+
+}
+/* =====================================================
+   HIỂN THỊ CẤU HÌNH VÀO SELECT
+===================================================== */
+
+function loadCompareOptions() {
+
+    const select1 =
+        document.getElementById(
+            "comparePC1"
+        );
+
+    const select2 =
+        document.getElementById(
+            "comparePC2"
+        );
+
+    if (!select1 || !select2) {
+        return;
+    }
+
+    const allBuilds =
+        getAllBuildsForCompare();
+
+    let options = "";
+
+    allBuilds.forEach(
+        (item, index) => {
+
+            options += `
+
+                <option value="${index}">
+
+                    ${item.build.name}
+                    — ${item.price.toLocaleString("vi-VN")}đ
+
+                </option>
+
+            `;
+
+        }
+    );
+
+    select1.innerHTML =
+        options;
+
+    select2.innerHTML =
+        options;
+
+    if (allBuilds.length > 1) {
+
+        select2.selectedIndex = 1;
+
+    }
+
+}
+/* =====================================================
+   ĐÁNH GIÁ PC SO SÁNH
+===================================================== */
+
+function getCompareEvaluation(
+    build,
+    gameID
+) {
+
+    const strengths = [];
+    const weaknesses = [];
+
+    const cpu =
+        getBuildPart(build, "CPU");
+
+    const gpu =
+        getBuildGPU(build);
+
+    const ram =
+        getBuildPart(build, "RAM");
+
+    const storage =
+        getBuildPart(build, "SSD") !== "Không có"
+            ? getBuildPart(build, "SSD")
+            : getBuildPart(build, "HDD");
+
+    /* RAM */
+
+    if (
+        ram.includes("16GB") ||
+        ram.includes("2X8GB")
+    ) {
+
+        strengths.push(
+            "RAM 16GB"
+        );
+
+    } else if (
+        ram.includes("8GB")
+    ) {
+
+        weaknesses.push(
+            "RAM chỉ 8GB"
+        );
+
+    }
+
+    /* VGA */
+
+    if (
+        gpu === "GTX 960 2G D5" ||
+        gpu === "CMP 30HX"
+    ) {
+
+        strengths.push(
+            "VGA khá mạnh trong danh sách hiện tại"
+        );
+
+    }
+
+    if (
+        gpu === "GTS 450" ||
+        gpu === "GT 730 2GB" ||
+        gpu === "Vega 8"
+    ) {
+
+        weaknesses.push(
+            "VGA yếu hơn khi chơi game nặng"
+        );
+
+    }
+
+    /* CPU */
+
+    const cpuUpper =
+        cpu.toUpperCase();
+
+    if (
+        cpuUpper.includes("I5 9500") ||
+        cpuUpper.includes("I3 10100") ||
+        cpuUpper.includes("RYZEN 5 2600")
+    ) {
+
+        strengths.push(
+            "CPU khá tốt"
+        );
+
+    }
+
+    if (
+        cpuUpper.includes("I5 2500")
+    ) {
+
+        weaknesses.push(
+            "CPU đời cũ"
+        );
+
+    }
+
+    /* STORAGE */
+
+    if (
+        storage.toUpperCase().includes("SSD")
+    ) {
+
+        strengths.push(
+            "Có SSD"
+        );
+
+    } else {
+
+        weaknesses.push(
+            "Ổ cứng HDD, loading chậm hơn SSD"
+        );
+
+    }
+
+    const fps =
+        getBuildFPS(
+            build,
+            gameID
+        );
+
+    let averageFPS = 0;
+
+    if (fps) {
+
+        averageFPS =
+            (
+                fps.average[0] +
+                fps.average[1] +
+                fps.average[2]
+            ) / 3;
+
+    }
+
+    return {
+        strengths,
+        weaknesses,
+        averageFPS
+    };
+
+}
+/* =====================================================
+   SO SÁNH 2 CẤU HÌNH
+===================================================== */
+function shortPrice(price) {
+
+    const number = Number(
+        String(price).replace(/[^\d]/g, "")
+    );
+
+    if (number >= 1000000) {
+
+        const million = Math.floor(
+            number / 1000000
+        );
+
+        const thousand = Math.floor(
+            (number % 1000000) / 1000
+        );
+
+        return `${million}m${String(thousand).padStart(3, "0")}`;
+    }
+
+    if (number >= 1000) {
+
+        const thousand = Math.floor(
+            number / 1000
+        );
+
+        return `${thousand}k`;
+    }
+
+    return `${number}đ`;
+}
+
+function comparePCs() {
+
+    const select1 =
+        document.getElementById(
+            "comparePC1"
+        );
+
+    const select2 =
+        document.getElementById(
+            "comparePC2"
+        );
+
+    const gameSelect =
+        document.getElementById(
+            "compareGame"
+        );
+
+    const resultBox =
+        document.getElementById(
+            "compareResults"
+        );
+
+    const allBuilds =
+        getAllBuildsForCompare();
+
+    const item1 =
+        allBuilds[
+            Number(select1.value)
+        ];
+
+    const item2 =
+        allBuilds[
+            Number(select2.value)
+        ];
+
+    const gameID =
+        gameSelect.value;
+
+    if (!item1 || !item2) {
+
+        resultBox.innerHTML = `
+            <div class="consult-empty">
+                ⚠️ Không tìm thấy cấu hình.
+            </div>
+        `;
+
+        return;
+
+    }
+
+    if (
+        item1 === item2 ||
+        (
+            item1.budgetKey === item2.budgetKey &&
+            item1.index === item2.index
+        )
+    ) {
+
+        resultBox.innerHTML = `
+            <div class="consult-empty">
+                ⚠️ Vui lòng chọn 2 cấu hình khác nhau.
+            </div>
+        `;
+
+        return;
+
+    }
+
+    const build1 =
+        item1.build;
+
+    const build2 =
+        item2.build;
+
+    const fps1 =
+        getBuildFPS(
+            build1,
+            gameID
+        );
+
+    const fps2 =
+        getBuildFPS(
+            build2,
+            gameID
+        );
+
+    const eval1 =
+        getCompareEvaluation(
+            build1,
+            gameID
+        );
+
+    const eval2 =
+        getCompareEvaluation(
+            build2,
+            gameID
+        );
+
+    const game =
+        fpsGames.find(
+            g => g.id === gameID
+        );
+
+    const fpsName =
+        game
+            ? game.name
+            : gameID;
+
+            /* =========================
+   ĐỔI ICON GAME SO SÁNH
+========================= */
+
+const compareHeaderIcon =
+    document.getElementById(
+        "compareHeaderGameIcon"
+    );
+
+if (
+    compareHeaderIcon &&
+    game &&
+    game.icon
+) {
+
+    compareHeaderIcon.src =
+        game.icon;
+
+    compareHeaderIcon.alt =
+        game.name;
+
+}
+
+    let cpu1 =
+        getBuildPart(
+            build1,
+            "CPU"
+        );
+
+    let cpu2 =
+        getBuildPart(
+            build2,
+            "CPU"
+        );
+
+    let gpu1 =
+        getBuildGPU(build1)
+        || getBuildPart(build1, "VGA");
+
+    let gpu2 =
+        getBuildGPU(build2)
+        || getBuildPart(build2, "VGA");
+
+    let ram1 =
+        getBuildPart(
+            build1,
+            "RAM"
+        );
+
+    let ram2 =
+        getBuildPart(
+            build2,
+            "RAM"
+        );
+
+    let storage1 =
+        getBuildPart(
+            build1,
+            "SSD"
+        ) !== "Không có"
+
+            ? getBuildPart(
+                build1,
+                "SSD"
+            )
+
+            : getBuildPart(
+                build1,
+                "HDD"
+            );
+
+    let storage2 =
+        getBuildPart(
+            build2,
+            "SSD"
+        ) !== "Không có"
+
+            ? getBuildPart(
+                build2,
+                "SSD"
+            )
+
+            : getBuildPart(
+                build2,
+                "HDD"
+            );
+
+    /* =========================
+       SO SÁNH FPS
+    ========================= */
+
+    let fpsHTML = "";
+
+    if (fps1 && fps2) {
+
+        const settings = [
+            {
+                name: "Thấp",
+                a: fps1.average[0],
+                b: fps2.average[0]
+            },
+            {
+                name: "Trung bình",
+                a: fps1.average[1],
+                b: fps2.average[1]
+            },
+            {
+                name: "Cao",
+                a: fps1.average[2],
+                b: fps2.average[2]
+            }
+        ];
+
+        settings.forEach(setting => {
+
+            let classA = "";
+            let classB = "";
+
+            if (
+                setting.a >
+                setting.b
+            ) {
+
+                classA =
+                    "compare-win";
+
+                classB =
+                    "compare-loss";
+
+            }
+
+            else if (
+                setting.b >
+                setting.a
+            ) {
+
+                classA =
+                    "compare-loss";
+
+                classB =
+                    "compare-win";
+
+            }
+
+            fpsHTML += `
+
+                <tr>
+
+                    <td>
+                        ${setting.name}
+                    </td>
+
+                    <td class="${classA}">
+                        ~${setting.a} FPS
+                    </td>
+
+                    <td class="${classB}">
+                        ~${setting.b} FPS
+                    </td>
+
+                </tr>
+
+            `;
+
+        });
+
+    } else {
+
+        fpsHTML = `
+
+            <tr>
+
+                <td colspan="3">
+                    Chưa có dữ liệu FPS cho cấu hình này.
+                </td>
+
+            </tr>
+
+        `;
+
+    }
+
+    /* =====================================================
+       PHUC PC PRO — PHÂN TÍCH SÂU
+    ===================================================== */
+
+    function localMetricScore(build) {
+        const cpuScore = Math.min(100, Math.round(getCPUFactor(getBuildPart(build, "CPU")) * 82));
+        const gpuNames = {"CMP 30HX":100,"GTX 960 2G D5":88,"GTX 950 2G D5":78,"GTX 660 2G D5":66,"Vega 8":52,"GTS 450":38,"GT 730 2GB":28};
+        const gpuScore = gpuNames[getBuildGPU(build)] || 35;
+        const ram = getBuildPart(build, "RAM").toUpperCase();
+        const ramScore = ram.includes("16GB") || ram.includes("2X8GB") ? 100 : (ram.includes("8GB") ? 68 : 45);
+        const storageScore = getBuildPart(build, "SSD") !== "Không có" ? 100 : 58;
+        return {cpuScore,gpuScore,ramScore,storageScore};
+    }
+
+    const pro1 = localMetricScore(build1);
+    const pro2 = localMetricScore(build2);
+    const avg1 = eval1.averageFPS || 0;
+    const avg2 = eval2.averageFPS || 0;
+    const value1 = item1.price > 0 ? avg1 / (item1.price / 1000000) : 0;
+    const value2 = item2.price > 0 ? avg2 / (item2.price / 1000000) : 0;
+    const fpsDelta = avg1 > 0 && avg2 > 0 ? Math.abs(avg1-avg2)/Math.min(avg1,avg2)*100 : 0;
+    const valueDelta = value1 > 0 && value2 > 0 ? Math.abs(value1-value2)/Math.min(value1,value2)*100 : 0;
+
+    const renderMetric = (name,a,b) => {
+        const max = Math.max(a,b,1);
+        return `
+            <div class="compare-metric">
+                <div class="compare-metric-top"><span>${name}</span><b>${Math.round(a)} / ${Math.round(b)}</b></div>
+                <div class="compare-meter"><div class="compare-meter-fill" style="width:${Math.max(4,Math.min(100,a/max*100))}%"></div></div>
+                <div style="height:5px"></div>
+                <div class="compare-meter"><div class="compare-meter-fill" style="width:${Math.max(4,Math.min(100,b/max*100))}%"></div></div>
+            </div>`;
+    };
+
+    const compareProHTML = `
+        <div class="compare-pro">
+            <div class="compare-pro-title">
+                <h3>🚀 PHUC PC PRO — Phân tích sâu</h3>
+                <span class="compare-pro-badge">FPS + GIÁ + LINH KIỆN</span>
+            </div>
+            <div class="compare-pro-grid">
+                <div class="compare-pro-card">
+                    <h4>🖥️ ${build1.name}</h4>
+                    ${renderMetric("CPU",pro1.cpuScore,pro2.cpuScore)}
+                    ${renderMetric("GPU",pro1.gpuScore,pro2.gpuScore)}
+                    ${renderMetric("RAM",pro1.ramScore,pro2.ramScore)}
+                    ${renderMetric("Storage",pro1.storageScore,pro2.storageScore)}
+                </div>
+                <div class="compare-pro-card">
+                    <h4>🖥️ ${build2.name}</h4>
+                    <div class="compare-pro-stats">
+                        <div class="compare-pro-stat"><span>FPS TB</span><b>${Math.round(avg2)}</b></div>
+                        <div class="compare-pro-stat"><span>Giá</span><b>${shortPrice(item2.price)}</b></div>
+                        <div class="compare-pro-stat"><span>FPS / 1tr</span><b>${value2.toFixed(1)}</b></div>
+                        <div class="compare-pro-stat"><span>GPU</span><b>${pro2.gpuScore}</b></div>
+                    </div>
+                </div>
+            </div>
+            <div class="compare-pro-stats">
+                <div class="compare-pro-stat"><span>${build1.name} — FPS TB</span><b>${Math.round(avg1)}</b></div>
+                <div class="compare-pro-stat"><span>${build2.name} — FPS TB</span><b>${Math.round(avg2)}</b></div>
+                <div class="compare-pro-stat"><span>FPS / 1tr — PC 1</span><b>${value1.toFixed(1)}</b></div>
+                <div class="compare-pro-stat"><span>FPS / 1tr — PC 2</span><b>${value2.toFixed(1)}</b></div>
+            </div>
+            <div class="compare-delta">
+                📈 Chênh lệch FPS trung bình: <strong>${fpsDelta.toFixed(1)}%</strong>
+                &nbsp; • &nbsp; 💰 Chênh lệch hiệu quả FPS/giá: <strong>${valueDelta.toFixed(1)}%</strong>
+                <br>ℹ️ Điểm CPU/GPU/RAM/Storage là điểm quy đổi nội bộ để dễ nhìn nhanh, không phải benchmark phần cứng.
+            </div>
+        </div>`;
+
+    /* =========================
+       SO SÁNH TỔNG QUAN
+    ========================= */
+
+    let overall;
+
+    if (
+        eval1.averageFPS >
+        eval2.averageFPS
+    ) {
+
+        overall = `
+    📊 Với game <b>${fpsName}</b>,
+    <b>${build1.name}</b> đang có FPS ước tính cao hơn.
+`;
+
+    }
+
+    else if (
+        eval2.averageFPS >
+        eval1.averageFPS
+    ) {
+
+        overall = `
+    📊 Với game <b>${fpsName}</b>,
+    <b>${build2.name}</b> đang có FPS ước tính cao hơn.
+`;
+
+    }
+
+    else {
+
+        overall = `
+            📊 Hai cấu hình có FPS ước tính khá tương đương
+            ở game <b>${fpsName}</b>.
+        `;
+
+    }
+
+    /* =========================
+       HIỂN THỊ
+    ========================= */
+
+    resultBox.innerHTML = `
+
+        <div class="compare-result">
+
+            <div class="compare-result-title">
+                ⚔️ ${build1.name}
+                <span style="color:#666;">VS</span>
+                ${build2.name}
+            </div>
+
+
+            <div class="compare-grid">
+
+                <!-- PC 1 -->
+
+                <div class="compare-column">
+
+                    <h3>
+                        🖥️ ${build1.name}
+                    </h3>
+
+                    <p>
+                        <strong>Giá:</strong>
+                        ${item1.price.toLocaleString("vi-VN")}đ
+                    </p>
+
+                    <p>
+                        <strong>CPU:</strong>
+                        ${cpu1}
+                    </p>
+
+                    <p>
+                        <strong>VGA:</strong>
+                        ${gpu1}
+                    </p>
+
+                    <p>
+                        <strong>RAM:</strong>
+                        ${ram1}
+                    </p>
+
+                    <p>
+                        <strong>Ổ cứng:</strong>
+                        ${storage1}
+                    </p>
+
+                </div>
+
+
+                <!-- PC 2 -->
+
+                <div class="compare-column">
+
+                    <h3>
+                        🖥️ ${build2.name}
+                    </h3>
+
+                    <p>
+                        <strong>Giá:</strong>
+                        ${item2.price.toLocaleString("vi-VN")}đ
+                    </p>
+
+                    <p>
+                        <strong>CPU:</strong>
+                        ${cpu2}
+                    </p>
+
+                    <p>
+                        <strong>VGA:</strong>
+                        ${gpu2}
+                    </p>
+
+                    <p>
+                        <strong>RAM:</strong>
+                        ${ram2}
+                    </p>
+
+                    <p>
+                        <strong>Ổ cứng:</strong>
+                        ${storage2}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FPS -->
+
+            <div class="compare-fps">
+
+                <div class="compare-fps-title">
+
+    <img
+        src="${game.icon}"
+        alt="${fpsName}"
+        class="compare-game-icon"
+    >
+
+    <span>
+        FPS — ${fpsName}
+    </span>
+
+</div>
+
+                <table class="compare-fps-table">
+
+                    <thead>
+
+                        <th>Setting</th>
+
+<th>
+    💰 ${shortPrice(item1.price)}
+</th>
+
+<th>
+    💰 ${shortPrice(item2.price)}
+</th>
+
+                    </thead>
+
+                    <tbody>
+
+                        ${fpsHTML}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            ${compareProHTML}
+
+            <!-- ĐÁNH GIÁ PC 1 -->
+
+            <div class="compare-evaluation">
+
+                <h4>
+    💪 Điểm mạnh — ${build1.name}
+</h4>
+
+                <ul>
+
+                    ${
+                        eval1.strengths
+                            .map(
+                                item =>
+                                    `<li>${item}</li>`
+                            )
+                            .join("")
+                    }
+
+                </ul>
+
+
+                <h4
+    class="compare-weakness"
+    style="margin-top:12px;"
+>
+    ⚠️ Điểm yếu — ${build1.name}
+</h4>
+
+                <ul>
+
+                    ${
+                        eval1.weaknesses
+                            .map(
+                                item =>
+                                    `<li>${item}</li>`
+                            )
+                            .join("")
+                    }
+
+                </ul>
+
+            </div>
+
+
+            <!-- ĐÁNH GIÁ PC 2 -->
+
+            <div class="compare-evaluation">
+
+                <h4>
+    💪 Điểm mạnh — ${build2.name}
+</h4>
+
+                <ul>
+
+                    ${
+                        eval2.strengths
+                            .map(
+                                item =>
+                                    `<li>${item}</li>`
+                            )
+                            .join("")
+                    }
+
+                </ul>
+
+
+                <h4
+    class="compare-weakness"
+    style="margin-top:12px;"
+>
+    ⚠️ Điểm yếu — ${build2.name}
+</h4>
+
+                <ul>
+
+                    ${
+                        eval2.weaknesses
+                            .map(
+                                item =>
+                                    `<li>${item}</li>`
+                            )
+                            .join("")
+                    }
+
+                </ul>
+
+            </div>
+
+
+            <!-- TỔNG KẾT -->
+
+            <div class="compare-overall">
+
+                <strong>
+                    📊 Đánh giá so sánh
+                </strong>
+
+                <br><br>
+
+                ${overall}
+
+                <br><br>
+
+                <span style="color:#777;font-size:12px;">
+                    FPS là số liệu ước tính từ hệ thống PHUC PC,
+                    không phải benchmark thực tế.
+                </span>
+
+            </div>
+
+        </div>
+
+    `;
+
+    window.scrollTo({
+        top: resultBox.offsetTop - 90,
         behavior: "smooth"
     });
 
@@ -2913,11 +4670,11 @@ results.forEach(item => {
             */
 
             const avgFPS =
-                (
-                    fps[0] +
-                    fps[1] +
-                    fps[2]
-                ) / 3;
+    (
+        fps.average[0] +
+        fps.average[1] +
+        fps.average[2]
+    ) / 3;
 
             fpsValues.push(avgFPS);
 
@@ -3149,6 +4906,11 @@ results =
                 position === 0
                     ? "recommended"
                     : "";
+                    const evaluation =
+    evaluateBuild(
+        build,
+        selectedGames
+    );
 
 
             /* =========================
@@ -3452,6 +5214,59 @@ results =
                         </div>
 
                     </div>
+                    <!-- ĐÁNH GIÁ -->
+
+<div class="consult-evaluation">
+
+    <div class="consult-evaluation-title">
+        📊 Đánh giá cấu hình
+    </div>
+
+    <div class="consult-rating">
+        ${evaluation.rating}
+    </div>
+
+    <div class="consult-evaluation-grid">
+
+        <div class="consult-evaluation-box consult-strength">
+
+            <h4>💪 Điểm mạnh</h4>
+
+            <ul>
+                ${
+                    evaluation.strengths
+                        .map(item => `<li>${item}</li>`)
+                        .join("")
+                }
+            </ul>
+
+        </div>
+
+
+        <div class="consult-evaluation-box consult-weakness">
+
+            <h4>⚠️ Điểm yếu</h4>
+
+            <ul>
+                ${
+                    evaluation.weaknesses
+                        .map(item => `<li>${item}</li>`)
+                        .join("")
+                }
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="consult-evaluation-note">
+
+        * Đánh giá được tạo tự động từ linh kiện và FPS ước tính.
+        FPS thực tế có thể thay đổi tùy game, driver, setting và hệ thống.
+
+    </div>
+
+</div>
 
 
                     <!-- XEM CHI TIẾT -->
@@ -4014,6 +5829,290 @@ function getBuildFPS(build, gameID) {
     };
 
 }
+/* =====================================================
+   ĐÁNH GIÁ CẤU HÌNH
+===================================================== */
+
+function evaluateBuild(build, selectedGames) {
+
+    const strengths = [];
+    const weaknesses = [];
+
+    const cpu =
+        getBuildPart(build, "CPU");
+
+    const gpu =
+        getBuildPart(build, "VGA");
+
+    const ram =
+        getBuildPart(build, "RAM");
+
+    const storage =
+        getBuildPart(build, "SSD") !== "Không có"
+            ? getBuildPart(build, "SSD")
+            : getBuildPart(build, "HDD");
+
+    /* =========================
+       RAM
+    ========================= */
+
+    const ramUpper =
+        ram.toUpperCase();
+
+    if (
+        ramUpper.includes("16GB") ||
+        ramUpper.includes("2X8GB")
+    ) {
+
+        strengths.push(
+            "RAM 16GB, phù hợp gaming tốt hơn"
+        );
+
+    } else if (
+        ramUpper.includes("8GB")
+    ) {
+
+        strengths.push(
+            "RAM 8GB, đủ cho nhiều game nhẹ"
+        );
+
+        weaknesses.push(
+            "RAM 8GB có thể hạn chế ở một số game nặng"
+        );
+
+    } else if (
+        ramUpper.includes("2X4GB")
+    ) {
+
+        weaknesses.push(
+            "RAM 8GB dạng 2x4GB, dung lượng không cao"
+        );
+
+    }
+
+    /* =========================
+       VGA
+    ========================= */
+
+    const realGPU =
+        getBuildGPU(build);
+
+    if (realGPU) {
+
+        if (
+            realGPU === "GTX 960 2G D5" ||
+            realGPU === "CMP 30HX"
+        ) {
+
+            strengths.push(
+                "VGA khá mạnh trong nhóm cấu hình hiện có"
+            );
+
+        }
+
+        if (
+            realGPU === "GTX 950 2G D5" ||
+            realGPU === "GTX 660 2G D5"
+        ) {
+
+            strengths.push(
+                "VGA đủ cho nhiều game phổ thông ở 1080p"
+            );
+
+        }
+
+        if (
+            realGPU === "GTS 450" ||
+            realGPU === "GT 730 2GB" ||
+            realGPU === "Vega 8"
+        ) {
+
+            weaknesses.push(
+                "VGA khá yếu khi chơi game nặng"
+            );
+
+        }
+
+    }
+
+    /* =========================
+       CPU
+    ========================= */
+
+    const cpuUpper =
+        cpu.toUpperCase();
+
+    if (
+        cpuUpper.includes("I5 9500") ||
+        cpuUpper.includes("I3 10100") ||
+        cpuUpper.includes("RYZEN 5 2600")
+    ) {
+
+        strengths.push(
+            "CPU khá tốt cho gaming và đa nhiệm"
+        );
+
+    } else if (
+        cpuUpper.includes("I5 6500") ||
+        cpuUpper.includes("I3 9100") ||
+        cpuUpper.includes("I3 9100F")
+    ) {
+
+        strengths.push(
+            "CPU đủ tốt cho gaming phổ thông"
+        );
+
+    } else if (
+        cpuUpper.includes("I5 2500")
+    ) {
+
+        weaknesses.push(
+            "CPU đã khá cũ, có thể hạn chế FPS ở game CPU-bound"
+        );
+
+    }
+
+    /* =========================
+       Ổ CỨNG
+    ========================= */
+
+    const storageUpper =
+        storage.toUpperCase();
+
+    if (
+        storageUpper.includes("SSD")
+    ) {
+
+        strengths.push(
+            "Có SSD, thời gian mở Windows và game tốt hơn HDD"
+        );
+
+    } else {
+
+        weaknesses.push(
+            "Dùng HDD nên thời gian tải game và Windows sẽ chậm hơn SSD"
+        );
+
+    }
+
+    /* =========================
+       FPS
+    ========================= */
+
+    let totalFPS = 0;
+    let fpsCount = 0;
+
+    selectedGames.forEach(gameID => {
+
+        const fps =
+            getBuildFPS(
+                build,
+                gameID
+            );
+
+        if (!fps) {
+            return;
+        }
+
+        const average =
+            (
+                fps.average[0] +
+                fps.average[1] +
+                fps.average[2]
+            ) / 3;
+
+        totalFPS += average;
+        fpsCount++;
+
+    });
+
+    const averageFPS =
+        fpsCount > 0
+            ? totalFPS / fpsCount
+            : 0;
+
+    if (averageFPS >= 100) {
+
+        strengths.push(
+            "FPS ước tính tốt ở các game đã chọn"
+        );
+
+    } else if (averageFPS >= 60) {
+
+        strengths.push(
+            "FPS ước tính ở mức chơi khá ổn"
+        );
+
+    } else if (averageFPS < 40) {
+
+        weaknesses.push(
+            "FPS ước tính thấp ở một số game đã chọn"
+        );
+
+    }
+
+    /* =========================
+       ĐẢM BẢO KHÔNG TRỐNG
+    ========================= */
+
+    if (strengths.length === 0) {
+
+        strengths.push(
+            "Cấu hình đáp ứng được một phần nhu cầu đã chọn"
+        );
+
+    }
+
+    if (weaknesses.length === 0) {
+
+        weaknesses.push(
+            "Không thấy điểm yếu lớn theo dữ liệu tham khảo hiện tại"
+        );
+
+    }
+
+    /* =========================
+       XẾP ĐÁNH GIÁ
+    ========================= */
+
+    let rating;
+
+    if (
+        averageFPS >= 100 &&
+        strengths.length >= weaknesses.length
+    ) {
+
+        rating =
+            "🔥 RẤT ỔN CHO NHU CẦU ĐÃ CHỌN";
+
+    } else if (
+        averageFPS >= 60
+    ) {
+
+        rating =
+            "👍 ỔN CHO GAMING PHỔ THÔNG";
+
+    } else if (
+        averageFPS >= 40
+    ) {
+
+        rating =
+            "⚠️ CHƠI ĐƯỢC NHƯNG CẦN HẠ SETTING";
+
+    } else {
+
+        rating =
+            "⚠️ PHÙ HỢP HƠN VỚI GAME NHẸ";
+
+    }
+
+    return {
+        rating: rating,
+        strengths: strengths,
+        weaknesses: weaknesses
+    };
+
+}
 
 
 /* =====================================================
@@ -4025,6 +6124,109 @@ function getBuildFPS(build, gameID) {
 
 
 
+
+/* =====================================================
+   PHUC PC — GAME MỞ RỘNG
+===================================================== */
+const phucExtraGameIcon=slug=>`https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/${slug}.svg`;
+const phucExtraGames=[
+{
+    id: "fortnite",
+    name: "Fortnite",
+    icon: "images/fortnite.png",
+    description: "1080p — Low / Medium / High"
+},
+{
+    id: "gta5",
+    name: "GTA V",
+    icon: "images/gta5.png",
+    description: "1080p — Normal / High / Very High"
+},
+{
+    id: "apex",
+    name: "Apex Legends",
+    icon: "images/apex.png",
+    description: "1080p — Low / Medium / High"
+},
+{
+    id: "dota2",
+    name: "Dota 2",
+    icon: "images/dota2.png",
+    description: "1080p — Low / Medium / High"
+},
+{
+    id: "eldenring",
+    name: "Elden Ring",
+    icon: "images/eldenring.png",
+    description: "1080p — Low / Medium / High"
+},
+{
+    id: "rocketleague",
+    name: "Rocket League",
+    icon: "images/rocketleague.png",
+    description: "1080p — Low / Medium / High"
+}
+];
+const phucExtraFPS={
+"CMP 30HX":{fortnite:[150,120,90],gta5:[110,90,70],apex:[125,100,78],dota2:[170,140,115],eldenring:[42,35,28],rocketleague:[180,150,120]},
+"GTX 960 2G D5":{fortnite:[125,100,76],gta5:[88,70,55],apex:[105,82,64],dota2:[145,120,98],eldenring:[35,29,23],rocketleague:[150,125,100]},
+"GTX 950 2G D5":{fortnite:[110,88,66],gta5:[75,60,47],apex:[88,70,54],dota2:[125,105,85],eldenring:[30,25,20],rocketleague:[130,108,86]},
+"GTX 660 2G D5":{fortnite:[90,72,55],gta5:[62,50,39],apex:[70,56,43],dota2:[105,88,72],eldenring:[26,21,17],rocketleague:[110,92,74]},
+"GTS 450":{fortnite:[48,38,30],gta5:[35,28,22],apex:[38,30,23],dota2:[62,50,40],eldenring:[15,12,9],rocketleague:[70,56,44]},
+"GT 730 2GB":{fortnite:[36,28,21],gta5:[27,21,16],apex:[29,23,18],dota2:[48,39,31],eldenring:[10,8,6],rocketleague:[58,46,36]},
+"Vega 8":{fortnite:[58,45,34],gta5:[40,32,25],apex:[45,36,28],dota2:[70,57,45],eldenring:[17,14,11],rocketleague:[75,60,48]}
+};
+Object.keys(phucExtraFPS).forEach(gpu=>{if(!fpsDatabase[gpu])fpsDatabase[gpu]={};Object.assign(fpsDatabase[gpu],phucExtraFPS[gpu]);});
+phucExtraGames.forEach(game=>{if(!fpsGames.some(g=>g.id===game.id))fpsGames.push(game);});
+function loadExtraGamesUI(){
+ const box=document.querySelector(".game-options"), compareGame=document.getElementById("compareGame");
+ phucExtraGames.forEach(game=>{
+  if(box&&!box.querySelector(`input[value="${game.id}"]`)){const label=document.createElement("label");label.className="game-option";label.innerHTML=`<input type="checkbox" name="gameSelect" value="${game.id}"><img src="${game.icon}" class="game-icon" alt="${game.name}"><span>${game.name}</span>`;box.appendChild(label);}
+  if(compareGame&&!compareGame.querySelector(`option[value="${game.id}"]`)){const option=document.createElement("option");option.value=game.id;option.textContent=game.name;compareGame.appendChild(option);}
+ });
+}
+
+/* =====================================================
+   YÊU THÍCH + XEM GẦN ĐÂY + CHIA SẺ
+===================================================== */
+function saveRecentBuild(item){let list=JSON.parse(localStorage.getItem("phucpc_recent")||"[]");list=list.filter(x=>x.key!==item.key);list.unshift(item);localStorage.setItem("phucpc_recent",JSON.stringify(list.slice(0,6)));}
+function toggleFavoriteBuild(key,budget,index){const build=builds[budget]?.[index];if(!build)return;let list=JSON.parse(localStorage.getItem("phucpc_favorites")||"[]");const exists=list.some(x=>x.key===key);if(exists)list=list.filter(x=>x.key!==key);else list.push({key,budget,index,name:build.name,price:getBuildTotal(build)});localStorage.setItem("phucpc_favorites",JSON.stringify(list));const btn=document.getElementById("favoriteBuildBtn");if(btn){btn.classList.toggle("favorite-active",!exists);btn.innerHTML=!exists?"❤️ Đã lưu":"♡ Lưu cấu hình";}renderFavoriteSection();}
+function renderFavoriteSection(){const box=document.getElementById("favoriteSectionBox");if(!box)return;const favorites=JSON.parse(localStorage.getItem("phucpc_favorites")||"[]"),recent=JSON.parse(localStorage.getItem("phucpc_recent")||"[]");let html=`<section class="favorite-section"><h3>❤️ Cấu hình đã lưu</h3>`;if(!favorites.length)html+=`<div class="favorite-empty">Bạn chưa lưu cấu hình nào. Vào chi tiết PC và bấm “Lưu cấu hình”.</div>`;else{html+=`<div class="favorite-list">`;favorites.forEach(x=>{html+=`<div class="favorite-card"><h4>${x.name}</h4><p>${formatPrice(x.price)} • PC ${x.budget} triệu</p><button onclick="openBuild(${x.budget},${x.index})">Xem lại cấu hình</button></div>`});html+=`</div>`;}html+=`<h3 style="margin-top:25px">🕘 Xem gần đây</h3>`;if(!recent.length)html+=`<div class="favorite-empty">Chưa có lịch sử xem cấu hình.</div>`;else{html+=`<div class="favorite-list">`;recent.forEach(x=>{html+=`<div class="favorite-card"><h4>${x.name}</h4><p>${formatPrice(x.price)}</p><button onclick="openBuild(${x.budget},${x.index})">Mở cấu hình</button></div>`});html+=`</div>`;}html+=`</section>`;box.innerHTML=html;}
+function shareWebsite(){
+    try {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    } catch (e) {
+        window.scrollTo(0, 0);
+    }
+}
+
+/* =====================================================
+   PHUC PC — KIẾN THỨC + CHECKER + LỘ TRÌNH
+===================================================== */
+const phucKnowledge=[
+{id:'cpu',icon:'🧠',title:'CPU là gì?',desc:'Bộ xử lý trung tâm và cách đọc tên CPU.',body:'<h3>CPU là gì?</h3><p>CPU là bộ xử lý trung tâm, thực hiện các phép tính và điều khiển nhiều tác vụ của máy tính.</p><ul><li>Số nhân / luồng ảnh hưởng khả năng xử lý nhiều tác vụ.</li><li>Xung nhịp là một yếu tố, nhưng không nên dùng một thông số để kết luận hiệu năng.</li><li>Khi chọn CPU cần xem cả mainboard, socket, RAM và nhu cầu sử dụng.</li></ul>'},
+{id:'gpu',icon:'🎮',title:'GPU / VGA là gì?',desc:'GPU xử lý hình ảnh và ảnh hưởng lớn tới FPS game.',body:'<h3>GPU / VGA</h3><p>GPU đảm nhiệm phần lớn công việc xử lý đồ họa. Với gaming, GPU thường là một trong những linh kiện quan trọng nhất.</p><ul><li>VRAM là bộ nhớ dành cho đồ họa.</li><li>GPU mạnh không có nghĩa mọi game đều đạt cùng một mức FPS.</li><li>Nên xem độ phân giải, setting và tựa game khi đánh giá.</li></ul>'},
+{id:'ram',icon:'🧩',title:'RAM ảnh hưởng gì?',desc:'Hiểu dung lượng RAM và dual-channel.',body:'<h3>RAM</h3><p>RAM là bộ nhớ tạm để hệ điều hành và ứng dụng sử dụng khi đang chạy.</p><ul><li>4GB hiện khá hạn chế cho nhiều tác vụ.</li><li>8GB phù hợp nhu cầu cơ bản; 16GB thoải mái hơn cho đa nhiệm.</li><li>Hai thanh RAM có thể giúp tận dụng dual-channel trên nền tảng hỗ trợ.</li></ul>'},
+{id:'ssd',icon:'💾',title:'SSD và HDD',desc:'Khác nhau về tốc độ và cách sử dụng.',body:'<h3>SSD vs HDD</h3><p>SSD thường cho tốc độ truy cập dữ liệu và khởi động hệ thống nhanh hơn HDD.</p><ul><li>SSD phù hợp cài Windows và phần mềm.</li><li>HDD có thể dùng để lưu dữ liệu dung lượng lớn với chi phí thấp hơn.</li><li>120GB rất nhanh đầy nếu cài nhiều game.</li></ul>'},
+{id:'psu',icon:'🔌',title:'Nguồn PSU',desc:'Một linh kiện không nên chọn chỉ theo số watt.',body:'<h3>PSU</h3><p>Nguồn cung cấp điện cho toàn bộ hệ thống. Công suất chỉ là một phần của vấn đề.</p><ul><li>Cần quan tâm chất lượng nguồn và khả năng cấp điện ổn định.</li><li>GPU tiêu thụ điện cao cần nguồn phù hợp.</li><li>Không nên chọn nguồn chỉ vì thấy số watt lớn.</li></ul>'},
+{id:'main',icon:'🛠️',title:'Mainboard',desc:'Mainboard quyết định nhiều khả năng nâng cấp.',body:'<h3>Mainboard</h3><p>Mainboard kết nối CPU, RAM, GPU, ổ cứng và các thiết bị khác.</p><ul><li>Kiểm tra socket CPU.</li><li>Kiểm tra loại RAM hỗ trợ.</li><li>Xem số khe RAM, M.2, SATA và khả năng nâng cấp.</li></ul>'},
+{id:'bottleneck',icon:'⚖️',title:'Bottleneck là gì?',desc:'Hiểu giới hạn hiệu năng giữa các linh kiện.',body:'<h3>Bottleneck</h3><p>Bottleneck là tình huống một thành phần trở thành giới hạn chính trong một tác vụ.</p><ul><li>Gaming độ phân giải cao thường phụ thuộc GPU nhiều hơn.</li><li>Game cạnh tranh FPS cao có thể cần CPU mạnh.</li><li>Không có một phần trăm bottleneck cố định đúng cho mọi trường hợp.</li></ul>'},
+{id:'used',icon:'♻️',title:'Mua PC cũ cần kiểm tra gì?',desc:'Checklist nhanh trước khi mua linh kiện cũ.',body:'<h3>Checklist PC cũ</h3><ul><li>Kiểm tra ngoại hình và dấu hiệu sửa chữa.</li><li>Test nhiệt độ CPU/GPU khi tải.</li><li>Kiểm tra RAM, ổ cứng và lỗi màn hình.</li><li>Kiểm tra nguồn và dây kết nối.</li><li>Nếu có thể, test thực tế trước khi thanh toán.</li></ul>'}
+];
+function show567Page(id){['homePage','consultPage','comparePage','detailPage','knowledgePage','checkerPage','learningPage','proMaxPage','automationPage'].forEach(x=>{const el=document.getElementById(x);if(el)el.style.display='none';});const page=document.getElementById(id);if(page)page.style.display='block';window.scrollTo({top:0,behavior:'smooth'});}
+function showKnowledge(){show567Page('knowledgePage');renderKnowledge();}
+function showChecker(){show567Page('checkerPage');populateChecker();}
+function showLearning(){show567Page('learningPage');}
+function renderKnowledge(filter=''){const box=document.getElementById('knowledgeGrid');if(!box)return;const q=filter.trim().toLowerCase();const list=phucKnowledge.filter(x=>(x.title+' '+x.desc).toLowerCase().includes(q));box.innerHTML=list.map(x=>`<article class="knowledge-card"><div class="icon">${x.icon}</div><h3>${x.title}</h3><p>${x.desc}</p><button onclick="openKnowledge('${x.id}')">Đọc kiến thức →</button></article>`).join('')||'<div class="phuc567-tip">Không tìm thấy kiến thức phù hợp.</div>';}
+function filterKnowledge(){renderKnowledge(document.getElementById('knowledgeSearch')?.value||'');}
+function openKnowledge(id){const item=phucKnowledge.find(x=>x.id===id);const box=document.getElementById('knowledgeDetail');if(!item||!box)return;box.innerHTML=item.body+`<button class="checker-btn" style="margin-top:15px" onclick="document.getElementById('knowledgeDetail').style.display='none'">Đóng bài viết</button>`;box.style.display='block';box.scrollIntoView({behavior:'smooth',block:'nearest'});}
+function uniqueParts(type){const set=new Set();Object.values(builds).forEach(arr=>arr.forEach(b=>b.parts.forEach(p=>{if(p[0]===type)set.add(p[1]);})));return [...set];}
+function fillCheckerSelect(id,items,placeholder){const el=document.getElementById(id);if(!el)return;el.innerHTML='<option value="">'+placeholder+'</option>'+items.map(x=>`<option>${x}</option>`).join('');}
+function populateChecker(){fillCheckerSelect('checkCPU',uniqueParts('CPU'),'Chọn CPU');fillCheckerSelect('checkGPU',[...new Set([...uniqueParts('VGA'),...uniqueParts('GPU')])],'Chọn GPU / VGA');fillCheckerSelect('checkRAM',uniqueParts('RAM'),'Chọn RAM');fillCheckerSelect('checkSSD',uniqueParts('SSD'),'Chọn SSD');fillCheckerSelect('checkHDD',uniqueParts('HDD'),'Chọn HDD');fillCheckerSelect('checkPSU',uniqueParts('Nguồn'),'Chọn nguồn');}
+function runComponentChecker(){const cpu=document.getElementById('checkCPU').value,gpu=document.getElementById('checkGPU').value,ram=document.getElementById('checkRAM').value,ssd=document.getElementById('checkSSD').value,hdd=document.getElementById('checkHDD').value,psu=document.getElementById('checkPSU').value,use=document.getElementById('checkUse').value;const out=[];const storageText=(ssd+' '+hdd).toLowerCase();const text=(cpu+' '+gpu+' '+ram+' '+ssd+' '+hdd+' '+psu).toLowerCase();if(!ram)out.push('<div class="warn">⚠️ Chưa chọn RAM.</div>');else if(/2x4|8gb/.test(text))out.push('<div class="ok">✓ RAM: mức cơ bản phù hợp nhiều nhu cầu.</div>');else if(/16gb|32gb/.test(text))out.push('<div class="ok">✓ RAM: dung lượng tốt cho đa nhiệm.</div>');else out.push('<div class="warn">⚠️ RAM: nên kiểm tra lại dung lượng thực tế.</div>');if(!ssd&&!hdd){out.push('<div class="warn">⚠️ Chưa chọn SSD hoặc HDD.</div>');}else{if(ssd){if(/120gb/.test(ssd.toLowerCase()))out.push('<div class="warn">⚠️ SSD 120GB: có thể nhanh đầy nếu cài nhiều phần mềm/game.</div>');else out.push('<div class="ok">✓ SSD: đã chọn, phù hợp làm ổ hệ điều hành/ứng dụng.</div>');}else out.push('<div class="warn">⚠️ Chưa có SSD: nếu dùng HDD làm ổ hệ điều hành, máy có thể chậm hơn.</div>');if(hdd)out.push('<div class="ok">✓ HDD: đã chọn, phù hợp lưu dữ liệu/game dung lượng lớn.</div>');if(ssd&&hdd)out.push('<div class="ok">✓ SSD + HDD: cách kết hợp hợp lý — SSD chạy Windows/app, HDD lưu dữ liệu.</div>');}if(!psu)out.push('<div class="warn">⚠️ Chưa chọn nguồn.</div>');else{const m=psu.match(/(\d{3,4})w/i);const watts=m?Number(m[1]):0;if(watts&&watts<400&&/gaming|cad/.test(use))out.push('<div class="warn">⚠️ PSU: công suất ghi nhận dưới 400W; cần kiểm tra kỹ khi dùng GPU rời.</div>');else out.push('<div class="ok">✓ PSU: chưa phát hiện cảnh báo công suất theo dữ liệu tên linh kiện.</div>');}if(!cpu)out.push('<div class="warn">⚠️ Chưa chọn CPU.</div>');else out.push('<div class="ok">✓ CPU: đã chọn. Cần đối chiếu thêm mainboard/socket khi mua.</div>');if(!gpu)out.push('<div class="warn">⚠️ Chưa chọn GPU/VGA.</div>');else out.push('<div class="ok">✓ GPU/VGA: đã chọn. FPS thực tế còn phụ thuộc game, setting và driver.</div>');const result=document.getElementById('checkerResult');result.innerHTML=out.join('')+'<div class="note">Đây là bộ kiểm tra tham khảo của PHUC PC, không thay thế việc kiểm tra phần cứng thực tế. Website hiện chưa có dữ liệu benchmark/độ tương thích đầy đủ cho mọi linh kiện.</div>';result.style.display='block';}
 
 /* =====================================================
    HAMBURGER MENU
@@ -4064,14 +6266,30 @@ function scrollToBuild() {
 
 function showContact() {
 
-    document.getElementById("detailPage").style.display = "none";
-    document.getElementById("consultPage").style.display = "none";
-    document.getElementById("homePage").style.display = "block";
+    [
+        "detailPage",
+        "consultPage",
+        "comparePage",
+        "knowledgePage",
+        "checkerPage",
+        "learningPage",
+        "proMaxPage",
+        "automationPage"
+    ].forEach(hidePage);
+
+    const home = document.getElementById("homePage");
+    if (home) home.style.display = "block";
+
+    closeMenu();
 
     setTimeout(() => {
-        document.getElementById("contact").scrollIntoView({
-            behavior: "smooth"
-        });
+        const contact = document.getElementById("contact");
+        if (contact) {
+            contact.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
     }, 100);
 
 }
@@ -4096,6 +6314,7 @@ function showNotice() {
 function closeNotice() {
     document.getElementById("noticePopup").style.display = "none";
 }
+document.addEventListener("DOMContentLoaded",()=>{loadExtraGamesUI();renderFavoriteSection();renderKnowledge();populateChecker();});
 </script>
 <div id="contactPopup" class="contact-popup">
 
@@ -4153,5 +6372,159 @@ function closeNotice() {
         <button class="update-close" onclick="closeUpdatePopup()">Đóng</button>
     </div>
 </div>
+<div class="share-tools" aria-label="Công cụ PHUC PC">
+    <button type="button" onclick="shareWebsite()" title="Lên đầu trang" aria-label="Lên đầu trang">↑</button>
+    <button type="button" onclick="showHome();window.scrollTo({top:0,behavior:'smooth'})" title="Trang chủ" aria-label="Trang chủ">⌂</button>
+</div>
+
+<script id="phuc-pro-max-js">
+/* ================= PHUC PC PRO MAX ENGINE ================= */
+(function(){
+const PM={current:null,gameMap:{valorant:'Valorant',lol:'League of Legends',minecraft:'Minecraft',cs2:'CS2',genshin:'Genshin Impact',deltaforce:'Delta Force',wukong:'Black Myth: Wukong'}};
+function allBuilds(){const out=[]; if(typeof builds!=='object')return out; Object.keys(builds).forEach(b=>{(builds[b]||[]).forEach((x,i)=>out.push({...x,_budget:Number(b),_index:i}));}); return out;}
+function part(build,type){return typeof getBuildPart==='function'?getBuildPart(build,type):((build.parts||[]).find(x=>String(x.type||'').toUpperCase()===type)||{}).name||'';}
+function priceText(n){return Number(n||0).toLocaleString('vi-VN')+'đ';}
+function gameFPS(build,id){try{if(typeof getBuildFPS==='function'){const x=getBuildFPS(build,id);if(x&&x.average)return Math.round(x.average.reduce((a,b)=>a+b,0)/x.average.length)}return null}catch(e){return null}}
+function score(build){let cpu=0,gpu=0,ram=0,storage=0,upgrade=0;const c=part(build,'CPU').toUpperCase(),g=part(build,'VGA').toUpperCase(),r=part(build,'RAM').toUpperCase(),s=part(build,'SSD').toUpperCase()+part(build,'HDD').toUpperCase(); if(c.includes('I5 9500'))cpu=95;else if(c.includes('I5 6500'))cpu=78;else if(c.includes('I5 4690'))cpu=70;else if(c.includes('I3 10100'))cpu=75;else if(c.includes('RYZEN 5'))cpu=76;else cpu=62; if(g.includes('GTX 960'))gpu=80;else if(g.includes('GTX 950'))gpu=70;else if(g.includes('GTX 660'))gpu=62;else if(g.includes('CMP 30HX'))gpu=68;else if(g.includes('GT 730'))gpu=35;else if(g.includes('GTS 450'))gpu=28;else gpu=45; if(r.includes('16GB')||r.includes('2X8GB'))ram=95;else if(r.includes('8GB'))ram=65;else ram=45; storage=s.includes('SSD')?88:58; if(c.includes('I5')||c.includes('RYZEN 5'))upgrade=82;else upgrade=65; const total=Math.round(cpu*.25+gpu*.40+ram*.15+storage*.10+upgrade*.10);return{total,cpu,gpu,ram,storage,upgrade};}
+function renderScore(build){if(!build)return;const q=score(build),el=document.getElementById('pmScoreResult'); if(!el)return; const rows=[['CPU',q.cpu],['GPU',q.gpu],['RAM',q.ram],['Storage',q.storage],['Upgrade',q.upgrade]];el.innerHTML=`<div class="pro-score"><div class="pro-score-ring" style="--score:${q.total}"><b>${q.total}</b></div><div><b>PHUC SCORE / 100</b><br><small>${q.total>=85?'Cấu hình rất cân bằng':q.total>=70?'Cấu hình ổn trong tầm giá':'Cấu hình cơ bản'}</small></div></div><div class="pro-bars">${rows.map(r=>`<div class="pro-bar-row"><span>${r[0]}</span><div class="pro-bar"><i style="width:${r[1]}%"></i></div><b>${r[1]}</b></div>`).join('')}</div><div class="pro-note">Điểm này là hệ thống đánh giá nội bộ của PHUC PC, không phải benchmark độc lập.</div>`;}
+function save(build){const key='phucpc_saved_v2';let a=[];try{a=JSON.parse(localStorage.getItem(key)||'[]')}catch(e){};const id=build._budget+'-'+build._index;if(!a.some(x=>x.id===id)){a.unshift({id,budget:build._budget,index:build._index,name:build.name,price:build.price,savedAt:Date.now()});a=a.slice(0,12);localStorage.setItem(key,JSON.stringify(a));}renderSaved();}
+function renderSaved(){const el=document.getElementById('pmSavedList');if(!el)return;let a=[];try{a=JSON.parse(localStorage.getItem('phucpc_saved_v2')||'[]')}catch(e){};if(!a.length){el.innerHTML='<div class="pro-empty">Chưa có cấu hình nào được lưu.</div>';return}el.innerHTML=a.map(x=>`<div class="pro-save-item"><div><b>${x.name}</b><br><small>${priceText(x.price)} · lưu ${new Date(x.savedAt).toLocaleDateString('vi-VN')}</small></div><div class="pro-max-actions"><button class="pro-max-btn secondary" onclick="pmOpenSaved('${x.id}')">Xem</button><button class="pro-max-btn secondary" onclick="pmDeleteSaved('${x.id}')">Xóa</button></div></div>`).join('');}
+window.pmDeleteSaved=function(id){let a=JSON.parse(localStorage.getItem('phucpc_saved_v2')||'[]').filter(x=>x.id!==id);localStorage.setItem('phucpc_saved_v2',JSON.stringify(a));renderSaved()};
+window.pmOpenSaved=function(id){const a=JSON.parse(localStorage.getItem('phucpc_saved_v2')||'[]'),x=a.find(y=>y.id===id);if(!x)return;const b=builds[x.budget][x.index];PM.current=b;renderScore(b);if(typeof openBuild==='function')openBuild(x.budget,x.index);};
+window.pmBuildSmart=function(){const budget=Number(document.getElementById('pmBudget').value),game=document.getElementById('pmGame').value,priority=document.getElementById('pmPriority').value;const arr=(builds[budget]||[]).map((b,i)=>({...b,_budget:budget,_index:i}));if(!arr.length)return;let ranked=arr.map(b=>{const f=gameFPS(b,game)||0,q=score(b);let v=f;if(priority==='balanced')v=f+q.total*2;if(priority==='upgrade')v=f+q.upgrade*1.8;return{b,f,q,v}}).sort((a,b)=>b.v-a.v);const pick=ranked[0];PM.current=pick.b;renderScore(pick.b);save(pick.b);const el=document.getElementById('pmSmartResult');el.innerHTML=`<div class="pro-result-box"><div class="pro-result-title"><h4>✨ ${pick.b.name}</h4><span class="pro-price">${priceText(pick.b.price)}</span></div><div class="pro-chips"><span class="pro-chip">CPU: ${part(pick.b,'CPU')}</span><span class="pro-chip">GPU: ${part(pick.b,'VGA')}</span><span class="pro-chip">RAM: ${part(pick.b,'RAM')}</span><span class="pro-chip">SSD: ${part(pick.b,'SSD')||'Không có'}</span></div><table class="pro-mini-table"><tr><th>Game</th><th>FPS ước tính</th></tr><tr><td>${PM.gameMap[game]||game}</td><td>${pick.f?pick.f+' FPS':'Chưa có dữ liệu'}</td></tr></table><p class="pro-note">PHUC PC chọn cấu hình dựa trên ngân sách, FPS ước tính và ưu tiên của bạn. Bạn vẫn có thể mở chi tiết để tự kiểm tra từng linh kiện.</p><div class="pro-max-actions"><button class="pro-max-btn" onclick="pmViewCurrent()">🔎 Xem cấu hình</button><button class="pro-max-btn secondary" onclick="pmShareCurrent()">🔗 Chia sẻ</button></div></div>`;};
+window.pmViewCurrent=function(){if(!PM.current)return;openBuild(PM.current._budget,PM.current._index)};
+window.pmShareCurrent=function(){if(!PM.current)return;const data=btoa(unescape(encodeURIComponent(JSON.stringify({b:PM.current._budget,i:PM.current._index}))));const u=location.origin+location.pathname+'#pc='+data;navigator.clipboard?.writeText(u).then(()=>alert('Đã sao chép link cấu hình PHUC PC!')).catch(()=>prompt('Copy link này:',u));};
+window.pmScrollSaved=function(){document.getElementById('proSavedSection')?.scrollIntoView({behavior:'smooth'})};
+function loadHash(){if(!location.hash.startsWith('#pc='))return;try{const d=JSON.parse(decodeURIComponent(escape(atob(location.hash.slice(4)))));const b=builds[d.budget]?.[d.i];if(b){PM.current=b;renderScore(b);setTimeout(()=>openBuild(d.b,d.i),300)}}catch(e){}}
+function init(){renderSaved();loadHash();try{if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js')}catch(e){}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
+<script>
+function enforceAutomationLock(){
+    const page=document.getElementById('automationPage');
+    const menu=document.getElementById('sideMenu');
+    const unlocked=isAutomationUnlocked();
+    if(menu) menu.classList.toggle('automation-menu-unlocked',unlocked);
+    if(!page)return;
+    if(unlocked){
+        page.classList.add('automation-unlocked');
+        page.classList.remove('automation-locked-content');
+    }else{
+        page.style.display='none';
+        page.classList.remove('automation-unlocked');
+        page.classList.add('automation-locked-content');
+        document.querySelectorAll('.automation-section').forEach(x=>x.classList.remove('active'));
+    }
+}
+/* =====================================================
+   ⚡ AUTOMATION LAB ENGINE
+   Mật khẩu: 6 số — xác thực phía trình duyệt.
+===================================================== */
+const AUTOMATION_PASSWORD_HASH='3fc6d6c5ffd5615205b5410c16768ff3cfd6ade6e1d8755122eaf0c8f33dfc7b';
+let automationTarget='knowledge';
+let plcState={start:false,stop:false,sensor:false};
+
+function automationToast(msg){
+    const el=document.getElementById('automationToast'); if(!el)return;
+    el.textContent=msg; el.classList.add('show'); clearTimeout(window.__autoToast);
+    window.__autoToast=setTimeout(()=>el.classList.remove('show'),2200);
+}
+async function sha256(text){
+    const data=new TextEncoder().encode(text);
+    const hash=await crypto.subtle.digest('SHA-256',data);
+    return [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+function isAutomationUnlocked(){return sessionStorage.getItem('phucpc_automation_unlocked')==='1';}
+function openAutomationGate(target='knowledge'){
+    automationTarget=target;
+    if(isAutomationUnlocked()){closeMenu();showAutomation();switchAutomationTab(target);return;}
+    const gate=document.getElementById('automationLock');
+    const pin=document.getElementById('automationPin');
+    const err=document.getElementById('automationLockError');
+    if(err)err.textContent=''; if(pin)pin.value='';
+    if(gate){gate.classList.add('show');gate.setAttribute('aria-hidden','false');setTimeout(()=>pin?.focus(),80);}
+}
+function closeAutomationGate(){const gate=document.getElementById('automationLock');if(gate){gate.classList.remove('show');gate.setAttribute('aria-hidden','true');}}
+async function verifyAutomationPassword(){
+    const pin=document.getElementById('automationPin');
+    const err=document.getElementById('automationLockError');
+    const value=(pin?.value||'').trim();
+    if(!/^\d{6}$/.test(value)){if(err)err.textContent='Mật khẩu phải gồm đúng 6 chữ số.';return;}
+    const hash=await sha256(value);
+    if(hash===AUTOMATION_PASSWORD_HASH){
+        sessionStorage.setItem('phucpc_automation_unlocked','1');
+        enforceAutomationLock();
+        closeAutomationGate(); closeMenu(); showAutomation(); switchAutomationTab(automationTarget); automationToast('🔓 Automation Lab đã mở khóa');
+    }else{if(err)err.textContent='❌ Mật khẩu không đúng.'; pin?.select();}
+}
+function showAutomation(){
+    if(!isAutomationUnlocked()){
+        openAutomationGate(automationTarget||'knowledge');
+        return;
+    }
+    ['homePage','detailPage','consultPage','comparePage','knowledgePage','checkerPage','learningPage','proMaxPage'].forEach(hidePage);
+    const page=document.getElementById('automationPage');
+    if(page){
+        page.classList.add('automation-unlocked');
+        page.classList.remove('automation-locked-content');
+        page.style.display='block';
+    }
+    loadAutomationProgress();window.scrollTo({top:0,behavior:'smooth'});
+}
+function switchAutomationTab(tab){
+    if(!isAutomationUnlocked()){openAutomationGate(tab);return;}
+    showAutomation();
+    document.querySelectorAll('.automation-section').forEach(x=>x.classList.remove('active'));
+    const map={knowledge:'autoKnowledge',minilab:'autoMinilab',arduino:'autoArduino',plc:'autoPLC'};
+    const section=document.getElementById(map[tab]||map.knowledge);if(section)section.classList.add('active');
+    document.querySelectorAll('[data-auto-tab]').forEach(b=>b.classList.toggle('active',b.dataset.autoTab===tab));
+}
+enforceAutomationLock();
+function lockAutomation(){
+    sessionStorage.removeItem('phucpc_automation_unlocked');
+    enforceAutomationLock();
+    const page=document.getElementById('automationPage');
+    if(page){page.style.display='none';page.classList.remove('automation-unlocked');page.classList.add('automation-locked-content');}
+    showHome();automationToast('🔒 Automation Lab đã khóa');
+}
+
+function autoNum(id){const n=Number(document.getElementById(id)?.value);return Number.isFinite(n)?n:null;}
+function setAutoResult(id,html,kind=''){const el=document.getElementById(id);if(!el)return;el.innerHTML=html;el.className='automation-result show '+kind;}
+function calculateOhm(){
+    const V=autoNum('ohmV'),I=autoNum('ohmI'),R=autoNum('ohmR');let html='';
+    if(V!==null&&I!==null&&I!==0)html+=`R = V / I = <b>${(V/I).toFixed(2)} Ω</b>`;
+    else if(V!==null&&R!==null&&R!==0)html+=`I = V / R = <b>${(V/R).toFixed(4)} A</b> (${(V/R*1000).toFixed(2)} mA)`;
+    else if(I!==null&&R!==null)html+=`V = I × R = <b>${(I*R).toFixed(3)} V</b>`;
+    else {setAutoResult('ohmResult','⚠️ Hãy nhập ít nhất 2 đại lượng khác nhau.','warn');return;}
+    setAutoResult('ohmResult','⚡ '+html,'good');
+}
+function calculateLedResistor(){
+    const Vs=autoNum('ledVs'),Vf=autoNum('ledVf'),mA=autoNum('ledMa');
+    if(Vs===null||Vf===null||mA===null||mA<=0){setAutoResult('ledResult','⚠️ Kiểm tra thông số.','warn');return;}
+    const R=(Vs-Vf)/(mA/1000);
+    if(R<=0){setAutoResult('ledResult','⚠️ Vs phải lớn hơn Vf.','warn');return;}
+    const standard=[100,150,220,330,470,680,1000,1500,2200,3300,4700,10000];const pick=standard.find(x=>x>=R)||Math.ceil(R/100)*100;
+    setAutoResult('ledResult',`R lý thuyết = <b>${R.toFixed(1)} Ω</b><br>Giá trị thực hành gần nhất nên chọn không thấp hơn: <b>${pick} Ω</b>.`,'good');
+}
+function calculateDivider(){
+    const Vin=autoNum('divVin'),R1=autoNum('divR1'),R2=autoNum('divR2');
+    if(Vin===null||R1===null||R2===null||R1+R2<=0){setAutoResult('divResult','⚠️ Kiểm tra thông số.','warn');return;}
+    const out=Vin*R2/(R1+R2);setAutoResult('divResult',`Vout = <b>${out.toFixed(3)} V</b><br>Tỉ lệ Vout/Vin = <b>${(out/Vin*100).toFixed(1)}%</b>.`,'good');
+}
+function updatePWM(){const d=autoNum('pwmDuty')??0;const bar=document.getElementById('pwmBar');if(bar)bar.style.width=d+'%';const label=document.getElementById('pwmLabel');if(label)label.textContent='Duty: '+d+'%';}
+function calculatePWM(){const V=autoNum('pwmV')??0,d=autoNum('pwmDuty')??0;setAutoResult('pwmResult',`Giá trị trung bình lý thuyết ≈ <b>${(V*d/100).toFixed(3)} V</b><br>Duty càng lớn → thời gian mức HIGH trong mỗi chu kỳ càng lớn.`,'good');updatePWM();}
+function runLogicLab(){const A=Number(document.getElementById('logicA').value),B=Number(document.getElementById('logicB').value);setAutoResult('logicResult',`AND: <b>${A&B}</b> &nbsp; | &nbsp; OR: <b>${A|B}</b> &nbsp; | &nbsp; NOT A: <b>${A?0:1}</b><br><small>AND chỉ HIGH khi A và B đều HIGH. OR HIGH khi ít nhất một input HIGH.</small>`,'good');}
+function toggleButtonSimulator(){const led=document.getElementById('buttonLed'),btn=document.getElementById('buttonSimulator');const on=btn.dataset.on!=='1';btn.dataset.on=on?'1':'0';btn.textContent=on?'🔘 NHẢ NÚT':'🔘 ĐANG NHẤN';if(led){led.className='automation-result show '+(on?'good':'warn');led.textContent=on?'● LED ON':'● LED OFF';}}
+function runTempLab(){const t=autoNum('tempValue'),w=autoNum('tempWarn');if(t===null||w===null){setAutoResult('tempResult','⚠️ Kiểm tra nhiệt độ.','warn');return;}if(t>=w+5)setAutoResult('tempResult','🚨 QUÁ NHIỆT — bật quạt + cảnh báo.','warn');else if(t>=w)setAutoResult('tempResult','⚠️ CẢNH BÁO — có thể bật quạt.','warn');else setAutoResult('tempResult','✓ BÌNH THƯỜNG — quạt không cần bật theo logic mẫu.','good');}
+function copyAutomationCode(id){const el=document.getElementById(id);if(!el)return;navigator.clipboard?.writeText(el.textContent).then(()=>automationToast('📋 Đã copy code')).catch(()=>automationToast('Không thể copy tự động.'))}
+function togglePLCInput(type){plcState[type]=!plcState[type];const map={start:'plcStart',stop:'plcStop',sensor:'plcSensor'};const names={start:'START',stop:'STOP',sensor:'SENSOR'};const el=document.getElementById(map[type]);if(el)el.textContent=names[type]+': '+(plcState[type]?'ON':'OFF');const motor=plcState.start&&!plcState.stop&&!plcState.sensor;const alarm=plcState.sensor;setAutoResult('plcResult',`MOTOR: <b>${motor?'ON':'OFF'}</b> • ALARM: <b>${alarm?'ON':'OFF'}</b><br><small>Logic mẫu: Sensor quá tải → motor ngắt và alarm bật.</small>`,alarm?'warn':'good');}
+function loadAutomationProgress(){let done=JSON.parse(localStorage.getItem('phucpc_automation_progress')||'{}');document.querySelectorAll('[data-auto-progress]').forEach(x=>{x.checked=!!done[x.dataset.autoProgress];x.onchange=()=>{done[x.dataset.autoProgress]=x.checked;localStorage.setItem('phucpc_automation_progress',JSON.stringify(done));loadAutomationProgress();};});const total=document.querySelectorAll('[data-auto-progress]').length;const count=Object.values(done).filter(Boolean).length;const bar=document.getElementById('autoProgressBar');if(bar)bar.style.width=(total?count/total*100:0)+'%';const txt=document.getElementById('autoProgressText');if(txt)txt.textContent=`${count} / ${total} bài đã hoàn thành`+(count===total?' 🎉':'');}
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAutomationGate();if(e.key==='Enter'&&document.getElementById('automationLock')?.classList.contains('show'))verifyAutomationPassword();});
+updatePWM();
+</script>
+
 </body>
 </html>
