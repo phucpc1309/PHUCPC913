@@ -2608,6 +2608,295 @@ body{background:var(--pp-bg);color:#fff}
     font-size:9px;
 }
 
+/* =====================================================
+   PHUC PC — MUA HỘ SẢN PHẨM
+===================================================== */
+
+/* =====================================================
+   PHUC PC — MUA HỘ SẢN PHẨM
+===================================================== */
+
+/* PHUC PC — LOCAL BRAND ICONS */
+.phuc-brand-icon{
+    width:20px;
+    height:20px;
+    object-fit:contain;
+    display:block;
+    flex:0 0 20px;
+}
+.phuc-brand-icon-lg{
+    width:24px;
+    height:24px;
+    object-fit:contain;
+    display:block;
+    flex:0 0 24px;
+}
+.phuc-copy-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    width:100%;
+    min-height:40px;
+    margin:0 0 10px;
+    padding:9px 12px;
+    border:1px solid #333;
+    border-radius:9px;
+    background:#181818;
+    color:#eee;
+    font-size:12px;
+    font-weight:800;
+    cursor:pointer;
+    transition:transform .18s ease,border-color .18s ease,background .18s ease;
+}
+.phuc-copy-btn:hover{
+    transform:translateY(-1px);
+    border-color:#777;
+    background:#202020;
+}
+.phuc-copy-btn:active{transform:scale(.98);}
+.phuc-buy-help-actions button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+}
+.phuc-contact-brand-icon{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+    display:block;
+}
+.phuc-vip-brand-icon{
+    width:34px;
+    height:34px;
+    object-fit:contain;
+    display:block;
+    margin:auto;
+}
+
+.phuc-buy-help-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:12px;
+    align-items:center;
+}
+
+.phuc-buy-help-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    min-height:38px;
+    padding:9px 12px;
+    border:1px solid rgba(255,185,70,.38);
+    border-radius:9px;
+    background:linear-gradient(135deg,#21190d,#17120b);
+    color:#ffd36a;
+    font-size:11px;
+    font-weight:800;
+    cursor:pointer;
+    transition:
+        transform .18s ease,
+        border-color .18s ease,
+        background .18s ease,
+        box-shadow .18s ease;
+}
+
+.phuc-buy-help-btn:hover{
+    transform:translateY(-2px);
+    border-color:#ffc44f;
+    background:linear-gradient(135deg,#30200d,#1b140b);
+    box-shadow:0 8px 22px rgba(255,170,50,.12);
+}
+
+.phuc-buy-help-btn:active{
+    transform:scale(.97);
+}
+
+.phuc-buy-help-btn small{
+    color:#aaa;
+    font-size:9px;
+    font-weight:600;
+}
+
+.phuc-buy-help-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:100000;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(5px);
+}
+
+.phuc-buy-help-modal.show{
+    display:flex;
+    animation:phucBuyFade .18s ease;
+}
+
+@keyframes phucBuyFade{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+.phuc-buy-help-box{
+    position:relative;
+    width:min(520px,100%);
+    padding:22px;
+    background:linear-gradient(145deg,#151515,#0d0d0d);
+    border:1px solid #353535;
+    border-radius:16px;
+    box-shadow:0 24px 70px rgba(0,0,0,.72);
+    animation:phucBuyPop .22s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes phucBuyPop{
+    from{opacity:0;transform:translateY(14px) scale(.97)}
+    to{opacity:1;transform:none}
+}
+
+.phuc-buy-help-close{
+    position:absolute;
+    top:9px;
+    right:10px;
+    width:34px;
+    height:34px;
+    border:1px solid #333;
+    border-radius:9px;
+    background:#181818;
+    color:#aaa;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.phuc-buy-help-close:hover{
+    color:#fff;
+    border-color:#ff3030;
+}
+
+.phuc-buy-help-kicker{
+    color:#ffbd45;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.8px;
+    margin-bottom:7px;
+}
+
+.phuc-buy-help-title{
+    color:#fff;
+    font-size:21px;
+    font-weight:900;
+    margin-bottom:8px;
+    padding-right:35px;
+}
+
+.phuc-buy-help-product{
+    color:#aaa;
+    font-size:13px;
+    line-height:1.6;
+    margin-bottom:14px;
+}
+
+.phuc-buy-help-message{
+    padding:13px;
+    background:#101010;
+    border:1px solid #2b2b2b;
+    border-radius:10px;
+    color:#eee;
+    font-size:13px;
+    line-height:1.6;
+    margin-bottom:12px;
+}
+
+.phuc-buy-help-message b{
+    color:#ffd36a;
+}
+
+.phuc-buy-help-note{
+    color:#777;
+    font-size:10px;
+    line-height:1.6;
+    margin-bottom:15px;
+}
+
+.phuc-buy-help-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+}
+
+.phuc-buy-help-actions button{
+    min-height:42px;
+    border-radius:9px;
+    border:1px solid #333;
+    background:#181818;
+    color:#ddd;
+    cursor:pointer;
+    font-weight:800;
+    font-size:12px;
+}
+
+.phuc-buy-help-actions button:hover{
+    border-color:#ff3030;
+    background:#211111;
+    color:#fff;
+}
+
+.phuc-buy-help-actions .primary{
+    background:linear-gradient(135deg,#ff8b1f,#ff4b18);
+    border-color:#ff6b20;
+    color:#fff;
+}
+
+.phuc-buy-help-actions .primary:hover{
+    background:linear-gradient(135deg,#ffa13d,#ff5a20);
+    border-color:#ff8a35;
+}
+
+.phuc-buy-help-copied{
+    display:none;
+    margin-top:10px;
+    padding:9px 11px;
+    border-radius:8px;
+    background:#0d1b11;
+    border:1px solid #234c31;
+    color:#8dffad;
+    font-size:10px;
+    line-height:1.5;
+}
+
+.phuc-buy-help-copied.show{
+    display:block;
+}
+
+@media(max-width:700px){
+    .phuc-buy-help-wrap{
+        width:100%;
+    }
+
+    .phuc-buy-help-btn{
+        flex:1;
+        min-width:0;
+    }
+
+    .phuc-buy-help-actions{
+        grid-template-columns:1fr;
+    }
+
+    .phuc-buy-help-box{
+        padding:18px;
+        border-radius:14px;
+    }
+
+    .phuc-buy-help-title{
+        font-size:18px;
+    }
+}
+
 </style>
 
 <link rel="stylesheet"
@@ -4761,6 +5050,36 @@ button:active{
     }
 }
 
+</style>
+
+
+<style>
+/* PHUC PC — Zalo mua hộ: dark/black style */
+.phuc-buy-zalo{
+    background:linear-gradient(135deg,#151515,#080808)!important;
+    border-color:#333!important;
+    color:#fff!important;
+    box-shadow:0 8px 20px rgba(0,0,0,.22)!important;
+}
+.phuc-buy-zalo:hover{
+    background:linear-gradient(135deg,#222,#0d0d0d)!important;
+    border-color:#555!important;
+    box-shadow:0 10px 24px rgba(0,0,0,.3)!important;
+}
+.phuc-buy-zalo img{
+    filter:none!important;
+}
+.phuc-buy-fee-note{
+    margin:10px 0 14px;
+    padding:10px 12px;
+    border:1px solid #3a2b16;
+    border-radius:9px;
+    background:linear-gradient(135deg,#17120b,#0f0f0f);
+    color:#ffd36a;
+    font-size:11px;
+    line-height:1.55;
+    font-weight:700;
+}
 </style>
 
 </head>
@@ -8000,30 +8319,41 @@ build.parts.forEach(part=>{
 
             ${
                 hasLink
-
                 ? `
-                    <a
-                        href="${getShopeeLink(part)}"
-                        target="_blank"
-                        rel="noopener"
-                        class="shopee">
+                    <div class="phuc-buy-help-wrap">
 
-                        🛒 Xem Shopee
+                        <a
+                            href="${getShopeeLink(part)}"
+                            target="_blank"
+                            rel="noopener"
+                            class="shopee">
+                            <img src="shopee-logo.png" alt="Shopee" class="phuc-brand-icon">
+                            Xem Shopee
+                        </a>
 
-                    </a>
+                        <button
+                            type="button"
+                            class="phuc-buy-help-btn"
+                            onclick='phucOpenBuyHelp(${JSON.stringify(part)})'>
+                            <img src="shopping-bag.png" alt="" class="phuc-brand-icon">
+                            Mua hộ — săn sale
+                        </button>
+
+                    </div>
                 `
-
                 : `
-                    <span
-                        class="shopee"
-                        style="
-                            opacity:.55;
-                            cursor:not-allowed;
-                        ">
+                    <div class="phuc-buy-help-wrap">
 
-                        Chưa có link
+                        <span
+                            class="shopee"
+                            style="
+                                opacity:.55;
+                                cursor:not-allowed;
+                            ">
+                            Chưa có link
+                        </span>
 
-                    </span>
+                    </div>
                 `
             }
 
@@ -11988,14 +12318,14 @@ document.addEventListener("DOMContentLoaded",()=>{
             <a href="https://zalo.me/0368075650"
                target="_blank"
                class="contact-option zalo">
-                <i class="fa-solid fa-comment"></i>
+                <img src="zalo-logo.png" alt="Zalo" class="phuc-contact-brand-icon">
 <span>Zalo</span>
             </a>
 
             <a href="https://www.tiktok.com/@ngphuc_913"
                target="_blank"
                class="contact-option tiktok">
-                <i class="fa-brands fa-tiktok"></i>
+                <img src="tiktok-logo.png" alt="TikTok" class="phuc-contact-brand-icon">
 <span>TikTok</span>
             </a>
 
@@ -12034,7 +12364,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
         <div class="phuc-vip-icon">
-            🛒
+            <img src="shopee-logo.png" alt="Shopee" class="phuc-vip-brand-icon">
         </div>
 
 
@@ -15169,6 +15499,231 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </script>
 
+
+
+<div id="phucBuyHelpModal" class="phuc-buy-help-modal" aria-hidden="true">
+    <div class="phuc-buy-help-box">
+
+        <button
+            type="button"
+            class="phuc-buy-help-close"
+            onclick="phucCloseBuyHelp()"
+            aria-label="Đóng">
+            ×
+        </button>
+
+        <div class="phuc-buy-help-kicker">
+            PHUC PC · DỊCH VỤ MUA HỘ
+        </div>
+
+        <div class="phuc-buy-help-title">
+            <img src="shopping-bag.png" alt="" class="phuc-brand-icon-lg">
+            Mua hộ sản phẩm này — săn sale
+        </div>
+
+        <div id="phucBuyHelpProduct" class="phuc-buy-help-product"></div>
+
+        <div class="phuc-buy-help-message" id="phucBuyHelpMessage"></div>
+
+        <button type="button" class="phuc-copy-btn" onclick="phucCopyBuyMessage()">
+            <img src="copy-icon.png" alt="" class="phuc-brand-icon">
+            Copy
+        </button>
+
+        <div class="phuc-buy-help-note">
+            Bấm nút bên dưới, PHUC PC sẽ copy sẵn câu nhắn.
+            Chọn <b>Zalo</b> hoặc <b>TikTok</b> để liên hệ mua hộ.
+            PHUC PC sẽ copy sẵn câu nhắn để bạn chỉ cần dán và gửi.
+        </div>
+
+        <div class="phuc-buy-fee-note">
+            💰 Phí mua hộ: tùy sản phẩm, khoảng <b>10.000đ – 100.000đ</b>.
+        </div>
+
+        <div class="phuc-buy-help-actions phuc-buy-help-contact-actions">
+            <button
+                type="button"
+                class="primary phuc-buy-zalo"
+                onclick="phucOpenBuyZalo()">
+                <img src="zalo-logo.png" alt="Zalo" class="phuc-brand-icon">
+                Zalo · Nhắn mua hộ
+            </button>
+
+            <button
+                type="button"
+                onclick="phucOpenBuyTikTok()">
+                <img src="tiktok-logo.png" alt="TikTok" class="phuc-brand-icon">
+                TikTok · Nhắn mua hộ
+            </button>
+        </div>
+
+        <div id="phucBuyHelpCopied" class="phuc-buy-help-copied"></div>
+
+    </div>
+</div>
+
+<style>
+.phuc-buy-help-contact-actions{
+    grid-template-columns:1fr 1fr;
+}
+@media(max-width:700px){
+    .phuc-buy-help-contact-actions{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+
+<script>
+/* PHUC PC — MUA HỘ SẢN PHẨM */
+const PHUC_PC_TIKTOK_URL = "https://www.tiktok.com/@ngphuc_913";
+const PHUC_PC_ZALO_URL = "https://zalo.me/0368075650";
+
+function phucEscapeHTML(value){
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+function phucGetBuyRequest(part){
+    const fullName = String(part?.[1] || "").trim();
+    const displayName = typeof getDisplayPartName === "function"
+        ? getDisplayPartName(fullName)
+        : fullName.replace(/\s+SHOP\b.*$/i,"").trim();
+    const type = String(part?.[0] || "sản phẩm").trim();
+    return {
+        type,
+        fullName,
+        displayName: displayName || fullName,
+        message: `Mình muốn bạn mua hộ sản phẩm ${displayName || fullName}`
+    };
+}
+
+function phucOpenBuyHelp(part){
+    const data = phucGetBuyRequest(part);
+    const shopee = typeof getShopeeLink === "function" ? getShopeeLink(part) : "#";
+    const modal = document.getElementById("phucBuyHelpModal");
+    if(!modal) return;
+    modal.dataset.message = data.message;
+    modal.dataset.shopee = shopee;
+    modal.dataset.product = data.displayName;
+    const productEl = document.getElementById("phucBuyHelpProduct");
+    const messageEl = document.getElementById("phucBuyHelpMessage");
+    if(productEl){
+        productEl.innerHTML = `<b>${phucEscapeHTML(data.type)}</b> · ${phucEscapeHTML(data.displayName)}`;
+    }
+    if(messageEl){
+        messageEl.innerHTML = `“${phucEscapeHTML(data.message)}”`;
+    }
+    const copied = document.getElementById("phucBuyHelpCopied");
+    if(copied) copied.classList.remove("show");
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden","false");
+}
+
+function phucCloseBuyHelp(){
+    const modal = document.getElementById("phucBuyHelpModal");
+    if(modal){
+        modal.classList.remove("show");
+        modal.setAttribute("aria-hidden","true");
+    }
+}
+
+async function phucCopyBuyMessage(){
+    const modal = document.getElementById("phucBuyHelpModal");
+    if(!modal) return false;
+    const message = modal.dataset.message || "";
+    if(!message) return false;
+    let copiedOK = false;
+    try{
+        await navigator.clipboard.writeText(message);
+        copiedOK = true;
+    }catch(e){
+        try{
+            const textarea = document.createElement("textarea");
+            textarea.value = message;
+            textarea.style.position = "fixed";
+            textarea.style.left = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+            copiedOK = document.execCommand("copy");
+            textarea.remove();
+        }catch(err){}
+    }
+    const copied = document.getElementById("phucBuyHelpCopied");
+    if(copied){
+        copied.textContent = copiedOK
+            ? "✓ Đã copy"
+            : "Không copy được — hãy bôi đen câu nhắn để copy.";
+        copied.classList.add("show");
+    }
+    return copiedOK;
+}
+
+function phucOpenBuyZalo(){
+    /* Mở Zalo ngay trong click để trình duyệt không chặn popup. */
+    const zaloWindow = window.open(PHUC_PC_ZALO_URL,"_blank","noopener,noreferrer");
+    phucCopyBuyMessage();
+    if(!zaloWindow){
+        alert("Trình duyệt đã chặn cửa sổ Zalo. Hãy cho phép popup cho website PHUC PC rồi bấm lại.");
+    }
+}
+
+function phucOpenBuyTikTok(){
+    /* Mở TikTok ngay trong click để trình duyệt không chặn popup. */
+    const tiktokWindow = window.open(PHUC_PC_TIKTOK_URL,"_blank","noopener,noreferrer");
+    phucCopyBuyMessage();
+    if(!tiktokWindow){
+        alert("Trình duyệt đã chặn cửa sổ TikTok. Hãy cho phép popup cho website PHUC PC rồi bấm lại.");
+    }
+}
+
+
+document.addEventListener("click",(event)=>{
+    const modal = document.getElementById("phucBuyHelpModal");
+    if(modal && modal.classList.contains("show") && event.target === modal){
+        phucCloseBuyHelp();
+    }
+});
+
+document.addEventListener("keydown",(event)=>{
+    if(event.key === "Escape") phucCloseBuyHelp();
+});
+</script>
+
+
+<style>
+/* PHUC PC — FIX: Zalo button must be black, not Shopee orange */
+.phuc-buy-help-actions .phuc-buy-zalo,
+.phuc-buy-help-actions .phuc-buy-zalo:hover,
+.phuc-buy-help-contact-actions .phuc-buy-zalo,
+.phuc-buy-help-contact-actions .phuc-buy-zalo:hover{
+    background:linear-gradient(135deg,#171717,#080808)!important;
+    background-color:#111!important;
+    border:1px solid #3b3b3b!important;
+    color:#fff!important;
+    box-shadow:0 8px 22px rgba(0,0,0,.28)!important;
+}
+.phuc-buy-help-actions .phuc-buy-zalo:hover,
+.phuc-buy-help-contact-actions .phuc-buy-zalo:hover{
+    border-color:#666!important;
+    transform:translateY(-2px);
+}
+.phuc-buy-fee-note{
+    margin:10px 0 14px;
+    padding:10px 12px;
+    border:1px solid #4a381b;
+    border-radius:9px;
+    background:linear-gradient(135deg,#1b150c,#0f0f0f);
+    color:#ffd36a;
+    font-size:11px;
+    line-height:1.55;
+    font-weight:700;
+}
+</style>
 
 </body>
 </html>
