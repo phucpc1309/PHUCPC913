@@ -1658,15 +1658,344 @@ margin-left: calc(50% - 50vw + 10px);
 }
 
 /* ================= PHUC PC PRO UPGRADE ================= */
-.compare-pro{margin-top:20px;padding:20px;background:linear-gradient(145deg,#121212,#0c0c0c);border:1px solid #303030;border-radius:14px}
-.compare-pro-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.compare-pro-title h3{font-size:19px}
-.compare-pro-badge{padding:6px 10px;border-radius:20px;background:rgba(255,48,48,.12);border:1px solid rgba(255,48,48,.4);color:#ff5555;font-size:11px;font-weight:800}
+.compare-pro{
+    margin-top:20px;padding:20px;
+    background:linear-gradient(145deg,#121212,#0c0c0c);
+    border:1px solid #303030;border-radius:14px
+}
+.compare-pro-title
+{display:flex;align-items:center;justify-content:space-between;
+    gap:12px;margin-bottom:16px
+}.compare-pro-title h3{font-size:19px}
+.compare-pro-badge{
+    padding:6px 10px;
+    border-radius:20px;
+    background:rgba(255,48,48,.12);
+    border:1px solid rgba(255,48,48,.4);
+    color:#ff5555;font-size:11px;
+    font-weight:800
+}
 .compare-pro-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.compare-pro-card{background:#171717;border:1px solid #292929;border-radius:11px;padding:15px}.compare-pro-card h4{margin-bottom:13px;font-size:15px}
 .compare-metric{margin:12px 0}.compare-metric-top{display:flex;justify-content:space-between;gap:10px;color:#aaa;font-size:11px;margin-bottom:6px}.compare-metric-top b{color:#fff}
 .compare-meter{width:100%;height:9px;background:#0b0b0b;border-radius:99px;overflow:hidden;border:1px solid #252525}.compare-meter-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#e50914,#ff5252);transition:width .5s ease}
 .compare-pro-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}.compare-pro-stat{padding:11px 8px;background:#111;border:1px solid #272727;border-radius:9px;text-align:center}.compare-pro-stat span{display:block;color:#666;font-size:9px;margin-bottom:5px}.compare-pro-stat b{font-size:14px;color:#fff}
 .compare-delta{margin-top:15px;padding:12px;border-radius:10px;background:#111;border:1px solid #292929;color:#ccc;font-size:12px;line-height:1.7}.compare-delta strong{color:#fff}
 .detail-pro-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin-bottom:18px}.detail-pro-actions{display:flex;gap:8px;flex-wrap:wrap}.detail-action-btn{border:1px solid #333;background:#181818;color:#ddd;border-radius:8px;padding:9px 12px;cursor:pointer;font-weight:bold;font-size:12px}.detail-action-btn:hover{border-color:#ff3030;color:#fff;background:#211111}.detail-action-btn.favorite-active{background:#ff3030;border-color:#ff3030;color:#fff}
+
+/* =====================================================
+   PHUC PC — DETAIL ACTIONS / QUICK NOTE / PART STATUS
+===================================================== */
+
+.detail-pro-actions{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.detail-action-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+
+    min-height:40px;
+    padding:9px 13px;
+
+    border:1px solid #333;
+    background:#151515;
+    color:#ddd;
+
+    border-radius:10px;
+
+    cursor:pointer;
+    font-weight:800;
+    font-size:12px;
+
+    transition:
+        transform .18s ease,
+        background .18s ease,
+        border-color .18s ease,
+        color .18s ease;
+}
+
+.detail-action-btn:hover{
+    transform:translateY(-1px);
+    border-color:#ff3030;
+    background:#1d0d0d;
+    color:#fff;
+}
+
+.detail-action-btn:active{
+    transform:scale(.97);
+}
+
+.detail-action-btn.favorite-active{
+    background:#ff3030;
+    border-color:#ff3030;
+    color:#fff;
+}
+
+
+/* =====================================================
+   QUICK NOTE
+===================================================== */
+
+.phuc-quick-note{
+    margin-top:20px;
+    padding:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #0e0e0e
+        );
+
+    border:1px solid #292929;
+    border-radius:14px;
+}
+
+.phuc-quick-note-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+
+    margin-bottom:14px;
+}
+
+.phuc-quick-note-title{
+    font-size:15px;
+    font-weight:900;
+    color:#fff;
+}
+
+.phuc-quick-note-sub{
+    color:#666;
+    font-size:10px;
+    margin-top:3px;
+}
+
+.phuc-quick-note-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:10px;
+}
+
+.phuc-quick-note-card{
+    padding:12px;
+
+    background:#111;
+    border:1px solid #252525;
+    border-radius:10px;
+}
+
+.phuc-quick-note-card-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+
+    margin-bottom:8px;
+}
+
+.phuc-quick-note-card-top span{
+    color:#aaa;
+    font-size:11px;
+    font-weight:700;
+}
+
+.phuc-quick-note-card-top b{
+    color:#fff;
+    font-size:12px;
+}
+
+.phuc-quick-note-bar{
+    width:100%;
+    height:6px;
+
+    background:#080808;
+    border:1px solid #252525;
+
+    border-radius:99px;
+    overflow:hidden;
+}
+
+.phuc-quick-note-bar i{
+    display:block;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e50914,
+            #ff5252
+        );
+
+    border-radius:99px;
+}
+
+.phuc-quick-note-card small{
+    display:block;
+    margin-top:7px;
+
+    color:#666;
+    font-size:9px;
+    line-height:1.5;
+}
+
+
+/* =====================================================
+   PART STATUS
+===================================================== */
+
+.part-info{
+    min-width:0;
+    flex:1;
+}
+
+.phuc-part-status{
+    display:flex;
+    align-items:center;
+    gap:7px;
+
+    margin-top:9px;
+    flex-wrap:wrap;
+}
+
+.phuc-part-status-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+
+    padding:5px 8px;
+
+    border-radius:7px;
+
+    font-size:9px;
+    font-weight:800;
+}
+
+.phuc-part-status-badge.ok{
+    color:#8dffad;
+    background:#0c1b11;
+    border:1px solid #234c31;
+}
+
+.phuc-part-status-badge.warn{
+    color:#ffd45c;
+    background:#1b1708;
+    border:1px solid #4b3c16;
+}
+
+.phuc-part-status-badge.off{
+    color:#999;
+    background:#151515;
+    border:1px solid #292929;
+}
+
+
+/* =====================================================
+   SHOPEE BUTTON — GỌN HƠN
+===================================================== */
+
+.part .shopee{
+    flex-shrink:0;
+    min-width:126px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    .detail-pro-actions{
+        width:100%;
+        justify-content:flex-start;
+    }
+
+    .detail-action-btn{
+        flex:1;
+        min-width:0;
+    }
+
+    .phuc-quick-note-grid{
+        grid-template-columns:1fr;
+    }
+
+    .part .shopee{
+        width:100%;
+        min-width:0;
+    }
+
+    .phuc-part-status{
+        margin-bottom:2px;
+    }
+}
+
+/* =====================================================
+   COPY TOAST
+===================================================== */
+
+.phuc-copy-toast{
+    position:fixed;
+
+    left:50%;
+    bottom:28px;
+
+    z-index:99999;
+
+    padding:11px 16px;
+
+    background:#151515;
+    border:1px solid #383838;
+    border-radius:10px;
+
+    color:#fff;
+
+    font-size:12px;
+    font-weight:800;
+
+    box-shadow:
+        0 14px 40px rgba(0,0,0,.45);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:
+        translate(-50%,12px)
+        scale(.96);
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease,
+        transform .2s ease;
+}
+
+.phuc-copy-toast.show{
+    opacity:1;
+    visibility:visible;
+
+    transform:
+        translate(-50%,0)
+        scale(1);
+}
+
+@media(max-width:600px){
+
+    .phuc-copy-toast{
+        bottom:18px;
+        width:max-content;
+        max-width:88%;
+        text-align:center;
+    }
+}
 .detail-summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:22px}.detail-summary-card{background:#151515;border:1px solid #292929;border-radius:10px;padding:13px}.detail-summary-card span{display:block;color:#666;font-size:10px;margin-bottom:5px}.detail-summary-card b{font-size:13px;color:#fff}
 .detail-fps-section{margin-top:22px;padding:17px;background:#111;border:1px solid #292929;border-radius:12px}.detail-fps-section h3{margin-bottom:12px}.detail-fps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.detail-fps-card{background:#171717;border:1px solid #282828;border-radius:9px;padding:11px}.detail-fps-card-top{display:flex;align-items:center;gap:8px;color:#ddd;font-size:12px;font-weight:bold;margin-bottom:9px}.detail-fps-card-top img{width:25px;height:25px;object-fit:contain;border-radius:5px}.detail-fps-values{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;text-align:center}.detail-fps-values div{background:#101010;border-radius:6px;padding:7px 3px}.detail-fps-values small{display:block;color:#666;font-size:8px;margin-bottom:3px}.detail-fps-values b{font-size:12px}.detail-fps-low{color:#5cff7a}.detail-fps-mid{color:#ffd45c}.detail-fps-high{color:#ff7777}.detail-note{margin-top:12px;color:#666;font-size:10px;line-height:1.6}.detail-parts-title{margin:25px 0 12px;display:flex;align-items:center;justify-content:space-between;gap:10px}.detail-parts-title span{color:#666;font-size:11px}
 .part{transition:.2s}.part:hover{border-color:#3a3a3a;transform:translateY(-1px)}
@@ -1878,6 +2207,30 @@ margin-left: calc(50% - 50vw + 10px);
 }
 .fps-calc-result-head h3 { font-size: 21px; }
 .fps-calc-result-head span { color: #ff5555; font-weight: 900; }
+
+.fps-result-game{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:0;
+}
+
+.fps-result-game img{
+    width:40px;
+    height:40px;
+    min-width:40px;
+    min-height:40px;
+    max-width:40px;
+    max-height:40px;
+    object-fit:contain;
+    border-radius:8px;
+    flex-shrink:0;
+}
+
+.fps-result-game h3{
+    font-size:21px;
+    margin:0;
+}
 .fps-calc-hardware {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -2096,7 +2449,11 @@ body{background:var(--pp-bg);color:#fff}
     box-shadow:0 12px 35px rgba(0,0,0,.18);
     transition:transform .22s,border-color .22s,box-shadow .22s;
 }
-.build-card:hover{transform:translateY(-5px);border-color:rgba(255,48,48,.35)!important;box-shadow:0 20px 55px rgba(0,0,0,.32)}
+.build-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(255,48,48,.35)!important;
+    box-shadow:0 20px 55px rgba(0,0,0,.32)
+}
 .pp-build-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:15px 0}
 .pp-metric{padding:10px;border-radius:11px;background:#0a0a0a;border:1px solid #1e1e1e}
 .pp-metric-top{display:flex;justify-content:space-between;font-size:10px;color:#777;font-weight:900}
@@ -2178,6 +2535,77 @@ body{background:var(--pp-bg);color:#fff}
     }
     .pp-mobile-cta button{border:1px solid #242424;background:#151515;color:#fff;border-radius:10px;padding:10px 5px;font-size:11px;font-weight:900}
     .pp-mobile-cta button:hover{border-color:#ff3030;color:#ff6060}
+}
+
+
+/* =====================================================
+   PHUC PC — QUICK TAGS + FPS PREVIEW
+===================================================== */
+
+.phuc-build-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin:10px 0 2px;
+}
+
+.phuc-build-tag{
+    display:inline-flex;
+    align-items:center;
+    padding:5px 8px;
+    border-radius:7px;
+    background:#151515;
+    border:1px solid #292929;
+    color:#aaa;
+    font-size:9px;
+    font-weight:800;
+}
+
+.phuc-build-tag.green{
+    color:#66ff9f;
+    border-color:rgba(102,255,159,.18);
+}
+
+.phuc-build-tag.yellow{
+    color:#ffd45c;
+    border-color:rgba(255,212,92,.18);
+}
+
+.phuc-fps-preview{
+    margin:10px 0;
+    padding:9px 10px;
+    border:1px solid #242424;
+    border-radius:9px;
+    background:#0d0d0d;
+}
+
+.phuc-fps-preview-title{
+    margin-bottom:5px;
+    color:#aaa;
+    font-size:9px;
+    font-weight:800;
+}
+
+.phuc-fps-preview-row{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:8px;
+    padding:4px 0;
+    border-bottom:1px solid #191919;
+}
+
+.phuc-fps-preview-row:last-child{
+    border-bottom:0;
+}
+
+.phuc-fps-preview-row span{
+    color:#777;
+    font-size:9px;
+}
+
+.phuc-fps-preview-row b{
+    color:#eee;
+    font-size:9px;
 }
 
 </style>
@@ -2312,6 +2740,2025 @@ body{background:var(--pp-bg);color:#fff}
     font-weight:700;
     font-size:13px;
     line-height:1.3;
+}
+
+</style>
+
+<!-- =====================================================
+     PHUC PC — ULTRA MODERN EFFECTS
+===================================================== -->
+<style id="phuc-ultra-effects">
+
+/* =====================================================
+   1. ROOT / SMOOTH
+===================================================== */
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    position:relative;
+    overflow-x:hidden;
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(255,48,48,.09),
+            transparent 34%
+        ),
+        #070707;
+}
+
+/* lớp ánh sáng nền */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-2;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255,48,48,.055),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(255,48,48,.035),
+            transparent 25%
+        );
+
+    animation:phucAmbient 12s ease-in-out infinite alternate;
+}
+
+@keyframes phucAmbient{
+    0%{
+        transform:scale(1);
+        opacity:.7;
+    }
+
+    100%{
+        transform:scale(1.08);
+        opacity:1;
+    }
+}
+
+
+/* =====================================================
+   2. CUSTOM SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+    width:9px;
+}
+
+::-webkit-scrollbar-track{
+    background:#080808;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(
+        180deg,
+        #ff3030,
+        #8d1111
+    );
+    border-radius:999px;
+    border:2px solid #080808;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#ff4444;
+}
+
+
+/* =====================================================
+   3. SELECTION
+===================================================== */
+
+::selection{
+    background:#ff3030;
+    color:#fff;
+}
+
+
+/* =====================================================
+   4. GLOBAL PAGE TRANSITION
+===================================================== */
+
+main,
+section,
+.page{
+    animation:phucPageIn .45s ease both;
+}
+
+@keyframes phucPageIn{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+
+/* =====================================================
+   5. CONTAINER GLOW
+===================================================== */
+
+.container{
+    position:relative;
+}
+
+
+/* =====================================================
+   6. CARD HOVER — CLEAN PC STYLE
+===================================================== */
+
+/* Card không dùng hiệu ứng ô sáng vuông */
+.price-card,
+.build-card,
+.review-card,
+.favorite-card,
+.compare-column,
+.compare-result,
+.fps-calc-result,
+.knowledge-card,
+.roadmap-card,
+.detail-fps-card,
+.part,
+.compare-pro-card,
+.automation-card{
+    position:relative;
+    overflow:hidden;
+
+    transition:
+        transform .25s cubic-bezier(.2,.75,.2,1),
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+
+/* Tắt hoàn toàn lớp glow vuông cũ */
+.price-card::before,
+.build-card::before,
+.review-card::before,
+.favorite-card::before,
+.compare-column::before,
+.compare-result::before,
+.fps-calc-result::before,
+.knowledge-card::before,
+.roadmap-card::before,
+.detail-fps-card::before,
+.part::before,
+.compare-pro-card::before,
+.automation-card::before{
+    content:none !important;
+}
+
+
+/* =====================================================
+   CARD PC / PRICE CARD
+===================================================== */
+
+.price-card:hover,
+.build-card:hover{
+    transform:translateY(-6px);
+
+    border-color:
+        rgba(255,70,70,.48) !important;
+
+    box-shadow:
+        0 16px 38px rgba(0,0,0,.34),
+        0 0 0 1px rgba(255,48,48,.045);
+}
+
+
+/* Không phóng card quá lớn */
+.price-card:active,
+.build-card:active{
+    transform:translateY(-2px);
+}
+
+
+/* =====================================================
+   REVIEW / DETAIL CARD
+===================================================== */
+
+.review-card:hover,
+.favorite-card:hover,
+.compare-column:hover,
+.compare-result:hover,
+.fps-calc-result:hover,
+.knowledge-card:hover,
+.roadmap-card:hover,
+.detail-fps-card:hover,
+.compare-pro-card:hover,
+.automation-card:hover{
+    transform:translateY(-4px);
+
+    border-color:
+        rgba(255,70,70,.32);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.28);
+}
+
+
+/* =====================================================
+   PART CARD
+===================================================== */
+
+.part{
+    transition:
+        transform .22s ease,
+        border-color .22s ease,
+        background .22s ease;
+}
+
+.part:hover{
+    transform:translateX(4px);
+
+    border-color:
+        rgba(255,70,70,.28);
+}
+
+
+/* =====================================================
+   CARD KHI ĐƯA CHUỘT RA
+===================================================== */
+
+.price-card,
+.build-card,
+.review-card,
+.favorite-card,
+.compare-column,
+.compare-result,
+.fps-calc-result,
+.knowledge-card,
+.roadmap-card,
+.detail-fps-card,
+.part,
+.compare-pro-card,
+.automation-card{
+    will-change:transform;
+}
+
+
+/* =====================================================
+   7. BUILD / PRICE CARD
+===================================================== */
+
+.price-card:hover,
+.build-card:hover{
+
+    transform:
+        translateY(-7px)
+        scale(1.012);
+
+    border-color:
+        rgba(255,48,48,.65) !important;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.45),
+        0 0 30px rgba(255,48,48,.08);
+}
+
+
+/* =====================================================
+   8. BUTTON PREMIUM — CLEAN
+===================================================== */
+
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+button{
+    position:relative;
+    overflow:hidden;
+}
+
+
+/* Shine chỉ dành cho BUTTON
+   Không áp dụng trực tiếp cho Shopee */
+button::after,
+.detail-action-btn::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:70%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            100deg,
+            transparent,
+            rgba(255,255,255,.13),
+            transparent
+        );
+
+    transform:skewX(-20deg);
+
+    transition:left .55s ease;
+
+    pointer-events:none;
+}
+
+button:hover::after,
+.detail-action-btn:hover::after{
+    left:140%;
+}
+
+
+/* =====================================================
+   SHOPEE — CLEAN HOVER
+===================================================== */
+
+.shopee{
+
+    position:relative;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+    isolation:isolate;
+
+    transition:
+        transform .2s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+
+}
+
+
+/* Shine nằm hoàn toàn bên trong nút */
+.shopee::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:70%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            100deg,
+            transparent,
+            rgba(255,255,255,.12),
+            transparent
+        );
+
+    transform:skewX(-20deg);
+
+    transition:left .55s ease;
+
+    pointer-events:none;
+
+}
+
+
+.shopee:hover::after{
+    left:140%;
+}
+
+
+.shopee:hover{
+
+    transform:
+        translateY(-2px)
+        scale(1.015);
+
+    box-shadow:
+        0 8px 22px rgba(255,120,0,.16);
+}
+
+
+/* =====================================================
+   9. RED BUTTON GLOW
+===================================================== */
+
+button[onclick*="FPS"],
+button[onclick*="fps"],
+button[onclick*="openBuild"],
+.checker-btn,
+.automation-btn{
+
+    transition:
+        transform .2s ease,
+        box-shadow .25s ease,
+        filter .25s ease;
+}
+
+button[onclick*="FPS"]:hover,
+button[onclick*="fps"]:hover,
+button[onclick*="openBuild"]:hover,
+.checker-btn:hover,
+.automation-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(255,48,48,.22);
+
+    filter:brightness(1.08);
+}
+
+button:active{
+    transform:scale(.97);
+}
+
+
+/* =====================================================
+   10. HERO PREMIUM
+===================================================== */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+}
+
+
+/* red glow */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    top:-220px;
+    right:-150px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,48,48,.13),
+            transparent 68%
+        );
+
+    pointer-events:none;
+
+    animation:
+        phucHeroGlow 7s ease-in-out infinite alternate;
+}
+
+@keyframes phucHeroGlow{
+
+    from{
+        transform:translate(0,0);
+    }
+
+    to{
+        transform:translate(-50px,40px);
+    }
+}
+
+
+/* =====================================================
+   11. HERO TITLE GLOW
+===================================================== */
+
+.hero h1{
+
+    text-shadow:
+        0 0 25px rgba(255,48,48,.08);
+
+    animation:
+        phucTitleGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes phucTitleGlow{
+
+    from{
+        text-shadow:
+            0 0 10px rgba(255,48,48,.03);
+    }
+
+    to{
+        text-shadow:
+            0 0 28px rgba(255,48,48,.18);
+    }
+}
+
+
+/* =====================================================
+   12. PRICE EFFECT
+===================================================== */
+
+.price,
+.price-value,
+.build-price,
+.total-price{
+
+    transition:
+        color .25s ease,
+        text-shadow .25s ease,
+        transform .25s ease;
+}
+
+.price:hover,
+.price-value:hover,
+.build-price:hover,
+.total-price:hover{
+
+    color:#ff5555 !important;
+
+    text-shadow:
+        0 0 18px rgba(255,48,48,.25);
+
+    transform:translateY(-1px);
+}
+
+
+/* =====================================================
+   13. FPS RESULT
+===================================================== */
+
+.fps-calc-result{
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,48,48,.025),
+            #101010 45%,
+            #0c0c0c
+        );
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.25);
+}
+
+.fps-calc-result:hover{
+
+    border-color:
+        rgba(255,48,48,.45) !important;
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.42),
+        0 0 25px rgba(255,48,48,.05);
+}
+
+
+/* FPS number */
+
+.fps-result-low,
+.fps-result-mid,
+.fps-result-high,
+.fps-result-ultra{
+
+    transition:
+        text-shadow .25s ease,
+        transform .25s ease;
+}
+
+.fps-result-low:hover,
+.fps-result-mid:hover,
+.fps-result-high:hover,
+.fps-result-ultra:hover{
+
+    transform:scale(1.08);
+
+    text-shadow:
+        0 0 15px currentColor;
+}
+
+
+/* =====================================================
+   14. FPS GAME ICON
+===================================================== */
+
+.fps-dropdown-btn img,
+.fps-dropdown-option img,
+.fps-result-game img{
+
+    transition:
+        transform .25s ease,
+        filter .25s ease;
+}
+
+.fps-dropdown-option:hover img{
+
+    transform:
+        scale(1.12)
+        rotate(-3deg);
+
+    filter:
+        drop-shadow(0 0 7px rgba(255,48,48,.3));
+}
+
+.fps-result-game img{
+
+    filter:
+        drop-shadow(0 0 8px rgba(255,48,48,.12));
+}
+
+
+/* =====================================================
+   15. SHOPEE BUTTON
+===================================================== */
+
+.shopee{
+
+    position:relative;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+    isolation:isolate;
+
+    transition:
+        transform .2s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+.shopee:hover{
+
+    transform:
+        translateY(-2px)
+        scale(1.015);
+
+    box-shadow:
+        0 8px 22px rgba(255,120,0,.16);
+}
+
+
+/* =====================================================
+   16. PART ROW
+===================================================== */
+
+.part:hover{
+
+    transform:
+        translateX(5px);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,48,48,.045),
+            transparent
+        );
+}
+
+
+/* =====================================================
+   17. INPUT / SELECT PREMIUM
+===================================================== */
+
+input,
+select,
+textarea{
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+input:hover,
+select:hover,
+textarea:hover{
+
+    border-color:#444 !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    border-color:#ff3030 !important;
+
+    box-shadow:
+        0 0 0 3px rgba(255,48,48,.07),
+        0 0 18px rgba(255,48,48,.06);
+
+    background:#151515 !important;
+}
+
+
+/* =====================================================
+   18. MENU EFFECT
+===================================================== */
+
+.side-menu{
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.55);
+}
+
+.side-menu button,
+.side-menu a{
+
+    transition:
+        transform .2s ease,
+        color .2s ease,
+        background .2s ease,
+        padding-left .2s ease;
+}
+
+.side-menu button:hover,
+.side-menu a:hover{
+
+    padding-left:
+        calc(1em + 5px);
+
+    background:
+        rgba(255,48,48,.055);
+
+    color:#ff5555;
+}
+
+
+/* =====================================================
+   19. NAVBAR / HEADER
+===================================================== */
+
+header,
+.navbar,
+nav{
+
+    backdrop-filter:
+        blur(15px);
+
+    -webkit-backdrop-filter:
+        blur(15px);
+}
+
+
+/* =====================================================
+   20. BACK HOME
+===================================================== */
+
+.phuc-back-home{
+
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease;
+}
+
+.phuc-back-home:hover{
+
+    transform:
+        translateX(-4px);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.35),
+        0 0 15px rgba(255,48,48,.05);
+}
+
+
+/* =====================================================
+   21. REVIEW CARD
+===================================================== */
+
+.review-card:hover{
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(255,48,48,.35) !important;
+
+    box-shadow:
+        0 14px 35px rgba(0,0,0,.3);
+}
+
+.review-stars{
+
+    transition:
+        text-shadow .25s ease,
+        transform .25s ease;
+}
+
+.review-card:hover .review-stars{
+
+    transform:
+        scale(1.06);
+
+    text-shadow:
+        0 0 12px rgba(255,200,87,.3);
+}
+
+
+/* =====================================================
+   22. COMPARE EFFECT
+===================================================== */
+
+.compare-pro-card:hover{
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(255,48,48,.4);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.32);
+}
+
+.compare-meter-fill{
+
+    box-shadow:
+        0 0 10px rgba(255,48,48,.2);
+}
+
+
+/* =====================================================
+   23. FAVORITE CARD
+===================================================== */
+
+.favorite-card:hover{
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(255,48,48,.35);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.3);
+}
+
+
+/* =====================================================
+   24. DETAIL FPS CARD
+===================================================== */
+
+.detail-fps-card:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.01);
+
+    border-color:
+        rgba(255,48,48,.35);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.3);
+}
+
+
+/* =====================================================
+   25. BADGE PULSE
+===================================================== */
+
+.badge,
+.compare-pro-badge,
+.automation-badge,
+.roadmap-step{
+
+    animation:
+        phucBadgePulse 3.5s ease-in-out infinite;
+}
+
+@keyframes phucBadgePulse{
+
+    0%,100%{
+        box-shadow:
+            0 0 0 rgba(255,48,48,0);
+    }
+
+    50%{
+        box-shadow:
+            0 0 16px rgba(255,48,48,.08);
+    }
+}
+
+
+/* =====================================================
+   26. LOADING SHIMMER UTILITY
+===================================================== */
+
+.phuc-shimmer{
+
+    background:
+        linear-gradient(
+            90deg,
+            #111 25%,
+            #1b1b1b 50%,
+            #111 75%
+        );
+
+    background-size:
+        200% 100%;
+
+    animation:
+        phucShimmer 1.6s infinite;
+}
+
+@keyframes phucShimmer{
+
+    from{
+        background-position:
+            200% 0;
+    }
+
+    to{
+        background-position:
+            -200% 0;
+    }
+}
+
+
+/* =====================================================
+   27. SCROLL REVEAL
+===================================================== */
+
+/* =====================================================
+   PHUC PC — MOTION ASSEMBLY EFFECT
+   Tách → di chuyển → ghép lại
+===================================================== */
+
+
+
+
+/* trạng thái xuất hiện */
+
+.phuc-reveal.phuc-visible{
+
+    opacity:1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    filter:blur(0);
+
+}
+
+
+/* =====================================================
+   CARD MOTION
+===================================================== */
+
+
+
+
+@keyframes phucReviewAssemble{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translateY(24px)
+            scale(.97);
+
+        filter:blur(2px);
+
+    }
+
+    60%{
+
+        opacity:1;
+
+        transform:
+            translateY(-3px)
+            scale(1.005);
+
+        filter:blur(0);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:blur(0);
+
+    }
+
+}
+
+/* =====================================================
+   PHUC PC — CLEAN MOTION
+   Fade + Scale + Lift
+===================================================== */
+
+.phuc-reveal{
+
+    opacity:0;
+
+    transform:
+        translateY(8px)
+        scale(.985);
+
+    transition:
+        opacity .42s ease,
+        transform .48s
+            cubic-bezier(.22,.61,.36,1);
+
+}
+
+
+.phuc-reveal.phuc-visible{
+
+    opacity:1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+/* =====================================================
+   BUILD CARD
+===================================================== */
+
+.build-list .build-card{
+
+    opacity:1;
+
+    transform:none;
+
+    animation:
+        phucCleanCard
+        .48s
+        cubic-bezier(.22,.61,.36,1)
+        both;
+
+}
+
+
+.build-list .build-card:nth-child(1){
+    animation-delay:.02s;
+}
+
+.build-list .build-card:nth-child(2){
+    animation-delay:.06s;
+}
+
+.build-list .build-card:nth-child(3){
+    animation-delay:.10s;
+}
+
+.build-list .build-card:nth-child(4){
+    animation-delay:.14s;
+}
+
+.build-list .build-card:nth-child(5){
+    animation-delay:.18s;
+}
+
+.build-list .build-card:nth-child(6){
+    animation-delay:.22s;
+}
+
+
+@keyframes phucCleanCard{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(8px)
+            scale(.985);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   BUDGET PREVIEW
+===================================================== */
+
+.pp-budget-preview.is-changing{
+
+    animation:
+        phucBudgetChange
+        .3s
+        ease;
+
+}
+
+
+@keyframes phucBudgetChange{
+
+    0%{
+
+        opacity:.35;
+
+        transform:
+            translateY(5px)
+            scale(.99);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   BUTTON PRESS
+===================================================== */
+
+button,
+a{
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+}
+
+button:active{
+
+    transform:
+        scale(.975);
+
+}
+
+
+/* =====================================================
+   CARD HOVER
+===================================================== */
+
+.build-card,
+.price-card,
+.review-card{
+
+    transition:
+        transform .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease;
+
+}
+
+
+.build-card:hover,
+.price-card:hover{
+
+    transform:
+        translateY(-4px);
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation:none !important;
+
+        transition:none !important;
+
+    }
+
+}
+
+
+/* =====================================================
+   BUILD CARD — DI CHUYỂN TỪNG HƯỚNG
+===================================================== */
+
+
+
+
+
+
+
+.build-list .build-card:nth-child(1){
+    animation-delay:.05s;
+}
+
+.build-list .build-card:nth-child(2){
+    animation-delay:.11s;
+}
+
+.build-list .build-card:nth-child(3){
+    animation-delay:.17s;
+}
+
+.build-list .build-card:nth-child(4){
+    animation-delay:.23s;
+}
+
+.build-list .build-card:nth-child(5){
+    animation-delay:.29s;
+}
+
+.build-list .build-card:nth-child(6){
+    animation-delay:.35s;
+}
+
+@keyframes phucBuildAssemble{
+
+    0%{
+
+        opacity:0;
+
+        filter:blur(2px);
+
+    }
+
+    65%{
+
+        opacity:1;
+
+        transform:
+            translateX(0)
+            translateY(-2px)
+            scale(1.008);
+
+        filter:blur(0);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+            translateX(0)
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   REVIEW SECTION HEADER
+===================================================== */
+
+.phuc-review-section{
+
+    animation:
+        phucSectionAssemble
+        .7s
+        cubic-bezier(.22,.61,.36,1)
+        both;
+
+}
+
+
+@keyframes phucSectionAssemble{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   REVIEW HEADER
+===================================================== */
+
+.phuc-review-kicker{
+
+    display:inline-block;
+
+    margin-bottom:7px;
+
+    color:#777;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:1.5px;
+
+}
+
+
+.phuc-review-count{
+
+    flex-shrink:0;
+
+    padding:7px 11px;
+
+    border:
+        1px solid #292929;
+
+    border-radius:8px;
+
+    color:#777;
+
+    background:#101010;
+
+    font-size:10px;
+
+    font-weight:800;
+
+}
+
+
+/* =====================================================
+   REVIEW CARD — CLEAN
+===================================================== */
+
+.phuc-review-card{
+
+    background:
+        linear-gradient(
+            145deg,
+            #111,
+            #0d0d0d
+        );
+
+    border:
+        1px solid #222;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.16);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.phuc-review-card:hover{
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        #363636;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #101010
+        );
+
+    box-shadow:
+        0 15px 32px rgba(0,0,0,.28);
+
+}
+
+
+/* =====================================================
+   REVIEW STARS
+===================================================== */
+
+.phuc-review-card .review-stars{
+
+    transition:
+        transform .25s ease;
+
+}
+
+
+.phuc-review-card:hover .review-stars{
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+/* =====================================================
+   DETAIL PAGE ASSEMBLY
+===================================================== */
+
+#detailPage > .container > *{
+
+    animation:
+        phucDetailAssemble
+        .55s
+        cubic-bezier(.22,.61,.36,1)
+        both;
+
+}
+
+
+#detailPage > .container > *:nth-child(1){
+    animation-delay:.03s;
+}
+
+#detailPage > .container > *:nth-child(2){
+    animation-delay:.08s;
+}
+
+#detailPage > .container > *:nth-child(3){
+    animation-delay:.13s;
+}
+
+#detailPage > .container > *:nth-child(4){
+    animation-delay:.18s;
+}
+
+#detailPage > .container > *:nth-child(5){
+    animation-delay:.23s;
+}
+
+#detailPage > .container > *:nth-child(6){
+    animation-delay:.28s;
+}
+
+@keyframes phucDetailAssemble{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(18px)
+            scale(.985);
+
+        filter:blur(2px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:blur(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   FPS CARD ASSEMBLY
+===================================================== */
+
+.fps-calc-result{
+
+    animation:
+        phucFPSAssemble
+        .6s
+        cubic-bezier(.22,.61,.36,1)
+        both;
+
+}
+
+
+@keyframes phucFPSAssemble{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(18px)
+            scale(.985);
+
+    }
+
+    70%{
+
+        opacity:1;
+
+        transform:
+            translateY(-2px)
+            scale(1.005);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   PARTS — TỪNG LINH KIỆN GHÉP LẠI
+===================================================== */
+
+.part{
+
+    opacity:0;
+
+    animation:
+        phucPartAssemble
+        .45s
+        cubic-bezier(.22,.61,.36,1)
+        forwards;
+
+}
+
+
+.part:nth-child(1){
+    animation-delay:.04s;
+}
+
+.part:nth-child(2){
+    animation-delay:.08s;
+}
+
+.part:nth-child(3){
+    animation-delay:.12s;
+}
+
+.part:nth-child(4){
+    animation-delay:.16s;
+}
+
+.part:nth-child(5){
+    animation-delay:.20s;
+}
+
+.part:nth-child(6){
+    animation-delay:.24s;
+}
+
+.part:nth-child(7){
+    animation-delay:.28s;
+}
+
+.part:nth-child(8){
+    animation-delay:.32s;
+}
+
+@keyframes phucPartAssemble{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateX(-14px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateX(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    .build-list .build-card:nth-child(odd),
+    .build-list .build-card:nth-child(even){
+
+        animation-name:
+            phucBuildMobile;
+
+    }
+
+    @keyframes phucBuildMobile{
+
+        from{
+
+            opacity:0;
+
+            transform:
+                translateY(18px)
+                scale(.985);
+
+        }
+
+        to{
+
+            opacity:1;
+
+            transform:
+                translateY(0)
+                scale(1);
+
+        }
+
+    }
+
+    .phuc-review-count{
+
+        display:none;
+
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    .phuc-reveal,
+    .phuc-review-card,
+    .build-list .build-card,
+    #detailPage > .container > *,
+    .fps-calc-result,
+    .part{
+
+        animation:none !important;
+
+        opacity:1 !important;
+
+        transform:none !important;
+
+        filter:none !important;
+
+    }
+
+}
+
+
+/* =====================================================
+   28. STAGGER
+===================================================== */
+
+.phuc-stagger:nth-child(1){
+    transition-delay:.04s;
+}
+
+.phuc-stagger:nth-child(2){
+    transition-delay:.08s;
+}
+
+.phuc-stagger:nth-child(3){
+    transition-delay:.12s;
+}
+
+.phuc-stagger:nth-child(4){
+    transition-delay:.16s;
+}
+
+.phuc-stagger:nth-child(5){
+    transition-delay:.20s;
+}
+
+.phuc-stagger:nth-child(6){
+    transition-delay:.24s;
+}
+
+
+/* =====================================================
+   29. TOP BUTTON
+===================================================== */
+
+#phucTopButton{
+
+    position:fixed;
+
+    right:18px;
+    bottom:18px;
+
+    width:44px;
+    height:44px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:1px solid #333;
+
+    background:
+        rgba(18,18,18,.9);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    z-index:9998;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:
+        translateY(15px)
+        scale(.85);
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease,
+        background .2s ease,
+        border-color .2s ease;
+
+    backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.4);
+}
+
+#phucTopButton.show{
+
+    opacity:1;
+    visibility:visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+#phucTopButton:hover{
+
+    background:#ff3030;
+
+    border-color:#ff3030;
+
+    transform:
+        translateY(-3px)
+        scale(1.05);
+}
+
+
+/* =====================================================
+   30. CURSOR GLOW
+===================================================== */
+
+#phucCursorGlow{
+
+    position:fixed;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:9990;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,48,48,.07),
+            rgba(255,48,48,.025) 35%,
+            transparent 70%
+        );
+
+    transform:
+        translate(-50%,-50%);
+
+    opacity:0;
+
+    transition:
+        opacity .25s ease;
+}
+
+
+/* =====================================================
+   31. RED LASER LINE
+===================================================== */
+
+.phuc-laser{
+
+    position:fixed;
+
+    left:0;
+    right:0;
+
+    height:1px;
+
+    pointer-events:none;
+
+    z-index:9997;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,48,48,.35),
+            transparent
+        );
+
+    opacity:.18;
+
+    animation:
+        phucLaser 8s linear infinite;
+}
+
+@keyframes phucLaser{
+
+    0%{
+        top:-2%;
+    }
+
+    100%{
+        top:102%;
+    }
+}
+
+
+/* =====================================================
+   32. TOAST
+===================================================== */
+
+#phucToast{
+
+    position:fixed;
+
+    left:50%;
+    bottom:28px;
+
+    transform:
+        translate(-50%,20px)
+        scale(.96);
+
+    opacity:0;
+    visibility:hidden;
+
+    z-index:10000;
+
+    max-width:
+        min(420px,90vw);
+
+    padding:
+        12px 17px;
+
+    border-radius:12px;
+
+    border:1px solid #333;
+
+    background:
+        rgba(16,16,16,.94);
+
+    color:#eee;
+
+    font-size:13px;
+    font-weight:700;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.5),
+        0 0 25px rgba(255,48,48,.05);
+
+    backdrop-filter:
+        blur(15px);
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s ease;
+}
+
+#phucToast.show{
+
+    opacity:1;
+    visibility:visible;
+
+    transform:
+        translate(-50%,0)
+        scale(1);
+}
+
+
+/* =====================================================
+   33. MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    body::before{
+        opacity:.7;
+    }
+
+    .price-card:hover,
+.build-card:hover{
+    transform:none !important;
+}
+
+.price-card:active,
+.build-card:active{
+    transform:scale(.985) !important;
+    transition:transform .12s ease !important;
+}
+
+    .part:hover{
+
+        transform:
+            translateX(2px);
+    }
+
+    #phucCursorGlow,
+    .phuc-laser{
+        display:none;
+    }
+
+    #phucTopButton{
+
+        right:12px;
+        bottom:12px;
+
+        width:40px;
+        height:40px;
+    }
+}
+
+
+/* =====================================================
+   34. REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+        transition-duration:.01ms !important;
+    }
+
+    #phucCursorGlow,
+    .phuc-laser{
+        display:none;
+    }
 }
 
 </style>
@@ -3556,17 +6003,18 @@ const componentPrices = {
     <!--MAIN-->
 "H61 LỖI 1 USB SHOP XUANBAOPC":200000,
 "H61 SHOP LKMT SG":184000,
+"H61 ITX 17X17 SHOP PIN LINH KIEN MAY TINH":260000,
 "H81 LỖI 1-2 USB KV.PC":230000,
 "H81 SOCKET XẤU + 1 RAM SHOP BÃO PC":200000,
-"H81 SHOP NGOCROI":268000,
+"H81 SHOP NGOCROI":240000,
 "H110 MÁY BỘ SHOP LINH KIEN VI TINH 9X":324000,
-"H110 SHOP BK COMPUTER":357000,
+"H110 SHOP BK COMPUTER":401000,
 "H110 RAM LAPTOP DDR3":309000,
 "H310 RAM LAPTOP DDR3":488000,
-"H310 LỖI 2-3 USB SHOP BÃO PC":549000,
-"H310 SHOP NGOCROI":446000,
+"H310 LỖI 2-3 USB CÓ NVME SHOP BÃO PC":549000,
+"H310 SHOP NGOCROI":474000,
 "H370 + I5 9600 SHOP PHUONG_279":2100000,
-"H410 SHOP NGOCROI":446000,
+"H410 SHOP NGOCROI":455000,
 "H510 SHOP DANGQUYEN COMPUTER":570000,
 "A320 SHOP LINHKIENVIETNAM":650000,
 "A320 ĐÃ QUA SỬA CHỮA SHOP NEKO PC":429000,
@@ -3608,6 +6056,8 @@ const componentPrices = {
 "TẢN CR1000 HOẶC TẢN CENTAUR CT AIR 07 SHOP LINH KIỆN PC - 2ND":184000,
 "TẢN CR1000 SHOP ĐỨC ANH COMPUTER":229000,
 "TẢN STOCK AMD SHOP ĐĂNG KHÔI STORE":54000,
+"TẢN K400 SHOP MPCG SHOP":169000,
+"TẢN CR1000 SHOP MPCG SHOP":221000,
 
 <!--RAM-->
 <!--DDR3-->
@@ -3627,7 +6077,7 @@ const componentPrices = {
 <!--KHÔNG TẢN-->
 "4GB DDR4 KHÔNG TẢN SHOP TUẤN PC NHẬT CŨ":320000,
 "2X4GB DDR4 KHÔNG TẢN SHOP TUẤN PC NHẬT CŨ":620000,
-"8GB DDR4 KHÔNG TẢN SHOP NGUYENHAINAM":704000,
+"8GB DDR4 KHÔNG TẢN SHOP NGUYENHAINAM":546000,
 "2X8GB DDR4 KHÔNG TẢN SHOP NGUYENHAINAM":1360000,
 "8GB DDR4 KHÔNG TẢN SHOP ANH THƯ PC":720000,
 "2X8GB DDR4 KHÔNG TẢN SHOP ANH THƯ PC":1400000,
@@ -3636,7 +6086,7 @@ const componentPrices = {
 <!--CÓ TẢN-->
 "4GB DDR4 CÓ TẢN SHOP NGUYENHAINAM":350000,
 "2X4GB DDR4 CÓ TẢN SHOP NGUYENHAINAM":680000,
-"8GB DDR4 CÓ TẢN SHOP VI TÍNH HAN":800000,
+"8GB DDR4 CÓ TẢN SHOP VI TÍNH HAN":720000,
 "2X8GB DDR4 CÓ TẢN SHOP VI TÍNH HAN":1560000,
 "8GB DDR4 CÓ TẢN SHOP ANH THƯ PC":750000,
 "2X8GB DDR4 CÓ TẢN SHOP ANH THƯ PC":1470000,
@@ -3645,14 +6095,14 @@ const componentPrices = {
 <!--KHÔNG TẢN-->
 "4GB DDR4 AMD KHÔNG TẢN SHOP NGUYENHAINAM":350000,
 "2X4GB DDR4 AMD KHÔNG TẢN SHOP NGUYENHAINAM":700000,
-"8GB DDR4 AMD KHÔNG TẢN SHOP NGUYENHAINAM":700000,
+"8GB DDR4 AMD KHÔNG TẢN SHOP NGUYENHAINAM":546000,
 ":2X8GB DDR4 AMD KHÔNG TẢN SHOP NGUYENHAINAM":1360000,
 "16GB DDR4 AMD KHÔNG TẢN SHOP TINIPC":1800000,
 
 <!--CÓ TẢN-->
 "4GB DDR4 AMD CÓ TẢN SHOP NGUYENHAINAM":340000,
 "2X4GB DDR4 AMD CÓ TẢN SHOP NGUYENHAINAM":700000,
-"8GB DDR4 AMD CÓ TẢN SHOP NGUYENHAINAM":700000,
+"8GB DDR4 AMD CÓ TẢN SHOP NGUYENHAINAM":720000,
 "2X8GB DDR4 AMD CÓ TẢN SHOP NGUYENHAINAM":1400000,
 "16GB DDR4 AMD CÓ TẢN SHOP NGUYENANHPC":1800000,
 
@@ -3687,7 +6137,7 @@ const componentPrices = {
 "GTX 1060 6G D5 SHOP LKLAPTOPPCCU":2300000,
 "CMP 30HX":680000,
 "CMP 40HX":1000000,
-"P104-100":650000,
+"P104-100":500000,
 
 <!--SSD-->
 "SSD SATA 60GB SHOP LINHKIENCU68":240000,
@@ -3829,7 +6279,7 @@ const shopeeLinks = {
     "H110 SHOP BK COMPUTER": "https://s.shopee.vn/1Lg4LKNxHJ",
     "H110 RAM LAPTOP DDR3": "https://s.shopee.vn/6VOAUtYDyg",
     "H310 RAM LAPTOP DDR3": "https://s.shopee.vn/9pecT5kFTO",
-    "H310 LỖI 2-3 USB SHOP BÃO PC": "https://s.shopee.vn/1BMe9BGHub",
+    "H310 LỖI 2-3 USB CÓ NVME SHOP BÃO PC": "https://s.shopee.vn/1BMe9BGHub",
     "H310 SHOP NGOCROI": "https://s.shopee.vn/60Rtu4soEI",
     "H370 + I5 9600 SHOP PHUONG_279": "https://s.shopee.vn/5fp3VTpY7p",
     "H410 SHOP NGOCROI": "https://s.shopee.vn/4fwWJgApof",
@@ -4018,8 +6468,8 @@ const shopeeLinks = {
     "I9 10900K": "LINK_SHOPEE",
 
     // Gen 11
-    "I3 10105": "LINK_SHOPEE",
-    "I3 10105F": "LINK_SHOPEE",
+    "I3 10105 SHOP BÃO PC": "https://s.shopee.vn/80CyJ6cyTw",
+    "I3 10105F SHOP BÃO PC": "https://s.shopee.vn/80CyJ6cyTw",
 
     "I5 11400": "LINK_SHOPEE",
     "I5 11400F": "LINK_SHOPEE",
@@ -4105,6 +6555,8 @@ const shopeeLinks = {
     "TẢN CR1000 HOẶC TẢN CENTAUR CT AIR 07 SHOP LINH KIỆN PC - 2ND": "https://s.shopee.vn/1Agn3mT6B",
     "TẢN CR1000 SHOP ĐỨC ANH COMPUTER": "https://s.shopee.vn/8AWOW2Acmf",
     "TẢN STOCK AMD SHOP ĐĂNG KHÔI STORE": "https://s.shopee.vn/7KxHWYcQve",
+    "TẢN K400 SHOP MPCG SHOP":"https://s.shopee.vn/9fLIes7L28",
+    "TẢN CR1000 SHOP MPCG SHOP":"https://s.shopee.vn/1LgAjX4t5d",
     
 
     <!-- RAM -->
@@ -4479,7 +6931,7 @@ const shopeeLinks = {
     "SSD SATA 128GB LEOPARD SK90% SHOP TEACHCARE": "https://s.shopee.vn/40gpawIySh",
     "SSD SATA 120GB SK95% SHOP LINH KIỆT ĐIỆN TỬ SHOP_36": "https://s.shopee.vn/9AOvkRmayy",
     "SSD SATA 128GB TRM SK99% SHOP SHOPCUACHIN": "https://s.shopee.vn/9AOvkSYa15",
-    "SSD SATA 240GB EEKOO SHOP PHỤ KIỆN 5T ": "https://s.shopee.vn/9AOvkT83KV",
+    "SSD SATA 240GB EEKOO SHOP PHỤ KIỆN 5T": "https://s.shopee.vn/9AOvkT83KV",
 
     <!-- HDD LAPTOP -->
     "HDD LAPTOP 250GB SK100% SHOP BACHKHOA": "https://s.shopee.vn/W6xQeJraC",
@@ -4559,6 +7011,22 @@ const buildsSource = {
                 ["Case", "ĐẾ BẮT MAIN"]
             ]
         },
+
+        {
+            name: "Tà Đạo P104 - 100",
+            price: "2.350.000đ",
+            badge: "🎮 GAMING",
+            parts: [
+                ["Mainboard", "H61 SHOP LKMT SG"],
+                ["CPU", "I5 2500 SHOP SAM PC"],
+                ["Tản", "TẢN STOCK INTEL SHOP TINHOCANHSANGVIET"],
+                ["RAM", "2X4GB DDR3 KHÔNG TẢN SHOP LKMT - TQH"],
+                ["VGA", "P104-100"],
+                ["HDD", "HDD LAPTOP 500GB SK80% SHOP BÁN GÌ CŨNG ĐƯỢC"],
+                ["Nguồn", "NGUỒN MAGIC MG-450 450W SHOP CONGNGHE1.VN"],
+                ["Case", "ĐẾ BẮT MAIN"]
+            ]
+        },
         {
             name: "Tà Đạo 30HX",
             price: "1.600.000đ",
@@ -4613,6 +7081,8 @@ const buildsSource = {
                 ["Case", "ĐẾ BẮT MAIN"]
             ]
         },
+
+         
          {
             name: "AMD",
             price: "2.600.000đ",
@@ -4715,7 +7185,7 @@ const buildsSource = {
             price: "3.800.000đ",
             badge: "🎮 GAMING",
             parts: [
-                 ["Mainboard", "H310 LỖI 2-3 USB SHOP BÃO PC"],
+                 ["Mainboard", "H310 LỖI 2-3 USB CÓ NVME SHOP BÃO PC"],
                 ["CPU", "I3 8100 SHOP ANH THƯ PC"],
                 ["Tản", "TẢN STOCK INTEL LÕI ĐỒNG SHOP MAYTINHBAN_PC"],
                 ["RAM", "8GB DDR4 KHÔNG TẢN SHOP NGUYENHAINAM"],
@@ -4899,17 +7369,18 @@ const buildsSource = {
         },
 
         {
-            name: "PC 6 Triệu - Gaming AMD",
+            name: "Chính Đạo",
             price: "6.000.000đ",
             parts: [
-                ["Mainboard", "H61"],
-                ["CPU", "Intel Core i3 Gen 2"],
-                ["Tản", "Tản Stock"],
-                ["RAM", "8GB DDR3"],
-                ["VGA", "GT 730 2GB"],
-                ["SSD", "120GB"],
-                ["Nguồn", "350W"],
-                ["Case", "Case Gaming giá rẻ"]
+                ["Mainboard", "H510 SHOP DANGQUYEN COMPUTER"],
+                ["CPU", "I5 10400 SHOP HAITRIEUCOMPUTER"],
+                ["Tản", "TẢN CR1000 HOẶC TẢN CENTAUR CT AIR 07 SHOP LINH KIỆN PC - 2ND"],
+                ["RAM", "2X8GB DDR4 KHÔNG TẢN SHOP NGUYENHAINAM"],
+                ["VGA", "CMP 30HX"],
+                ["SSD", "SSD SATA 120GB SK90% SHOP DAHUA HIKVISION STORE VN"],
+                ["HDD", "HDD 500GB SHOP PHUKIEN_DIENTHOAI_GIASI"],
+                ["Nguồn", "NGUỒN FPS HEXA 500W SHOP TRỌNG TÍN PC"],
+                ["Case", "CASE ATX GIPCO SHOP SAOBACKINHDOANH"]
             ]
         }
     ]
@@ -5211,6 +7682,12 @@ detail.style.display = "block";
     ${formatPrice(getBuildTotal(build))}
 </div>
 
+                <div class="phuc-build-tags">
+                    ${getBuildQuickTags(build).map(tag => `<span class="phuc-build-tag ${tag[1]}">${tag[0]}</span>`).join("")}
+                </div>
+
+                ${getBuildFPSPreviewHTML(build)}
+
                 <div class="parts-preview">
 
                     ${build.parts.slice(0, 5).map(part => `
@@ -5250,7 +7727,7 @@ detail.style.display = "block";
                 })()}
 
                 <div class="pp-build-card-footer">
-                    <span class="pp-shop-status">🛒 ${build.parts.filter(part => hasShopeeLink(part)).length}/${build.parts.length} linh kiện có link</span>
+                    <span class="pp-shop-status">🔗 ${build.parts.filter(part => hasShopeeLink(part)).length}/${build.parts.length} linh kiện có link Shopee</span>
                     <button onclick="openBuild(${budget}, ${index})">
                         Xem cấu hình →
                     </button>
@@ -5273,6 +7750,134 @@ detail.style.display = "block";
 /* =====================================================
    MỞ CHI TIẾT MỘT CẤU HÌNH
 ===================================================== */
+
+/* =====================================================
+   PHUC PC — SAO CHÉP CẤU HÌNH
+===================================================== */
+
+function copyBuildConfig(budget, index){
+
+    const build = builds[budget]?.[index];
+
+    if(!build){
+        return;
+    }
+
+    const totalPrice = getBuildTotal(build);
+
+    const lines = [];
+
+    lines.push("PHUC PC");
+    lines.push(build.name);
+    lines.push("");
+    lines.push("DANH SÁCH LINH KIỆN:");
+
+    build.parts.forEach(part => {
+
+        const type = part[0];
+        const name = getDisplayPartName(part[1]);
+        const price = getComponentPrice(part[1]);
+
+        lines.push(
+            `${type}: ${name} — ${
+                price > 0
+                    ? formatPrice(price)
+                    : "Chưa cập nhật giá"
+            }`
+        );
+
+    });
+
+    lines.push("");
+    lines.push(`TỔNG: ${formatPrice(totalPrice)}`);
+    lines.push("");
+    lines.push("Tham khảo tại PHUC PC");
+
+    const text = lines.join("\n");
+
+    navigator.clipboard.writeText(text)
+        .then(() => {
+
+            showPhucCopyToast(
+                "✓ Đã sao chép cấu hình"
+            );
+
+        })
+        .catch(() => {
+
+            const textarea =
+                document.createElement("textarea");
+
+            textarea.value = text;
+
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+
+            document.body.appendChild(textarea);
+
+            textarea.select();
+
+            try{
+                document.execCommand("copy");
+
+                showPhucCopyToast(
+                    "✓ Đã sao chép cấu hình"
+                );
+
+            }catch(error){
+
+                alert(
+                    "Không thể sao chép tự động. Bạn hãy chọn và copy thủ công."
+                );
+
+            }
+
+            textarea.remove();
+
+        });
+}
+
+
+/* =====================================================
+   TOAST SAO CHÉP
+===================================================== */
+
+function showPhucCopyToast(message){
+
+    let toast =
+        document.getElementById(
+            "phucCopyToast"
+        );
+
+    if(!toast){
+
+        toast =
+            document.createElement("div");
+
+        toast.id =
+            "phucCopyToast";
+
+        toast.className =
+            "phuc-copy-toast";
+
+        document.body.appendChild(toast);
+    }
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(
+        window.__phucCopyToastTimer
+    );
+
+    window.__phucCopyToastTimer =
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        },2200);
+}
 
 function openBuild(budget, index, fromConsult = false) {
     const build = builds[budget][index];
@@ -5299,25 +7904,134 @@ function openBuild(budget, index, fromConsult = false) {
     const storage=ssd!=="Không có"?ssd:hdd;
 
     let partsHTML="";
-    build.parts.forEach(part=>{
-        const partName = getDisplayPartName(part[1]);
-        const partPrice = getComponentPrice(part[1]);
-        const priceHTML = partPrice > 0
-            ? `<span style="color:#ff5555;font-weight:800;">${formatPrice(partPrice)}</span>`
-            : `<span style="color:#ffd45c;font-weight:800;">Chưa cập nhật giá</span>`;
 
-        partsHTML += `
-            <div class="part">
-                <div class="part-info">
-                    <h3>${part[0]}</h3>
-                    <p>${partName}</p>
-                    <p style="margin-top:6px;">Giá: ${priceHTML}</p>
+build.parts.forEach(part=>{
+
+    const partType = part[0];
+
+    const partName =
+        getDisplayPartName(part[1]);
+
+    const partPrice =
+        getComponentPrice(part[1]);
+
+    const hasLink =
+        hasShopeeLink(part);
+
+    const priceHTML =
+        partPrice > 0
+
+        ? `<span style="
+                color:#ff5555;
+                font-weight:800;
+           ">
+                ${formatPrice(partPrice)}
+           </span>`
+
+        : `<span style="
+                color:#ffd45c;
+                font-weight:800;
+           ">
+                Chưa cập nhật giá
+           </span>`;
+
+
+    /* ===============================
+       TRẠNG THÁI LINH KIỆN
+    =============================== */
+
+    let statusHTML = "";
+
+    if(!hasLink){
+
+        statusHTML += `
+            <span class="phuc-part-status-badge off">
+                ⚪ Chưa có link
+            </span>
+        `;
+
+    }else{
+
+        statusHTML += `
+            <span class="phuc-part-status-badge ok">
+                🟢 Có link mua
+            </span>
+        `;
+
+    }
+
+
+    if(partPrice <= 0){
+
+        statusHTML += `
+            <span class="phuc-part-status-badge warn">
+                🟡 Chưa cập nhật giá
+            </span>
+        `;
+
+    }
+
+
+    partsHTML += `
+
+        <div class="part">
+
+            <div class="part-info">
+
+                <h3>
+                    ${partType}
+                </h3>
+
+                <p>
+                    ${partName}
+                </p>
+
+                <p style="margin-top:6px;">
+                    Giá:
+                    ${priceHTML}
+                </p>
+
+                <div class="phuc-part-status">
+                    ${statusHTML}
                 </div>
-                ${hasShopeeLink(part)
-                    ? `<a href="${getShopeeLink(part)}" target="_blank" rel="noopener" class="shopee">🛒 Xem Shopee</a>`
-                    : `<span class="shopee" style="opacity:.55;cursor:not-allowed;">Chưa có link</span>`}
-            </div>`;
-    });
+
+            </div>
+
+
+            ${
+                hasLink
+
+                ? `
+                    <a
+                        href="${getShopeeLink(part)}"
+                        target="_blank"
+                        rel="noopener"
+                        class="shopee">
+
+                        🛒 Xem Shopee
+
+                    </a>
+                `
+
+                : `
+                    <span
+                        class="shopee"
+                        style="
+                            opacity:.55;
+                            cursor:not-allowed;
+                        ">
+
+                        Chưa có link
+
+                    </span>
+                `
+            }
+
+        </div>
+
+    `;
+
+});
 
     const values=[];
     detailFpsGames.forEach(game=>{
@@ -5340,8 +8054,27 @@ function openBuild(budget, index, fromConsult = false) {
                 <div class="detail-pro-head">
                     <div>${build.badge?`<div class="badge-pc">${build.badge}</div>`:""}<h1>${build.name}</h1><p style="color:#777;margin-top:8px;">Cấu hình chi tiết + phân tích gaming PHUC PC</p></div>
                     <div class="detail-pro-actions">
-                        <button id="favoriteBuildBtn" class="detail-action-btn ${isFavorite?'favorite-active':''}" onclick="toggleFavoriteBuild('${favoriteKey}',${budget},${index})">${isFavorite?'❤️ Đã lưu':'♡ Lưu cấu hình'}</button>
-                    </div>
+
+    <button
+        id="favoriteBuildBtn"
+        class="detail-action-btn ${isFavorite?'favorite-active':''}"
+        onclick="toggleFavoriteBuild('${favoriteKey}',${budget},${index})">
+
+        ${isFavorite
+            ? '❤️ Đã lưu'
+            : '♡ Lưu cấu hình'}
+
+    </button>
+
+    <button
+        class="detail-action-btn"
+        onclick="copyBuildConfig(${budget},${index})">
+
+        📋 Sao chép
+
+    </button>
+
+</div>
                 </div>
                 <div class="detail-header" style="margin-bottom:18px"><div><p style="color:#888">Tổng chi phí linh kiện + công lắp</p></div><div class="total">${formatPrice(totalPrice)}</div></div>
 
@@ -5379,6 +8112,120 @@ function openBuild(budget, index, fromConsult = false) {
                     </div>
                     <div class="pp-overview-note">Các chỉ số là đánh giá tham khảo của PHUC PC, không phải benchmark thực tế.</div>
                 </div>
+
+                <div class="phuc-quick-note">
+
+    <div class="phuc-quick-note-head">
+
+        <div>
+
+            <div class="phuc-quick-note-title">
+                📝 PHUC PC QUICK NOTE
+            </div>
+
+            <div class="phuc-quick-note-sub">
+                Đánh giá nhanh cấu hình này
+            </div>
+
+        </div>
+
+        <span
+            class="phuc-part-status-badge ok">
+
+            ${performanceLabel}
+
+        </span>
+
+    </div>
+
+
+    <div class="phuc-quick-note-grid">
+
+
+        <!-- GAMING -->
+
+        <div class="phuc-quick-note-card">
+
+            <div class="phuc-quick-note-card-top">
+
+                <span>🎮 Gaming</span>
+
+                <b>${gamingScore}%</b>
+
+            </div>
+
+            <div class="phuc-quick-note-bar">
+
+                <i
+                    style="width:${gamingScore}%">
+                </i>
+
+            </div>
+
+            <small>
+                Phù hợp chơi game theo mức FPS tham khảo.
+            </small>
+
+        </div>
+
+
+        <!-- HỌC TẬP -->
+
+        <div class="phuc-quick-note-card">
+
+            <div class="phuc-quick-note-card-top">
+
+                <span>📚 Học tập</span>
+
+                <b>${officeScore}%</b>
+
+            </div>
+
+            <div class="phuc-quick-note-bar">
+
+                <i
+                    style="width:${officeScore}%">
+                </i>
+
+            </div>
+
+            <small>
+                Phù hợp học tập, Office và sử dụng hằng ngày.
+            </small>
+
+        </div>
+
+
+        <!-- NÂNG CẤP -->
+
+        <div class="phuc-quick-note-card">
+
+            <div class="phuc-quick-note-card-top">
+
+                <span>⬆️ Nâng cấp</span>
+
+                <b>${upgradeScore}%</b>
+
+            </div>
+
+            <div class="phuc-quick-note-bar">
+
+                <i
+                    style="width:${upgradeScore}%">
+                </i>
+
+            </div>
+
+            <small>
+                Khả năng nâng cấp dựa trên cấu hình hiện tại.
+            </small>
+
+        </div>
+
+
+    </div>
+
+</div>
 
                 <div class="detail-parts-title"><h3>🧩 Danh sách linh kiện</h3><span>${build.parts.length} linh kiện</span></div>
                 <div class="parts">${partsHTML}</div>
@@ -6062,17 +8909,27 @@ if (
 
     } else {
 
-        fpsHTML = `
+       fpsHTML = `
 
-            <tr>
+    <tr>
 
-                <td colspan="3">
-                    Chưa có dữ liệu FPS cho cấu hình này.
-                </td>
+        <td colspan="3">
 
-            </tr>
+            <span style="
+                color:#ffd45c;
+                font-weight:700;
+            ">
 
-        `;
+                ⚠️ FPS đang được ước tính
+                theo GPU tương đương.
+
+            </span>
+
+        </td>
+
+    </tr>
+
+`;
 
     }
 
@@ -7481,6 +10338,8 @@ results =
 
 const fpsDatabase = {
 
+    
+
     "CMP 30HX": {
 
     valorant: [180, 150, 120],
@@ -7760,47 +10619,208 @@ function getDisplayBuildPart(build, type) {
    XÁC ĐỊNH VGA
 ===================================================== */
 
-function getBuildGPU(build) {
+/* =====================================================
+   PHUC PC — NHẬN DIỆN VGA TOÀN BỘ
+===================================================== */
 
-    const gpu = getBuildPart(build, "VGA");
+/* =====================================================
+   PHUC PC — NHẬN DIỆN VGA TOÀN BỘ
+===================================================== */
 
-    if (gpu.includes("GTX 960")) {
-        return "GTX 960 2G D5";
+function getBuildGPU(build){
+
+    if(!build){
+        return null;
     }
 
-    if (gpu.includes("GTX 950")) {
-        return "GTX 950 2G D5";
-    }
+    const gpu =
+        String(
+            getBuildPart(build,"VGA") || ""
+        ).toUpperCase();
 
-    if (gpu.includes("GTX 660")) {
-        return "GTX 660 2G D5";
-    }
+    const cpu =
+        String(
+            getBuildPart(build,"CPU") || ""
+        ).toUpperCase();
 
-    if (gpu.includes("CMP 30HX")) {
-        return "CMP 30HX";
-    }
 
-    if (gpu.includes("GTS 450")) {
+    /* =========================================
+       NVIDIA GT 400 / 500
+    ========================================= */
+
+    if(gpu.includes("GTS 450")){
         return "GTS 450";
     }
 
-    if (gpu.includes("GT 730")) {
+    if(gpu.includes("GTX 560")){
+        return "GTX 560 1G D5";
+    }
+
+    if(gpu.includes("GTX 560 TI")){
+        return "GTX 560 1G D5";
+    }
+
+
+    /* =========================================
+       NVIDIA GTX 600
+    ========================================= */
+
+    if(gpu.includes("GTX 650")){
+        return "GTX 650 1G D5";
+    }
+
+    if(gpu.includes("GTX 660")){
+        return "GTX 660 2G D5";
+    }
+
+
+    /* =========================================
+       NVIDIA GTX 700
+    ========================================= */
+
+    if(gpu.includes("GTX 750 TI")){
+        return "GTX 750 Ti 2G D5";
+    }
+
+    if(gpu.includes("GTX 750")){
+        return "GTX 750 2G D5";
+    }
+
+    if(gpu.includes("GTX 760")){
+        return "GTX 760 2G D5";
+    }
+
+    if(gpu.includes("GTX 770")){
+        return "GTX 770 2G D5";
+    }
+
+    if(gpu.includes("GTX 780")){
+        return "GTX 780 3G D5";
+    }
+
+
+    /* =========================================
+       NVIDIA GTX 900
+    ========================================= */
+
+    if(gpu.includes("GTX 950")){
+        return "GTX 950 2G D5";
+    }
+
+    if(gpu.includes("GTX 960")){
+        return "GTX 960 2G D5";
+    }
+
+    if(gpu.includes("GTX 970")){
+        return "GTX 970 4G D5";
+    }
+
+    if(gpu.includes("GTX 980 TI")){
+        return "GTX 980 Ti 6G D5";
+    }
+
+    if(gpu.includes("GTX 980")){
+        return "GTX 980 4G D5";
+    }
+
+
+    /* =========================================
+       NVIDIA GTX 1000
+    ========================================= */
+
+    if(gpu.includes("GTX 1050 TI")){
+        return "GTX 1050 Ti 4G D5";
+    }
+
+    if(gpu.includes("GTX 1050")){
+        return "GTX 1050 2G D5";
+    }
+
+    if(gpu.includes("GTX 1060")){
+
+        if(
+            gpu.includes("6G") ||
+            gpu.includes("6GB")
+        ){
+            return "GTX 1060 6G D5";
+        }
+
+        return "GTX 1060 3G D5";
+    }
+
+
+    /* =========================================
+       NVIDIA GTX 16
+    ========================================= */
+
+    if(gpu.includes("GTX 1650")){
+        return "GTX 1650 4G D5";
+    }
+
+    if(gpu.includes("GTX 1630")){
+        return "GTX 1630 4G D6";
+    }
+
+
+    /* =========================================
+       NVIDIA GT
+    ========================================= */
+
+    if(gpu.includes("GT 730")){
         return "GT 730 2GB";
     }
 
-    /*
-       Ryzen 3 2200G không có VGA rời
-       → dùng Vega 8
-    */
 
-    const cpu = getBuildPart(build, "CPU");
+    /* =========================================
+       GPU ĐẶC BIỆT
+    ========================================= */
 
-    if (cpu.includes("2200G")) {
+    if(gpu.includes("CMP 30HX")){
+        return "CMP 30HX";
+    }
+
+    if(gpu.includes("CMP 40HX")){
+        return "CMP 40HX";
+    }
+
+    if(gpu.includes("P104-100")){
+        return "P104-100";
+    }
+
+
+    /* =========================================
+       APU
+    ========================================= */
+
+    if(
+        cpu.includes("2200G") ||
+        cpu.includes("3200G") ||
+        cpu.includes("2400G") ||
+        cpu.includes("3400G") ||
+        gpu.includes("VEGA 8")
+    ){
         return "Vega 8";
     }
 
-    return null;
 
+    /* =========================================
+       INTEL INTEGRATED — FALLBACK
+    ========================================= */
+
+    if(
+        cpu.includes("I5 2500") ||
+        cpu.includes("I3 8100") ||
+        cpu.includes("I3 9100") ||
+        cpu.includes("I5 8400") ||
+        cpu.includes("I5 8500") ||
+        cpu.includes("I5 9400")
+    ){
+
+        return "Intel HD 630";
+    }
+
+
+    return null;
 }
 
 
@@ -7949,83 +10969,266 @@ function getStorageFactor(build) {
 
 
 /* =====================================================
-   TÍNH FPS
+   PHUC PC — FPS FALLBACK DUY NHẤT
+   Không để cấu hình thiếu FPS và không tạo
+   nhiều block fallback trùng nhau.
 ===================================================== */
 
-function getBuildFPS(build, gameID) {
+const phucFPSGpuFallback = {
 
-    const gpu = getBuildGPU(build);
+    "GTX 560 1G D5": { source:"GTS 450", scale:1.10 },
+    "GTX 650 1G D5": { source:"GTS 450", scale:1.00 },
+    "GTX 660 2G D5": { source:"GTX 950 2G D5", scale:.78 },
 
-    if (!gpu) {
-        return null;
-    }
+    "GTX 750 2G D5": { source:"GT 730 2GB", scale:1.18 },
+    "GTX 750 Ti 2G D5": { source:"GTX 660 2G D5", scale:.92 },
+    "GTX 760 2G D5": { source:"GTX 950 2G D5", scale:.92 },
+    "GTX 770 2G D5": { source:"GTX 950 2G D5", scale:1.08 },
+    "GTX 780 3G D5": { source:"GTX 960 2G D5", scale:1.02 },
 
-    const database = fpsDatabase[gpu];
+    "GTX 970 4G D5": { source:"GTX 960 2G D5", scale:1.25 },
+    "GTX 980 4G D5": { source:"GTX 960 2G D5", scale:1.40 },
+    "GTX 980 Ti 6G D5": { source:"GTX 960 2G D5", scale:1.58 },
 
-    if (!database) {
-        return null;
-    }
+    "GTX 1050 2G D5": { source:"GTX 960 2G D5", scale:1.00 },
+    "GTX 1050 Ti 4G D5": { source:"GTX 960 2G D5", scale:1.10 },
+    "GTX 1060 3G D5": { source:"GTX 960 2G D5", scale:1.28 },
+    "GTX 1060 6G D5": { source:"GTX 960 2G D5", scale:1.40 },
 
-    const baseFPS = database[gameID];
+    "GTX 1630 4G D6": { source:"GTX 960 2G D5", scale:1.00 },
+    "GTX 1650 4G D5": { source:"GTX 960 2G D5", scale:1.15 },
 
-    if (!baseFPS) {
-        return null;
-    }
+    "P104-100": { source:"CMP 30HX", scale:1.08 },
+    "CMP 40HX": { source:"CMP 30HX", scale:1.10 }
+};
 
-    const cpu = getBuildPart(build, "CPU");
-    const ram = getBuildPart(build, "RAM");
+Object.keys(phucFPSGpuFallback).forEach(gpuKey => {
 
-    const cpuFactor = getCPUFactor(cpu);
-    const ramFactor = getRAMFactor(ram);
+    const config = phucFPSGpuFallback[gpuKey];
+    const sourceData = fpsDatabase[config.source];
 
-    /*
-       SSD / HDD chủ yếu ảnh hưởng loading
-       nên không dùng để giảm FPS nữa.
-    */
+    if(!sourceData) return;
 
-    const factor =
-        cpuFactor *
-        ramFactor;
+    fpsDatabase[gpuKey] = {};
 
-    /*
-       baseFPS:
-       [LOW, MEDIUM, HIGH]
+    Object.keys(sourceData).forEach(gameID => {
 
-       1% LOW được ước lượng
-       khoảng 65% - 75% FPS trung bình.
+        const values = sourceData[gameID];
+        if(!Array.isArray(values)) return;
 
-       Đây là ước lượng,
-       không phải số đo benchmark thực tế.
-    */
-
-    const average = baseFPS.map(fps => {
-
-        return Math.max(
-            5,
-            Math.round(
-                fps * factor
-            )
+        fpsDatabase[gpuKey][gameID] = values.map(value =>
+            Math.max(5, Math.round(value * config.scale))
         );
 
     });
+});
 
-    const low1Percent = average.map(fps => {
+/* Intel HD 630 — dùng khi build không có VGA rời */
 
-        return Math.max(
-            5,
-            Math.round(
-                fps * 0.70
-            )
-        );
+fpsDatabase["Intel HD 630"] = {
+    valorant:[45,35,28],
+    lol:[70,55,42],
+    minecraft:[55,42,32],
+    minecraftShader:[15,11,8],
+    deltaforce:[10,8,6],
+    cs2:[25,19,14],
+    genshin:[18,14,10],
+    honkai:[16,12,9],
+    wukong:[5,5,5],
+    freefire:[40,32,25],
+    wuthering:[7,5,5],
+    callofduty:[9,7,5],
+    roblox:[55,45,35],
+    fortnite:[25,19,14],
+    gta5:[22,17,13],
+    apex:[20,15,11],
+    dota2:[42,33,25],
+    eldenring:[7,5,5],
+    rocketleague:[45,35,27]
+};
 
-    });
+/* GPU gần nhất khi một mã GPU mới chưa có database */
+
+function getNearestFPSGPU(gpu){
+
+    const name = String(gpu || "").toUpperCase();
+
+    if(name.includes("GTX 560")) return "GTS 450";
+    if(name.includes("GTX 650")) return "GTS 450";
+    if(name.includes("GTX 660")) return "GTX 950 2G D5";
+    if(name.includes("GTX 750 TI")) return "GTX 660 2G D5";
+    if(name.includes("GTX 750")) return "GT 730 2GB";
+    if(name.includes("GTX 760")) return "GTX 950 2G D5";
+    if(name.includes("GTX 770")) return "GTX 950 2G D5";
+    if(name.includes("GTX 780")) return "GTX 960 2G D5";
+    if(name.includes("GTX 970")) return "GTX 960 2G D5";
+    if(name.includes("GTX 980")) return "GTX 960 2G D5";
+    if(name.includes("GTX 1050")) return "GTX 960 2G D5";
+    if(name.includes("GTX 1060")) return "GTX 960 2G D5";
+    if(name.includes("GTX 1650")) return "GTX 960 2G D5";
+    if(name.includes("P104")) return "CMP 30HX";
+    if(name.includes("CMP")) return "CMP 30HX";
+    if(name.includes("VEGA")) return "Vega 8";
+    if(name.includes("INTEL HD")) return "Intel HD 630";
+
+    return null;
+}
+
+
+function getBuildFPS(build, gameID){
+
+    if(!build){
+        return null;
+    }
+
+    const gpu =
+        getBuildGPU(build);
+
+    if(!gpu){
+        return null;
+    }
+
+    let database =
+        fpsDatabase[gpu];
+
+
+    /* =========================================
+       GPU CHƯA CÓ DATABASE
+       → tìm GPU gần nhất
+    ========================================= */
+
+    if(!database){
+
+        const fallbackGPU =
+            getNearestFPSGPU(gpu);
+
+        if(fallbackGPU){
+            database =
+                fpsDatabase[fallbackGPU];
+        }
+
+    }
+
+
+    if(!database){
+        return null;
+    }
+
+
+    const baseFPS =
+        database[gameID];
+
+    if(!Array.isArray(baseFPS)){
+        return null;
+    }
+
+
+    const cpu =
+        getBuildPart(build,"CPU");
+
+    const ram =
+        getBuildPart(build,"RAM");
+
+
+    const cpuFactor =
+        getCPUFactor(cpu);
+
+    const ramFactor =
+        getRAMFactor(ram);
+
+
+    const storageFactor =
+    getStorageFactor(build);
+
+
+/* =========================================
+   HỆ SỐ TỔNG
+
+   GPU = database gốc
+   CPU = ảnh hưởng CPU-bound
+   RAM = ảnh hưởng nhẹ
+   SSD/HDD = ảnh hưởng rất nhẹ
+========================================= */
+
+const factor =
+    cpuFactor *
+    ramFactor *
+    storageFactor;
+
+
+    const average =
+        baseFPS.map(fps=>{
+
+            return Math.max(
+                5,
+                Math.round(
+                    fps * factor
+                )
+            );
+
+        });
+
+
+    const low1Percent =
+        average.map(fps=>{
+
+            return Math.max(
+                5,
+                Math.round(
+                    fps * .70
+                )
+            );
+
+        });
+
 
     return {
-        average: average,
-        low1Percent: low1Percent
+
+        average,
+
+        low1Percent
+
     };
 
 }
+/* =====================================================
+   PHUC PC — THẺ GIẢI THÍCH NHANH
+===================================================== */
+
+function getBuildQuickTags(build){
+
+    if(!build) return [];
+
+    const gpu = String(getBuildGPU(build) || getBuildPart(build,"VGA") || "").toUpperCase();
+    const ram = String(getBuildPart(build,"RAM") || "").toUpperCase();
+    const tags = [];
+
+    if(/GTX|GTS|CMP|P104|VEGA/.test(gpu)) tags.push(["🎮 Gaming","green"]);
+    if(/GTX 9|GTX 10|GTX 16|CMP|P104/.test(gpu)) tags.push(["⚡ eSports","green"]);
+    if(/16GB|2X8GB/.test(ram)) tags.push(["🧠 RAM 16GB","green"]);
+    else if(/8GB/.test(ram)) tags.push(["🧠 RAM 8GB","yellow"]);
+    if(/GTS 450|GTX 560|GTX 650|GT 730|GTX 660/.test(gpu)) tags.push(["⚠️ GPU đời cũ","yellow"]);
+    if(/SSD/.test(String(getBuildPart(build,"SSD") || "").toUpperCase())) tags.push(["💾 Có SSD","green"]);
+
+    return tags;
+}
+
+function getBuildFPSPreviewHTML(build){
+
+    const games = (typeof detailFpsGames !== "undefined" ? detailFpsGames : fpsGames).slice(0,3);
+    const rows = games.map(game => {
+        const fps = getBuildFPS(build,game.id);
+        if(!fps) return "";
+        const avg = Math.round((fps.average[0]+fps.average[1]+fps.average[2])/3);
+        return `<div class="phuc-fps-preview-row"><span>${game.name}</span><b>~${avg} FPS</b></div>`;
+    }).filter(Boolean).join("");
+
+    if(!rows) return "";
+
+    return `<div class="phuc-fps-preview"><div class="phuc-fps-preview-title">🎮 FPS tham khảo</div>${rows}</div>`;
+}
+
+
 /* =====================================================
    ĐÁNH GIÁ CẤU HÌNH
 ===================================================== */
@@ -8374,6 +11577,179 @@ const phucExtraFPS={
 "Vega 8":{fortnite:[58,45,34],gta5:[40,32,25],apex:[45,36,28],dota2:[70,57,45],eldenring:[17,14,11],rocketleague:[75,60,48]}
 };
 Object.keys(phucExtraFPS).forEach(gpu=>{if(!fpsDatabase[gpu])fpsDatabase[gpu]={};Object.assign(fpsDatabase[gpu],phucExtraFPS[gpu]);});
+
+/* =====================================================
+   PHUC PC — FPS FALLBACK CHO GPU CHƯA CÓ DATABASE
+===================================================== */
+
+const phucGpuFallback = {
+
+    /* =========================
+       GTX 700
+    ========================= */
+
+    "GTX 750 2G D5": {
+        base: "GT 730 2GB",
+        scale: 1.18
+    },
+
+    "GTX 750 Ti 2G D5": {
+        base: "GTX 660 2G D5",
+        scale: 0.92
+    },
+
+    "GTX 760 2G D5": {
+        base: "GTX 950 2G D5",
+        scale: 0.92
+    },
+
+    "GTX 770 2G D5": {
+        base: "GTX 950 2G D5",
+        scale: 1.08
+    },
+
+    "GTX 780 3G D5": {
+        base: "GTX 960 2G D5",
+        scale: 1.02
+    },
+
+
+    /* =========================
+       GTX 600
+    ========================= */
+
+    "GTX 650 1G D5": {
+        base: "GT 730 2GB",
+        scale: 0.90
+    },
+
+    "GTX 560 1G D5": {
+        base: "GTS 450",
+        scale: 1.12
+    },
+
+
+    /* =========================
+       GTX 900
+    ========================= */
+
+    "GTX 970 4G D5": {
+        base: "GTX 960 2G D5",
+        scale: 1.25
+    },
+
+    "GTX 980 4G D5": {
+        base: "GTX 960 2G D5",
+        scale: 1.40
+    },
+
+    "GTX 980 Ti 6G D5": {
+        base: "GTX 960 2G D5",
+        scale: 1.58
+    },
+
+
+    /* =========================
+       GTX 1000
+    ========================= */
+
+    "GTX 1050 2G D5": {
+        base: "GTX 960 2G D5",
+        scale: 0.98
+    },
+
+    "GTX 1050 Ti 4G D5": {
+        base: "GTX 960 2G D5",
+        scale: 1.08
+    },
+
+    "GTX 1060 3G D5": {
+        base: "GTX 960 2G D5",
+        scale: 1.32
+    },
+
+    "GTX 1060 6G D5": {
+        base: "GTX 960 2G D5",
+        scale: 1.42
+    },
+
+
+    /* =========================
+       GTX 16
+    ========================= */
+
+    "GTX 1630 4G D6": {
+        base: "GTX 960 2G D5",
+        scale: 0.98
+    },
+
+    "GTX 1650 4G D5": {
+        base: "GTX 960 2G D5",
+        scale: 1.12
+    },
+
+
+    /* =========================
+       GPU MINING
+    ========================= */
+
+    "CMP 40HX": {
+        base: "CMP 30HX",
+        scale: 1.12
+    },
+
+    "P104-100": {
+        base: "GTX 960 2G D5",
+        scale: 1.22
+    }
+
+};
+
+
+/* =====================================================
+   TẠO DATABASE FPS TỰ ĐỘNG
+===================================================== */
+
+Object.keys(phucGpuFallback).forEach(gpu => {
+
+    const config =
+        phucGpuFallback[gpu];
+
+    const source =
+        fpsDatabase[config.base];
+
+    if (!source) {
+        return;
+    }
+
+    if (!fpsDatabase[gpu]) {
+        fpsDatabase[gpu] = {};
+    }
+
+    Object.keys(source).forEach(gameID => {
+
+        const values =
+            source[gameID];
+
+        if (!Array.isArray(values)) {
+            return;
+        }
+
+        fpsDatabase[gpu][gameID] =
+            values.map(value => {
+
+                return Math.max(
+                    5,
+                    Math.round(
+                        value * config.scale
+                    )
+                );
+
+            });
+
+    });
+
+});
 phucExtraGames.forEach(game=>{if(!fpsGames.some(g=>g.id===game.id))fpsGames.push(game);});
 function loadExtraGamesUI(){
  const box=document.querySelector(".game-options"), compareGame=document.getElementById("compareGame");
@@ -8927,44 +12303,282 @@ const buildReviewBank = [
     }
 ];
 
-function renderBuildReviews(build) {
-    const reviewCount = Math.min(
-        6,
-        buildReviewBank.length
+/* =====================================================
+   PHUC PC — AUTO REVIEW CHO TẤT CẢ CẤU HÌNH
+===================================================== */
+
+function getBuildReviewData(build){
+
+    if(!build){
+        return [];
+    }
+
+    const cpu = String(
+        getBuildPart(build,"CPU") || ""
     );
 
+    const gpu = String(
+        getBuildGPU(build) ||
+        getBuildPart(build,"VGA") ||
+        ""
+    );
+
+    const ram = String(
+        getBuildPart(build,"RAM") || ""
+    );
+
+    const ssd = String(
+        getBuildPart(build,"SSD") || ""
+    );
+
+    const hdd = String(
+        getBuildPart(build,"HDD") || ""
+    );
+
+    const storage =
+        ssd !== "Không có"
+            ? ssd
+            : hdd;
+
+    const total =
+        typeof getBuildTotal === "function"
+            ? getBuildTotal(build)
+            : 0;
+
+
+    /* ---------------------------------------------
+       NHẬN XÉT CPU
+    --------------------------------------------- */
+
+    let cpuText =
+        "CPU phù hợp với nhu cầu sử dụng cơ bản.";
+
+    if(
+        /i5|i7|i9|ryzen\s*[5-9]|e5-26|e5-16/i.test(cpu)
+    ){
+        cpuText =
+            "CPU có nền tảng khá ổn cho học tập, làm việc và đa nhiệm.";
+    }
+
+    if(
+        /i3|ryzen\s*3|g|athlon/i.test(cpu)
+    ){
+        cpuText =
+            "CPU tập trung vào khả năng tiết kiệm chi phí, phù hợp với cấu hình ngân sách thấp.";
+    }
+
+
+    /* ---------------------------------------------
+       NHẬN XÉT GPU
+    --------------------------------------------- */
+
+    let gpuText =
+        "GPU phù hợp với các tác vụ đồ họa và game ở mức cơ bản.";
+
+    if(
+        /gtx\s*9|gtx\s*10|gtx\s*16|rx\s*5|rx\s*6/i.test(gpu)
+    ){
+        gpuText =
+            "GPU hướng tới gaming phổ thông và các game eSports ở thiết lập phù hợp.";
+    }
+
+    if(
+        /gtx\s*660|gtx\s*650|gtx\s*750|gt\s*730|gts\s*450/i.test(gpu)
+    ){
+        gpuText =
+            "GPU thuộc nhóm phần cứng cũ, nên ưu tiên game nhẹ và eSports; cần xem bảng FPS trước khi chọn.";
+    }
+
+
+    /* ---------------------------------------------
+       NHẬN XÉT RAM
+    --------------------------------------------- */
+
+    let ramText =
+        "Dung lượng RAM phù hợp cho nhu cầu cơ bản.";
+
+    if(/16\s*GB/i.test(ram)){
+        ramText =
+            "16GB RAM giúp máy thoải mái hơn khi chạy nhiều ứng dụng cùng lúc.";
+    }
+
+    if(/8\s*GB/i.test(ram)){
+        ramText =
+            "8GB RAM phù hợp với học tập, văn phòng và gaming nhẹ; có thể cân nhắc nâng cấp sau.";
+    }
+
+
+    /* ---------------------------------------------
+       NHẬN XÉT STORAGE
+    --------------------------------------------- */
+
+    let storageText =
+        "Dung lượng lưu trữ phù hợp với nhu cầu sử dụng thông thường.";
+
+    if(/128\s*GB/i.test(storage)){
+        storageText =
+            "SSD 128GB giúp hệ điều hành phản hồi nhanh nhưng dung lượng không quá dư dả.";
+    }
+
+    if(/256\s*GB/i.test(storage)){
+        storageText =
+            "SSD 256GB tạo sự cân bằng khá tốt giữa tốc độ và dung lượng.";
+    }
+
+    if(/512\s*GB|500\s*GB/i.test(storage)){
+        storageText =
+            "Dung lượng lưu trữ tương đối thoải mái cho hệ điều hành, phần mềm và một số game.";
+    }
+
+
+    /* ---------------------------------------------
+       REVIEW TỔNG QUAN
+    --------------------------------------------- */
+
+    let overallText =
+        "Cấu hình được xây dựng theo hướng cân đối trong tầm giá.";
+
+    if(total <= 2000000){
+
+        overallText =
+            "Cấu hình tập trung tối đa vào việc giữ chi phí thấp nhưng vẫn đủ dùng cho các nhu cầu cơ bản.";
+    }
+
+    else if(total <= 4000000){
+
+        overallText =
+            "Cấu hình hướng tới sự cân bằng giữa chi phí, gaming và khả năng nâng cấp về sau.";
+    }
+
+    else if(total <= 6000000){
+
+        overallText =
+            "Cấu hình có không gian phần cứng tốt hơn, phù hợp với người muốn sử dụng lâu dài.";
+    }
+
+    return [
+
+        {
+            name:"PHUC PC",
+            stars:"★★★★★",
+            text:overallText,
+            tag:"ĐÁNH GIÁ TỔNG QUAN"
+        },
+
+        {
+            name:"Góc CPU",
+            stars:"★★★★☆",
+            text:cpuText,
+            tag:"CPU"
+        },
+
+        {
+            name:"Góc Gaming",
+            stars:"★★★★☆",
+            text:gpuText,
+            tag:"GAMING"
+        },
+
+        {
+            name:"Góc Nâng Cấp",
+            stars:"★★★★☆",
+            text:
+                `${ramText} ${storageText}`,
+            tag:"NÂNG CẤP"
+        },
+
+        {
+            name:"Góc Thực Dụng",
+            stars:"★★★★★",
+            text:
+                "Phù hợp cho học tập, làm việc và giải trí trong phạm vi mà phần cứng của cấu hình hướng tới.",
+            tag:"HỌC TẬP"
+        },
+
+        {
+            name:"PHUC PC Note",
+            stars:"★★★★☆",
+            text:
+                "Thông số FPS trên website chỉ mang tính tham khảo. Kết quả thực tế còn phụ thuộc driver, nhiệt độ, thiết lập game và tình trạng linh kiện.",
+            tag:"LƯU Ý"
+        }
+
+    ];
+}
+
+
+function renderBuildReviews(build){
+
+    const reviews =
+        getBuildReviewData(build);
+
     return `
-        <div class="build-reviews">
+
+        <section class="build-reviews phuc-review-section">
+
             <div class="build-reviews-head">
+
                 <div>
-                    <h3>⭐ Nhận xét cấu hình</h3>
-                    <p>Đánh giá tham khảo của PHUC PC — không phải review mua hàng thực tế.</p>
+
+                    <span class="phuc-review-kicker">
+                        PHUC PC REVIEW
+                    </span>
+
+                    <h3>
+                        ⭐ Nhận xét cấu hình
+                    </h3>
+
+                    <p>
+                        Phân tích tham khảo dựa trên linh kiện
+                        của chính cấu hình này.
+                    </p>
+
                 </div>
+
+                <div class="phuc-review-count">
+                    ${reviews.length} nhận xét
+                </div>
+
             </div>
 
-            <div class="review-grid">
-                ${buildReviewBank
-                    .slice(0, reviewCount)
-                    .map((review, index) => {
-                        let text = review.text;
 
-                        if (index === 0 && build.badge) {
-                            text = `Cấu hình có nhãn "${build.badge}" và được xây dựng theo hướng tối ưu trong tầm ngân sách. ${review.text}`;
-                        }
+            <div class="review-grid phuc-review-grid">
 
-                        return `
-                            <article class="review-card">
-                                <div class="review-top">
-                                    <span class="review-name">${review.name}</span>
-                                    <span class="review-stars">${review.stars}</span>
-                                </div>
-                                <p>${text}</p>
-                                <span class="review-tag">${review.tag}</span>
-                            </article>
-                        `;
-                    }).join("")}
+                ${reviews.map((review,index)=>`
+
+                    <article
+                        class="review-card phuc-review-card"
+                        style="--review-delay:${index * 70}ms"
+                    >
+
+                        <div class="review-top">
+
+                            <span class="review-name">
+                                ${review.name}
+                            </span>
+
+                            <span class="review-stars">
+                                ${review.stars}
+                            </span>
+
+                        </div>
+
+                        <p>
+                            ${review.text}
+                        </p>
+
+                        <span class="review-tag">
+                            ${review.tag}
+                        </span>
+
+                    </article>
+
+                `).join("")}
+
             </div>
-        </div>
+
+        </section>
+
     `;
 }
 
@@ -9019,8 +12633,8 @@ function populateFPSCalculator() {
 
     buildSelect.innerHTML = allBuilds.map((item, index) => `
         <option value="${index}">
-            PC ${item.budget} triệu — ${item.build.name}
-        </option>
+    PC ${(getBuildTotal(item.build) / 1000000).toFixed(3).replace(/\.?0+$/, "")}m — ${item.build.name}
+</option>
     `).join("");
 
     gameSelect.innerHTML = fpsGames.map(game => `
@@ -9098,7 +12712,7 @@ function selectFPSGame(gameID) {
     const dropdown = document.getElementById("fpsGameDropdown");
     if (dropdown) dropdown.classList.remove("open");
 
-    calculateSingleFPS();
+    
 }
 
 function calculateSingleFPS() {
@@ -9220,6 +12834,8 @@ function calculateSingleFPS() {
         </div>
     `;
 }
+
+
 
 </script>
 
@@ -9819,27 +13435,109 @@ if (document.readyState === "loading") {
 .pp-reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
 .pp-reveal.pp-visible{opacity:1;transform:none}
 
+/* =====================================================
+   PHUC PC — BACK HOME COMPACT
+===================================================== */
+
 .phuc-back-home{
+
     display:inline-flex;
+
     align-items:center;
-    gap:8px;
-    margin:20px 0 10px;
-    padding:11px 17px;
-    border:1px solid #333;
-    border-radius:12px;
-    background:#171717;
-    color:#fff;
-    font-size:14px;
-    font-weight:700;
+    justify-content:center;
+
+    gap:6px;
+
+    margin:
+        8px 0 6px 0;
+
+    padding:
+        8px 13px;
+
+    min-height:34px;
+
+    border:
+        1px solid #292929;
+
+    border-radius:
+        9px;
+
+    background:
+        #121212;
+
+    color:
+        #dcdcdc;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1;
+
     cursor:pointer;
-    transition:.2s ease;
+
+    transition:
+        transform .18s ease,
+        background .18s ease,
+        border-color .18s ease,
+        color .18s ease;
+
 }
 
+
+/* hover */
+
 .phuc-back-home:hover{
-    background:#242424;
-    border-color:#ff3333;
-    color:#ff5555;
-    transform:translateX(-2px);
+
+    background:
+        #1b1b1b;
+
+    border-color:
+        rgba(255,48,48,.55);
+
+    color:
+        #ff5a5a;
+
+    transform:
+        translateX(-2px);
+
+}
+
+
+/* click */
+
+.phuc-back-home:active{
+
+    transform:
+        translateX(0)
+        scale(.97);
+
+}
+
+
+/* mobile */
+
+@media(max-width:700px){
+
+    .phuc-back-home{
+
+        margin:
+            6px 0 4px;
+
+        padding:
+            8px 12px;
+
+        font-size:
+            11px;
+
+        min-height:
+            32px;
+
+    }
+
 }
 
 /* PHUC PC V2 responsive redesign */
@@ -9887,6 +13585,316 @@ if (document.readyState === "loading") {
    PHUC PC — CREATOR / SHOPPING UI REDESIGN
    Brand: PHUC PC red | Shopping CTA: Shopee orange
 ===================================================== */
+
+/* =====================================================
+   PHUC PC — HOME CLEAN / COMPACT
+===================================================== */
+
+.phuc-home-hero,
+.pp-hero-premium{
+    padding:42px 0 34px !important;
+}
+
+.phuc-home-hero-inner{
+    gap:25px !important;
+}
+
+.phuc-home-hero-content{
+    max-width:650px !important;
+}
+
+.phuc-home-hero h1{
+    font-size:clamp(40px,5.5vw,64px) !important;
+}
+
+.phuc-home-hero-content p{
+    margin:15px 0 !important;
+    font-size:13px !important;
+    max-width:560px !important;
+}
+
+.phuc-home-status{
+    padding:18px !important;
+    border-radius:16px !important;
+}
+
+.phuc-status-grid{
+    gap:7px !important;
+}
+
+.phuc-status-grid div{
+    padding:11px !important;
+}
+
+
+/* =====================================================
+   QUICK TOOLS — 3 NÚT
+===================================================== */
+
+.phuc-quick-tools{
+    padding:10px 0 !important;
+}
+
+.phuc-quick-grid{
+    grid-template-columns:
+        repeat(3,1fr) !important;
+
+    gap:8px !important;
+}
+
+.phuc-quick-grid button{
+    min-height:58px !important;
+    padding:9px 11px !important;
+    border-radius:11px !important;
+}
+
+.phuc-quick-grid button>span{
+    font-size:20px !important;
+}
+
+.phuc-quick-grid b{
+    font-size:11px !important;
+}
+
+.phuc-quick-grid small{
+    font-size:9px !important;
+}
+
+
+/* =====================================================
+   BUDGET SECTION
+===================================================== */
+
+.phuc-budget-section{
+    padding:30px 0 20px !important;
+}
+
+.phuc-section-heading{
+    margin-bottom:14px !important;
+}
+
+.phuc-section-heading h2{
+    font-size:24px !important;
+}
+
+.phuc-section-heading p{
+    font-size:11px !important;
+}
+
+
+/* =====================================================
+   BUDGET BOX
+===================================================== */
+
+.pp-budget-chooser{
+    margin-top:12px !important;
+    padding:12px !important;
+    border-radius:16px !important;
+}
+
+.pp-budget-rail{
+    margin-bottom:10px !important;
+}
+
+.pp-budget-tab{
+    min-height:60px !important;
+    padding:8px !important;
+    border-radius:10px !important;
+}
+
+.pp-budget-tab span{
+    font-size:11px !important;
+}
+
+.pp-budget-tab small{
+    font-size:8px !important;
+}
+
+
+/* =====================================================
+   PREVIEW GỌN
+===================================================== */
+
+.pp-budget-preview{
+    padding:16px !important;
+    border-radius:13px !important;
+    gap:12px !important;
+}
+
+.pp-budget-preview-main h3{
+    font-size:23px !important;
+}
+
+.pp-budget-preview-main>p{
+    font-size:11px !important;
+    margin-top:5px !important;
+}
+
+.pp-budget-stats{
+    margin-top:13px !important;
+    gap:6px !important;
+}
+
+.pp-budget-stats>div{
+    padding:9px !important;
+    border-radius:9px !important;
+}
+
+.pp-budget-stats span{
+    font-size:8px !important;
+}
+
+.pp-budget-stats b{
+    font-size:10px !important;
+}
+
+.pp-budget-actions{
+    margin-top:12px !important;
+}
+
+.pp-budget-primary,
+.pp-budget-secondary{
+    padding:9px 12px !important;
+    font-size:11px !important;
+}
+
+
+/* =====================================================
+   ẨN PHẦN TRANG TRÍ DƯ THỪA
+===================================================== */
+
+.phuc-shopping{
+    padding:4px 0 18px !important;
+}
+
+.phuc-recommend{
+    padding:5px 0 25px !important;
+}
+
+.phuc-recommend-card{
+    padding:15px !important;
+}
+
+.phuc-recommend-card h3{
+    font-size:16px !important;
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media(min-width:1001px){
+
+    .phuc-home-hero-inner{
+        grid-template-columns:
+            1.5fr .65fr !important;
+    }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:1000px){
+
+    .phuc-home-hero-inner{
+        grid-template-columns:1fr !important;
+    }
+
+    .phuc-home-status{
+        max-width:520px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    .phuc-home-hero,
+    .pp-hero-premium{
+        padding:28px 0 24px !important;
+    }
+
+    .phuc-home-hero h1{
+        font-size:39px !important;
+        letter-spacing:-1.5px !important;
+    }
+
+    .phuc-home-hero-content p{
+        font-size:12px !important;
+        line-height:1.55 !important;
+    }
+
+    .phuc-home-actions{
+        display:grid !important;
+        grid-template-columns:1fr 1fr !important;
+        gap:7px !important;
+    }
+
+    .phuc-home-btn{
+        min-height:40px !important;
+        padding:0 7px !important;
+        font-size:10px !important;
+    }
+
+    .phuc-quick-grid{
+        grid-template-columns:
+            repeat(3,1fr) !important;
+    }
+
+    .phuc-quick-grid button{
+        display:block !important;
+        text-align:center !important;
+        min-height:58px !important;
+    }
+
+    .phuc-quick-grid button>span{
+        display:block;
+        margin-bottom:4px;
+    }
+
+    .phuc-quick-grid small{
+        display:none;
+    }
+
+    .pp-budget-preview-side{
+        display:none !important;
+    }
+
+}
+
+
+/* =====================================================
+   SIÊU NHỎ
+===================================================== */
+
+@media(max-width:430px){
+
+    .phuc-home-actions{
+        grid-template-columns:1fr !important;
+    }
+
+    .phuc-quick-grid{
+        grid-template-columns:
+            repeat(3,1fr) !important;
+    }
+
+    .phuc-quick-grid b{
+        font-size:9px !important;
+    }
+
+    .pp-budget-stats{
+        grid-template-columns:1fr !important;
+    }
+
+}
 :root{
     --pp-red:#ff3030;
     --pp-red-2:#ff4b4b;
@@ -10075,17 +14083,18 @@ header{
     box-shadow:0 12px 35px rgba(0,0,0,.18);
     transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease!important;
 }
-.build-card:before{
-    content:"";
-    position:absolute;left:0;top:0;right:0;height:2px;
-    background:linear-gradient(90deg,var(--pp-red),var(--pp-orange));
-    opacity:.45;
-}
+
 .build-card:hover{
-    transform:translateY(-5px)!important;
-    border-color:#4a2929!important;
-    box-shadow:0 18px 50px rgba(0,0,0,.35),0 0 0 1px rgba(255,48,48,.06)!important;
+    transform:translateY(-6px)!important;
+
+    border-color:
+        rgba(255,70,70,.48)!important;
+
+    box-shadow:
+        0 16px 40px rgba(0,0,0,.34),
+        0 0 0 1px rgba(255,48,48,.04)!important;
 }
+
 .build-card h3{font-size:20px!important;line-height:1.25}
 .build-price{font-size:23px!important;color:#ff5555!important}
 .parts-preview{line-height:1.7!important}
@@ -10213,8 +14222,168 @@ header{
     .part{padding:14px!important}
 }
 
+/* =========================================================
+   PHUC PC — DESKTOP / MOBILE EFFECT TÁCH RIÊNG
+========================================================= */
+
+/* DESKTOP / PC: hover, cursor glow, tilt nhẹ */
+@media (min-width:801px){
+
+    .price-card:hover,
+    .build-card:hover{
+        transform:translateY(-6px) scale(1.008)!important;
+    }
+
+    .build-card,
+    .price-card,
+    .review-card,
+    .favorite-card,
+    .compare-pro-card,
+    .automation-card{
+        will-change:transform;
+    }
+
+    .pp-budget-tab:hover{
+        transform:translateY(-2px);
+    }
+
+    .part:hover{
+        transform:translateX(4px);
+    }
+}
+
+/* TABLET: giảm hiệu ứng để giữ FPS */
+@media (min-width:601px) and (max-width:800px){
+
+    .build-card:hover,
+    .price-card:hover,
+    .review-card:hover,
+    .favorite-card:hover,
+    .compare-pro-card:hover,
+    .automation-card:hover{
+        transform:translateY(-3px)!important;
+        box-shadow:0 10px 28px rgba(0,0,0,.28)!important;
+    }
+
+    #phucCursorGlow{
+        display:none!important;
+    }
+
+    .phuc-laser{
+        display:none!important;
+    }
+}
+
+/* MOBILE: không dùng hover/tilt/cursor.
+   Tập trung vào chạm, scroll và animation ngắn. */
+@media (max-width:600px){
+
+    .build-card,
+    .price-card,
+    .review-card,
+    .favorite-card,
+    .compare-pro-card,
+    .automation-card,
+    .detail-fps-card,
+    .part{
+        will-change:auto!important;
+        transition:
+            border-color .18s ease,
+            background .18s ease,
+            box-shadow .18s ease!important;
+    }
+
+    .build-card:hover,
+    .price-card:hover,
+    .review-card:hover,
+    .favorite-card:hover,
+    .compare-pro-card:hover,
+    .automation-card:hover,
+    .detail-fps-card:hover,
+    .part:hover{
+        transform:none!important;
+        box-shadow:none!important;
+    }
+
+    .build-card::before{
+        display:none!important;
+    }
+
+    .build-card:active,
+    .price-card:active{
+        transform:scale(.985)!important;
+        border-color:#4a2929!important;
+    }
+
+    .pp-budget-tab:hover{
+        transform:none!important;
+    }
+
+    .pp-budget-tab:active{
+        transform:scale(.97);
+    }
+
+    .pp-budget-preview.is-changing{
+        animation:ppMobileBudgetIn .20s ease;
+    }
+
+    @keyframes ppMobileBudgetIn{
+        from{
+            opacity:.55;
+            transform:translateY(4px);
+        }
+        to{
+            opacity:1;
+            transform:none;
+        }
+    }
+
+    #phucCursorGlow,
+    .phuc-laser,
+    #phucTopButton{
+        display:none!important;
+    }
+
+    .phuc-reveal{
+        filter:none!important;
+        transform:translateY(14px)!important;
+        transition:
+            opacity .35s ease,
+            transform .4s ease!important;
+    }
+
+    .phuc-reveal.phuc-visible{
+        transform:none!important;
+    }
+
+    .phuc-review-card,
+    .build-list .build-card{
+        animation-duration:.42s!important;
+    }
+}
+
+/* Touch devices: không chạy các hiệu ứng hover giả */
+@media (hover:none) and (pointer:coarse){
+
+    button:hover::after,
+    .shopee:hover::after,
+    .detail-action-btn:hover::after{
+        left:-120%!important;
+    }
+
+    .build-card:hover,
+    .price-card:hover,
+    .part:hover{
+        transform:none!important;
+    }
+}
+
 @media (prefers-reduced-motion:reduce){
-    *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+    *,*::before,*::after{
+        scroll-behavior:auto!important;
+        transition:none!important;
+        animation:none!important;
+    }
 }
 
 /* =========================================================
@@ -10504,5 +14673,502 @@ header{
 
 }
 </style>
+
+<script id="phuc-ultra-effects-js">
+
+/* =====================================================
+   PHUC PC — ULTRA EFFECTS JS
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const isTouchDevice =
+        window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
+    /* ================================================
+       CURSOR GLOW — CHỈ DESKTOP
+    ================================================ */
+
+    if(!isTouchDevice){
+
+        const cursorGlow = document.createElement("div");
+
+    cursorGlow.id = "phucCursorGlow";
+
+    document.body.appendChild(cursorGlow);
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    let glowX = 0;
+    let glowY = 0;
+
+    document.addEventListener("mousemove", function(e){
+
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        cursorGlow.style.opacity = "1";
+
+    });
+
+    function animateCursor(){
+
+        glowX += (mouseX - glowX) * .12;
+        glowY += (mouseY - glowY) * .12;
+
+        cursorGlow.style.left = glowX + "px";
+        cursorGlow.style.top = glowY + "px";
+
+        requestAnimationFrame(animateCursor);
+
+    }
+
+    animateCursor();
+
+    }
+
+    /* ================================================
+       LASER — CHỈ DESKTOP
+    ================================================ */
+
+    if(!isTouchDevice){
+
+    const laser = document.createElement("div");
+
+    laser.className = "phuc-laser";
+
+    document.body.appendChild(laser);
+
+    }
+
+    /* ================================================
+       TOP BUTTON
+    ================================================ */
+
+    const topButton = document.createElement("button");
+
+    topButton.id = "phucTopButton";
+
+    topButton.type = "button";
+
+    topButton.innerHTML =
+        '<i class="fa-solid fa-arrow-up"></i>';
+
+    topButton.title = "Lên đầu trang";
+
+    document.body.appendChild(topButton);
+
+    topButton.addEventListener("click", function(){
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    });
+
+
+    window.addEventListener("scroll", function(){
+
+        if(window.scrollY > 500){
+
+            topButton.classList.add("show");
+
+        }else{
+
+            topButton.classList.remove("show");
+
+        }
+
+    });
+
+
+    /* ================================================
+       SCROLL REVEAL
+    ================================================ */
+
+    const revealTargets = [
+
+        ".price-card",
+        ".build-card",
+        ".review-card",
+        ".favorite-card",
+        ".compare-column",
+        ".compare-result",
+        ".fps-calc-result",
+        ".knowledge-card",
+        ".roadmap-card",
+        ".detail-fps-card",
+        ".compare-pro-card",
+        ".automation-card",
+        ".phuc567-page > *"
+
+    ];
+
+    const revealElements = [];
+
+    revealTargets.forEach(function(selector){
+
+        document.querySelectorAll(selector)
+            .forEach(function(el){
+
+                if(
+                    !el.classList.contains("phuc-reveal")
+                ){
+
+                    el.classList.add("phuc-reveal");
+
+                }
+
+                revealElements.push(el);
+
+            });
+
+    });
+
+
+    const revealObserver =
+        new IntersectionObserver(
+            function(entries){
+
+                entries.forEach(function(entry){
+
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add(
+                            "phuc-visible"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold:.08,
+                rootMargin:"0px 0px -40px 0px"
+            }
+        );
+
+
+    revealElements.forEach(function(el){
+
+        revealObserver.observe(el);
+
+    });
+
+
+    /* ================================================
+       STAGGER CARD
+    ================================================ */
+
+    const staggerGroups = [
+
+        ".price-grid",
+        ".build-list",
+        ".review-grid",
+        ".favorite-list",
+        ".game-options",
+        ".knowledge-grid",
+        ".roadmap-grid",
+        ".automation-grid"
+
+    ];
+
+    staggerGroups.forEach(function(selector){
+
+        document.querySelectorAll(
+            selector
+        ).forEach(function(container){
+
+            Array.from(container.children)
+                .forEach(function(child,index){
+
+                    child.classList.add(
+                        "phuc-stagger"
+                    );
+
+                });
+
+        });
+
+    });
+
+
+    /* ================================================
+       TOAST SYSTEM
+    ================================================ */
+
+    window.phucToast = function(message){
+
+        let toast =
+            document.getElementById("phucToast");
+
+        if(!toast){
+
+            toast = document.createElement("div");
+
+            toast.id = "phucToast";
+
+            document.body.appendChild(toast);
+
+        }
+
+        toast.textContent = message;
+
+        toast.classList.add("show");
+
+        clearTimeout(
+            window.__phucToastTimer
+        );
+
+        window.__phucToastTimer =
+            setTimeout(function(){
+
+                toast.classList.remove("show");
+
+            },2200);
+
+    };
+
+
+    /* ================================================
+       INTERACTIVE CARD TILT
+    ================================================ */
+
+    const tiltCards = document.querySelectorAll(
+        ".price-card, .build-card"
+    );
+
+    tiltCards.forEach(function(card){
+
+        card.addEventListener(
+            "mousemove",
+            function(e){
+
+                if(
+                    window.innerWidth < 800 ||
+                    window.matchMedia("(hover: none) and (pointer: coarse)").matches
+                ){
+                    return;
+                }
+
+                const rect =
+                    card.getBoundingClientRect();
+
+                const x =
+                    e.clientX - rect.left;
+
+                const y =
+                    e.clientY - rect.top;
+
+                const centerX =
+                    rect.width / 2;
+
+                const centerY =
+                    rect.height / 2;
+
+                const rotateX =
+                    ((y-centerY)/centerY)*-2.5;
+
+                const rotateY =
+                    ((x-centerX)/centerX)*2.5;
+
+                card.style.transform =
+                    `perspective(900px)
+                     rotateX(${rotateX}deg)
+                     rotateY(${rotateY}deg)
+                     translateY(-6px)
+                     scale(1.012)`;
+
+            }
+        );
+
+
+        card.addEventListener(
+            "mouseleave",
+            function(){
+
+                card.style.transform = "";
+
+            }
+        );
+
+    });
+
+
+    /* ================================================
+       MAGNETIC BUTTON
+    ================================================ */
+
+    const magneticButtons =
+        document.querySelectorAll(
+            ".checker-btn, .automation-btn, .phuc-back-home"
+        );
+
+    magneticButtons.forEach(function(button){
+
+        button.addEventListener(
+            "mousemove",
+            function(e){
+
+                if(window.innerWidth < 800){
+                    return;
+                }
+
+                const rect =
+                    button.getBoundingClientRect();
+
+                const x =
+                    e.clientX - rect.left -
+                    rect.width / 2;
+
+                const y =
+                    e.clientY - rect.top -
+                    rect.height / 2;
+
+                button.style.transform =
+                    `translate(${x*.08}px,${y*.08}px)`;
+
+            }
+        );
+
+
+        button.addEventListener(
+            "mouseleave",
+            function(){
+
+                button.style.transform = "";
+
+            }
+        );
+
+    });
+
+
+    /* ================================================
+       ADD TOOLTIP TO ICON BUTTONS
+    ================================================ */
+
+    document.querySelectorAll(
+        "button[title]"
+    ).forEach(function(button){
+
+        button.setAttribute(
+            "aria-label",
+            button.getAttribute("title")
+        );
+
+    });
+
+
+    /* ================================================
+       ESC TO CLOSE OPEN MENUS
+    ================================================ */
+
+    document.addEventListener(
+        "keydown",
+        function(e){
+
+            if(e.key !== "Escape"){
+                return;
+            }
+
+            document
+                .querySelectorAll(
+                    ".open"
+                )
+                .forEach(function(el){
+
+                    el.classList.remove("open");
+
+                });
+
+        }
+    );
+
+
+    /* ================================================
+       ACTIVE INPUT GLOW
+    ================================================ */
+
+    document.querySelectorAll(
+        "input,select,textarea"
+    ).forEach(function(field){
+
+        field.addEventListener(
+            "focus",
+            function(){
+
+                field.style.transition =
+                    "box-shadow .2s ease";
+
+            }
+        );
+
+    });
+
+
+    /* ================================================
+       PAGE VISIBILITY RE-CHECK
+       Dùng cho các page được tạo bằng JS
+    ================================================ */
+
+    window.phucRefreshEffects =
+        function(){
+
+            document
+                .querySelectorAll(
+                    ".price-card, .build-card, .review-card, .favorite-card, .compare-column, .compare-result, .fps-calc-result, .knowledge-card, .roadmap-card, .detail-fps-card, .compare-pro-card, .automation-card"
+                )
+                .forEach(function(el){
+
+                    if(
+                        !el.classList.contains(
+                            "phuc-reveal"
+                        )
+                    ){
+
+                        el.classList.add(
+                            "phuc-reveal"
+                        );
+
+                        revealObserver.observe(el);
+
+                    }
+
+                });
+
+        };
+
+
+    /* ================================================
+       WELCOME MICRO EFFECT
+    ================================================ */
+
+    setTimeout(function(){
+
+        if(
+            typeof window.phucToast === "function"
+        ){
+
+            window.phucToast(
+                "⚡ PHUC PC — Build đúng ngân sách"
+            );
+
+        }
+
+    },900);
+
+});
+
+</script>
+
+
 </body>
 </html>
