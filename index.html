@@ -3136,10 +3136,8 @@ body::before{
    4. GLOBAL PAGE TRANSITION
 ===================================================== */
 
-main,
-section,
-.page{
-    animation:phucPageIn .45s ease both;
+main, section, .page{
+    animation:none !important;
 }
 
 @keyframes phucPageIn{
@@ -5085,6 +5083,24 @@ button:active{
 </head>
 
 <body>
+
+    <div id="phucPageTransition" class="phuc-page-transition" aria-hidden="true">
+
+    <div class="phuc-transition-content">
+
+        <div class="phuc-transition-logo">
+            P
+        </div>
+
+        <div class="phuc-transition-line"></div>
+
+        <div class="phuc-transition-text">
+            PHUC PC
+        </div>
+
+    </div>
+
+</div>
 
 <!-- ================= HEADER ================= -->
 <header>
@@ -15042,19 +15058,18 @@ document.addEventListener("DOMContentLoaded", function(){
 
     });
 
+    let glowRaf = 0;
     function animateCursor(){
-
         glowX += (mouseX - glowX) * .12;
         glowY += (mouseY - glowY) * .12;
-
         cursorGlow.style.left = glowX + "px";
         cursorGlow.style.top = glowY + "px";
-
-        requestAnimationFrame(animateCursor);
-
+        glowRaf = (Math.abs(mouseX-glowX) > .5 || Math.abs(mouseY-glowY) > .5)
+            ? requestAnimationFrame(animateCursor) : 0;
     }
-
-    animateCursor();
+    document.addEventListener("mousemove", function(){
+        if(!glowRaf) glowRaf = requestAnimationFrame(animateCursor);
+    }, {passive:true});
 
     }
 
@@ -15072,46 +15087,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     }
 
-    /* ================================================
-       TOP BUTTON
-    ================================================ */
-
-    const topButton = document.createElement("button");
-
-    topButton.id = "phucTopButton";
-
-    topButton.type = "button";
-
-    topButton.innerHTML =
-        '<i class="fa-solid fa-arrow-up"></i>';
-
-    topButton.title = "Lên đầu trang";
-
-    document.body.appendChild(topButton);
-
-    topButton.addEventListener("click", function(){
-
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-
-    });
-
-
-    window.addEventListener("scroll", function(){
-
-        if(window.scrollY > 500){
-
-            topButton.classList.add("show");
-
-        }else{
-
-            topButton.classList.remove("show");
-
-        }
-
-    });
+   
 
 
     /* ================================================
@@ -15199,16 +15175,18 @@ document.addEventListener("DOMContentLoaded", function(){
 
     const staggerGroups = [
 
-        ".price-grid",
-        ".build-list",
-        ".review-grid",
-        ".favorite-list",
-        ".game-options",
-        ".knowledge-grid",
-        ".roadmap-grid",
-        ".automation-grid"
+    ".price-grid",
+    ".build-list",
+    ".review-grid",
+    ".favorite-list",
+    ".game-options",
+    ".knowledge-grid",
+    ".roadmap-grid",
+    ".automation-grid",
+    ".parts",
+    ".compare-grid"
 
-    ];
+];
 
     staggerGroups.forEach(function(selector){
 
@@ -15265,120 +15243,6 @@ document.addEventListener("DOMContentLoaded", function(){
             },2200);
 
     };
-
-
-    /* ================================================
-       INTERACTIVE CARD TILT
-    ================================================ */
-
-    const tiltCards = document.querySelectorAll(
-        ".price-card, .build-card"
-    );
-
-    tiltCards.forEach(function(card){
-
-        card.addEventListener(
-            "mousemove",
-            function(e){
-
-                if(
-                    window.innerWidth < 800 ||
-                    window.matchMedia("(hover: none) and (pointer: coarse)").matches
-                ){
-                    return;
-                }
-
-                const rect =
-                    card.getBoundingClientRect();
-
-                const x =
-                    e.clientX - rect.left;
-
-                const y =
-                    e.clientY - rect.top;
-
-                const centerX =
-                    rect.width / 2;
-
-                const centerY =
-                    rect.height / 2;
-
-                const rotateX =
-                    ((y-centerY)/centerY)*-2.5;
-
-                const rotateY =
-                    ((x-centerX)/centerX)*2.5;
-
-                card.style.transform =
-                    `perspective(900px)
-                     rotateX(${rotateX}deg)
-                     rotateY(${rotateY}deg)
-                     translateY(-6px)
-                     scale(1.012)`;
-
-            }
-        );
-
-
-        card.addEventListener(
-            "mouseleave",
-            function(){
-
-                card.style.transform = "";
-
-            }
-        );
-
-    });
-
-
-    /* ================================================
-       MAGNETIC BUTTON
-    ================================================ */
-
-    const magneticButtons =
-        document.querySelectorAll(
-            ".checker-btn, .automation-btn, .phuc-back-home"
-        );
-
-    magneticButtons.forEach(function(button){
-
-        button.addEventListener(
-            "mousemove",
-            function(e){
-
-                if(window.innerWidth < 800){
-                    return;
-                }
-
-                const rect =
-                    button.getBoundingClientRect();
-
-                const x =
-                    e.clientX - rect.left -
-                    rect.width / 2;
-
-                const y =
-                    e.clientY - rect.top -
-                    rect.height / 2;
-
-                button.style.transform =
-                    `translate(${x*.08}px,${y*.08}px)`;
-
-            }
-        );
-
-
-        button.addEventListener(
-            "mouseleave",
-            function(){
-
-                button.style.transform = "";
-
-            }
-        );
-
-    });
 
 
     /* ================================================
@@ -15454,7 +15318,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
             document
                 .querySelectorAll(
-                    ".price-card, .build-card, .review-card, .favorite-card, .compare-column, .compare-result, .fps-calc-result, .knowledge-card, .roadmap-card, .detail-fps-card, .compare-pro-card, .automation-card"
+                    ".price-card, .build-card, .review-card, .favorite-card, .compare-column, .compare-result, .fps-calc-result, .knowledge-card, .roadmap-card, .detail-fps-card, .compare-pro-card, .automation-card, .part"
                 )
                 .forEach(function(el){
 
@@ -15692,6 +15556,7 @@ document.addEventListener("click",(event)=>{
 document.addEventListener("keydown",(event)=>{
     if(event.key === "Escape") phucCloseBuyHelp();
 });
+
 </script>
 
 
@@ -15723,7 +15588,2184 @@ document.addEventListener("keydown",(event)=>{
     line-height:1.55;
     font-weight:700;
 }
+/* =====================================================
+   PHUC PC — ĐỒNG BỘ MÀU CÁC NÚT
+   Shopee + Mua hộ + Zalo + TikTok
+===================================================== */
+
+/* Shopee */
+.part .shopee{
+    background:#181818 !important;
+    border:1px solid #333 !important;
+    color:#fff !important;
+}
+
+/* Mua hộ */
+.phuc-buy-help-btn{
+    background:#181818 !important;
+    border:1px solid #333 !important;
+    color:#fff !important;
+}
+
+/* Zalo + TikTok trong popup mua hộ */
+.phuc-buy-help-actions button,
+.phuc-buy-help-actions .phuc-buy-zalo{
+    background:#181818 !important;
+    border:1px solid #333 !important;
+    color:#fff !important;
+}
+
+/* Zalo + TikTok trong popup Liên hệ */
+.contact-option.zalo,
+.contact-option.tiktok{
+    background:#181818 !important;
+    border:1px solid #333 !important;
+    color:#fff !important;
+}
+
+/* Hover: cả 4 nút cùng một kiểu */
+.part .shopee:hover,
+.phuc-buy-help-btn:hover,
+.phuc-buy-help-actions button:hover,
+.contact-option.zalo:hover,
+.contact-option.tiktok:hover{
+    background:#211111 !important;
+    border-color:#ff3030 !important;
+    color:#fff !important;
+}
+
+/* =====================================================
+   PHUC PC — SMOOTH UI ANIMATION
+===================================================== */
+
+/* ===== TẤT CẢ NÚT ===== */
+.part .shopee,
+.phuc-buy-help-btn,
+.phuc-buy-help-actions button,
+.contact-option.zalo,
+.contact-option.tiktok {
+    transition:
+        transform 0.22s cubic-bezier(.2,.8,.2,1),
+        background-color 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease,
+        color 0.22s ease;
+    
+    transform: translateY(0) scale(1);
+}
+
+
+/* ===== HOVER ===== */
+.part .shopee:hover,
+.phuc-buy-help-btn:hover,
+.phuc-buy-help-actions button:hover,
+.contact-option.zalo:hover,
+.contact-option.tiktok:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    background: #211111 !important;
+    border-color: #ff3030 !important;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.28),
+        0 0 12px rgba(255,48,48,.12);
+}
+
+
+/* ===== CLICK ===== */
+.part .shopee:active,
+.phuc-buy-help-btn:active,
+.phuc-buy-help-actions button:active,
+.contact-option.zalo:active,
+.contact-option.tiktok:active {
+    transform: translateY(0) scale(.96);
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,.25);
+}
+
+
+/* ===== ICON TRONG NÚT ===== */
+.part .shopee i,
+.phuc-buy-help-btn i,
+.phuc-buy-help-actions button i,
+.contact-option.zalo i,
+.contact-option.tiktok i {
+    transition:
+        transform 0.25s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* Icon chuyển động khi hover */
+.part .shopee:hover i,
+.phuc-buy-help-btn:hover i,
+.phuc-buy-help-actions button:hover i,
+.contact-option.zalo:hover i,
+.contact-option.tiktok:hover i {
+    transform: scale(1.12) rotate(-4deg);
+}
+
+
+/* ===== HIỆU ỨNG FOCUS ===== */
+.part .shopee:focus-visible,
+.phuc-buy-help-btn:focus-visible,
+.phuc-buy-help-actions button:focus-visible,
+.contact-option.zalo:focus-visible,
+.contact-option.tiktok:focus-visible {
+    outline: none;
+
+    box-shadow:
+        0 0 0 3px rgba(255,48,48,.15),
+        0 0 18px rgba(255,48,48,.18);
+}
+
+/* =====================================================
+   PHUC PC — PREMIUM SMOOTH ANIMATION
+===================================================== */
+
+
+/* =========================
+   NÚT SHOPEE + MUA HỘ
+========================= */
+
+.part .shopee,
+.phuc-buy-help-btn{
+
+    transition:
+        transform .25s cubic-bezier(.2,.8,.2,1),
+        box-shadow .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+
+    will-change: transform;
+}
+
+
+/* Hover */
+
+.part .shopee:hover,
+.phuc-buy-help-btn:hover{
+
+    transform: translateY(-4px) scale(1.025);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.35),
+        0 0 16px rgba(255,48,48,.12);
+}
+
+
+/* Click */
+
+.part .shopee:active,
+.phuc-buy-help-btn:active{
+
+    transform: translateY(0) scale(.95);
+
+    transition-duration:.08s;
+
+}
+
+
+/* =========================
+   ZALO + TIKTOK
+========================= */
+
+.phuc-buy-help-actions button{
+
+    transition:
+        transform .25s cubic-bezier(.2,.8,.2,1),
+        box-shadow .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+
+    will-change:transform;
+}
+
+
+.phuc-buy-help-actions button:hover{
+
+    transform: translateY(-3px) scale(1.025);
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,.3);
+}
+
+
+.phuc-buy-help-actions button:active{
+
+    transform:scale(.94);
+
+    transition-duration:.08s;
+
+}
+
+
+/* =========================
+   ICON TRONG NÚT
+========================= */
+
+.phuc-buy-help-actions button img,
+.phuc-buy-help-btn img,
+.part .shopee img{
+
+    transition:
+        transform .3s cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+/* Icon bay nhẹ khi hover */
+
+.phuc-buy-help-actions button:hover img,
+.phuc-buy-help-btn:hover img,
+.part .shopee:hover img{
+
+    transform:
+        scale(1.12)
+        rotate(-5deg);
+
+}
+
+
+/* =========================
+   NÚT X ĐÓNG POPUP
+========================= */
+
+.phuc-buy-help-close{
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        color .2s ease;
+
+}
+
+
+.phuc-buy-help-close:hover{
+
+    transform:
+        rotate(90deg)
+        scale(1.08);
+
+    background:#211111;
+
+    border-color:#ff3030;
+
+    color:#fff;
+
+}
+
+
+.phuc-buy-help-close:active{
+
+    transform:
+        rotate(90deg)
+        scale(.9);
+
+}
+
+
+/* =========================
+   COPY BUTTON
+========================= */
+
+.phuc-copy-btn{
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+
+}
+
+
+.phuc-copy-btn:hover{
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(0,0,0,.25);
+
+}
+
+
+.phuc-copy-btn:active{
+
+    transform:
+        scale(.96);
+
+}
+
+
+/* =========================
+   POPUP — FADE MƯỢT HƠN
+========================= */
+
+.phuc-buy-help-modal.show{
+
+    animation:
+        phucBuyFadePremium
+        .28s
+        cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+@keyframes phucBuyFadePremium{
+
+    from{
+
+        opacity:0;
+
+        backdrop-filter:blur(0px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        backdrop-filter:blur(5px);
+
+    }
+
+}
+
+
+/* =========================
+   HỘP POPUP
+========================= */
+
+.phuc-buy-help-modal.show .phuc-buy-help-box{
+
+    animation:
+        phucBuyBoxPremium
+        .38s
+        cubic-bezier(.16,1,.3,1);
+
+}
+
+
+@keyframes phucBuyBoxPremium{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(30px)
+            scale(.94);
+
+    }
+
+    60%{
+
+        opacity:1;
+
+        transform:
+            translateY(-3px)
+            scale(1.01);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================
+   NỘI DUNG POPUP
+========================= */
+
+.phuc-buy-help-modal.show
+.phuc-buy-help-kicker{
+
+    animation:
+        phucContentIn
+        .35s
+        .08s
+        both;
+
+}
+
+
+.phuc-buy-help-modal.show
+.phuc-buy-help-title{
+
+    animation:
+        phucContentIn
+        .35s
+        .12s
+        both;
+
+}
+
+
+.phuc-buy-help-modal.show
+.phuc-buy-help-product{
+
+    animation:
+        phucContentIn
+        .35s
+        .16s
+        both;
+
+}
+
+
+.phuc-buy-help-modal.show
+.phuc-buy-help-message{
+
+    animation:
+        phucContentIn
+        .35s
+        .20s
+        both;
+
+}
+
+
+.phuc-buy-help-modal.show
+.phuc-buy-help-actions{
+
+    animation:
+        phucContentIn
+        .35s
+        .24s
+        both;
+
+}
+
+
+@keyframes phucContentIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+
+    }
+
+}
+/* =====================================================
+   FIX NÚT X POPUP MUA HỘ
+===================================================== */
+
+.phuc-buy-help-modal{
+    pointer-events:auto !important;
+}
+
+.phuc-buy-help-box{
+    position:relative !important;
+}
+
+.phuc-buy-help-close{
+    position:absolute !important;
+
+    top:9px !important;
+    right:10px !important;
+
+    z-index:999999 !important;
+
+    pointer-events:auto !important;
+
+    cursor:pointer !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+}
+
+
+/* Hiệu ứng hover nút X */
+
+.phuc-buy-help-close:hover{
+    transform:rotate(90deg) scale(1.08) !important;
+
+    color:#fff !important;
+
+    background:#211111 !important;
+
+    border-color:#ff3030 !important;
+}
+
+
+/* Khi click */
+
+.phuc-buy-help-close:active{
+    transform:rotate(90deg) scale(.9) !important;
+}
+
+/* =====================================================
+   PHUC PC — PREMIUM SCROLL REVEAL 2.0
+   Fade + Lift + Blur + Stagger
+===================================================== */
+
+.phuc-reveal{
+    opacity:0 !important;
+
+    transform:
+        translateY(28px)
+        scale(.975) !important;
+
+    filter:blur(4px);
+
+    transition:
+        opacity .65s cubic-bezier(.22,.61,.36,1),
+        transform .72s cubic-bezier(.22,.61,.36,1),
+        filter .65s ease;
+
+    will-change:
+        opacity,
+        transform,
+        filter;
+}
+
+
+/* Khi card xuất hiện */
+
+.phuc-reveal.phuc-visible{
+    opacity:1 !important;
+
+    transform:
+        translateY(0)
+        scale(1) !important;
+
+    filter:blur(0);
+
+    will-change:auto;
+}
+
+
+/* =====================================================
+   CARD ĐI VÀO THEO TỪNG NHỊP
+===================================================== */
+
+.phuc-stagger:nth-child(1){
+    transition-delay:.03s;
+}
+
+.phuc-stagger:nth-child(2){
+    transition-delay:.09s;
+}
+
+.phuc-stagger:nth-child(3){
+    transition-delay:.15s;
+}
+
+.phuc-stagger:nth-child(4){
+    transition-delay:.21s;
+}
+
+.phuc-stagger:nth-child(5){
+    transition-delay:.27s;
+}
+
+.phuc-stagger:nth-child(6){
+    transition-delay:.33s;
+}
+
+.phuc-stagger:nth-child(7){
+    transition-delay:.39s;
+}
+
+.phuc-stagger:nth-child(8){
+    transition-delay:.45s;
+}
+
+
+/* =====================================================
+   BUILD CARD — XUẤT HIỆN MỀM HƠN
+===================================================== */
+
+.build-list .build-card.phuc-reveal{
+    transform:
+        translateY(35px)
+        scale(.97) !important;
+}
+
+.build-list .build-card.phuc-reveal.phuc-visible{
+    transform:
+        translateY(0)
+        scale(1) !important;
+}
+
+
+/* =====================================================
+   PART — LINH KIỆN
+===================================================== */
+
+.part.phuc-reveal{
+    transform:
+        translateY(22px)
+        scale(.985) !important;
+}
+
+.part.phuc-reveal.phuc-visible{
+    transform:
+        translateY(0)
+        scale(1) !important;
+}
+
+
+/* =====================================================
+   HOVER SAU KHI ĐÃ XUẤT HIỆN
+===================================================== */
+
+.phuc-reveal.phuc-visible.build-card,
+.phuc-reveal.phuc-visible.price-card,
+.phuc-reveal.phuc-visible.review-card,
+.phuc-reveal.phuc-visible.favorite-card,
+.phuc-reveal.phuc-visible.compare-pro-card,
+.phuc-reveal.phuc-visible.automation-card{
+
+    transition:
+        transform .28s cubic-bezier(.2,.8,.2,1),
+        box-shadow .28s ease,
+        border-color .28s ease,
+        opacity .65s ease;
+}
+
+
+/* Không ảnh hưởng mobile */
+
+@media(max-width:700px){
+
+    .phuc-reveal{
+        transform:
+            translateY(18px)
+            scale(.985) !important;
+
+        filter:blur(2px);
+
+        transition:
+            opacity .5s ease,
+            transform .55s cubic-bezier(.22,.61,.36,1),
+            filter .5s ease;
+    }
+
+    .phuc-reveal.phuc-visible{
+        transform:
+            translateY(0)
+            scale(1) !important;
+
+        filter:blur(0);
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    .phuc-reveal,
+    .phuc-reveal.phuc-visible{
+        opacity:1 !important;
+        transform:none !important;
+        filter:none !important;
+        transition:none !important;
+    }
+
+}
+
+/* =========================================================
+   PHUC PC — PREMIUM PAGE TRANSITION
+   Chuyển cảnh giữa các trang / khu vực
+========================================================= */
+
+.phuc-page-transition{
+    position:fixed;
+    inset:0;
+    z-index:999999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    pointer-events:none;
+
+    opacity:0;
+    visibility:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255,48,48,.10),
+            transparent 35%
+        ),
+        rgba(5,5,5,.94);
+
+    backdrop-filter:blur(10px);
+
+    transform:scale(1.035);
+
+    transition:
+        opacity .28s cubic-bezier(.22,.61,.36,1),
+        transform .42s cubic-bezier(.16,1,.3,1),
+        visibility 0s linear .42s;
+}
+
+
+/* Khi bắt đầu chuyển trang */
+
+.phuc-page-transition.is-active{
+    opacity:1;
+    visibility:visible;
+    transform:scale(1);
+}
+
+
+/* Nội dung giữa màn hình */
+
+.phuc-transition-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+
+    opacity:0;
+    transform:translateY(14px) scale(.96);
+
+    transition:
+        opacity .25s ease .06s,
+        transform .4s cubic-bezier(.16,1,.3,1) .06s;
+}
+
+
+.phuc-page-transition.is-active .phuc-transition-content{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+
+
+/* Logo */
+
+.phuc-transition-logo{
+    width:58px;
+    height:58px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid rgba(255,48,48,.35);
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #191919,
+            #0c0c0c
+        );
+
+    color:#ff3030;
+
+    font-size:26px;
+    font-weight:900;
+
+    box-shadow:
+        0 0 35px rgba(255,48,48,.14),
+        0 15px 45px rgba(0,0,0,.5);
+
+    animation:phucTransitionPulse 1.2s ease-in-out infinite;
+}
+
+
+@keyframes phucTransitionPulse{
+
+    0%,100%{
+        transform:scale(1);
+        box-shadow:
+            0 0 30px rgba(255,48,48,.10),
+            0 15px 45px rgba(0,0,0,.5);
+    }
+
+    50%{
+        transform:scale(1.045);
+        box-shadow:
+            0 0 45px rgba(255,48,48,.20),
+            0 18px 55px rgba(0,0,0,.55);
+    }
+
+}
+
+
+/* Thanh loading */
+
+.phuc-transition-line{
+    width:110px;
+    height:2px;
+
+    overflow:hidden;
+
+    border-radius:999px;
+
+    background:#252525;
+}
+
+
+.phuc-transition-line::after{
+    content:"";
+
+    display:block;
+
+    width:45%;
+    height:100%;
+
+    border-radius:999px;
+
+    background:#ff3030;
+
+    transform:translateX(-120%);
+
+    animation:phucTransitionLine .85s ease-in-out infinite;
+}
+
+
+@keyframes phucTransitionLine{
+
+    0%{
+        transform:translateX(-120%);
+    }
+
+    100%{
+        transform:translateX(330%);
+    }
+
+}
+
+
+/* Chữ */
+
+.phuc-transition-text{
+    color:#777;
+
+    font-size:10px;
+    font-weight:700;
+
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   TRANG MỚI — NHẸ NHÀNG ĐI VÀO
+========================================================= */
+
+.phuc-page-enter{
+    animation:
+        phucPageEnter
+        .55s
+        cubic-bezier(.16,1,.3,1)
+        both;
+}
+
+
+@keyframes phucPageEnter{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(18px)
+            scale(.985);
+    }
+
+    60%{
+        opacity:1;
+
+        transform:
+            translateY(-2px)
+            scale(1.002);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .phuc-page-transition{
+        backdrop-filter:blur(7px);
+    }
+
+    .phuc-transition-logo{
+        width:52px;
+        height:52px;
+        border-radius:14px;
+        font-size:23px;
+    }
+
+    .phuc-transition-line{
+        width:90px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    .phuc-page-transition,
+    .phuc-transition-content,
+    .phuc-page-enter{
+        animation:none !important;
+        transition:none !important;
+    }
+
+}
+
+/* =========================================================
+   PHUC PC — PREMIUM CARD INTERACTION
+   Glow + 3D + Shine
+========================================================= */
+
+.phuc-premium-card{
+    position:relative;
+    transform-style:preserve-3d;
+    will-change:transform;
+    overflow:hidden;
+
+    transition:
+        transform .35s cubic-bezier(.16,1,.3,1),
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+
+/* -----------------------------------------
+   ÁNH SÁNG THEO CHUỘT
+----------------------------------------- */
+
+.phuc-premium-card::after{
+    content:"";
+
+    position:absolute;
+    width:220px;
+    height:220px;
+
+    left:var(--phuc-mouse-x,50%);
+    top:var(--phuc-mouse-y,50%);
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,48,48,.16) 0%,
+            rgba(255,48,48,.07) 30%,
+            transparent 70%
+        );
+
+    pointer-events:none;
+
+    opacity:0;
+
+    transition:
+        opacity .35s ease;
+
+    z-index:0;
+}
+
+
+/* -----------------------------------------
+   SHINE
+----------------------------------------- */
+
+.phuc-premium-card::before{
+    content:"";
+
+    position:absolute;
+
+    top:-120%;
+    left:-80%;
+
+    width:55%;
+    height:340%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.08),
+            transparent
+        );
+
+    transform:rotate(20deg);
+
+    pointer-events:none;
+
+    opacity:0;
+
+    z-index:2;
+}
+
+
+/* -----------------------------------------
+   HOVER
+----------------------------------------- */
+
+.phuc-premium-card:hover{
+
+    transform:
+        translateY(-6px)
+        scale(1.012);
+
+    border-color:
+        rgba(255,48,48,.42) !important;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.42),
+        0 0 28px rgba(255,48,48,.08);
+}
+
+
+.phuc-premium-card:hover::after{
+    opacity:1;
+}
+
+
+.phuc-premium-card:hover::before{
+
+    opacity:1;
+
+    animation:
+        phucCardShine
+        .75s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+
+@keyframes phucCardShine{
+
+    from{
+        left:-80%;
+    }
+
+    to{
+        left:140%;
+    }
+
+}
+
+
+/* -----------------------------------------
+   NỘI DUNG CARD NỔI NHẸ
+----------------------------------------- */
+
+.phuc-premium-card > *{
+    position:relative;
+    z-index:3;
+}
+
+
+/* -----------------------------------------
+   CLICK
+----------------------------------------- */
+
+.phuc-premium-card:active{
+
+    transform:
+        translateY(-1px)
+        scale(.985);
+
+    transition-duration:.08s;
+}
+
+
+/* -----------------------------------------
+   MOBILE
+----------------------------------------- */
+
+@media(max-width:700px){
+
+    .phuc-premium-card{
+        transform:none !important;
+    }
+
+    .phuc-premium-card::after,
+    .phuc-premium-card::before{
+        display:none;
+    }
+
+}
+
+
+/* -----------------------------------------
+   REDUCED MOTION
+----------------------------------------- */
+
+@media(prefers-reduced-motion:reduce){
+
+    .phuc-premium-card,
+    .phuc-premium-card::before,
+    .phuc-premium-card::after{
+
+        animation:none !important;
+        transition:none !important;
+    }
+
+}
+
+/* =========================================================
+   PHUC PC — PERFORMANCE + RESPONSIVE OPTIMIZATION V1
+   PC: giữ hiệu ứng premium
+   Mobile: ưu tiên FPS + cảm giác mượt
+========================================================= */
+
+
+/* =========================================================
+   1. CARD PERFORMANCE
+========================================================= */
+
+.build-card,
+.price-card,
+.part,
+.review-card,
+.favorite-card,
+.compare-pro-card,
+.automation-card,
+.detail-fps-card{
+
+    -webkit-tap-highlight-color:transparent;
+}
+
+
+/* Chỉ cho trình duyệt chuẩn bị GPU khi thật sự hover */
+@media (hover:hover) and (pointer:fine){
+
+    .build-card:hover,
+    .price-card:hover,
+    .part:hover,
+    .review-card:hover,
+    .favorite-card:hover,
+    .compare-pro-card:hover,
+    .automation-card:hover,
+    .detail-fps-card:hover{
+
+        will-change:transform;
+    }
+
+}
+
+
+/* =========================================================
+   2. MOBILE — GIẢM GPU EFFECT
+========================================================= */
+
+@media(max-width:700px){
+
+    /* Không cần blur nặng trên điện thoại */
+
+    header,
+    .navbar,
+    nav,
+    .side-menu{
+
+        backdrop-filter:none !important;
+        -webkit-backdrop-filter:none !important;
+    }
+
+
+    /* Background effect nhẹ hơn */
+
+    body::before,
+    body::after{
+
+        animation:none !important;
+    }
+
+
+    /* Card không dùng 3D / glow theo chuột */
+
+    .phuc-premium-card{
+
+        transform:none !important;
+        will-change:auto !important;
+    }
+
+
+    .phuc-premium-card::before,
+    .phuc-premium-card::after{
+
+        display:none !important;
+    }
+
+
+    /* Không giữ GPU layer lâu */
+
+    .build-card,
+    .price-card,
+    .part,
+    .review-card,
+    .favorite-card,
+    .compare-pro-card,
+    .automation-card,
+    .detail-fps-card{
+
+        will-change:auto !important;
+    }
+
+
+    /* Shadow mobile nhẹ hơn */
+
+    .build-card:hover,
+    .price-card:hover,
+    .review-card:hover,
+    .favorite-card:hover,
+    .compare-pro-card:hover,
+    .automation-card:hover,
+    .detail-fps-card:hover{
+
+        transform:none !important;
+
+        box-shadow:none !important;
+    }
+
+
+    /* Touch feedback */
+
+    .build-card:active,
+    .price-card:active,
+    button:active{
+
+        transform:scale(.985);
+
+        transition:
+            transform .08s ease !important;
+    }
+
+
+    /* Cursor effects không cần trên mobile */
+
+    #phucCursorGlow,
+    .phuc-laser,
+    #phucTopButton{
+
+        display:none !important;
+    }
+
+
+    /* Reveal nhẹ hơn */
+
+    .phuc-reveal{
+
+        filter:none !important;
+
+        transform:
+            translateY(12px) !important;
+
+        transition:
+            opacity .32s ease,
+            transform .38s ease !important;
+    }
+
+
+    .phuc-reveal.phuc-visible{
+
+        transform:none !important;
+    }
+
+}
+
+
+/* =========================================================
+   3. MÁY YẾU / TOUCH DEVICE
+========================================================= */
+
+@media (hover:none) and (pointer:coarse){
+
+    .build-card:hover,
+    .price-card:hover,
+    .part:hover,
+    .review-card:hover,
+    .favorite-card:hover,
+    .compare-pro-card:hover,
+    .automation-card:hover,
+    .detail-fps-card:hover{
+
+        transform:none !important;
+    }
+
+
+    .shopee:hover,
+    .phuc-buy-help-btn:hover{
+
+        transform:none !important;
+        box-shadow:none !important;
+    }
+
+}
+
+
+/* =========================================================
+   4. REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+
+        scroll-behavior:auto !important;
+    }
+
+
+    *,
+    *::before,
+    *::after{
+
+        animation:none !important;
+
+        transition:
+            none !important;
+    }
+
+}
+
+/* =========================================================
+   PHUC PC — PREMIUM CARD
+========================================================= */
+
+.phuc-premium-card{
+
+    position:relative;
+
+    transform-style:preserve-3d;
+
+    overflow:hidden;
+
+    transition:
+        transform .32s cubic-bezier(.16,1,.3,1),
+        box-shadow .32s ease,
+        border-color .32s ease;
+}
+
+
+.phuc-premium-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    left:var(--phuc-mouse-x,50%);
+    top:var(--phuc-mouse-y,50%);
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,48,48,.15),
+            transparent 68%
+        );
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:
+        opacity .3s ease;
+
+    z-index:0;
+}
+
+
+.phuc-premium-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120%;
+    left:-80%;
+
+    width:55%;
+    height:340%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.07),
+            transparent
+        );
+
+    transform:rotate(20deg);
+
+    pointer-events:none;
+
+    opacity:0;
+
+    z-index:2;
+}
+
+
+@media(hover:hover) and (pointer:fine){
+
+    .phuc-premium-card:hover{
+
+        transform:
+            translateY(-5px)
+            scale(1.01);
+
+        border-color:
+            rgba(255,48,48,.4) !important;
+
+        box-shadow:
+            0 16px 40px rgba(0,0,0,.4),
+            0 0 25px rgba(255,48,48,.07);
+    }
+
+
+    .phuc-premium-card:hover::after{
+
+        opacity:1;
+    }
+
+
+    .phuc-premium-card:hover::before{
+
+        opacity:1;
+
+        animation:
+            phucCardShine
+            .7s
+            ease;
+    }
+
+}
+
+
+@keyframes phucCardShine{
+
+    from{
+        left:-80%;
+    }
+
+    to{
+        left:140%;
+    }
+
+}
+
+
+.phuc-premium-card > *{
+
+    position:relative;
+
+    z-index:3;
+}
+
+
+.phuc-premium-card:active{
+
+    transform:
+        scale(.985);
+
+    transition-duration:.08s;
+}
+
 </style>
+
+<script>
+/* =========================================================
+   PHUC PC — IMAGE PERFORMANCE OPTIMIZER
+========================================================= */
+
+(function(){
+
+    function optimizeImages(){
+
+        document
+            .querySelectorAll("img")
+            .forEach(function(img){
+
+                /* Giải mã ảnh ngoài luồng */
+
+                if(!img.hasAttribute("decoding")){
+
+                    img.setAttribute(
+                        "decoding",
+                        "async"
+                    );
+
+                }
+
+
+                /* Ảnh không nằm trong viewport đầu tiên
+                   → cho lazy loading */
+
+                const rect =
+                    img.getBoundingClientRect();
+
+                const isNearTop =
+                    rect.top < window.innerHeight * 1.2;
+
+
+                if(
+                    !isNearTop &&
+                    !img.hasAttribute("loading")
+                ){
+
+                    img.setAttribute(
+                        "loading",
+                        "lazy"
+                    );
+
+                }
+
+            });
+
+    }
+
+
+    if(
+        document.readyState ===
+        "loading"
+    ){
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            optimizeImages,
+            { once:true }
+        );
+
+    }else{
+
+        optimizeImages();
+
+    }
+
+
+    /*
+       Các card mới được tạo bằng JavaScript
+       cũng được tối ưu.
+    */
+
+    let imageTimer = null;
+
+    const observer =
+        new MutationObserver(function(){
+
+            clearTimeout(imageTimer);
+
+            imageTimer =
+                setTimeout(
+                    optimizeImages,
+                    150
+                );
+
+        });
+
+
+    observer.observe(
+        document.body,
+        {
+            childList:true,
+            subtree:true
+        }
+    );
+
+
+})();
+</script>
+
+<script>
+/* =========================================================
+   PHUC PC — PREMIUM CARD ENGINE
+========================================================= */
+
+(function(){
+
+    const selectors = [
+
+        ".build-card",
+        ".price-card",
+        ".part",
+        ".review-card",
+        ".favorite-card",
+        ".compare-pro-card",
+        ".automation-card",
+        ".detail-fps-card"
+
+    ];
+
+
+    const selector =
+        selectors.join(",");
+
+
+    function setupCard(card){
+
+        if(
+            card.dataset.phucPremium === "1"
+        ){
+
+            return;
+        }
+
+
+        card.dataset.phucPremium = "1";
+
+        card.classList.add(
+            "phuc-premium-card"
+        );
+
+
+        card.addEventListener(
+            "mousemove",
+            function(event){
+
+                /*
+                   Không chạy trên mobile
+                */
+
+                if(
+                    window.innerWidth <= 700 ||
+                    !window.matchMedia(
+                        "(hover:hover) and (pointer:fine)"
+                    ).matches
+                ){
+
+                    return;
+                }
+
+
+                const rect =
+                    card.getBoundingClientRect();
+
+
+                const x =
+                    (
+                        event.clientX -
+                        rect.left
+                    ) /
+                    rect.width *
+                    100;
+
+
+                const y =
+                    (
+                        event.clientY -
+                        rect.top
+                    ) /
+                    rect.height *
+                    100;
+
+
+                card.style.setProperty(
+                    "--phuc-mouse-x",
+                    x + "%"
+                );
+
+
+                card.style.setProperty(
+                    "--phuc-mouse-y",
+                    y + "%"
+                );
+
+            }
+        );
+
+
+        card.addEventListener(
+            "mouseleave",
+            function(){
+
+                card.style.setProperty(
+                    "--phuc-mouse-x",
+                    "50%"
+                );
+
+                card.style.setProperty(
+                    "--phuc-mouse-y",
+                    "50%"
+                );
+
+            }
+        );
+
+    }
+
+
+    function scan(){
+
+        document
+            .querySelectorAll(selector)
+            .forEach(setupCard);
+
+    }
+
+
+    scan();
+
+
+    /*
+       PHUC PC có nhiều card được
+       tạo bằng JavaScript.
+
+       Observer này gom thay đổi lại,
+       tránh quét liên tục.
+    */
+
+    let timer = null;
+
+
+    const observer =
+        new MutationObserver(function(){
+
+            clearTimeout(timer);
+
+
+            timer =
+                setTimeout(
+                    scan,
+                    100
+                );
+
+        });
+
+
+    observer.observe(
+        document.body,
+        {
+            childList:true,
+            subtree:true
+        }
+    );
+
+
+})();
+</script>
+
+<!-- ===== PHUC PC — MOTION SYSTEM (thêm cuối file, ngay trước </body>) ===== -->
+<style id="phuc-motion-system">
+:root{--m-ease:cubic-bezier(.22,1,.36,1);--m-fast:150ms;--m-base:240ms;--m-page:320ms}
+
+/* 1. Bỏ màn splash toàn màn hình (blur + 2 animation vô hạn) */
+#phucPageTransition{display:none!important}
+
+/* 2. Chặn keyframe tự phát lại mỗi lần display:none -> block */
+.build-list .build-card,
+#detailPage > .container > *,
+.fps-calc-result,
+.phuc-review-section{animation:none!important}
+.part{animation:none!important;opacity:1!important}
+
+/* 3. Nút: một ngôn ngữ chuyển động; dùng `scale` riêng nên không đè `transform` của hover */
+button:not(:disabled){
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+  transition:background-color var(--m-fast) var(--m-ease),border-color var(--m-fast) var(--m-ease),
+    color var(--m-fast) var(--m-ease),box-shadow var(--m-base) var(--m-ease),
+    transform var(--m-base) var(--m-ease),opacity var(--m-fast) var(--m-ease),
+    scale var(--m-fast) var(--m-ease),filter var(--m-fast) var(--m-ease);
+}
+button:not(:disabled):active{scale:.97}
+:focus-visible{outline:2px solid #ff3030;outline-offset:2px}
+input,select,textarea{transition:border-color var(--m-fast) var(--m-ease),box-shadow var(--m-fast) var(--m-ease),background-color var(--m-fast) var(--m-ease)}
+
+/* 4. Indicator trượt cho tab ngân sách */
+.pp-budget-rail{position:relative}
+.phuc-tab-indicator{position:absolute;left:0;bottom:0;height:2px;width:var(--w,0);border-radius:2px;background:#ff3030;
+  transform:translateX(var(--x,0));pointer-events:none;
+  transition:transform var(--m-base) var(--m-ease),width var(--m-base) var(--m-ease)}
+
+/* 5. Cảm ứng: tắt hiệu ứng chỉ có ý nghĩa với chuột, tránh hover dính */
+@media (hover:none){
+  #phucCursorGlow,.phuc-laser{display:none!important}
+  .price-card:hover,.build-card:hover,.part:hover,.pp-budget-tab:hover{transform:none!important}
+}
+
+/* 6. Tab ẩn -> tạm dừng animation vô hạn */
+html.phuc-paused *,html.phuc-paused *::before,html.phuc-paused *::after{animation-play-state:paused!important}
+
+@media (prefers-reduced-motion:reduce){
+  .phuc-tab-indicator{transition:none}
+  button:not(:disabled):active{scale:1}
+}
+</style>
+<script id="phuc-motion-system-js">
+(function(){
+  var PAGES=['homePage','detailPage','consultPage','comparePage','checkerPage','learningPage','proMaxPage','fpsCalculatorPage','automationPage'];
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function current(){
+    for(var i=0;i<PAGES.length;i++){
+      var el=document.getElementById(PAGES[i]);
+      if(el&&getComputedStyle(el).display!=='none')return el;
+    }
+    return null;
+  }
+  /* Web Animations API: chạy đúng 1 lần mỗi lần chuyển trang, tự dọn, không để lại class */
+  function enter(el,soft){
+    if(!el||reduce.matches||!el.animate)return;
+    el.getAnimations().forEach(function(a){a.cancel();});
+    el.animate(
+      [{opacity:0,transform:soft?'none':'translateY(10px)'},{opacity:1,transform:'none'}],
+      {duration:soft?200:320,easing:'cubic-bezier(.22,1,.36,1)'}
+    );
+  }
+  function wrap(name,resetScroll){
+    var fn=window[name];
+    if(typeof fn!=='function'||fn.__phucWrapped)return;
+    var w=function(){
+      var before=current();
+      var result=fn.apply(this,arguments);
+      var after=current();
+      if(after&&(after!==before||/^open/.test(name))){
+        if(resetScroll&&after!==before)window.scrollTo({top:0,left:0,behavior:'instant'});
+        enter(after,after===before);
+      }
+      return result;
+    };
+    w.__phucWrapped=true;
+    window[name]=w;
+  }
+  ['showHome','showConsult','showCompare','showChecker','showLearning','showProMax',
+   'showFPSCalculator','showAutomation','openBudget','openBuild'].forEach(function(n){wrap(n,true);});
+  ['showContact','showNotice'].forEach(function(n){wrap(n,false);}); /* hai hàm này tự cuộn tới mục */
+
+  /* Indicator duy nhất cho tab ngân sách */
+  function moveIndicator(){
+    var rail=document.querySelector('.pp-budget-rail');if(!rail)return;
+    var t=rail.querySelector('.pp-budget-tab.active');if(!t)return;
+    var ind=rail.querySelector('.phuc-tab-indicator'),fresh=!ind;
+    if(fresh){
+      ind=document.createElement('span');ind.className='phuc-tab-indicator';
+      ind.setAttribute('aria-hidden','true');ind.style.transition='none';rail.appendChild(ind);
+    }
+    ind.style.setProperty('--x',t.offsetLeft+'px');
+    ind.style.setProperty('--w',t.offsetWidth+'px');
+    if(fresh){void ind.offsetWidth;ind.style.transition='';}
+  }
+  if(typeof window.selectBudgetTab==='function'){
+    var origTab=window.selectBudgetTab;
+    window.selectBudgetTab=function(){
+      var r=origTab.apply(this,arguments);
+      requestAnimationFrame(moveIndicator);
+      return r;
+    };
+  }
+  window.addEventListener('resize',function(){requestAnimationFrame(moveIndicator);},{passive:true});
+  document.addEventListener('visibilitychange',function(){
+    document.documentElement.classList.toggle('phuc-paused',document.hidden);
+  });
+})();
+</script>
+
+<!-- ===== PHUC PC — MOTION SYSTEM (thêm cuối file, ngay trước </body>) ===== -->
+<style id="phuc-motion-system">
+:root{--m-ease:cubic-bezier(.22,1,.36,1);--m-fast:150ms;--m-base:240ms;--m-page:320ms}
+
+/* 1. Bỏ màn splash toàn màn hình (blur + 2 animation vô hạn) */
+#phucPageTransition{display:none!important}
+
+/* 2. Chặn keyframe tự phát lại mỗi lần display:none -> block */
+.build-list .build-card,
+#detailPage > .container > *,
+.fps-calc-result,
+.phuc-review-section{animation:none!important}
+.part{animation:none!important;opacity:1!important}
+
+/* 3. Nút: một ngôn ngữ chuyển động; dùng `scale` riêng nên không đè `transform` của hover */
+button:not(:disabled){
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+  transition:background-color var(--m-fast) var(--m-ease),border-color var(--m-fast) var(--m-ease),
+    color var(--m-fast) var(--m-ease),box-shadow var(--m-base) var(--m-ease),
+    transform var(--m-base) var(--m-ease),opacity var(--m-fast) var(--m-ease),
+    scale var(--m-fast) var(--m-ease),filter var(--m-fast) var(--m-ease);
+}
+button:not(:disabled):active{scale:.97}
+:focus-visible{outline:2px solid #ff3030;outline-offset:2px}
+input,select,textarea{transition:border-color var(--m-fast) var(--m-ease),box-shadow var(--m-fast) var(--m-ease),background-color var(--m-fast) var(--m-ease)}
+
+/* 4. Indicator trượt cho tab ngân sách */
+.pp-budget-rail{position:relative}
+.phuc-tab-indicator{position:absolute;left:0;bottom:0;height:2px;width:var(--w,0);border-radius:2px;background:#ff3030;
+  transform:translateX(var(--x,0));pointer-events:none;
+  transition:transform var(--m-base) var(--m-ease),width var(--m-base) var(--m-ease)}
+
+/* 5. Cảm ứng: tắt hiệu ứng chỉ có ý nghĩa với chuột, tránh hover dính */
+@media (hover:none){
+  #phucCursorGlow,.phuc-laser{display:none!important}
+  .price-card:hover,.build-card:hover,.part:hover,.pp-budget-tab:hover{transform:none!important}
+}
+
+/* 6. Tab ẩn -> tạm dừng animation vô hạn */
+html.phuc-paused *,html.phuc-paused *::before,html.phuc-paused *::after{animation-play-state:paused!important}
+
+@media (prefers-reduced-motion:reduce){
+  .phuc-tab-indicator{transition:none}
+  button:not(:disabled):active{scale:1}
+}
+</style>
+<script id="phuc-motion-system-js">
+(function(){
+  var PAGES=['homePage','detailPage','consultPage','comparePage','checkerPage','learningPage','proMaxPage','fpsCalculatorPage','automationPage'];
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function current(){
+    for(var i=0;i<PAGES.length;i++){
+      var el=document.getElementById(PAGES[i]);
+      if(el&&getComputedStyle(el).display!=='none')return el;
+    }
+    return null;
+  }
+  /* Web Animations API: chạy đúng 1 lần mỗi lần chuyển trang, tự dọn, không để lại class */
+  function enter(el,soft){
+    if(!el||reduce.matches||!el.animate)return;
+    el.getAnimations().forEach(function(a){a.cancel();});
+    el.animate(
+      [{opacity:0,transform:soft?'none':'translateY(10px)'},{opacity:1,transform:'none'}],
+      {duration:soft?200:320,easing:'cubic-bezier(.22,1,.36,1)'}
+    );
+  }
+  function wrap(name,resetScroll){
+    var fn=window[name];
+    if(typeof fn!=='function'||fn.__phucWrapped)return;
+    var w=function(){
+      var before=current();
+      var result=fn.apply(this,arguments);
+      var after=current();
+      if(after&&(after!==before||/^open/.test(name))){
+        if(resetScroll&&after!==before)window.scrollTo({top:0,left:0,behavior:'instant'});
+        enter(after,after===before);
+      }
+      return result;
+    };
+    w.__phucWrapped=true;
+    window[name]=w;
+  }
+  ['showHome','showConsult','showCompare','showChecker','showLearning','showProMax',
+   'showFPSCalculator','showAutomation','openBudget','openBuild'].forEach(function(n){wrap(n,true);});
+  ['showContact','showNotice'].forEach(function(n){wrap(n,false);}); /* hai hàm này tự cuộn tới mục */
+
+  /* Indicator duy nhất cho tab ngân sách */
+  function moveIndicator(){
+    var rail=document.querySelector('.pp-budget-rail');if(!rail)return;
+    var t=rail.querySelector('.pp-budget-tab.active');if(!t)return;
+    var ind=rail.querySelector('.phuc-tab-indicator'),fresh=!ind;
+    if(fresh){
+      ind=document.createElement('span');ind.className='phuc-tab-indicator';
+      ind.setAttribute('aria-hidden','true');ind.style.transition='none';rail.appendChild(ind);
+    }
+    ind.style.setProperty('--x',t.offsetLeft+'px');
+    ind.style.setProperty('--w',t.offsetWidth+'px');
+    if(fresh){void ind.offsetWidth;ind.style.transition='';}
+  }
+  if(typeof window.selectBudgetTab==='function'){
+    var origTab=window.selectBudgetTab;
+    window.selectBudgetTab=function(){
+      var r=origTab.apply(this,arguments);
+      requestAnimationFrame(moveIndicator);
+      return r;
+    };
+  }
+  window.addEventListener('resize',function(){requestAnimationFrame(moveIndicator);},{passive:true});
+  document.addEventListener('visibilitychange',function(){
+    document.documentElement.classList.toggle('phuc-paused',document.hidden);
+  });
+})();
+</script>
+
+<!-- ===== PHUC PC — DESKTOP UI (thêm ngay trước </body>, SAU khối MOTION SYSTEM) ===== -->
+<style id="phuc-desktop-ui">
+/* 1. Design tokens (tiền tố --ds- để không đụng --pp-* sẵn có) */
+:root{
+  --ds-container:1240px;--ds-gutter:32px;--ds-aside:380px;--ds-header-h:70px;
+  --ds-s1:4px;--ds-s2:8px;--ds-s3:12px;--ds-s4:16px;--ds-s5:24px;--ds-s6:32px;--ds-s7:48px;
+  --ds-r-sm:8px;--ds-r-md:12px;--ds-r-lg:16px;
+  --ds-bg:#080808;--ds-surface:#111;--ds-surface-2:#171717;
+  --ds-border:#292929;--ds-border-strong:#3a3a3a;
+  --ds-text:#f2f2f2;--ds-muted:#8a8a8a;--ds-primary:#ff3030;
+}
+/* Nav desktop: mặc định ẩn (mobile/tablet không đổi) */
+.phuc-desktop-nav{display:none}
+.phuc-detail-aside{display:contents}
+
+@media (min-width:1024px){
+  html{scroll-padding-top:calc(var(--ds-header-h) + var(--ds-s4))}
+
+  /* 2. Một trục căn lề duy nhất cho header + nội dung */
+  .container{width:min(100% - 2*var(--ds-gutter),var(--ds-container));max-width:none;margin-inline:auto}
+  header{padding-inline:calc((100% - min(100% - 2*var(--ds-gutter),var(--ds-container)))/2)}
+
+  /* 3. Header: điều hướng chính hiển thị sẵn, mục phụ nằm trong menu ☰ */
+  .phuc-desktop-nav{display:flex;align-items:center;gap:var(--ds-s1);margin-left:auto;margin-right:var(--ds-s3)}
+  .phuc-desktop-nav button{
+    height:38px;padding:0 14px;border:1px solid transparent;border-radius:var(--ds-r-sm);
+    background:transparent;color:#aaa;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+  .phuc-desktop-nav button:hover{color:#fff;background:var(--ds-surface-2)}
+  .phuc-desktop-nav button[aria-current="page"]{color:#fff;background:rgba(255,48,48,.12);border-color:rgba(255,48,48,.4)}
+  .side-menu button[onclick^="showHome"],.side-menu button[onclick^="showConsult"],
+  .side-menu button[onclick^="showCompare"],.side-menu button[onclick^="showFPSCalculator"],
+  .side-menu button[onclick^="showChecker"],.side-menu button[onclick^="showProMax"]{display:none}
+
+  /* 4. Trang chủ: 4 công cụ nhanh nằm gọn 1 hàng (trước đây 3+1 lẻ) */
+  /* !important có chủ đích: đè rule repeat(3,1fr) !important sẵn có ở khối CSS phía sau */
+  .phuc-quick-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  .phuc-quick-grid > *{min-width:0}
+
+  /* 5. Nút "Trang chủ" nằm ngoài .container -> căn về cùng trục */
+  #consultPage > .phuc-back-home,#comparePage > .phuc-back-home{
+    margin-left:calc((100% - min(100% - 2*var(--ds-gutter),var(--ds-container)))/2)}
+}
+
+@media (min-width:1100px){
+  /* 6. Trang công cụ: form bên trái (dính khi cuộn), kết quả bên phải */
+  #consultPage > .container,#comparePage > .container,#fpsCalculatorPage > .container{
+    display:grid;grid-template-columns:minmax(340px,420px) minmax(0,1fr);
+    column-gap:var(--ds-s5);align-items:start}
+  #consultPage .section-title,#comparePage .section-title,#fpsCalculatorPage .fps-calc-hero{grid-column:1/-1}
+  .consult-box,.compare-box,.fps-calc-box{
+    grid-column:1;grid-row:2;width:auto;max-width:none;margin:0;
+    position:sticky;top:calc(var(--ds-header-h) + var(--ds-s4))}
+  #consultResults,#compareResults,#fpsCalculatorResult{
+    grid-column:2;grid-row:2;min-width:0;width:auto;max-width:none;margin:0}
+  #fpsCalculatorResult .fps-calc-empty{max-width:none;margin:0}
+  /* Empty state khi chưa có kết quả (CSS thuần, không đổi logic) */
+  #consultResults:empty,#compareResults:empty{
+    display:flex;align-items:center;justify-content:center;min-height:240px;padding:var(--ds-s6);
+    border:1px dashed var(--ds-border-strong);border-radius:var(--ds-r-lg);
+    color:var(--ds-muted);font-size:14px;text-align:center}
+  #consultResults:empty::before{content:"Nhập ngân sách rồi bấm “Tìm cấu hình” — kết quả sẽ hiện ở đây."}
+  #compareResults:empty::before{content:"Chọn 2 cấu hình rồi bấm “So sánh ngay” — kết quả sẽ hiện ở đây."}
+
+  /* 7. Kiểm tra linh kiện: dùng hết bề rộng container, 4 cột */
+  .checker-box{max-width:none;width:100%}
+  .checker-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .checker-grid > .checker-field:nth-child(7):last-child{grid-column:span 2}
+
+  /* 8. Chi tiết cấu hình: danh sách linh kiện (chính) + tổng quan dính bên phải */
+  .detail-box{display:grid;grid-template-columns:minmax(0,1fr) var(--ds-aside);
+    grid-template-rows:auto auto auto 1fr;column-gap:var(--ds-s5);align-items:start}
+  .detail-box > *{grid-column:1/-1}
+  .detail-box > .detail-parts-title{grid-column:1;grid-row:3}
+  .detail-box > .parts{grid-column:1;grid-row:4}
+  .detail-box > .phuc-detail-aside{
+    display:block;grid-column:2;grid-row:3/5;
+    position:sticky;top:calc(var(--ds-header-h) + var(--ds-s4));align-self:start}
+  .phuc-detail-aside > *{margin-top:0}
+  .phuc-detail-aside > * + *{margin-top:var(--ds-s4)}
+}
+
+@media (min-width:1700px){:root{--ds-container:1320px}}
+</style>
+<script id="phuc-desktop-ui-js">
+(function(){
+  var MAP={homePage:'home',detailPage:'home',consultPage:'consult',comparePage:'compare',
+           fpsCalculatorPage:'fps',checkerPage:'checker',proMaxPage:'promax'};
+  var nav=document.querySelector('.phuc-desktop-nav');
+
+  function activeKey(){
+    for(var id in MAP){
+      var el=document.getElementById(id);
+      if(el&&getComputedStyle(el).display!=='none')return MAP[id];
+    }
+    return '';
+  }
+  function sync(){
+    if(!nav)return;
+    var k=activeKey();
+    nav.querySelectorAll('[data-nav]').forEach(function(b){
+      if(b.dataset.nav===k)b.setAttribute('aria-current','page');
+      else b.removeAttribute('aria-current');
+    });
+  }
+  /* Mọi điều hướng đều đi qua click -> đồng bộ 1 lần sau mỗi click, không có vòng lặp */
+  document.addEventListener('click',function(){requestAnimationFrame(sync);},{passive:true});
+  sync();
+
+  /* Gom "Tổng quan" + "Quick note" vào 1 cột phụ để làm sticky (chỉ di chuyển node, không tạo lại) */
+  var detail=document.getElementById('detailPage');
+  function wrapAside(){
+    var box=detail&&detail.querySelector('.detail-box');
+    if(!box||box.querySelector(':scope > .phuc-detail-aside'))return;
+    var ov=box.querySelector(':scope > .pp-detail-overview');
+    if(!ov)return;
+    var aside=document.createElement('aside');
+    aside.className='phuc-detail-aside';
+    box.insertBefore(aside,ov);
+    aside.appendChild(ov);
+    var note=box.querySelector(':scope > .phuc-quick-note');
+    if(note)aside.appendChild(note);
+  }
+  if(detail){
+    new MutationObserver(wrapAside).observe(detail,{childList:true,subtree:true});
+    wrapAside();
+  }
+})();
+</script>
+
 
 </body>
 </html>
