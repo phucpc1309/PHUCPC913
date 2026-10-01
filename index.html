@@ -17705,15 +17705,18 @@ html.phuc-paused *,html.phuc-paused *::before,html.phuc-paused *::after{animatio
   .checker-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
   .checker-grid > .checker-field:nth-child(7):last-child{grid-column:span 2}
 
-  /* 8. Chi tiết cấu hình: danh sách linh kiện (chính) + tổng quan dính bên phải */
-  .detail-box{display:grid;grid-template-columns:minmax(0,1fr) var(--ds-aside);
-    grid-template-rows:auto auto auto 1fr;column-gap:var(--ds-s5);align-items:start}
-  .detail-box > *{grid-column:1/-1}
-  .detail-box > .detail-parts-title{grid-column:1;grid-row:3}
-  .detail-box > .parts{grid-column:1;grid-row:4}
-  .detail-box > .phuc-detail-aside{
-    display:block;grid-column:2;grid-row:3/5;
-    position:sticky;top:calc(var(--ds-header-h) + var(--ds-s4));align-self:start}
+  /* 8. Chi tiết cấu hình: bố cục dọc bình thường, không ghim tổng quan bên phải */
+  .detail-box{
+    display:block;
+  }
+  .detail-box > *{
+    width:100%;
+  }
+  .phuc-detail-aside{
+    display:block;
+    width:100%;
+    position:static;
+  }
   .phuc-detail-aside > *{margin-top:0}
   .phuc-detail-aside > * + *{margin-top:var(--ds-s4)}
 }
@@ -17745,7 +17748,7 @@ html.phuc-paused *,html.phuc-paused *::before,html.phuc-paused *::after{animatio
   document.addEventListener('click',function(){requestAnimationFrame(sync);},{passive:true});
   sync();
 
-  /* Gom "Tổng quan" + "Quick note" vào 1 cột phụ để làm sticky (chỉ di chuyển node, không tạo lại) */
+  /* Gom "Tổng quan" + "Quick note" vào một khối bình thường trong luồng chi tiết */
   var detail=document.getElementById('detailPage');
   function wrapAside(){
     var box=detail&&detail.querySelector('.detail-box');
