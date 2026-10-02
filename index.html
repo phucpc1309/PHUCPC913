@@ -5642,14 +5642,11 @@ button:active{
 
 <section id="consultPage">
 
-    <button class="phuc-back-home" onclick="showHome()">
-    ← Trang chủ
-</button>
-    
-
     <div class="container">
 
         <div class="section-title">
+
+            <button class="back-btn" onclick="showHome()">← Trang chủ</button>
 
             <h2>🔧 TƯ VẤN BUILD PC</h2>
 
@@ -5876,13 +5873,11 @@ button:active{
 
 <section id="comparePage">
 
-    <button class="phuc-back-home" onclick="showHome()">
-    ← Trang chủ
-</button>
-
     <div class="container">
 
         <div class="section-title">
+
+            <button class="back-btn" onclick="showHome()">← Trang chủ</button>
 
            <h2 class="compare-page-title">
     <img
@@ -15452,16 +15447,95 @@ function phucEscapeHTML(value){
 }
 
 function phucGetBuyRequest(part){
+
     const fullName = String(part?.[1] || "").trim();
-    const displayName = typeof getDisplayPartName === "function"
-        ? getDisplayPartName(fullName)
-        : fullName.replace(/\s+SHOP\b.*$/i,"").trim();
-    const type = String(part?.[0] || "sản phẩm").trim();
+
+    const displayName =
+        typeof getDisplayPartName === "function"
+            ? getDisplayPartName(fullName)
+            : fullName.replace(/\s+SHOP\b.*$/i,"").trim();
+
+    const type =
+        String(part?.[0] || "sản phẩm").trim();
+
+    /* =========================
+       LẤY GIÁ SẢN PHẨM
+    ========================= */
+
+    const price =
+        typeof getComponentPrice === "function"
+            ? Number(getComponentPrice(fullName) || 0)
+            : 0;
+
+
+    /* =========================
+       FORMAT GIÁ KIỂU PHUC PC
+       
+       500000   → 500k
+       1900000  → 1m9
+       1952000  → 1m952
+       1062000  → 1m062
+       1250000  → 1m250
+       2500000  → 2m5
+    ========================= */
+
+    function formatPhucPrice(value){
+
+    if(!value || value <= 0){
+        return "chưa cập nhật giá";
+    }
+
+    // Dưới 1 triệu → xxxk
+    if(value < 1000000){
+
+        const k = value / 1000;
+
+        if(Number.isInteger(k)){
+            return `${k}k`;
+        }
+
+        return `${k.toFixed(1).replace(/\.0$/,"")}k`;
+    }
+
+    // Từ 1 triệu → xmxxx
+    const million = Math.floor(value / 1000000);
+
+    const thousand =
+        Math.floor((value % 1000000) / 1000);
+
+    // Đúng tròn triệu
+    if(thousand === 0){
+        return `${million}m`;
+    }
+
+    // Luôn giữ đủ 3 số
+    const thousandText =
+        String(thousand).padStart(3, "0");
+
+    return `${million}m${thousandText}`;
+}
+
+
+    const priceText =
+        formatPhucPrice(price);
+
+
     return {
+
         type,
+
         fullName,
-        displayName: displayName || fullName,
-        message: `Mình muốn bạn mua hộ sản phẩm ${displayName || fullName}`
+
+        displayName:
+            displayName || fullName,
+
+        price,
+
+        priceText,
+
+        message:
+            `Mình muốn bạn mua hộ sản phẩm ${displayName || fullName} giá ${priceText} như trên shop`
+
     };
 }
 
@@ -17673,9 +17747,6 @@ html.phuc-paused *,html.phuc-paused *::before,html.phuc-paused *::after{animatio
   .phuc-quick-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
   .phuc-quick-grid > *{min-width:0}
 
-  /* 5. Nút "Trang chủ" nằm ngoài .container -> căn về cùng trục */
-  #consultPage > .phuc-back-home,#comparePage > .phuc-back-home{
-    margin-left:calc((100% - min(100% - 2*var(--ds-gutter),var(--ds-container)))/2)}
 }
 
 @media (min-width:1100px){
@@ -17712,6 +17783,7 @@ html.phuc-paused *,html.phuc-paused *::before,html.phuc-paused *::after{animatio
 }
 
 @media (min-width:1700px){:root{--ds-container:1320px}}
+
 </style>
 <script id="phuc-desktop-ui-js">
 (function(){
