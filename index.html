@@ -6537,45 +6537,13 @@ const componentPrices = {
 
 
 // ========================================
-// TIỀN CÔNG CHUNG CHO TẤT CẢ PC
-// ========================================
-
-function getLaborFee(build) {
-
-    const partsTotal = build.parts.reduce((total, part) => {
-        return total + getComponentPrice(part[1]);
-    }, 0);
-
-    if (partsTotal <= 1000000) {
-        return 30000;
-    }
-
-    if (partsTotal <= 2000000) {
-        return 50000;
-    }
-
-   if (partsTotal <= 3000000) {
-    return 100000;
-}
-    
-
-    return 130000;
-}
-
-
-// ========================================
-// TÍNH TỔNG GIÁ PC
+// TÍNH TỔNG GIÁ PC — CHỈ TÍNH GIÁ LINH KIỆN
 // ========================================
 
 function getBuildTotal(build) {
-
-    const partsTotal = build.parts.reduce((total, part) => {
+    return build.parts.reduce((total, part) => {
         return total + getComponentPrice(part[1]);
     }, 0);
-
-    const laborFee = getLaborFee(build);
-
-    return partsTotal + laborFee;
 }
 
 
@@ -8194,7 +8162,7 @@ build.parts.forEach(part=>{
 
 </div>
                 </div>
-                <div class="detail-header" style="margin-bottom:18px"><div><p style="color:#888">Tổng chi phí linh kiện + công lắp</p></div><div class="total">${formatPrice(totalPrice)}</div></div>
+                <div class="detail-header" style="margin-bottom:18px"><div><p style="color:#888">Tổng giá linh kiện</p></div><div class="total">${formatPrice(totalPrice)}</div></div>
 
                 <div class="pp-detail-overview">
                     <div class="pp-overview-head">
