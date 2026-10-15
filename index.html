@@ -10958,6 +10958,7 @@ function getCPUFactor(cpu) {
     if (name.includes("E5 2676")) return 0.92;
     if (name.includes("E5 2680")) return 0.94;
     if (name.includes("I5 4690")) return 0.96;
+    if (name.includes("I5 6600")) return 0.97; // H110M2/FPT + i5-6600: hệ số thận trọng, không phải FPS benchmark riêng
     if (name.includes("I5 6500")) return 0.97;
     if (name.includes("I3 8100")) return 0.95;
     if (name.includes("I3 9100")) return 0.97;
@@ -11614,6 +11615,25 @@ const phucExtraFPS={
 "Vega 8":{fortnite:[58,45,34],gta5:[40,32,25],apex:[45,36,28],dota2:[70,57,45],eldenring:[17,14,11],rocketleague:[75,60,48]}
 };
 Object.keys(phucExtraFPS).forEach(gpu=>{if(!fpsDatabase[gpu])fpsDatabase[gpu]={};Object.assign(fpsDatabase[gpu],phucExtraFPS[gpu]);});
+
+/* =====================================================
+   PHUC PC — GTX 770 2GB: H310 + i3-9100F build
+   Tham chiếu từ GTX 960 2GB, giảm 8% theo so sánh GPU tổng hợp.
+   Đây là ước tính tương đối, không phải benchmark trực tiếp trên máy bán.
+===================================================== */
+(function addGTX770FPSReference(){
+    const source = fpsDatabase["GTX 960 2G D5"];
+    if (!source) return;
+    const target = {};
+    Object.keys(source).forEach(gameID => {
+        const values = source[gameID];
+        if (Array.isArray(values)) {
+            target[gameID] = values.map(value => Math.max(5, Math.round(value * 0.92)));
+        }
+    });
+    fpsDatabase["GTX 770 2G D5"] = target;
+})();
+
 
 /* =====================================================
    PHUC PC — FPS FALLBACK CHO GPU CHƯA CÓ DATABASE
